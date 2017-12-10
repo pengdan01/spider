@@ -1,0 +1,1001 @@
+<!doctype html>
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+    <TITLE>李彦宏预言“三大机会”均应验：中间页抢跑收获季-李彦宏 互联网 中间页 搜索引擎-速途网</TITLE>
+    <LINK media=all href="/son_media/t11/t11_wz.css" type=text/css rel=stylesheet>
+	<script type="text/javascript" src="/son_media/sonet.js"></script>
+	
+<META name="Keywords" content="李彦宏,互联网,中间页,搜索引擎,孙墩墩,刘璋" />
+<META name="Description" content="李彦宏预言“三大机会”均应验：中间页抢跑收获季" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<script type="text/javascript" src="http://mm.sootoo.com/tmedia/jquery.min.js"></script>
+<script type="text/javascript">
+function get_weibo_comment(contentid){
+    if(contentid<200000) return false;
+	var edata={};
+    $.ajax({
+        url: '/weib/commentbox/'+contentid+'/',
+        data: edata,
+        type: 'POST',
+        dataType: 'json',
+        timeout: 2000,
+        error:function(result){alert("Error:"+result.status);},
+        success: function(data){return;}
+    });
+}
+
+var score_id = '';
+function vote(slug, model,direction,scoreid){
+    var votenum = 0 ;
+	var votereason = "";
+	var reasonlist = null;
+	var edata={};
+    score_id = scoreid ;
+    if (direction=='upnum' || direction=='downnum' ) {
+        if (model=='0') {
+			if (direction=='upnum') {
+				votenum = document.votenum_add.num_add.value;
+				reasonlist = document.votenum_add.goodreason;
+			}
+			else {
+				votenum = document.votenum_sub.num_sub.value;
+				reasonlist = document.votenum_sub.badreason;
+			}
+			for(var i=0;i<reasonlist.length;i++)
+			{
+				if(reasonlist[i].checked)
+				{
+					votereason = reasonlist[i].value;
+					break;
+				}
+			}
+			if(votereason == "")
+			{
+				alert("提示：请选择投票理由.");
+				return false;
+			}
+			edata = {votereason:votereason};
+        } else {
+            var num = 'num_'+slug;
+            votenum = document.getElementById(num).value;
+        }
+    }
+    $.ajax({
+        url: '/vote/'+model+'/'+slug+'/'+direction+'vote/'+votenum+'/',
+        data: edata,
+        type: 'POST',
+        dataType: 'json',
+        timeout: 2000,
+        error:function(result){alert("Error:"+result.status);},
+        success: function(data){vote_res(data);}
+    });
+}
+function vote_res(data){
+    if( data.success == false ){
+        alert(unescape(data.error_message));
+    } else {
+        document.getElementById(score_id).innerHTML=data.score.score ;
+        disp_score();
+    }
+}
+function font_size(fsize){
+    $("#content").css("font-size", fsize); 
+
+}
+function con_toggle(con_t1,con_t2,con_t3){
+    $('#'+con_t1).show();
+    $('#'+con_t2).hide();
+    $('#'+con_t3).hide();
+    $('#'+con_t1+'h').css("background",'#EFF5FB');
+    $('#'+con_t2+'h').css("background",'#F6F9FE');
+    $('#'+con_t3+'h').css("background",'#F6F9FE');   
+    return false;
+}
+function addBookMark()
+{
+var title = '速途网-李彦宏预言“三大机会”均应验：中间页抢跑收获季' ;
+var url = 'http://www.sootoo.com/content/267982.shtml';
+ if (document.all)
+    {
+       window.external.addFavorite(url,title);
+    }
+else if (window.sidebar) 
+{
+window.sidebar.addPanel(title, url, "") 
+}
+return false;
+}
+function disp_score()
+{
+     var score = parseInt($('#score').text());
+     var slen = '0px' ;
+     if (score > 20 ){slen='20px';}
+     else if (score > 0){ var ls = score*5 ; slen=ls.toString()+'px';}
+     $('.score_barcolor').css("width",slen);
+}
+$(document).ready(function() {   
+    disp_score();
+    
+    document.body.oncopy = function () { setTimeout( function () { var text = clipboardData.getData("text"); if (text) { text = text + "\r\n本文转载自中国互联网行业社交媒体-速途网："+window.location.href; clipboardData.setData("text", text); } }, 100 ) } ;
+});
+function force_linebreak(){
+    if(!area1) {
+        var comment = $('#id_comment').val(); 
+        comment = comment.replace(/\r/g, '');
+        comment = comment.replace(/\n/g, '<br>');
+        $('#id_comment').val(comment);
+    }
+    return true;
+};
+</script>
+
+    <META http-equiv=content-type content="text/html; charset=utf-8">
+    <META  HTTP-EQUIV="Window-target"  CONTENT="_top">
+    <base target="_blank">
+    <script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+BAIDU_CLB_addSlot("163559");
+BAIDU_CLB_addSlot("174615");
+BAIDU_CLB_addSlot("174619");
+BAIDU_CLB_addSlot("267214");
+BAIDU_CLB_enableAllSlots();
+BAIDU_CLB_preloadSlots("163559", "174615", "174619", "267214");
+</script>
+</HEAD>
+<BODY id="t11_body">
+<div id="t11_wrap">
+<DIV id="t11_header">
+
+    <DIV style="float:left;padding-top:5px;padding-left:10px;height:22px;margin-right:6px;">
+      <a style="color:white;padding:0px 4px;" href=# target="_self" onClick="setHomepage();">设为首页</a>
+      <a style="color:white;padding:0px 4px;" target=_blank href="/shop/">网店导航</a>
+      <a style="color:white;padding:0px 4px;" href=# target="_self" onClick="addBookMark();">加为收藏</a>
+    </DIV>
+    	
+       <DIV style="float:right;height:22px;padding-right:10px;">
+    		<form action="/user/login/" method="post" style="display:inline;" target="_self">
+    		<INPUT type=text name="username" value="" style="font-size:12px;width:80px;height:15px;">
+    		<INPUT type=password name="password" value="" style="font-size:12px;width:80px;height:15px;">
+    		<INPUT type=submit value="登陆" style="font-size:12px;width:40px;height:19px;">
+    		<input type="hidden" name="next" value="" />
+    		<a style="color:white;padding:0px 4px;" href="/user/register/" target="_blank">新用户注册</a> 
+    		</form>
+         <a style="color:white;padding:0px 4px;" href="/sitemap/">导航</a>
+    	  <a style="color:white;padding:0px 4px;">欢迎访问速途网</a>
+       </DIV>
+    	
+
+</DIV>
+<DIV id="t11_top">
+     
+<div class="t11_logo">
+<div style="padding: 21px 0px 0px 5px; float: left;"><a style="width: 186px; height: 76px;" href="http://www.sootoo.com/" target="_self">
+<div style="background: url(&quot;/son_media/t11/logo.gif&quot;) no-repeat scroll 0% 0% transparent; width: 186px; height: 76px;"></div></a></div>
+<div style="float: right; padding-top: 10px;">
+  
+<script type="text/javascript">BAIDU_CLB_SLOT_ID = "174602";</script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+ 
+</div></div>   
+</DIV>
+<hr size="1" color="#DFEDFA" width="100%" style="display:block">
+<div style="height:35px;background:url(http://mm.sootoo.com/tmedia/t11/7u.gif) no-repeat scroll 0 0 transparent;margin-top:-6px"> 
+    <div style="float:left;width:640px" id="t11hottop">
+      <div style="float:left;padding-top:10px;font-size:12px;color:#5E779F">
+        <a href="http://www.sootoo.com/feeds/tag/5.xml">订阅</a>
+        <span style="padding-top:2px">
+          <img src="/son_media/t11/stpi2c.jpg">
+        </span>
+        <a href="http://www.sootoo.com/content/7220.shtml"> 投稿</a>
+        <span>
+          <img src="/son_media/t11/stpi1c.jpg">
+        </span>
+      </div>
+      <div style="float:right;padding-top:10px;font-size:12px;">热点：<a href="http://www.sootoo.com/zt113/"><font color="red"><b>“网路群英 海派风情”华东互联网百人会</b></font></a></div>
+    </div>
+    <DIV style="float:right;padding-top:5px;height:22px;margin-right:3px;">
+      <form action="http://www.baidu.com/baidu" style="display:inline;font-size:12px;">
+        <input type="text" size="30" name="word" maxlength="255" value="" style="height:23px;border:1px solid #ccc;" />
+        <input class ="unnamed5" type="submit" value="搜索" name="sa" style="background-color:#fff;color:#fff;width:63px;font-size:12px;height:26px;margin:0px;border:none;padding-top:0px;background:url(/son_media/t11/sousuo.jpg) no-repeat scroll 0 0 transparent;" />
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input name=si type=hidden value="www.sootoo.com">
+      </form>
+    </DIV>
+</div>
+<div style="clear:both"></div>
+<DIV id="t11_navbar">
+        <div id="allmenu">
+<div id="news_gnb_submenu">
+<ul id="news_gnb_navi">
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/10/"><b>新闻中心</b></a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/14/">搜索引擎</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/15/">行业网站</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/16/">网络营销</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/19/">网络安全</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/18/">网络游戏</a></li>
+<li style="WIDTH: 55px"><a target="_self" href="http://www.sootoo.com/tag/128/">云服务</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/22/">网络财经</a></li>
+<li style="WIDTH: 79px"><a target="_self" href="http://www.sootoo.com/tag/24/">移动互联网</a></li>
+<li style="WIDTH: 62px"><a target="_self" href="http://www.sootoo.com/tag/118/">物联网</a></li>
+<li style="WIDTH: 60px"><a target="_self" href="http://www.sootoo.com/tag/20/">web2.0</a></li>
+<li style="WIDTH: 72px"><a target="_self" href="http://www.sootoo.com/tag/107/">网络服务</a></li>
+<li style="WIDTH: 49px"><a target="_self" href="http://www.sootoo.com/tag/117/">家电</a></li>
+<li style="WIDTH: 49px"><a target="_self" href="http://www.sootoo.com/content/stauthor/">原创</a></li>
+<li style="WIDTH: 49px; BACKGROUND: none transparent scroll repeat 0% 0%"><a target="_self" href="http://www.sootoo.com/zt/list/">专题</a></li></ul></div>
+<div style="CLEAR: both"></div>
+<div id="t11_nav_hot">
+<ul id="news_gnb_navi1">
+<li style="WIDTH: 71px"><a target="_self" href="http://ec.sootoo.com/"><b>电商中心</b></a></li>
+<li style="WIDTH: 38px"><a target="_self" href="http://www.sootoo.com/tag/78/">B2C</a></li>
+<li style="WIDTH: 38px"><a target="_self" href="http://www.sootoo.com/tag/125/">B2B</a></li>
+<li style="WIDTH: 47px"><a target="_self" href="http://www.sootoo.com/tag/79/">网店</a></li>
+<li style="WIDTH: 67px"><a target="_self" href="http://www.sootoo.com/tag/81/">电子支付</a></li>
+<li style="WIDTH: 47px"><a target="_self" href="http://www.sootoo.com/tag/124/">团购</a></li>
+<li style="WIDTH: 68px"><a target="_self" href="http://www.sootoo.com/tag/82/">货运物流</a></li>
+<li style="WIDTH: 68px"><a target="_self" href="http://www.sootoo.com/tag/130/">开放平台</a></li>
+<li style="WIDTH: 68px"><a target="_self" href="http://www.sootoo.com/keyword/52767/">电商调研</a></li>
+<li style="WIDTH: 68px"><a target="_self" href="http://www.sootoo.com/zt74/">消费养老</a></li>
+<li style="WIDTH: 70px"><a target="_self" href="http://bbs.sootoo.com/"><b>互动社区</b></a></li>
+<li style="WIDTH: 52px; position:relative"><a target="_self" href="http://zl.sootoo.com">专栏</a><span style="position:absolute; right:3px; top:5px; width:20px; height:9px; overflow:hidden;BACKGROUND: url(/son_media/t11/icoNew.jpg) no-repeat 0px 0px;"></span></li>
+<li style="WIDTH: 47px"><a target="_self" href="http://t.sootoo.com/">微博</a></li>
+<li style="WIDTH: 47px"><a target="_self" href="http://www.sootoo.com/son_media/product/index.html">产品</a></li>
+<li style="WIDTH: 43px"><a target="_self" href="http://www.sootoo.com/sitemap/">导航</a></li>
+<li style="WIDTH: 65px"><a target="_self" href="http://www.sootoo.com/zt80/">蓝海沙龙</a></li>
+<li style="WIDTH: 75px; BACKGROUND: none transparent scroll repeat 0% 0%"><a href="http://www.sootoo.com/keyword/75332/">速途体验室</a></li></ul></div>
+<div style="CLEAR: both"></div></div>
+<style type="text/css">
+#allmenu{
+background:url("http://www.sootoo.com/son_media/t11/st-head-nav.jpg") no-repeat scroll 0 0 transparent;
+ margin: 0 auto;
+}#news_gnb_submenu {
+    height: 34px;
+    width: 980px;
+}#news_gnb_navi{
+padding:0;
+margin:0;
+list-style:none;
+width:980px;
+}#news_gnb_navi li {
+    background: url("http://www.sootoo.com/son_media/t11/t11_menu_line.gif") no-repeat scroll right top transparent;
+    float: left;
+}#news_gnb_navi li a {
+    color: #1C386A;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 23px;
+    margin: 0;
+    padding: 13px 1px 0 10px;
+    text-decoration: none;
+}#news_gnb_navi li a:hover {
+    color: red;
+    text-decoration: none;
+}#news_gnb_navi1{
+padding:0;
+margin:0;
+list-style:none;
+width:980px;
+}#news_gnb_navi1 li {
+    background: url("http://www.sootoo.com/son_media/t11/t11_menu_line.gif") no-repeat scroll right top transparent;
+    float: left;margin-top:-3px;
+}#news_gnb_navi1 li.first {
+    padding-left: 10px;
+}#news_gnb_navi1 li a {
+    color: #1C386A;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 23px;
+    margin: 0;
+    padding: 13px 1px 0 10px;
+    text-decoration: none;
+}#news_gnb_navi1 li a:hover {
+    color: red;
+    text-decoration: none;
+}</style>
+</DIV>
+<div style="clear:both;"></div>
+<div id="t11_middle" >
+
+  <div style="clear:both;"></div>
+  <div style="height:35px;margin-top:5px;background:url(http://mm.sootoo.com/tmedia/t11/conbg1.gif) no-repeat scroll 0 0 transparent">
+      <span style="float:left;white-space: nowrap;font-weight:bold;font-size:23px;margin-right:10px;margin-bottom:2px;;color:#3A5FA6;font-family:微软雅黑,Arial, Helvetica, Verdana, Sans-serif;">互联网</span>
+     <span style="float:left;padding-top:7px"><img src="/son_media/t11/but.png"></span>
+          <div style="float:left;padding-left:5px;font-size:12px;padding-bottom: 4px;overflow:hidden;white-space: nowrap;padding-top:11px;width:820px">            
+          
+      <a href="/tag/10/" style="padding:0px 2px;color:#3A5FA6">互联网资讯</a>
+          
+      <a href="/tag/13/" style="padding:0px 2px;color:#3A5FA6">电子商务</a>
+          
+      <a href="/tag/14/" style="padding:0px 2px;color:#3A5FA6">搜索引擎</a>
+          
+      <a href="/tag/15/" style="padding:0px 2px;color:#3A5FA6">行业网站</a>
+          
+      <a href="/tag/16/" style="padding:0px 2px;color:#3A5FA6">网络营销</a>
+          
+      <a href="/tag/17/" style="padding:0px 2px;color:#3A5FA6">综合门户</a>
+          
+      <a href="/tag/18/" style="padding:0px 2px;color:#3A5FA6">游戏</a>
+          
+      <a href="/tag/19/" style="padding:0px 2px;color:#3A5FA6">网络安全</a>
+          
+      <a href="/tag/20/" style="padding:0px 2px;color:#3A5FA6">Web2.0</a>
+          
+      <a href="/tag/22/" style="padding:0px 2px;color:#3A5FA6">财经</a>
+          
+      <a href="/tag/24/" style="padding:0px 2px;color:#3A5FA6">移动互联网</a>
+          
+      <a href="/tag/25/" style="padding:0px 2px;color:#3A5FA6">企业网站</a>
+          
+      <a href="/tag/107/" style="padding:0px 2px;color:#3A5FA6">网络服务</a>
+          
+      <a href="/tag/117/" style="padding:0px 2px;color:#3A5FA6">家电资讯</a>
+          
+      <a href="/tag/118/" style="padding:0px 2px;color:#3A5FA6">物联网</a>
+          
+      <a href="/tag/128/" style="padding:0px 2px;color:#3A5FA6">云服务</a>
+          
+      <a href="/tag/130/" style="padding:0px 2px;color:#3A5FA6">开放平台</a>
+          
+          </div> 
+  </div>
+  <DIV class="" style="height:30px;font-size:12px;border-bottom:1px solid #C1D9F3;">
+      <div style="height:14px;padding:7px 3px 0;color:#888;">
+          当前位置： <a href="/" target="_self" style="color:#888;" >速途网</a><span class=bg_s_arrowr></span>
+          
+          <a style="color:#888;" target="_self" href="/tag/5/">互联网</a><span class=bg_s_arrowr></span>
+          
+          <a style="color:#888;" target="_self" href="/tag/14/">搜索引擎</a>
+          <span id=idauthor></span>
+      </div>
+  </div>         
+  <div id="t11_m_left">
+<div class="t11_wz">	 <DIV class="t11_mlblk" style="margin:0;background:#F5F8FD;border:1px solid #C1D9F3;border-top:0;">
+       <div style="padding:10px 20px;">
+       <div style="float:right;">
+        
+       </div>
+       <h1 style="margin:5px 0px 10px 0px;font-size:26px;text-align:center;font-family: 黑体,Arial, Helvetica, Verdana, Sans-serif;">李彦宏预言“三大机会”均应验：中间页抢跑收获季</h1>
+        <div class="t11_info"><hr style="width:90%;height:1px;color:#ccc;opacity:0.3;">
+        <div style="font-size:12px;color:#888;text-align:center;padding-bottom:10px;">
+          
+                作者:&nbsp;<a style="color:#3A60A7;" href="/keyword/106051/" >刘璋</a>
+                 
+                发布:&nbsp;<a style="color:#3A60A7;" href="/user/10159/">孙墩墩</a>
+                
+           
+         &nbsp;<span title="发布日期 四月 12, 2012, 10:38 a.m.">2012年04月12日10:38</span>
+          
+                &nbsp;来源:&nbsp;<a style="color:#3A60A7;" href="/keyword/1520/" >速途网</a>
+         
+          <a style="color:#3A60A7;" target="_self" href="#t11_wypl">我要评论&nbsp;</a>(<span style="color:#9D1112;margin:5px;">0</span>)
+        访问次数&nbsp;<span style="color:#9D1112;">1193</span>
+        </div><div style="float:right;width:300px"><div id="votepop_m" align=right title="0票1分" style="margin-top:8px;">
+    <span style="font-size:12px;">本文分数</span> <span class=score_bar><span class=score_barcolor></span></span><span id="score" class=score_d> 1</span>
+    <div style="display:inline;">
+		<a href="#" onmouseover="showvote('votepop_m','votepop_add');return false;">
+			<span class=bg_vadd style="cursor:pointer;"></span>
+		</a>&nbsp;
+		<a href="#" onmouseover="showvote('votepop_m','votepop_sub');return false;">
+			<span class=bg_vsub style="cursor:pointer;"></span>
+		</a>
+    </div>
+	<div id="votepop_add" style="display:none;font-size:12px;border:1px solid #ccc;float:right">
+		<form id = "votenum_add" name = "votenum_add" style="margin:0px;padding:0px;border:0px;">
+			<input type="button"  onclick="HideContent('votepop_add'); vote('267982', '0','upnum','score');return false;" style="border:0;"  value="加">
+			<input type="text" name="num_add" value="1" size="6">
+			输入分数1-
+			<a onclick="HideContent('votepop_add'); return true;"><span class=bg_a_x style="cursor:pointer;"></span></a><br/>
+			<p style="margin-left:50px;padding:0px;text-align:left;"><span style="font-weight:bold;">加分理由(需要选择)：</span><br>
+				<input type="radio" Name="goodreason" Value="独家报道，很及时" style="border:none;">独家报道，很及时<br/>
+				<input type="radio" Name="goodreason" Value="知识性强，写得好" style="border:none;">知识性强，写得好<br/>
+        <input type="radio" Name="goodreason" Value="观点鲜明，受启发" style="border:none;">观点鲜明，受启发<br/>
+				<input type="radio" Name="goodreason" Value="趣味性强，我喜欢" style="border:none;">趣味性强，我喜欢
+
+			</p>
+		</form>
+	</div> 
+	<div id="votepop_sub" style="display:none;font-size:12px;border:1px solid #ccc;float:right">
+		<form id = "votenum_sub" name = "votenum_sub" style="margin:0px;padding:0px;border:0px;">
+			<input type="button"  onclick="HideContent('votepop_sub'); vote('267982', '0','downnum','score');return false;" style="border:0;"  value="减">
+			<input type="text" name="num_sub" value="1" size="6">
+			输入分数1-
+			<a onclick="HideContent('votepop_sub'); return true;"><span class=bg_a_x style="cursor:pointer;"></span></a><br/>
+			<p style="margin-left:50px;padding:0px;text-align:left;"><span style="font-weight:bold;">减分理由(需要选择)：</span><br>
+				<input type="radio" Name="badreason" Value="似曾相识，是抄袭" style="border:none;">似曾相识，是抄袭<br/>
+				<input type="radio" Name="badreason" Value="自卖自夸，我讨厌" style="border:none;">自卖自夸，我讨厌<br/>
+				<input type="radio" Name="badreason" Value="无理攻击，不支持" style="border:none;">无理攻击，不支持<br/>
+				<input type="radio" Name="badreason" Value="说不清楚，不爱读" style="border:none;">说不清楚，不爱读
+
+			</p>
+		</form>
+	</div> 
+</div>
+</div>
+        </div>
+    <DIV id="content" class="t11_mlblk t11_contentarea" style="border-bottom:1px dotted #C1D9F3;font-family:SimSun,Arial Narrow">
+        <P>　　速途网讯 4月12日消息，“在搜索引擎和传统产业中间的状态来给别人提供服务”，这是百度创始人李彦宏在去年百度联盟峰会上为中国互联网创业者指出的三大机会之一，他称之为“中间页”。今年以来，包括58同城、赶集网、百姓网在内的数家分类信息网站重启IPO开始上市抢跑，为获行业领先优势纷纷力争上市“第一股”，“中间页”大潮正欲掀起更高的浪头。</P>
+<P align=center><STRONG><IMG alt=李彦宏成预测帝：中间页“三大机会”迎来收获季 src="http://www.sootoo.com/son_media/msg/2012/04/12/274334.jpg" width=600></STRONG></P>
+<P align=center><STRONG>图：李彦宏（速途网配图）</STRONG></P>
+<P>　　据了解，目前58同城在TOP1000网站排名中的全球分类信息网站领域仅次于Craigslist(排名全美前七大网站)，位列第二。近日据知情人士透露，58已于去年下半年完成D轮5500万美元融资。与此同时，同类网站赶集网也在积极推进美国上市进程。虽然前局未定，但毋庸置疑的是，分类网站依然强劲吸引资本眼球。再回顾以携程、去哪儿为代表的旅游垂直网站近期的亮眼运营业绩，优酷与土豆合并引发的视频垂直领域“暴风眼”，“中间页”一只脚已经跨进了收获季节。</P>
+<P>　　2011百度联盟峰会的演讲中，李彦宏第一次向业界提出关于“中间页”的预见：“几乎所有的垂直领域都存在中间页的机会，大家可以做传统产业和真正的互联网之间的桥梁。”他同时指出，“这种机会在发达国家几乎不存在”，在中国则“还远远没有被发掘出来。”</P>
+<P>　　演讲结束后，“中间页”这一提法在站长之家、落伍者论坛等网站引起强烈反响，许多站长开始尝试拆解“旅游”、“汽车”、“驾校招生”、“培训”等可能的“中间页”发展方向。58同城电商产品副总裁张川当时即在个人空间著文称：“Robin提出了中间页的战略方向，非常高瞻远瞩。我对中间页的理解非常浅，留在这里是为了两年后看看对不对”。仅仅过去一年时间，这个问题看来已经有了答案。</P>
+<P>　　而事实上，除了“中间页”，李彦宏一年前“互联网三大机会”的其他两个预见——“读图时代”和“应用为王”同样已成为互联网产业风起云涌的焦点。</P>
+<P>　　其实，Instagram比Twitter还凶猛许多。很多人都想不到这款图片共享应用今天会以如此“凶猛”的方式注解“读图时代”——4月初，Facebook斥资十亿美金收购只有12名员工的Instagram，其创始人凯文•斯特罗姆因此身价暴涨。这也从侧面印证了“以图片为主流内容”的公司所蕴藏的巨大价值。</P>
+<P>　　而自今年3月起，昆仑万维、趣游等数家网页游戏运营商着手申请IPO，人们开始明白李彦宏一年前说“应用也可以做成上市公司”所指为何。在热火朝天的移动互联网领域，应用同样被寄予厚望：以百度为代表的大型互联网企业已经开始着手布局基于云计算和HTML5技术的Web App——根据美国知名调研机构皮尤研究中心(Pew Research Center)发布的调研报告显示，这样一种融合网页与应用的实现方式被近六成的全球顶尖技术专家所看好。</P>
+<P>　　“随着Pinterest模式的C2C，李彦宏预言的读图时代逐步成为现实;应用为王将在APP和HTML5中交替繁荣;中间页在互联网娱乐化向商业化转型中逐步到来。”广东联通互联网营销服务事业部总经理李韩对于李彦宏的三大预言如数家珍，还有网友评论：“李彦宏的预言就像小李飞刀，例不虚发～～”。去年出席百度联盟峰会的中国网络电视台副总裁夏晓晖则表示所幸没有错过李彦宏的现场演讲，在他看来“和其他企业家不同，李彦宏对互联网的发展和公司的管理看得非常明白，今年很期待继续听到他对未来发展趋势的独到见解，而且这种见解往往是在其他的互联网企业家身上得不到的，这也是李彦宏跟其他人不同的地方。”</P>
+    </DIV>  
+      <div style="border-bottom:1px solid #C1D9F3;width:620px;float:left;margin-bottom:10px">
+        <div style="float:left;height:20px;font-size: 12px;padding:5px;width:510px;overflow:hidden;;white-space:nowrap">
+            <span style="color:#202020;">分类</span>：&nbsp;<strong><a href="/tag/14/">搜索引擎</a></strong>&nbsp;&nbsp;<span style="color:#202020;">用户</span>：&nbsp;<a style="margin-right:5px;" href="/user/10159/">孙墩墩</a>    &nbsp;&nbsp;
+            
+                <span style="color:#202020;">关键词</span>：
+                
+                    <a style="margin:0px 5px;" href="/keyword/107/">李彦宏</a>
+                
+                    <a style="margin:0px 5px;" href="/keyword/178/">互联网</a>
+                
+                    <a style="margin:0px 5px;" href="/keyword/106052/">中间页</a>
+                
+            
+            
+        </div><div style="float:right"><a onclick="javascript:window.print();return false;" style="font-size:12px" href="#"><span class="bg_print"></span>打印</a>&nbsp;<a style="font-size:12px" href="mailto:?subject=www.sootoo.com-&amp;body=http://www.sootoo.com/content/148902/"><span class="bg_mail"></span>邮件</a></div></div>
+        <div class="weibofenxiang" style="float:left;padding:0px;font-size:12px;margin-top:0px;padding-bottom:5px;margin-left:5px">
+          <span style="float:left">分享到：&nbsp;&nbsp;</span><span style="display:inline;float:left"><img title="分享到新浪微博" onclick="sina_share_ttl();" src="http://app.sootoo.com/tmedia/img/sina.gif">
+          <script type="text/javascript" charset="utf-8">
+function sina_share_ttl(){
+    sina_share_img('');
+    get_weibo_comment(267982);
+}
+function sina_share_syn(){
+    if(document.getElementById('sina_wb').checked == true){
+        sina_share_img(document.getElementById('id_comment').value);
+    }
+    return true;
+}
+function sina_share_img(ttl){
+    var img_c = '【李彦宏预言“三大机会”均应验：中间页抢跑收获季】'+ttl;
+    var img_url = 'http://www.sootoo.com/son_media/msg/2012/04/12/274334.jpg';
+    var jq_url = location.href;
+    void((function(s,d,e,r,l,p,t,z,c){
+        var f='http://v.t.sina.com.cn/share/share.php?appkey=2374252916',
+        u=z||d.location,
+        p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&amp;content=',c||'gb2312','&pic=',e(p||'')].join('');
+        function a(){
+            if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');
+        };
+        if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);
+        else a();
+        })(screen,document,encodeURIComponent,'','',img_url,img_c,jq_url,'utf-8'));
+}
+
+</script>&nbsp;<a href="javascript:void(0)" onclick="postToWb();" style="height:16px;font-size:12px;line-height:16px;"><img alt="分享到腾讯微博" style="border:none" src="/son_media/img/qqwb.gif" /></a><style type="text/css"> .weibofenxiang a img{border:none;padding:0px}</style>
+<script type="text/javascript">
+	function postToWb(){
+        var _t = encodeURI(document.title);
+		var _url = encodeURIComponent(document.location);
+		var _appkey = encodeURI("");
+		var _pic = encodeURI('');
+		var _site = ''
+		var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+		window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+	}
+</script></span>
+        </div><div style="float:right;margin-top:-6px;padding-bottom:5px;padding-right:5px"><font style="font-size:12px">关注</font>：<a href="http://t.sootoo.com" style="font-size:12px;">速途微博</a></div>
+    </div> 
+    </div></div>
+    <DIV class="t11_mlblk" style="border:1px solid #d5e2f3;margin-top:10px;">
+      <div style="padding:0px;">
+      <div style="height:20px;font-size: 12px;border-bottom:1px solid #d5e2f3;padding-top:5px;background:#F5F8FD;">
+           <span class="t11_sidespan" style="margin-top: -3px;">相关文章</span>
+            </div><div style="padding:10px 0px 10px 10px;">
+        <div class=list_taglist1>
+          
+              <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+               <span class="wz_bg"></span> <a target="_blank" href="/content/265136.shtml" >李彦宏为何要做“云”</a><font color=#cc0000>(1)</font>
+            </div>
+          
+              <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+               <span class="wz_bg"></span> <a target="_blank" href="/content/263739.shtml" >骆家辉：李彦宏的一项专利促成一个产业</a><font color=#cc0000>(1)</font>
+            </div>
+          
+              <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+               <span class="wz_bg"></span> <a target="_blank" href="/content/263491.shtml" >“异数”李彦宏塑造百度性格:坚守搜索崇尚简单</a><font color=#cc0000>(1)</font>
+            </div>
+          
+              <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+               <span class="wz_bg"></span> <a target="_blank" href="/content/263219.shtml" >李彦宏：拥抱变化者把握先机</a><font color=#cc0000>(1)</font>
+            </div>
+          
+              <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+               <span class="wz_bg"></span> <a target="_blank" href="/content/262902.shtml" >李彦宏：拥抱变化者把握先机</a><font color=#cc0000>(1)</font>
+            </div>
+          
+        </div>
+        <div class=list_taglist2>
+        
+             <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+              <span class="wz_bg"></span>  <a target="_blank" href="/content/262720.shtml" >李彦宏：投资人信任关键是经营好公司</a><font color=#cc0000>(1)</font>
+            </div>
+            
+             <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+              <span class="wz_bg"></span>  <a target="_blank" href="/content/261912.shtml" >李彦宏谈上市公司管理：股票自己会照顾自己</a><font color=#cc0000>(1)</font>
+            </div>
+            
+             <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+              <span class="wz_bg"></span>  <a target="_blank" href="/content/261752.shtml" >李彦宏谈上市公司管理：股票自己会照顾自己</a><font color=#cc0000>(1)</font>
+            </div>
+            
+             <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+              <span class="wz_bg"></span>  <a target="_blank" href="/content/261523.shtml" >李彦宏：移动互联网市场还很小 </a><font color=#cc0000>(1)</font>
+            </div>
+            
+             <div style="float:left;white-space:nowrap;display:inline:overflow:hidden;width:300px">
+              <span class="wz_bg"></span>  <a target="_blank" href="/content/260874.shtml" >李彦宏：百度从未想过收购大公司</a><font color=#cc0000>(1)</font>
+            </div>
+            
+        </div>
+      </div> </div>
+	  </DIV>	
+
+             
+    <DIV class="t11_mlblk" id="t11_wypl" style="border:1px solid #d5e2f3;background:#f5f8fd;">
+    <div style="padding:10px;font-size:12px;">
+	
+	   <div style="width:600px;height:10px;border:1px solid #D5E2F3;padding:20px;color:#888;">
+         <span><img src="/son_media/t11/common.gif"> </span>   请 <a href="/user/login/">登录</a> 或 <a href="/user/register/">注册</a> 后评论
+       </div>
+    
+    </div>
+	</DIV>
+          <style type="text/css">a img{padding:3px}</style>
+   <DIV class="t11_mlblk" style="border:1px solid #d5e2f3;">
+		<div style="height:20px;font-size: 12px;border-bottom:1px solid #d5e2f3;padding-top:5px;background:#F5F8FD;">
+              <span class="t11_sidespan" style="margin-top: -3px;">赞助商链接</span><span class=bg_rd></span>
+        </div>
+        <div style="padding:8px;">
+               <DIV style="LINE-HEIGHT: 23px; PADDING-LEFT: 5px; WIDTH: 630px; FONT-SIZE: 13px; OVERFLOW: hidden">
+<DIV>
+<P><SPAN style="PADDING-RIGHT: 0px" class=wz_bg></SPAN><STRONG>&nbsp;搜狐-</STRONG><A href="http://www.sootoo.com/go.html?http://corp.sohu.com/20120206/n333886861.shtml">搜狐视频自制活动“吸金” 伊利拉芳领衔投放</A></P>
+<P><SPAN style="PADDING-RIGHT: 0px" class=wz_bg></SPAN><STRONG>&nbsp;优酷-</STRONG><A href="http://www.sootoo.com/go.html?http://www.youku.com/about/cn/news_youku_view_1414.html">优酷音乐大使萨顶顶视频直击格莱美</A></P>
+<P><SPAN style="PADDING-RIGHT: 0px" class=wz_bg></SPAN><STRONG>&nbsp;微软-</STRONG><A href="http://www.sootoo.com/go.html?http://www.microsoft.com/china/press/2012/01/0113.mspx">先进信息技术助力中国华融“一体两翼”战略</A></P></DIV></DIV>
+        </div></div>
+     <DIV class="t11_mlblk" style="border:1px solid #d5e2f3;float:left;width:328px;background: none repeat scroll 0 0 #F6F9FF;">
+			<div class="t11_sideblocktitle" style="border-top:none;border-right:none;border-left:none">
+            <span class="t11_sidespan">速途网热点</span>
+            </div><div style="padding:8px;background-color:#F6F9FF">
+        <!-- widget:464 last_update:2012-04-12 14:12:32.065677 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265736.shtml" title="雷军：小米没有复制iphone 也不怕被别人山寨">雷军：小米没有复制iphone 也不怕被别人山寨</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/266890.shtml" title="好乐买，还没到抱佛脚的时候">好乐买，还没到抱佛脚的时候</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265185.shtml" title="中青宝红色网游扩展受限 亟需吸金产品增营收">中青宝红色网游扩展受限 亟需吸金产品增营收</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265251.shtml" title="谷歌CEO佩奇称Google+活跃用户超1亿">谷歌CEO佩奇称Google+活跃用户超1亿</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/266128.shtml" title="阿里云大黄蜂W806开始预售 售价1499元">阿里云大黄蜂W806开始预售 售价1499元</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265981.shtml" title="互联网协会发出倡议称要抵制网络谣言">互联网协会发出倡议称要抵制网络谣言</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265250.shtml" title="雅虎全球裁员波及台湾：奇摩裁员近百人">雅虎全球裁员波及台湾：奇摩裁员近百人</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265256.shtml" title="消息称Facebook已选择在纳斯达克上市">消息称Facebook已选择在纳斯达克上市</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267564.shtml" title="1号店副总裁潘荠：寒冬未至 2012电商仍将红火">1号店副总裁潘荠：寒冬未至 2012电商仍将红火</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/265958.shtml" title="中关村2年14高管离职 业绩不振二股东欲退出">中关村2年14高管离职 业绩不振二股东欲退出</a></div>
+    
+</DIV>
+           </div>
+    </DIV><DIV class="t11_mlblk" style="border:1px solid #d5e2f3;float:RIGHT;width:328px;background: none repeat scroll 0 0 #F6F9FF;">
+			<div class="t11_sideblocktitle" style="border-top:none;border-right:none;border-left:none">
+            <span class="t11_sidespan">速途最新原创</span>
+            </div><div style="padding:8px;background-color:#F6F9FF">
+        <!-- widget:465 last_update:2012-04-12 17:29:23.763513 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="云计算概念业绩不显著 落实应用是当务之急" target=_blank href="/content/268265.shtml">云计算概念业绩不显著 落实应用是当务之急</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="4399小游戏三分真里掺和七分假 抄袭也有免责条款" target=_blank href="/content/268216.shtml">4399小游戏三分真里掺和七分假 抄袭也有免责条款</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="2012年中国电子商务应用人才培训工程正式启动" target=_blank href="/content/268196.shtml">2012年中国电子商务应用人才培训工程正式启动</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="乐视网宣布获得京润珍珠一千万广告订单" target=_blank href="/content/268177.shtml">乐视网宣布获得京润珍珠一千万广告订单</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="掌上公交看上去很美 普及应用尚需时日" target=_blank href="/content/268128.shtml">掌上公交看上去很美 普及应用尚需时日</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="速途传媒华东互联网百人会成功在沪举办" target=_blank href="/content/268042.shtml">速途传媒华东互联网百人会成功在沪举办</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="凡客续约韩寒暗示挺住 意味一切" target=_blank href="/content/267994.shtml">凡客续约韩寒暗示挺住 意味一切</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="酷狗7影音播放问题频出  下载机制亟待改善" target=_blank href="/content/267948.shtml">酷狗7影音播放问题频出  下载机制亟待改善</a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="潘荠：客户体验仍为电商企业的核心 " target=_blank href="/content/267933.shtml">潘荠：客户体验仍为电商企业的核心 </a>
+    </div>
+    
+    <div style="white-space:nowrap;float:left;width:310px">
+     <span class="wz_bg"></span>
+     <a title="赶集网团购业务转交窝窝团 未披露运营细节" target=_blank href="/content/267873.shtml">赶集网团购业务转交窝窝团 未披露运营细节</a>
+    </div>
+    
+</div>
+           </div>
+    </DIV>
+    <DIV class="t11_mlblk" style="border:1px solid #d5e2f3"><div style="height:20px;font-size: 12px;border-bottom:1px solid #d5e2f3;padding-top:5px;background:#F5F8FD;">
+            <span class="t11_sidespan" style="margin-top: -3px;line-height:23px">栏目导航</span>
+            </div>
+        <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+<div class="b d1">
+<div style="PADDING-BOTTOM: 10px; PADDING-LEFT: 20px; PADDING-RIGHT: 10px; FONT-SIZE: 12px; OVERFLOW: hidden; PADDING-TOP: 10px" id="widget350">
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/10/" target="_blank">新闻聚焦</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/13/" target="_blank">电子商务</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/16/" target="_blank">网络营销</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/14/" target="_blank">搜索引擎</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/86/" target="_blank">IT</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/18/" target="_blank">网络游戏</a></li></ul></div>
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/77/" target="_blank">网络热点</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/78/" target="_blank">B2C</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/95/" target="_blank">网络广告</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/83/" target="_blank">搜索门户</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/88/" target="_blank">金融</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/19/" target="_blank">网络安全</a></li></ul></div>
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/12/" target="_blank">网络法规</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/79/" target="_blank">C2C</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/96/" target="_blank">网络公关</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/84/" target="_blank">网站排名</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/90/" target="_blank">医药</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/20/" target="_blank">WEB2.0</a></li></ul></div>
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/11/" target="_blank">网络动态</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/80/" target="_blank">网店</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/97/" target="_blank">数据库营销</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/85/" target="_blank">网络导航</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/89/" target="_blank">房产</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/117/" target="_blank">家电</a></li></ul></div>
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/76/" target="_blank">网络数据</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/81/" target="_blank">电子支付</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/98/" target="_blank">搜索营销</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/15/" target="_blank">行业网站</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/92/" target="_blank">旅游</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://zl.sootoo.com/" target="_blank">专栏</a></li></ul></div>
+<div style="HEIGHT: 18px">
+<ul class="list_nav">
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/22/" target="_blank">网络财经</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/82/" target="_blank">货运物流</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/24/" target="_blank">移动互联网</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/93/" target="_blank">企业网站</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://www.sootoo.com/tag/118/" target="_blank">物联网</a></li>
+<li><span class="wz_bg" style="margin-top:6px"></span><a title="" href="http://bbs.sootoo.com/" target="_blank">论坛</a></li></ul></div></div>
+<style type="text/css">
+.list_nav{list-style: none;margin: 0px;padding: 0px; }
+
+.list_nav ul{-webkit-padding-start: 10px;display: block;}
+
+.list_nav li{ float:left;margin: 0px; width:100px;padding: 0px;display: list-item;height: 16px; z-index: 10;}
+
+.list_nav a {color: #202020;display: block; margin: 0px;padding: 0px;}
+
+.list_nav a:hover {color:red ;display:block; margin: 0px;padding: 0px;}
+</style>
+</div><b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b"></b> 
+    </DIV>
+  <DIV class="t11_mlblk" style="border:1px solid #d5e2f3;margin-bottom:0px">
+		<div style="height:20px;font-size: 12px;border-bottom:1px solid #d5e2f3;padding-top:5px;background:#F5F8FD;">
+              <span class="t11_sidespan" style="margin-top: -3px;line-height:23px">热门标签</span>
+        </div>
+        <div style="padding:8px;">
+        <!-- widget:470 last_update:2012-04-12 18:11:30.627227 --><div class=hotlist style="padding:8px;word-break: keep-all;font-size: 14px;height:34px;overflow:hidden;">
+  
+      <span class=hotword><a href="/keyword/52/">电子商务</a><SUP class=hot_wz>47</SUP></span>
+  
+      <span class=hotword><a href="/keyword/69821/">养老资讯</a><SUP class=hot_wz>38</SUP></span>
+  
+      <span class=hotword><a href="/keyword/430/">手机</a><SUP class=hot_wz>35</SUP></span>
+  
+      <span class=hotword><a href="/keyword/58/">Facebook</a><SUP class=hot_wz>33</SUP></span>
+  
+      <span class=hotword><a href="/keyword/299/">苹果</a><SUP class=hot_wz>33</SUP></span>
+  
+      <span class=hotword><a href="/keyword/272/">中国</a><SUP class=hot_wz>33</SUP></span>
+  
+      <span class=hotword><a href="/keyword/14733/">美元</a><SUP class=hot_wz>30</SUP></span>
+  
+      <span class=hotword><a href="/keyword/49617/">Instagram</a><SUP class=hot_wz>27</SUP></span>
+  
+      <span class=hotword><a href="/keyword/845/">索尼</a><SUP class=hot_wz>23</SUP></span>
+  
+      <span class=hotword><a href="/keyword/216/">移动互联网</a><SUP class=hot_wz>21</SUP></span>
+  
+      <span class=hotword><a href="/keyword/4076/">团购</a><SUP class=hot_wz>21</SUP></span>
+  
+      <span class=hotword><a href="/keyword/514/">网络</a><SUP class=hot_wz>21</SUP></span>
+  
+      <span class=hotword><a href="/keyword/178/">互联网</a><SUP class=hot_wz>20</SUP></span>
+  
+      <span class=hotword><a href="/keyword/85586/">业界动态</a><SUP class=hot_wz>19</SUP></span>
+  
+      <span class=hotword><a href="/keyword/807/">诺基亚</a><SUP class=hot_wz>19</SUP></span>
+  
+      <span class=hotword><a href="/keyword/182/">智能手机</a><SUP class=hot_wz>19</SUP></span>
+  
+      <span class=hotword><a href="/keyword/48/">微软</a><SUP class=hot_wz>18</SUP></span>
+  
+      <span class=hotword><a href="/keyword/223/">裁员</a><SUP class=hot_wz>18</SUP></span>
+  
+      <span class=hotword><a href="/keyword/105882/">互联网百人会</a><SUP class=hot_wz>17</SUP></span>
+  
+      <span class=hotword><a href="/keyword/136/">速途网</a><SUP class=hot_wz>16</SUP></span>
+       
+</div>
+<style type="text/css">
+.hotword {margin:6px 6px;text-align:middle;}
+.hot_wz {color:#333333;}
+</style>
+        </div>
+	</DIV>
+    </DIV>    
+    <div id="t11_m_right" style="padding-top:10px">
+        <div id="adpos_gl" class="t11_sideblock" style="border:none;padding-bottom:0px;">
+              
+  <script type="text/javascript">BAIDU_CLB_fillSlot("174615");</script>
+    
+  
+        </div>
+        <div class="t11_sideblock" style="padding-bottom:4px">
+            <div class="t11_sideblocktitle" style="border-left:none;border-right:none;"> 
+            <span class="t11_sidespan">焦点关注</span>
+            </div><div style="overflow:hidden;padding:6px 0px 0px 6px">
+            <!-- widget:454 last_update:2012-04-12 15:00:46.069156 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267564.shtml" title="1号店副总裁潘荠：寒冬未至 2012电商仍将红火">1号店副总裁潘荠：寒冬未至 2012电商仍将红火</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267558.shtml" title="速途网CEO范锋：互联网发展一定要互联与合作">速途网CEO范锋：互联网发展一定要互联与合作</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267639.shtml" title="耶客张志坚：移动电商促进企业线下门店销售">耶客张志坚：移动电商促进企业线下门店销售</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267635.shtml" title="PopCap宝开刘琨：移动互联为轻度游戏带来商机">PopCap宝开刘琨：移动互联为轻度游戏带来商机</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267586.shtml" title="KAMA服饰樊新科：电子商务未来互联网大趋势 ">KAMA服饰樊新科：电子商务未来互联网大趋势 </a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267601.shtml" title="瑞金麟安士辉：传统企业做电商带来商业机会">瑞金麟安士辉：传统企业做电商带来商业机会</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267626.shtml" title="玩趣手游鲁强：手游高额收入将成移动互联常态">玩趣手游鲁强：手游高额收入将成移动互联常态</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267661.shtml" title="景林资产陈尘：移动互联及电商长期有投资机会">景林资产陈尘：移动互联及电商长期有投资机会</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267670.shtml" title="速途论道：征途时代广场的广告能提升品牌价值？">速途论道：征途时代广场的广告能提升品牌价值？</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267250.shtml" title="雅虎CEO宣布重组计划：划分三大业务部门">雅虎CEO宣布重组计划：划分三大业务部门</a></div>
+    
+</DIV>
+        </div></div>
+           <div class="t11_sideblock" style="padding-bottom:5px">
+            <div class="t11_sideblocktitle" style="border-left:none;border-right:none;"> 
+            <span class="t11_sidespan">图片推荐</span>
+            </div>
+			<div style="overflow:hidden;padding:6px 0px 0px 6px">
+            <div style="WIDTH: 278px; HEIGHT: 120px; FONT-SIZE: 12px; OVERFLOW: hidden">
+<table style="WIDTH: 100%" cellspacing="4">
+<tbody>
+<tr>
+<td style="TEXT-ALIGN: center"><a title="" href="http://www.sootoo.com/content/267909.shtml" target="_blank"><img alt="" src="http://www.sootoo.com/son_media/msg/2012/04/12/274301.jpg" width="120" height="80"></a></td>
+<td style="TEXT-ALIGN: center"><a href="http://www.sootoo.com/content/267834.shtml" target="_blank"><img alt="t11文章图片" src="http://www.sootoo.com/son_media/msg/2012/04/12/274304.jpg" width="120" height="80"></a></td></tr>
+<tr>
+<td style="TEXT-ALIGN: center"><a href="http://www.sootoo.com/content/267909.shtml">大唐电信解决同业竞争</a></td>
+<td style="TEXT-ALIGN: center"><a href="http://www.sootoo.com/content/267834.shtml">快递业暴利时代结束</a></td></tr></tbody></table></div><!-- widget:451 last_update:2012-04-12 18:15:25.633607 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267770.shtml" title="星晨急便300万欠条合法性待定 加盟商曝光协议">星晨急便300万欠条合法性待定 加盟商曝光协议</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267825.shtml" title="雅虎重组押宝三大业务 对阿里回购无直接影响">雅虎重组押宝三大业务 对阿里回购无直接影响</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267989.shtml" title="网游引领文化出口 去年海外收入达3.6亿美元">网游引领文化出口 去年海外收入达3.6亿美元</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267834.shtml" title="快递业暴利时代结束挣扎涨价：进入优胜劣汰期">快递业暴利时代结束挣扎涨价：进入优胜劣汰期</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267837.shtml" title="美司法部及16州对苹果和出版商发起反垄断指控">美司法部及16州对苹果和出版商发起反垄断指控</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/267866.shtml" title="太平洋直购网多名高层被抓 渠道商欲集体起诉">太平洋直购网多名高层被抓 渠道商欲集体起诉</a></div>
+    
+</DIV>
+			</div>
+        </div>
+        <div class="t11_sideblock" style="padding-bottom:0px">
+            <div class="t11_sideblocktitle" style="height:23px;border-left:none;border-right:none;">
+            <span class="t11_sidespan">文章排行</span>
+            <span class="t11_wzph">
+	   <span id=con_t1h onmouseover="con_toggle('con_t1','con_t2','con_t3');" style="font-size:13px;padding:4px 22px;border-left:1px solid #d5e2f3;text-align:middle;">积分</span><span id=con_t2h onmouseover="con_toggle('con_t2','con_t1','con_t3');" style="font-size:13px;padding:4px 22px;border-left:1px solid #d5e2f3;text-align:middle;">评论</span><span id=con_t3h onmouseover="con_toggle('con_t3','con_t1','con_t2');" style="font-size:13px;padding:4px 16px;border-left:1px solid #d5e2f3;text-align:middle;">访问量</span></span>
+            </div>
+          		<div style="float:left;padding:6px 0px 0px 6px;width:290px"> 
+              <div style="float:left;width:15px;padding-top:6px"><span><img src="/son_media/t11/li-sidebar.gif"</span></div>
+              <div style="float:left;width:270px;overflow:hidden" >     
+           <div id=con_t1><!-- widget:459 last_update:2012-04-12 18:15:29.183130 -->
+ <DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;line-height: 24px;;margin-top:0px">
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267770.shtml" title="星晨急便300万欠条合法性待定 加盟商曝光协议">星晨急便300万欠条合法性待定 加盟商曝光协议</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267825.shtml" title="雅虎重组押宝三大业务 对阿里回购无直接影响">雅虎重组押宝三大业务 对阿里回购无直接影响</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267989.shtml" title="网游引领文化出口 去年海外收入达3.6亿美元">网游引领文化出口 去年海外收入达3.6亿美元</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267834.shtml" title="快递业暴利时代结束挣扎涨价：进入优胜劣汰期">快递业暴利时代结束挣扎涨价：进入优胜劣汰期</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267837.shtml" title="美司法部及16州对苹果和出版商发起反垄断指控">美司法部及16州对苹果和出版商发起反垄断指控</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267866.shtml" title="太平洋直购网多名高层被抓 渠道商欲集体起诉">太平洋直购网多名高层被抓 渠道商欲集体起诉</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267873.shtml" title="赶集网团购业务转交窝窝团 未披露运营细节">赶集网团购业务转交窝窝团 未披露运营细节</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267888.shtml" title="神州租车将亮相纳斯达克 分析称IPO首日或破发">神州租车将亮相纳斯达克 分析称IPO首日或破发</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/268011.shtml" title="速途专栏：传统服务业和零售业的电商O2O之道">速途专栏：传统服务业和零售业的电商O2O之道</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267912.shtml" title="马云五招保卫公司不被侵害：高层轮岗 干部培训">马云五招保卫公司不被侵害：高层轮岗 干部培训</a></div>
+    
+ </div></div>
+           <div id=con_t2 style="display:none;"><!-- widget:460 last_update:2012-04-12 15:05:50.207701 -->
+ <DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;line-height: 24px;;margin-top:0px">
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266482.shtml" title="扎克伯格宣布Facebook收购Instagram">扎克伯格宣布Facebook收购Instagram</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266722.shtml" title="神舟租车服务被指“太烂” 上市形势更严峻">神舟租车服务被指“太烂” 上市形势更严峻</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266665.shtml" title="PopCap中国总经理刘琨将出席华东互联网百人会">PopCap中国总经理刘琨将出席华东互联网百人会</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266623.shtml" title="依赖网络语义识别差 细数讯飞语音的四大缺憾">依赖网络语义识别差 细数讯飞语音的四大缺憾</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266734.shtml" title="中国联通支付公司更名 在三省试点快捷支付">中国联通支付公司更名 在三省试点快捷支付</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267046.shtml" title="新浪百度腾讯等网站响应倡议抵制网络谣言">新浪百度腾讯等网站响应倡议抵制网络谣言</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267250.shtml" title="雅虎CEO宣布重组计划：划分三大业务部门">雅虎CEO宣布重组计划：划分三大业务部门</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267252.shtml" title="移动应用软件免费是趋势 用户隐私保护成难点">移动应用软件免费是趋势 用户隐私保护成难点</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267259.shtml" title="神州租车将于本月26日在纳斯达克IPO">神州租车将于本月26日在纳斯达克IPO</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266742.shtml" title="Groupon因修改财报遭多位股东起诉">Groupon因修改财报遭多位股东起诉</a></div>
+    
+ </div></div>
+           <div id=con_t3 style="display:none;"><!-- widget:461 last_update:2012-04-12 17:54:50.350620 -->
+ <DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;line-height: 24px;;margin-top:0px">
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266890.shtml" title="好乐买，还没到抱佛脚的时候">好乐买，还没到抱佛脚的时候</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267564.shtml" title="1号店副总裁潘荠：寒冬未至 2012电商仍将红火">1号店副总裁潘荠：寒冬未至 2012电商仍将红火</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267558.shtml" title="速途网CEO范锋：互联网发展一定要互联与合作">速途网CEO范锋：互联网发展一定要互联与合作</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267639.shtml" title="耶客张志坚：移动电商促进企业线下门店销售">耶客张志坚：移动电商促进企业线下门店销售</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267635.shtml" title="PopCap宝开刘琨：移动互联为轻度游戏带来商机">PopCap宝开刘琨：移动互联为轻度游戏带来商机</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267586.shtml" title="KAMA服饰樊新科：电子商务未来互联网大趋势 ">KAMA服饰樊新科：电子商务未来互联网大趋势 </a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/266771.shtml" title="阿里盛大围剿小米 胜负不看硬件看内容">阿里盛大围剿小米 胜负不看硬件看内容</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267601.shtml" title="瑞金麟安士辉：传统企业做电商带来商业机会">瑞金麟安士辉：传统企业做电商带来商业机会</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267626.shtml" title="玩趣手游鲁强：手游高额收入将成移动互联常态">玩趣手游鲁强：手游高额收入将成移动互联常态</a></div>
+    
+      <div style="float:left;width:275px;overfolow:hidden"><a href="http://www.sootoo.com/content/267661.shtml" title="景林资产陈尘：移动互联及电商长期有投资机会">景林资产陈尘：移动互联及电商长期有投资机会</a></div>
+    
+ </div></div></div></div>
+        </div> 
+           <div id="adpos_gl" class="t11_sideblock" style="border:none;padding-bottom:0px;">
+             <script type="text/javascript">BAIDU_CLB_fillSlot("174619");</script>
+        </div>
+        <div class="t11_sideblock" style="padding-bottom:5px">
+            <div class="t11_sideblocktitle" style="border-left:none;border-right:none;">
+            <span class="t11_sidespan">论坛精华</span>
+            </div>
+             		<div style="line-height:23px;overflow:hidden;padding:8px 0px 0px 8px">
+            <!--StartFragment -->
+<script type="text/javascript" src="http://bbs.sootoo.com/api.php?mod=js&amp;bid=5" charset="gb2312"></script> 
+
+      </div>
+        </div>
+        <div class="t11_sideblock" style="margin-bottom:0px;padding-bottom:6px">
+            <div class="t11_sideblocktitle" style="border-left:none;border-right:none;">
+            <span class="t11_sidespan">最近更新</span>
+            </div><div style="padding:6px 0px 0px 6px">  
+          <!-- widget:469 last_update:2012-04-12 18:12:04.918854 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268268.shtml" title="摩托罗拉进军千元机市场">摩托罗拉进军千元机市场</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268266.shtml" title="美丽说推出首款收费APP“春夏搭配手册”">美丽说推出首款收费APP“春夏搭配手册”</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268231.shtml" title="惠买商城再施重拳 大宗购买9折巨惠">惠买商城再施重拳 大宗购买9折巨惠</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268232.shtml" title="中国电信携CDMA成功跃升国内3G第一品牌">中国电信携CDMA成功跃升国内3G第一品牌</a></div>
+    
+</DIV>   <!-- widget:456 last_update:2012-04-12 18:15:27.093717 -->
+<DIV style="padding:0px 10px 0px 4px;border-top:0px solid #efefef;font-size:12px;Line-height:23px;margin-top:-3px">
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268286.shtml" title="大事早知道 凤凰新闻客户端新版体验">大事早知道 凤凰新闻客户端新版体验</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268284.shtml" title="搭建智能产业新格局  推动物联家庭新生活">搭建智能产业新格局  推动物联家庭新生活</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268283.shtml" title="17173内容主编吴闻入职福建捷普 担任营销副总">17173内容主编吴闻入职福建捷普 担任营销副总</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268282.shtml" title="2012年一季度彩电行业艰难开局，智能3D领跑业绩突围">2012年一季度彩电行业艰难开局，智能3D领跑业绩突</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268281.shtml" title="多终端布局成行业大势 PPTV市场占有率高居榜首">多终端布局成行业大势 PPTV市场占有率高居榜首</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268280.shtml" title="志高启动微博投票有奖活动  助云空调抢滩广交会">志高启动微博投票有奖活动  助云空调抢滩广交会</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268279.shtml" title="松下阿尔法洗衣机高端科技见证品质传奇">松下阿尔法洗衣机高端科技见证品质传奇</a></div>
+    
+        <div style="white-space:nowrap;float:left;width:285px"><span class="wz_bg"></span><a style="float:left" href="http://www.sootoo.com/content/268277.shtml" title="TCL全球首推全云战略  战略制胜云时代">TCL全球首推全云战略  战略制胜云时代</a></div>
+    
+</DIV>
+        </div></div>
+    </div>
+<script type="text/javascript">
+var resizeAdsTimer = null;
+function ResetAdsPos()
+{
+	adsdiv = document.getElementById("adpos_gl");
+	adsdiv.style.display = "none";
+	adsdiv.style.display = "block";
+}
+function excResize()
+{
+	if(resizeAdsTimer) clearTimeout(resizeAdsTimer);
+	resizeAdsTimer = setTimeout("ResetAdsPos()",100);
+}
+window.onload=ResetAdsPos;
+window.onresize=excResize;
+</script> 
+
+
+</div>          
+<div id="t10_footer" style="border-top:1px solid #B4D0ED;padding:0px 0px 15px 0px;margin-top:10px;">
+ 
+<script type="text/javascript" src="http://cj.8le8le.com/cj/uc.js"></script>
+<center style="padding-top: 6px;"><font style="line-height: 23px; color: rgb(51, 51, 51); font-size: 12px;"><a style="margin: 0pt 3px;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sootoo.com');return" href="javascript:void(0)" false;="">设置首页</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/about/1/" target="_blank">网站介绍</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/about/3/" target="_blank">速途招聘</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/about/4/" target="_blank">广告服务</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/about/4/" target="_blank">联系方式</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/contribute/add/" target="_blank">在线投稿</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/content/4606.shtml" target="_blank">发布规范</a>-<a style="margin: 0pt 3px;" href="http://www.ehanlin.com/" target="_blank">亿翰林</a>-<a style="margin: 0pt 3px;" href="http://www.sootoo.com/" target="_blank">速途网</a>-<a style="margin: 0pt 3px;" href="#t11_middle" target="_self">返回顶部</a></font><font style="line-height: 21px; color: rgb(134, 137, 137); font-size: 12px;"><br>指导单位：中国互联网协会网络营销工作委员会 ISO27001.w3c　<a style="color: rgb(134, 137, 137);" href="http://www.miibeian.gov.cn/" target="_blank">京ICP证110302号</a>京公网安备110102003147号 <br>Copyright <span class="fontArial">©</span> 2011 SooToo.com Inc.　All Rights Reserved.速途传媒 版权所有 </font><br><script language="JavaScript" charset="gb2312" src="http://w.cnzz.com/c.php?id=30041218"></script>               
+</div>
+</BODY></HTML>

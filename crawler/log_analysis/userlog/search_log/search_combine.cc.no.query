@@ -1,0 +1,397 @@
+#include <vector>
+#include <unordered_set>
+#include <unordered_map>
+#include <map>
+
+#include "log_analysis/common/log_common.h"
+#include "base/common/base.h"
+#include "base/common/logging.h"
+#include "base/strings/string_split.h"
+#include "base/strings/string_printf.h"
+#include "base/strings/string_number_conversions.h"
+#include "base/mapreduce/mapreduce.h"
+#include "base/random/pseudo_random.h"
+#include "base/time/timestamp.h"
+#include "base/hash_function/md5.h"
+#include "base/hash_function/city.h"
+#include "base/encoding/line_escape.h"
+#include "nlp/common/nlp_util.h"
+#include "crawler/api/base.h"
+
+DEFINE_string(pv_log_path, "", "pv log path");
+DEFINE_string(search_log_path,  "", "hdfs path of pv log");
+DEFINE_int32(elapse, 10, "time elapse between search and pv");
+DEFINE_int32(type, 3, "");
+DEFINE_string(key, "", "");
+
+void ProcessSearchLog(const std::vector<std::string>& buffer,
+                      base::mapreduce::MapTask *task) {
+  if (buffer.size() == 0) return;
+
+  int32 reducer_count = task->GetReducerNum();
+  CHECK_GT(reducer_count, 0);
+
+  std::vector<std::string> flds;
+  std::string common_timestamp;
+  std::string common_query;
+  std::string common_sid;
+  std::string common_mid;
+  std::string common_sename;
+  std::vector<std::string> rank_url;
+  for (int i = 0; i < (int)buffer.size(); ++i) {
+    const std::string& line = buffer[i];
+    flds.clear();
+    base::SplitString(line, "\t", &flds);
+    CHECK_EQ(flds.size(), 7u);
+    const std::string& sid = flds[0];
+    const std::string& mid = flds[1];
+    const std::string& timestamp = flds[2];
+    const std::string& query = flds[3];
+    const std::string& sename = flds[4];
+    const std::string& rank = flds[5];
+    const std::string& url = flds[6];
+
+    if (common_sid.empty()) {
+      common_sid = sid;
+    }
+    if (common_mid.empty()) {
+      common_mid = mid;
+    }
+    if (common_timestamp.empty()) {
+      common_timestamp = timestamp;
+    }
+    if (common_query.empty() && !query.empty()) {
+      common_query = query;
+    }
+    if (common_sename.empty()) {
+      common_sename = sename;
+    }
+    rank_url.push_back(rank + "\t" + url);
+  }
+  int32 reduce_id = base::CityHash64(common_mid.c_str(), common_mid.size()) % reducer_count;
+  std::string compound_key = common_mid + "\t" + common_sename;
+  task->OutputWithReducerID(compound_key,
+                            common_timestamp + "\t" + common_query + "\t" + common_sid + "\t" +
+                            base::LineEscapeString(base::JoinStrings(rank_url, "\t")),
+                            reduce_id);
+}
+
+struct Info {
+  std::string time_stamp;  // 搜索的时间
+  std::string query;
+  std::vector<std::string> clicked_urls; // 点击的 url
+};
+
+void ProcessPvLog(const std::vector<std::string>& buffer,
+                  base::mapreduce::MapTask *task) {
+  if (buffer.size() == 0) return;
+
+  int32 reducer_count = task->GetReducerNum();
+  CHECK_GT(reducer_count, 0);
+
+  // 以搜索引擎+搜索页面为key, 收集点击
+  std::multimap<std::string, Info> collection;
+
+  std::vector<std::string> flds;
+  std::string common_mid;
+  for (int i = 0; i < (int)buffer.size(); ++i) {
+    const std::string& line = buffer[i];
+    flds.clear();
+    base::SplitString(line, "\t", &flds);
+    CHECK_EQ(flds.size(), 7u);
+    const std::string& mid = flds[0];
+    const std::string& timestamp = flds[1];
+    const std::string& dest_url = flds[2];
+    const std::string& ref_url = flds[3];
+
+    if (common_mid.empty()) {
+      common_mid = mid;
+    }
+
+    std::string query, se_name, charset;
+    if (log_analysis::ParseSearchQuery(dest_url, &query, &se_name, &charset) &&
+        log_analysis::IsGeneralSearch(se_name.c_str())) {
+      // 展现
+      std::string key = se_name + "\t" + dest_url;
+      Info info;
+      info.time_stamp = timestamp;
+      info.query = query;
+      collection.insert(std::make_pair(key, info));
+    } else {
+      CHECK(log_analysis::ParseSearchQuery(ref_url, &query, &se_name, &charset) &&
+          log_analysis::IsGeneralSearch(se_name.c_str()));
+      // 点击
+      std::string key = se_name + "\t" + ref_url;
+      auto range = collection.equal_range(key);
+      // 从展现的 collection 中找到时间戳 小于等于 点击时间戳 的最近展现记录
+      std::multimap<std::string, Info>::iterator best_show = collection.end();
+      std::string best_timestamp;
+      for (auto it = range.first; it != range.second; ++it) {
+        const Info& info = it->second;
+        if (info.time_stamp <= timestamp &&
+            (best_timestamp.empty() || info.time_stamp > best_timestamp)) {
+          best_timestamp = info.time_stamp;
+          best_show = it;
+        }
+      }
+      if (best_show != collection.end()) {
+        best_show->second.clicked_urls.push_back(dest_url);
+      } else {
+        // 允许点击没有找到任何展现(因为数据丢失)
+        // 此时补一条展现数据
+        Info info;
+        info.time_stamp = timestamp;
+        info.query = query;
+        info.clicked_urls.push_back(dest_url);
+        collection.insert(std::make_pair(key, info));
+      }
+    }
+  }
+  int32 reduce_id = base::CityHash64(common_mid.c_str(), common_mid.size()) % reducer_count;
+  for (auto it =  collection.begin(); it != collection.end(); ++it) {
+    const std::string& key = it->first;
+    flds.clear();
+    base::SplitString(key, "\t", &flds);
+    const std::string& se_name = flds[0];
+    std::string compound_key = common_mid + "\t" + se_name;
+
+    const Info& info = it->second;
+    const std::string& time_stamp = info.time_stamp;
+    const std::string& query = info.query;
+    std::string clicked_urls;
+    if (info.clicked_urls.size() > 0) {
+      clicked_urls = base::LineEscapeString(base::JoinStrings(info.clicked_urls, "\t"));
+    }
+    task->OutputWithReducerID(compound_key,
+                              time_stamp + "\t" + query + "\t" + clicked_urls,
+                              reduce_id);
+  }
+}
+
+void mapper() {
+  base::mapreduce::MapTask *task = base::mapreduce::GetMapTask();
+
+  base::mapreduce::InputSplit split = task->GetInputSplit();
+  const std::string& file_name = split.hdfs_path;
+  int input_type;
+  if (file_name.find(FLAGS_pv_log_path) != std::string::npos) {
+    input_type = 0;
+  } else if (file_name.find(FLAGS_search_log_path) != std::string::npos) {
+    input_type = 1;
+  } else {
+    // LOG(FATAL) << "unknown input type, file: " << file_name;
+    input_type = FLAGS_type;
+  }
+
+  std::string key;
+  std::string value;
+  std::string last_key;
+  std::vector<std::string> buffer;
+  std::vector<std::string> flds;
+  if (input_type == 0) {  // pv_log
+    while (task->NextKeyValue(&key, &value)) {
+      // key is mid
+      if (key != last_key) {
+        ProcessPvLog(buffer, task);
+        buffer.clear();
+        std::vector<std::string> a;
+        buffer.swap(a);
+      }
+      // 提取跟搜索相关的日志
+      std::string line = key + "\t" + value;
+      flds.clear();
+      base::SplitString(line, "\t", &flds);
+      const std::string& dest_url = flds[2];
+      const std::string& ref_url = flds[3];
+      std::string query, se, charset;
+      bool dest_is_search = false;
+      if (log_analysis::ParseSearchQuery(dest_url, &query, &se, &charset)) {
+        if (!log_analysis::IsGeneralSearch(se.c_str())) {
+          // 目标页是垂直搜索
+          continue;
+        }
+        dest_is_search = true;
+      }
+      bool ref_is_search = false;
+      if (log_analysis::ParseSearchQuery(ref_url, &query, &se, &charset) &&
+          log_analysis::IsGeneralSearch(se.c_str())) {
+        ref_is_search = true;
+      }
+      if ((!dest_is_search && ref_is_search) ||
+          (dest_is_search)) {
+        buffer.push_back(key + "\t" + value);
+      }
+      last_key = key;
+    }
+    ProcessPvLog(buffer, task);
+  } else {  // search log
+    while (task->NextKeyValue(&key, &value)) {
+      // key is search id
+      if (key != last_key) {
+        ProcessSearchLog(buffer, task);
+        buffer.clear();
+        std::vector<std::string> a;
+        buffer.swap(a);
+      }
+      buffer.push_back(key + "\t" + value);
+      last_key = key;
+    }
+    ProcessSearchLog(buffer, task);
+  }
+}
+
+void MergeLogs(const std::string& key,
+               const std::multimap<std::string, std::string>& search_actions,
+               const std::multimap<std::string, std::string>& pv_actions,
+               base::mapreduce::ReduceTask *task) {
+  // key: mid + search engin
+  // search_actions: timestamp -> query, sid, specific_info
+  // pv_actions: timestamp -> query, clicked_urls
+
+  if (search_actions.empty()) return;
+  // LOG(ERROR) << base::StringPrintf("key: %s has %d search actions and %d pv actions",
+  //            key.c_str(), (int)search_actions.size(), (int)pv_actions.size());
+
+  auto it = search_actions.begin();
+  auto jt = pv_actions.begin();
+  std::vector<std::pair<std::multimap<std::string, std::string>::const_iterator,
+      std::multimap<std::string, std::string>::const_iterator>> matches;
+  while (it != search_actions.end() && jt != pv_actions.end()) {
+    const std::string& search_time = it->first;
+    int64 search_sec;
+    CHECK(log_analysis::ConvertTimeFromFormatToSec(search_time, "%Y%m%d%H%M%S", &search_sec));
+
+    const std::string& pv_time = jt->first;
+    int64 pv_sec;
+    CHECK(log_analysis::ConvertTimeFromFormatToSec(pv_time, "%Y%m%d%H%M%S", &pv_sec));
+
+    LOG_IF(ERROR, key == FLAGS_key)
+        << "search time:" << search_time << " " << search_sec
+        << " pv time:" << pv_time << " " << pv_sec
+        << " diff: " << labs(pv_sec - search_sec);
+    if (labs(pv_sec - search_sec) < FLAGS_elapse) {
+      matches.push_back(std::make_pair(it, jt));
+      it++;
+      jt++;
+    } else if (pv_sec < search_sec) {
+      jt++;
+    } else {
+      it++;
+    }
+  }
+  if (it != search_actions.end()) {
+    matches.push_back(std::make_pair(it, jt));
+    it++;
+  }
+
+  // search_actions: timestamp -> query, sid, rank_url
+  // pv_actions: timestamp -> query, clicked_urls
+  std::vector<std::string> flds;
+  for (auto it = matches.begin(); it != matches.end(); ++it) {
+    auto it_search = it->first;
+    auto it_pv = it->second;
+    if (it_pv == pv_actions.end()) continue;
+
+    const std::string& search_time = it_search->first;
+    const std::string& search_info = it_search->second;
+    flds.clear();
+    base::SplitString(search_info, "\t", &flds);
+    std::string search_query = flds[0];
+    std::string search_id = flds[1];
+    std::string urls;
+    CHECK(base::LineUnescape(flds[2], &urls));
+    std::vector<std::string> rank_urls;
+    base::SplitString(urls, "\t", &rank_urls);
+    // 记录每条 url 是否被点击
+    std::map<std::string, int> url_set;
+    for (int i = 1; i < (int)rank_urls.size(); i += 2) {
+      url_set[rank_urls[i]] = 0;
+    }
+
+    // const std::string& pv_time = it_pv->first;
+    const std::string& pv_info = it_pv->second;
+    flds.clear();
+    base::SplitString(pv_info, "\t", &flds);
+    std::string pv_query = flds[0];
+    urls.clear();
+    CHECK(base::LineUnescape(flds[1], &urls));
+    std::vector<std::string> clicked_urls;
+    if (!urls.empty()) {
+      base::SplitString(urls, "\t", &clicked_urls);
+    }
+    bool abnormal = false;
+    if (!search_query.empty() && search_query != pv_query) {
+      abnormal = true;
+    } else {
+      for (int i = 0; i < (int)clicked_urls.size(); ++i) {
+        if (url_set.find(clicked_urls[i]) == url_set.end()) {
+          // pv 日志记录的本次搜索点击 url 不在 search日志的展现集合中
+          abnormal = true;
+          break;
+        }
+        url_set[clicked_urls[i]] += 1;
+      }
+    }
+    if (abnormal) {
+      // TODO: output abnormal
+      continue;
+    }
+
+    // TODO output record
+    flds.clear();
+    base::SplitString(key, "\t", &flds);
+    std::string mid = flds[0];
+    std::string se_name = flds[1];
+    for (int i = 0; i < (int)rank_urls.size(); i += 2) {
+      task->Output(search_id,
+                   mid + "\t" + search_time + "\t" +
+                   pv_query + "\t"+ se_name + "\t" +
+                   rank_urls[i] + "\t" + rank_urls[i+1] + "\t" +
+                   base::IntToString(url_set[rank_urls[i+1]]));
+    }
+  }
+}
+
+void reducer() {
+  base::mapreduce::ReduceTask *task = base::mapreduce::GetReduceTask();
+
+  std::string key;
+  std::string line;
+  std::vector<std::string> flds;
+  while (task->NextKey(&key)) {
+    std::string value;
+    std::multimap<std::string, std::string> search_actions;
+    std::multimap<std::string, std::string> pv_actions;
+
+    // 每个桶搜集了一个用户在某个搜索引擎上的所有行为
+    while (task->NextValue(&value)) {
+      flds.clear();
+      base::SplitString(value, "\t", &flds);
+      if (flds.size() == 4) {  // search log
+        // timestamp -> query, sid, specific_info
+        search_actions.insert(std::make_pair(flds[0], log_analysis::JoinFields(flds, "\t", "123")));
+      } else if (flds.size() == 3) {  // show,click in pv log
+        // timestamp -> query, clicked_urls
+        pv_actions.insert(std::make_pair(flds[0], log_analysis::JoinFields(flds, "\t", "12")));
+      } else {
+        CHECK(false) << value;
+      }
+    }
+
+    MergeLogs(key, search_actions, pv_actions, task);
+  }
+  return;
+}
+
+int main(int argc, char *argv[]) {
+  base::mapreduce::InitMapReduce(&argc, &argv, "search log r1");
+  CHECK(!FLAGS_pv_log_path.empty() && !FLAGS_search_log_path.empty())
+      << "specify md5_url_path and search_log_path";
+  if (base::mapreduce::IsMapApp()) {
+    mapper();
+  } else if (base::mapreduce::IsReduceApp()) {
+    reducer();
+  } else {
+    CHECK(false);
+  }
+}

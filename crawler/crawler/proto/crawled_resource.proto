@@ -1,0 +1,108 @@
+package crawler;
+
+message CrawlerInfo {
+  // 使用 index model 计算得到的分数
+  // XXX(pengdan): 现在这个字段存放的 importance 值
+  optional double link_score = 15;
+  // http response code
+  optional int64 response_code = 11;
+  // url 最后修改日期. -1 表明 web server 隐藏了 url 更新信息.
+  optional int64 file_time = 12;
+  // 抓取时间戳(该 url 被抓取到本地的时间点) 
+  optional int64 crawler_timestamp = 21;
+  // 对 该 url 的抓取总耗时(单位: 秒)
+  optional double crawler_duration = 22;
+  // DNS 解析耗时(单位: 秒) 
+  optional double namelookup_time = 23;
+  // 建立 http 连接耗时(单位: 秒) 
+  optional double connect_time = 24;
+  // 从发起连接请求到 握手(handshake) 结束耗时(单位: 秒)
+  optional double appconnect_time = 25;
+  // 从发起连接 到开始文件传送的耗时(单位: 秒)
+  optional double pretransfer_time = 26;
+  // 从发起连接 到收到第一个字节的耗时(单位: 秒)
+  optional double starttransfer_time = 27;
+  // 重定向总耗时(单位: 秒)
+  optional double redirect_time = 28;
+  // 重定向次数
+  optional int64 redirect_count = 29;
+  // 平均下载速度(单位: 字节/秒)
+  optional double donwload_speed = 40;
+  // 下载字节数(取值来至 http 协议头的 Content-Length 字段)
+  optional double content_length_donwload = 41;
+  // http 协议头大小(单位: 字节)
+  optional int64 header_size = 42;
+  // 下载资源类型(取值来至 http 协议头的 Content-Type 字段)
+  optional bytes content_type= 43;
+
+  // 更新失败总次数 
+  optional int32 update_fail_cnt = 50;
+
+  // 用来标识该 url 的数据来源, 下游模块会对不同的数据来源进行区分出来
+  // 'U' : 表示来自 User Log , 即: Url-Refer-Cnt
+  // 'P' : 表示来自 PV log
+  // 'S' : 表示来自 Search Log
+  // 'N' : 表示来自 网页提取出来的新的 link
+  // 'E' : 表示来自 用户通过 Seeds 配置文件
+  // 'L' : 表示来自 Linkbase
+  // 'M' : 表示来自 update module 
+  // 'K' : 表示不知道 该 url 的来源
+  optional string from = 55;
+}
+
+enum ResourceType {
+    kUnknown = 0;
+    kHTML = 1;
+    kCSS = 2;
+    kImage = 3;
+    kText = 4;
+    kJS = 5;
+    kFlash = 6;
+    kAudio = 7;
+    kVideo = 8;
+}
+
+// kMaxLinkSize: 允许的最大 url 链接长度为 2048 字节;  超过该长度限制的 url 链接被丢弃
+// kMaxHTMLSize: html 网页最大长度为 4MB; 超过该长度限制的网页将被截断 
+enum LengthLimit {
+  kMaxLinkSize = 2048;  // 2KB
+  kMaxHTMLSize = 4194304;  // 4MB
+}
+
+message CrawledResource {
+  // 该资源的唯一标识
+  // 
+  // XXX(suhua):
+  // 1. 定义: url = NormalizeClickUrl(RawToClick(effective_url))
+  // 2. 在抓取阶段, 爬虫不填写该字段, 因此 url 字段为 optional,
+  // 3. 资源一旦进入网页库, 要求该字段必须填写, 应用可用 CHECK(crawled_resource.has_url()) 来检查.
+  optional string url = 2;
+
+  // 输入给爬虫的原始 url 
+  required bytes source_url = 1;
+  // 最终生效的 url, 即: 最终抓取到的网页对应的 url
+  required bytes effective_url = 3;
+  required ResourceType resource_type = 8;
+  optional CrawlerInfo crawler_info = 10;
+  optional bytes http_header_raw = 20;
+  // 对网页标题和正文计算的 simhash; 该 字段对 image/css 等非网页资源类型无意义
+  optional uint64 simhash = 25;
+  optional bytes content_raw = 30; 
+  // 由于同时存储原始网页和 UTF-8 转换后的网页会使存储空间消耗翻倍，考虑到
+  // hadoop 存储容量有限，后期可能不会存储一个网页 UTF-8
+  // 转换后的结果，即：只存储从网上抓下来的原始网页 (content_raw)
+  // 用户可以自己调用 base::HTMLToUTF8() 进行转换
+  optional string content_utf8 = 31; 
+  // 网页的原始编码, 该字段取值如下:
+  // "GB18030", "UTF-8", "BIG5", "UTF-16", "LATIN-1", "UTF-32"
+  optional string original_encoding= 32; 
+  // 表示该资源(html/image/css) 是否有截断
+  optional bool is_truncated = 35; 
+
+  // 如果当前资源是网页, 其引用的 css 文件的 url 集合
+  repeated string css_urls = 40;
+
+  // 如果当前资源是网页, 其引用的 image 文件的 url 集合
+  repeated string image_urls = 45;
+}
+

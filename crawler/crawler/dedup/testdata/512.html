@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+	<meta http-equiv="content-language" content="zh-CN" />
+	<meta http-equiv="MSThemeCompatible" content="Yes" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta name="verify-v1" content="E1SqyT+8ITGcZpSGzG5PopYaiLrTIebOfgN6i1YYmnY=" />
+	<title>loading...</title>
+
+<style>
+.button_attention{text-align:center;padding-top:15px;}
+.btn_attention{background:url(http://static.51img1.com/homeskins/t_public/images/btn_attention.gif) no-repeat;width:90px;height:32px;display:inline-block;font-size:0;line-height:0;}
+.btn_attention:hover{background-position:-100px 0;}
+.btn_attention:active{background-position:-200px 0;}
+.btn_cancel_attention{background:url(http://static.51img1.com/homeskins/t_public/images/cancel_attention.gif) no-repeat;width:90px;height:32px;display:inline-block;font-size:0;line-height:0;}
+.btn_cancel_attention:hover{background-position:-100px 0;}
+.btn_cancel_attention:active{background-position:-200px 0;}
+
+.btn_begin_playgame{background:url(http://pic.51img1.com/homeskins/public/images/playgame.gif) no-repeat;width:90px;height:32px;display:inline-block;font-size:0;line-height:0;margin-left:5px;}
+.btn_begin_playgame:hover{background-position:-100px 0;}
+.btn_begin_playgame:active{background-position:-200px 0;}
+
+.new_btn_attention{background:url(http://pic.51img1.com/homeskins/public/images/btn_0920.gif) no-repeat;width:130px;height:31px;display:inline-block;line-height:31px;color:#413a3a !important;text-decoration:none !important;font-family:"新宋体" !important;text-shadow:#fff7e4 1px 0 0,#fff7e4 0 1px 0,#fff7e4 -1px 0 0,#fff7e4 0 -1px 0;*filter: Glow(Color=#ffffff, Strength=1);font-weight:bold;font-size:13px;}
+.new_btn_attention:hover{background-position:0 -50px;}
+.new_btn_attention:active{background-position:0 -100px;}
+.new_btn_attention .atte{background:url(http://pic.51img1.com/homeskins/public/images/atte.gif) no-repeat 0 7px;;padding:0 0 0 22px;display:inline-block;line-height:31px;}
+
+.new_btn_cancel_attention{background:url(http://pic.51img1.com/homeskins/public/images/btn_0920.gif) no-repeat 0 -300px;width:130px;height:31px;display:inline-block;line-height:31px;color:#413a3a !important;text-decoration:none !important;font-family:"新宋体" !important;text-shadow:#fff7e4 1px 0 0,#fff7e4 0 1px 0,#fff7e4 -1px 0 0,#fff7e4 0 -1px 0;*filter: Glow(Color=#ffffff, Strength=1);font-weight:bold;font-size:13px;}
+.new_btn_cancel_attention:hover{background-position:0 -350px;}
+.new_btn_cancel_attention:active{background-position:0 -400px;}
+.btn_normal_0920{background:url(http://pic.51img1.com/homeskins/public/images/btn_0920.gif) no-repeat 0 -150px;width:64px;height:29px;display:inline-block;line-height:29px;color:#413a3a !important;text-decoration:none !important;font-family:"新宋体" !important;text-shadow:#fff7e4 1px 0 0,#fff7e4 0 1px 0,#fff7e4 -1px 0 0,#fff7e4 0 -1px 0;*filter: Glow(Color=#ffffff, Strength=1);font-weight:bold;font-size:13px;}
+.btn_normal_0920:hover{background-position:0 -200px;}
+.btn_normal_0920:active{background-position:0 -250px;}
+
+.textarea_clicked{border-color:#90BAEC !important;}
+
+
+.public_face{cursor: pointer;display:inline-block;width:20px;height:20px;background:url(http://static.51img1.com/v5/t/public/images/public_face.png) no-repeat;vertical-align:middle;}
+*html .public_face{background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://static.51img1.com/v5/t/public/images/public_face.png");}
+.public_flower,.public_flower_active{width:19px;height:23px;line-height:20px !important;display:inline-block;vertical-align:middle;text-decoration:none !important;}
+.public_flower{background:url(http://static.51img1.com/v5/t/public/images/flower.png) no-repeat;_background:url(http://static.51img1.com/v5/t/public/images/flower.gif?v=20111110) no-repeat;}
+.public_flower:hover{text-decoration:none !important;}
+.public_flower_active{background:url(http://static.51img1.com/v5/t/public/images/flower_red.png) no-repeat;_background:url(http://static.51img1.com/v5/t/public/images/flower_red.gif?v=20111110) no-repeat;}
+.public_flower_active{cursor:default !important;}
+.public_flower_num,.public_flower_num2{font-family:arial;font-size:12px;background:url(http://static.51img1.com/v5/t/public/images/flower_numbg.gif) no-repeat;display:inline-block;color:#a8b1ba;margin:0 0 0 2px;width:33px;padding:0 0 0 3px;height:20px;line-height:20px !important;text-align:center;vertical-align:middle;}
+.public_flower_num2{background-position:0 -29px;color:#e82f0f;font-weight:bold;}
+.home_gift_box{padding:10px 0;}
+.home_gift_contain{padding-top:5px;}
+.home_gift_contain .public_flower_active{margin:0 8px 8px 0;}
+.diary_container #login_forms_ul_comment li{list-style-type:none;}
+
+.public_rec_box{margin:15px auto;background:#f9f9f9 url(http://static.51img1.com/v5/t/public/images/public_rec_title_bg2.gif) no-repeat;}
+.public_rec_box h2{float:left;width:21px;_width:17px;height:181px;padding:11px 0 0 5px;line-height:20px;color:#556506;font-size:14px;}
+.public_rec_box .public_rec_content{height:192px;overflow:hidden;font-size:12px;line-height:1.4 !important;}
+.public_rec_box .public_rec_content li{float:left;width:100px;height:182px;list-style:none;text-align:center;overflow:hidden;padding:10px 8px 0;border:0;}
+.public_rec_box .public_rec_title{color:#3c75af !important;font-weight:bold;display:inline-block;height:18px;line-height: 18px !important;overflow:hidden;text-decoration:none !important;}
+.public_rec_box .public_rec_title:hover{text-decoration:underline !important;color:#3c75af !important;}
+.public_rec_box .public_rec_img{text-align:center;padding:8px 0;}
+.public_rec_box .public_rec_img img{width:75px;height:75px;}
+.public_rec_box .public_rec_txt{display:inline-block;text-align:left;color:#999 !important;width:90px;margin:0 auto;text-decoration:none !important; line-height: 1.4 !important;}
+.public_rec_box .public_rec_txt:hover{text-decoration:underline !important;color:#999 !important;}
+.public_rec_bottom{clear:both;text-align:right;padding:0 10px 5px;}
+.public_rec_bottom a{color:#3c75af !important;text-decoration:none !important;}
+.public_rec_bottom a:hover{text-decoration:underline !important;color:#3c75af !important;}
+</style>
+
+<style>
+.base_xiami_player{background: url("http://pic.51img1.com/homeskins/public/images/xiami_player.png") no-repeat;height: 33px;width: 257px;margin:10px 0 0;}
+.base_xiami_player a {font-size:12px;display: block;height: 33px;line-height: 33px;overflow: hidden;padding: 0 40px;text-decoration: underline;color:#444 !important;}
+.base_self_player{background: url("http://pic.51img1.com/homeskins/public/images/self_player.png") no-repeat;height: 33px;width: 257px;margin:10px 0 0;}
+.base_self_player a {font-size:12px;display: block;height: 33px;line-height: 33px;overflow: hidden;padding: 0 40px;text-decoration: underline;color:#444 !important;}
+.haveatalk_item_box .haveatalk_remark{margin-top:10px;}
+.haveatalk_item_box .type_pic .haveatalk_remark{margin-top:0px;}
+.haveatalk_item_box .type_pic .photo_one_box img{margin-top:15px;}
+.haveatalk_item_box .type_pic .photo_one_box p{margin-top:5px;}
+.repost_content .repost_comment{margin-bottom:10px;}
+.repost_content .block_repost {border-top-width:0;border-right-width:0;border-bottom-width:0;border-left-width: 3px;padding: 15px;}
+.repost_content .repost_from{margin-top:10px;}
+/*list new say*/
+.page_list_say .post_controls{padding:10px 0;}
+.page_list_say .post_controls_l{float:left;}
+.page_list_say .post_controls_l a{margin-right:15px;}
+.page_list_say .post_controls_r{float:right;}
+.page_list_say .repost_content,.page_list_say .haveatalk_item_box{margin:10px 0 20px;}
+.page_list_say .repost_content .haveatalk_item_box{margin:0;}
+
+.base_some_img_small .base_one_img {display: inline;height: 85px;margin: 4px 2px 4px 0;max-width: 115px;overflow: hidden;text-align: center;float: left;}
+.base_some_img .base_img_desc{display:block;padding-bottom:20px;}
+.base_some_img_small .base_img_desc{display:none;}
+.base_some_img .base_feed_img{cursor:url("http://static.51img1.com/v5/t/public/images/small.cur"),auto;}
+.base_some_img_small .base_feed_img{cursor:url("http://static.51img1.com/v5/t/public/images/big.cur"),auto;}
+.base_some_img_small{height:90px;overflow:hidden;}
+.base_img_num{margin-top:10px;}
+
+
+.img_vconfirm{text-decoration:none;display:inline-block;width:16px;height:16px;background:url(http://static.51img1.com/v5/t/public/images/v_confirm.png) no-repeat;}
+*html .img_vconfirm{background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=image,src="http://static.51img1.com/v5/t/public/images/v_confirm.png");}
+.v_confirm{text-decoration:none;display:block;width:16px;height:16px;position:absolute;bottom:3px;right:3px;background:url(http://static.51img1.com/v5/t/public/images/v_confirm.png) no-repeat;}
+*html .v_confirm{background-image:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=image,src="http://static.51img1.com/v5/t/public/images/v_confirm.png");}
+
+.newimg_confirm{background:url(http://static.51img1.com/homeskins/public/images/confirm.png) no-repeat;_background-image:url(http://static.51img1.com/homeskins/public/images/confirm.gif);width:92px;height:28px;}
+.newimg_confirm_gray{background:url(http://static.51img1.com/homeskins/public/images/confirm_gray.png) no-repeat;_background-image:url(http://static.51img1.com/homeskins/public/images/confirm_gray.gif);width:92px;height:28px;}
+
+.newimg_vconfirm{text-decoration:none !important;vertical-align: middle;display:inline-block;color:#875a0e !important;font-size:12px !important;text-align:center !important;font-family:"宋体" !important;line-height:17px !important;background:url(http://static.51img1.com/homeskins/public/images/vconfirm_bg.png) no-repeat;_background-image:url(http://static.51img1.com/homeskins/public/images/vconfirm_bg.gif);width:57px;padding-left:18px;height:17px;}
+.newimg_vconfirm:hover{text-decoration:none !important;}
+
+.home_top_bar{background:#000;height:35px;position:relative;color:#fff !important;width:100%;font-size:12px;border-bottom:1px solid #fff;}
+.home_top_bar a,.home_top_bar a:hover{color:#fff !important;hide-focus:expression(this.hideFocus=true);outline:none;}
+.home_top_bar_left{width:980px;margin:0 auto;}
+.home_top_bar_left .tab li{float:left;padding:5px 5px 0 0;}
+.home_top_bar_left .tab li a{display:block;background:url("http://static.51img1.com/v5/aboutme/images/home_top_tab.png") no-repeat;width:103px;height:30px;text-indent:-10000px;}
+.home_top_bar_left .tab li .a2{background-position:-109px 0;}
+.home_top_bar_left .tab li.current .a1{background-position:0 -52px;}
+.home_top_bar_left .tab li.current .a2{background-position:-109px -52px;}
+.home_top_bar_left p{float:left;line-height:32px !important;padding-left:15px;}
+.home_top_bar_left p .ico_voicing,.home_top_bar_left p .ico_mute {float:left;margin-top:7px;margin-left:0;width:25px;height:20px;vertical-align: middle;background: url("http://pic.51img1.com/homeskins/public/images/voicing.gif") no-repeat 3px 2px;text-decoration: none;}
+.home_top_bar_left p .ico_mute{ background: url("http://pic.51img1.com/homeskins/public/images/ico.gif") no-repeat 3px -1804px;}
+.home_top_bar_right{position:absolute;right:20px;top:0;}
+.home_top_bar_right li{display: inline;margin: 0 5px 0 0;line-height:32px !important;}
+.home_top_bar_right li a{line-height:32px !important; text-decoration: none !important;}
+.home_top_bar .ico_themes {background: url("http://pic.51img1.com/homeskins/public/images/ico.gif") no-repeat scroll 0 -2120px;padding: 3px 0 4px 20px;}
+.home_top_bar .ico_luantan {background: url("http://pic.51img1.com/homeskins/public/images/ico.gif") no-repeat scroll 0 -650px;padding: 3px 0 4px 20px;}
+
+</style>
+
+<style>
+.j_usethismodel,.j_usethismodel2{display:block;text-decoration:none;background:url(http://static.51img1.com/v3/home/images/preview/modle_pic1201.gif) no-repeat;width:32px;height:91px;position:absolute;right:0;top:80px;z-index:9999;}
+.j_usethismodel:hover{text-decoration:none;}
+.blk_use_model{position:absolute;right:0;top:80px;z-index:10000;}
+.j_usethismodel2{right:301px;top:0;width:37px;background-position:0 -109px;}
+.blk_use_model .m_1_box{border:1px solid #bccfee;}
+.blk_use_model .m_1{border:1px solid #e8ecf6;background-image:url(http://static.51img1.com/v3/home/images/preview/bg_blue.gif);padding:5px;text-align:center;}
+.blk_use_model .m_2{background-image:url(http://static.51img1.com/v3/home/images/preview/bg_white.gif);width:293px;padding:15px 0;font-size:14px;color:#626262;}
+.blk_use_model .m_2 .pic{padding:5px;border:1px solid #c9c9c9;margin:13px 0 0;}
+.blk_use_model .m_2 .j_btn_use{display:block;margin:13px auto 0;color:#d67636;font-weight:bold;background:url(http://static.51img1.com/v3/home/images/preview/modle_pic1201.gif) no-repeat 0 -213px;width:81px;height:23px;padding:7px 0 0;text-decoration:none;}
+.blk_use_model .m_2 .j_btn_use:hover{text-decoration:none;color:#d67636;}
+.blk_use_model .m_1 p{padding:12px 0 10px;}
+.blk_use_model .m_1 a{color:#3366cc;}
+
+.j_public_alert{position:absolute;top:30px;z-index:9998;}
+.j_public_alert .arrow{z-index:100;display:block;background:url(http://static.51img1.com/v3/home/images/preview/alert_bg_1.gif) no-repeat;width:12px;height:11px;position:absolute;right:80px;top:-10px;}
+.j_public_alert .top,.j_public_alert .bottom{background:url(http://static.51img1.com/v3/home/images/preview/alert_bg_2.gif) no-repeat;height:4px;line-height:0;margin:0 10px 0 0;position:relative;}
+.j_public_alert .top span,.j_public_alert .bottom span{display:block;background:url(http://static.51img1.com/v3/home/images/preview/alert_bg_2.gif) no-repeat right 0;width:10px;height:4px;position:absolute;right:-10px;top:0;}
+.j_public_alert .bottom{background-position:0 -13px;}
+.j_public_alert .bottom span{background-position:right -13px;}
+.j_public_alert .con{background-image:url(http://static.51img1.com/v3/home/images/preview/bg_yellow.gif);border-left:1px solid #beb49c;border-right:1px solid #beb49c;padding:17px 10px 10px;}
+.j_public_alert .close{display:block;text-decoration:none;background:url(http://static.51img1.com/v3/home/images/preview/alert_bg_1.gif) no-repeat -119px 0;width:9px;height:9px;position:absolute;right:8px;top:8px;}
+</style>
+<link id="user_def_skin" href="http://pic.51img1.com/v3/home/stylesheet/style.10060002.pack.css?v=20090105" rel="stylesheet" type="text/css" />
+<link id="user_set_skin" href="/?u=wuxinhui&c=style&id=-848&v=120695720820110829" rel="stylesheet" type="text/css" />
+<style type="text/css">
+html{overflow-x:hidden;}.noselect{-moz-user-select:none;-khtml-user-select:none;user-select:none;}
+#all,#top_box,#page_box{width:955px;}
+#page_box_left{width:200px;margin-left:0px;margin-right:0px;}
+#page_box_center{width:535px;margin-left:10px;*margin-left:10px;_margin-left:8px;margin-right:10px;*margin-right:10px;_margin-right:6px;}
+#page_box_right{width:200px;margin-left:0px;margin-right:0px;}
+	.pop_laba{width:400px; color:#000; font-size:12px;}
+	.pop_laba .head{height:28px; overflow:hidden;position:relative;}
+	.pop_laba .head .d1{background:url('http://static.51img1.com/v3/home/images/laba_pic1.gif') no-repeat; width:259px;}
+	.pop_laba .head .d2{background:url('http://static.51img1.com/v3/home/images/laba_pic1.gif') no-repeat 0 -37px;}
+	.pop_laba .head .d3{background:url('http://static.51img1.com/v3/home/images/laba_pic1.gif') no-repeat right -72px; width:38px;}
+	.pop_laba .head .close{display:block; position:absolute; right:5px; top:6px; width:15px; height:13px; text-decoration:none;}
+	.pop_laba img{border:0;}
+	.pop_laba a{color:#0066cc;}
+	.pop_laba .main{background:#4878c6; border:1px solid #599fff; padding:3px; border-top:0;}
+	.pop_laba .con{border:1px solid #b9d4f9;background:#fff;}
+	.pop_laba .bottom{padding:5px 0 3px; text-align:right; color:#fff; font-weight:bold;}
+	.pop_laba .bottom span{margin:0 5px;}
+	.pop_laba .bottom img{vertical-align:middle; }';
+</style>
+<!-- SCRIPT -->
+<script type="text/javascript">
+	document.domain='51.com';
+	window._arrowhead_='▼';
+	var act_yzcs_FlashReady=false;
+	//window.onerror=function(){return true;}
+</script>
+<script id="__data_file__" src="/?u=wuxinhui&a=getdata&flashid=0&v=213&t=1336806000" type="text/javascript">/*{"user":{"user":"wuxinhui","_user":"wuxinhui","nickname":"\u4e44\u8f89\u7e9a\u30e2\u2192\u8427","face":"http:\/\/p3.u.51img1.com\/39\/71\/wuxinhui_50.gif?v=20080320121228","sex":"\u5148\u751f","vip":"0","viplink":"","vippic":"http:\/\/static.51img1.com\/i\/kf\/viplevel\/vip_out.gif?0401","isconfirm":"1","levelinfo":{"level":"1099","name":"\u7ea2\u8759\u876014\u7ea7","pic":"d014.gif?v=20120110"},"ishome5":"0","htemp1":"0","uid":"9758806","guestlevel":"","vconfirm":"","vconfirmbg":"","vconfirmword":""},"guest":[],"avatar":{"passport":"wuxinhui","groupid":"51","clubid":"51","male":"1","width":"175","height":"245","avatarver":"0","avatardis":"1","studiover":""},"common":{"sextxt":"\u4ed6","sextxtext":"\u4ed6","isfriend":"-1","friendtype":{"rela":"-1","friendtype2":"0"},"state":["1005","200","488","13"],"title":"\u4e44\u8f89\u3042\u30e2\u2192\u8427","homepagetitle":"\u4e44\u8f89\u3042\u30e2\u2192\u8427","memotext":"\u5f00\u5fc3\u5c31\u597d","time":"1336807410","key":"ec3eb5ff1ff41fb90cc18f9cd9f52450","flash_allow":"3","flash_visituse":"3","pagename":"index,index","isopen":"0","iseditplus":"0","expand_friend":"0","expand_brand":"0","expand_reg":"0","love":"0","shareuser":"","_shareuser":"","shareid":"0","actspace":"","isskin":"0","light":"","topstar":"0","pet":[],"supergirl":[],"ist":"0","ch":"1605440055","olurl":"http:\/\/my.51.com\/citylucker\/online_list_user.php","udesc":"\u6c5f\u897f\uff0c\u666f\u5fb7\u9547\uff0c24\u5c81","hasnick":"1","styletype":"10060002","nav":[],"visit_user_up":"0","ad":[],"honor":[],"newtpl":"0","v":"0","visitusermyisnew":"1","isattention":"0","userfacestatus":"0","giftboxisshow":"1","home_gameaccountinfo":"","ab":"0","mbloghome_total":"0"},"comments":[],"repost":[],"pagination":[]}*/</script>
+<link href="http://pic.51img1.com/v3/home/styles/pub_jquery_window.pack.css?v=20110829.css" rel="stylesheet" type="text/css">
+<script src="http://pic.51img1.com/v3/home/scripts/pub_jquery_130.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_jquery_window.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_jquery_pagination.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_global.pack.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_start_animate.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_comment.pack.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_gbook.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_html.pack.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_share.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/pub_pet51home.pack.js?v=20110829.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/mod_index.pack.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/friend/js/home.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/jiaoyou/js/jiaoyou_hudong.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://static.51img1.com/v5/t/js/swfobject.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://static.51img1.com/v5/t/js/player.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://static.51img1.com/v5/t/js/face.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://pic.51img1.com/v3/home/scripts/tother.pack.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://static.51img1.com/v3/friend/js/global_friend.js?v=20120511.js" type="text/javascript"></script>
+<link href="http://pic.51img1.com/v3/home/styles/homet.css?v=20120511.css" rel="stylesheet" type="text/css">
+<script src="http://pic.51img1.com/v3/home/scripts/pub_face51all.pack.js?v=20110829.js" type="text/javascript"></script>
+<link href="http://pic.51img1.com/v3/themes/skins/css/new/global_popup.css?v=20120511.css" rel="stylesheet" type="text/css">
+<script src="http://static.51img1.com/v3/pub/js/new_global_layer.js?v=20120511.js" type="text/javascript"></script>
+<link href="http://static.51img1.com/v5/global/public/css/layer.css?v=20120511.css" rel="stylesheet" type="text/css">
+<script src="http://pic.51img1.com/v5/global/public/js/foui.js?v=20120511.js" type="text/javascript"></script>
+<script src="http://static.51img1.com/v5/t/js/comm_tips.js?v=20120511.js" type="text/javascript"></script><script type="text/javascript" src="http://static.51img1.com/v5/passport/js/quickLogin.js?v=201205100000"></script>
+<script>
+	function clearPageLoding() {
+		$("#page_loding_div , #page_loding_flash_div , #page_loding_rebroadcast").hide();
+		$("#all,#toolbar,#copyright").show();
+	}
+</script>
+<!-- SCRIPT END -->
+</head>
+<body>
+	
+			
+	
+	
+	<!--[if IE]><script language="VBScript">sub FiveOne_FSCommand(ByVal command, ByVal args)call FiveOne_DOFSCommand(command,args)end sub</script><![endif]-->
+	<script type="text/javascript">
+		(function(){
+			if(typeof window.modData=='undefined' || typeof jQuery=='undefined'){if(!!document.all){window.location.reload();return;}window.setTimeout(arguments.callee,100);return;}
+			htmlInit();
+		})();
+	</script>
+		<noscript>亲爱的用户: 您的浏览器不支持JAVASCRIPT脚本或您强制关闭了JAVASCRIPT脚本的支持，请先开启，才能浏览精美主页!</noscript>
+
+<script type="text/javascript" src="http://static.51img1.com/stats/stats_path.js?v=20091224"></script>
+<script type="text/javascript" defer="defer">_51ebro.go();</script>
+
+
+
+
+
+
+
+<div style="display:none;">
+<div class="home_top_bar" id="home_all_top_bar_id">
+	<div class="home_top_bar_left">
+		<ul class="tab">
+			<li class="current"><a href="http://home.51.com/wuxinhui" class="a1">我的主页</a></li>
+			<li ><a href="http://home.51.com/wuxinhui/loveinfo" class="a2">关于我</a></li>
+		</ul>
+		<p>
+			<a tips="点这里关闭或开启背景音乐" href="javascript:void(0);" onclick="sethome_top_music(this);return false;" class="ico_voicing" id="top_music_text">&nbsp;</a>
+		</p>
+	</div>
+	<div class="home_top_bar_right">
+		<ul>
+			<li class="ico_themes"><a href="http://editplus.51.com/my/templates.php?_sid=hometop" target="_blank">换模板</a>&nbsp;</li>
+			<li class="ico_luantan"><a href="http://ilive.51.com/RandomUser/RandomUser.php?user=&sex=&_sid=hometop" target="_blank">乱弹</a>&nbsp;&nbsp;|</li>
+			<li><a target="_blank" href="http://passport.51.com/reg1.5p?from=home">注册</a>&nbsp;|&nbsp;</li><li><a href="http://passport.51.com/passport.5p?gourl=http%3A%2F%2Fhome.51.com%2Fwuxinhui">登录</a></li>
+		</ul>
+	</div>
+</div><div class="item_container honor_container loveinfo_container" id="honor_container"></div>
+
+<div class="item_container mblog_container ask_container" id="mblog_container"></div>
+
+<div id="oldoldrzid" style="text-align:center;margin-top:5px;"><a href="javascript:void(0);" onclick="rz_photo('wuxinhui',1);pub_home_statistic('11|36',1);return false;"><img title="已认证" src="http://static.51img1.com/homeskins/public/images/space.gif"  class="newimg_confirm"  /></a><br><span>他的照片已通过真实认证</span></div></div>
+
+
+<div id="sys_hide_box" style="display:none;">
+
+		<ul id="commend_box_ul">
+			<li id="commend_box_li" class="music_list_commend">
+				<div id="commend_box_li_1" class="music_commend_box">
+					<h4 id="commend_music_h4">评论</h4>
+				</div>
+			</li>
+		</ul>
+		
+		<div id="replay_form_box" class="comment_post_form_box clear" style="clear:both;">
+			<form action="" method="post" name="pub_replay_forms" id="pub_replay_forms">
+			<p><span class="it_s"><textarea class="it1" id="replay_info_memo" name="replay_info_memo" style="border:1px solid #ddd;overflow-y:auto;"></textarea></span></p>
+			<div class="comment_post_button clear">
+				<div class="left">
+					<img onclick="face51New.show(this,'replay_info_memo');" src="http://static.51img1.com/i/home/images/ubbface.gif" class="" id="comment_replay_but"/>
+					<input type="submit" class="g_btn" value="提交回复" id="pub_replay_submit"/>
+				</div>
+			</div>
+			</form>
+		</div><script type="text/javascript">bindRePlayAllEvent();</script>
+			<div id="commend_box" class="commend">
+			<a name="go_to_comment"></a><div id="login_block_comment" class="login_block">
+				<form method="post" action="http://passport.51.com/login.5p" name="login_forms_comment" onsubmit="return chickLogin_rorm(this);">
+				<div id="login_title_comment">您还没有登录，请登录后发表留言、评论！</div>
+				<div id="login_forms_comment">
+					<ol id="login_forms_ul_comment">
+						<li>用户名/彩虹号：<span class="it_s"><input value="" name="passport_51_user" type="text" class="it1 short" style="width:140px;" /></span></li>
+						<li>　　　　&nbsp;密码：<span class="it_s"><input value="" name="passport_51_password" type="password" class="it1 short" style="width:140px;" /></span><input type="hidden" value="true" name="passport_51_redirect"/></li>
+					</ol>
+				</div>
+				<div id="login_submit_comment" class="gbook_login_submit">
+					<input type="submit" value=" 登 录 " name="SubmitComment" class="g_btn" /><input type="checkbox" value="1" name="passport_51_ishidden" id="passport_51_ishidden_comment" class="checkbox"/>
+					<label for="passport_51_ishidden_comment">隐身登录</label>
+				</div>
+				<p class="gbook_login_register"><a href="http://passport.51.com/reg1.5p?from=home">点这里快速注册</a></p>
+				</form>
+			</div>
+				<div class="gbook_con">
+					<ol id="commend_list" class="clearli"></ol>
+					<div id="commend_page_bar" class="page_bar small_page_bar hide">
+						<div id="commend_page_txt" class="pagination_txt"></div>
+						<div id="commend_page_bar1" class="pagination"></div>
+					</div>
+				</div>
+			</div><script type="text/javascript">bindCommentAllEvent();</script></div>
+
+
+
+
+
+
+		<script type="text/javascript">
+		function home_foot_contact_kf()
+		{
+			var msg		= '<div style="padding: 30px 10px 0pt 40px; font-size: 14px;"><p><b>VIP用户可拨打24小时客服专线：0515-88115151</b></p><div style="padding: 10px 0pt 0pt 60px; line-height: 35px;"><p>电话拨通后:</p><p style="line-height: 16px;"><b>网站业务&nbsp;&nbsp;&nbsp;请按1</b><br><span style="color: rgb(146, 146, 146); font-size: 12px;">(用户管理中心相关业务、彩虹业务等)</span></p><p><b>新炫舞业务&nbsp;&nbsp;&nbsp;请按2</b></p></div><p style="padding: 20px 0pt 0pt 50px; font-size: 12px;">若您不想电话咨询，可点击&nbsp;<a target="_blank" onclick="hidePopWin();" href="http://kf.51.com/yijian/index.php" class="color_red">在线反馈</a>&nbsp;咨询或联系&nbsp;<a onclick="hidePopWin();" class="color_red" href="tencent://message/?uin=800052751&amp;Site=51.com&amp;Menu=yes">客服QQ:800052751</a><br>（QQ服务时间为8:30&mdash;19:30）</p><p style="text-align: center; margin: 30px 0pt 0pt;"><span class="g_btn_w"><input type="button" value="确定" class="g_btn fuck_close" style="cursor: pointer;"></span></p></div>';
+			winOpen({"msg":msg,width:530,height:316,title:"联系客服"});
+		}
+		</script>
+	
+		<script type='text/javascript'>
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-16129551-1']);
+		  _gaq.push(['_setDomainName', '51.com']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	
+		<script>
+		window.onload = function(){
+			player.init();
+		 
+		};
+		</script>
+		
+</body>
+</html>

@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   
+    <script type="text/javascript" src="/Js/mootools-1.2-core.js"></script>
+    <script type="text/javascript" src="/Js/mootools-1.2-more.js"></script>
+    <script type="text/javascript" src="/Js/Init.js"></script>
+    <script type="text/javascript" src="/Js/Box.js"></script>
+    <script type="text/javascript" src="/Js/common.js"></script>
+    
+    <title>习网个人空间首页_张瑞阳_我的学习,我的家</title>
+    <meta name="keywords" content="个人空间,网上家园,习网" />
+    <meta name="description" content="习网个人空间，这里是我学习的地方，我的网上家园，在空间里可以写博客、上传相片、收藏喜欢的学习资料、展示自己的才艺，还可以和朋友们互相交流学习。" />
+    <style type="text/css">
+        .box_talent
+        {
+            display: none;
+        }
+        .talentli
+        {
+            display: none;
+        }
+        .noshow
+        {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+    
+            window.addEvent("domready", function() {
+                getTalent(1);
+            });
+    
+    window.addEvent("domready", function () {
+        $$(".nav1").set('class', 'nav1 curr');
+    });
+    function getTitle(str) {
+        var array = str.split("[<()>]");
+        return array[0];
+    }
+    function getIMG(imgObj) {
+        imgObj.src = "http://img.ciwong.com/zone/images/sound_pic.jpg";
+    }
+    function getTalent(type) {
+        $$(".box_talent").setStyle("display", "none");
+        if ($("talents" + type) != null) {
+            $("talents" + type).setStyle("display", "block");
+            if (!$("talents" + type).hasChild($("item" + type))) {
+                getTalent2(type);
+            }
+        }
+        $$(".table_menu li").set("class", "");
+        $("h" + type).set("class", "curr");
+    }
+    function getTalent2(type) {
+        var talents = $("talents" + type);
+        if (type != 4) {
+            var request = new Request.JSON({
+                url: '/API.asmx/GetTalent',
+                data: "{userID: 7659264,type:" + type + "}",
+                onSuccess: function (data) {
+                    if (data.d != null) {
+                        var arrayDate = data.d;
+                        if (arrayDate.length > 0) {
+                            var str = "";
+                            for (var i = 0; i < arrayDate.length; i++) {
+                                str += "<li id='item" + type + "'><a href='/Talent/oneTalent.aspx?Tid=" + arrayDate[i].PId + "&type=" + type + "&uin=7659264'><img src='" + arrayDate[i].filePhat + "_150x112.jpg' width='124px' height='94px' alt='" + getTitle(arrayDate[i].Title) + "'/></a>";
+                                str += "<p><a href='/Talent/oneTalent.aspx?Tid=" + arrayDate[i].PId + "&type=" + type + "&uin=7659264' class='link_01'>" + getTitle(arrayDate[i].Title) + "</a></p></li>";
+                            }
+                            talents.set('html', str);
+                        }
+                        else {
+                            var div = "";
+                            if ('False' == "True") {
+                                div = "<div id='item" + type + "' class=\"no_contain\">才艺展示是展示您才艺的地方，把您的才艺秀出来让大家欣赏吧！<a href=\"/Talent/Upload.aspx?Album=2C8AE634-06C0-489D-9083-D3D475065583&uin=7659264\" class=\"link_03\">我要上传</a>";
+                            }
+                            else {
+                                div = "<div id='item" + type + "' class=\"no_contain\">主人还没有上传才艺作品哦！</div>";
+                            }
+                            talents.set('html', div);
+                        }
+                    }
+                }
+            }).send();
+        }
+        else {
+            var request = new Request.JSON({
+                url: '/API.asmx/GetTalent2',
+                data: "{userID:7659264}",
+                onSuccess: function (data) {
+                    if (data.d != null) {
+                        var arrayDate = data.d;
+                        if (arrayDate.length > 0) {
+                            var item = "";
+                            for (var i = 0; i < arrayDate.length; i++) {
+                                item += "<li id='item" + type + "'><a href='/Talent/oneTalentMedia.aspx?Tid=" + arrayDate[i].TSId + "&type=4&uin=7659264'><img src='" + arrayDate[i].convertURL + "' onerror='getIMG(this);' width='124px' height='94px' alt='" + arrayDate[i].Title + "'/></a>";
+                                item += "<p><a href='/Talent/oneTalentMedia.aspx?Tid=" + arrayDate[i].TSId + "&type=4&uin=7659264' class='link_01'>" + arrayDate[i].Title + "</a></p></li>";
+                            }
+                            talents.set('html', item);
+                        }
+                        else {
+                            var div = "";
+                            if ('False' == "True") {
+                                div = "<div id='item" + type + "' class=\"no_contain\">才艺展示是展示您才艺的地方，把您的才艺秀出来让大家欣赏吧！<a href=\"/Talent/Upload.aspx?Album=2C8AE634-06C0-489D-9083-D3D475065583&uin=7659264\" class=\"link_03\">我要上传</a>";
+                            }
+                            else {
+                                div = "<div id='item" + type + "' class=\"no_contain\">主人还没有上传才艺作品哦！</div>";
+                            }
+                            talents.set('html', div);
+                        }
+                    }
+                }
+            }).send();
+        }
+    }
+    function setTab(id) {
+        $("l1").set("class", "");
+        $("l2").set("class", "");
+        $("l" + id).set("class", "curr");
+        $("l" + (id == 1 ? "2" : "1")).set("class", "normal");
+        $("tab1").setStyle("display", "none");
+        $("tab2").setStyle("display", "none");
+        $("tab" + id).setStyle("display", "");
+    }
+    function RemoveHTML(str) {
+        var s = str.replace(/<[^>]*>/g, "");
+        return s;
+
+    }
+    var bakObj;
+    function allnoshow() {
+        for (var i = 0; i < 999; i++) {
+            if ($("messageDIV" + i) != null) {
+                $("messageDIV" + i).set('class', 'noshow');
+            }
+        }
+    }
+    function show(objName) {
+
+        var messageObj = $(objName);
+        if (messageObj != null) {
+            allnoshow();
+            chooseCustomer(messageObj);
+        }
+    }
+    function noshow(objName) {
+        $(objName).set('class', 'noshow');
+    }
+    var bakObj; 	//定义一个空的全局变量；
+    function chooseCustomer(obj) {
+        bakObj = obj; //把此方法传进来的参数即当前所点对象使bakObj初始化；
+        var CustomerFram = obj; 	//获取弹出框对象
+        var hidivmt = obj.offsetTop; //获取当前对象居body顶部的高度
+        var hidivml = obj.offsetLeft; //获取当前对象居body左部的宽度
+        var objWidth = obj.offsetWidth; 	//获取当前对象的实际宽度
+        var objHeight = obj.offsetHeight; //获取当前对象的实际高度
+        CustomerFram.set('class', 'infobar');
+    }
+    </script>
+
+    <script type="text/javascript">        document.write("<" + "script type='text/javascript' src='http://img.ciwong.com/common/portal/navigation.js?" + Math.random() + "'><" + "/script>");</script>
+<title>
+
+</title></head>
+<body>
+ <link type="text/css" href="http://img.ciwong.com/zone/css2/space.css" rel="stylesheet" />
+    
+    <link type="text/css" href="http://img.ciwong.com/zone/css/skin_01.css" rel="stylesheet" />
+    
+<script type="text/javascript">    _write_vip_func_menu_();</script>
+<!--   wrap   -->
+      <div class="tips" style="display:none;position:absolute;z-index:100 ">
+      <div class="tips_0"></div><div class="tips_1"></div><div class="tips_2"><div class="clear0"></div></div>
+       </div>
+    <div id="wrap">
+    <!-- top -->
+    <div id="top">
+          <div class="space"><span>张瑞阳的个人空间</span></div>
+	      <div class="address">http://7659264.ciwong.com</div>
+	      <div class="signature">还没设置个人签名！</div>
+          <a class="service_my" href="http://chat.live800.com/live800/chatClient/chatbox.jsp?companyID=92071&amp;configID=115414&amp;jid=2459128748" target="_blank"><img alt="" width="95" height="22" src="http://img.ciwong.com/zone/images/service_my.gif" /></a>
+          <div class="mainNav">
+          
+		  <div class="innav_1" >
+			    <a href="/?uin=7659264" class="nav1" title="首页">首页<span>首页</span></a><em></em>
+			    <a href="/Blog/?uin=7659264" class="nav2" title="博客">博客<span>博客</span></a><em></em>
+			    <a href="/Photo/?uin=7659264" class="nav3" title="相册">相册<span>相册</span></a><em></em>
+			    <a href="/Talent/?uin=7659264" class="nav4" title="才艺展示">才艺展示<span>才艺展示</span></a><em></em>
+			    <a href="/UserCollection/?uin=7659264" class="nav5" title="收藏屋">收藏屋<span>收藏屋</span></a><em></em>
+			    <a href="/MessageBoard/?uin=7659264" class="nav6" title="留言板">留言板<span>留言板</span></a><em></em>
+			    <a href="/UserFriendShow/?uin=7659264" class="nav7" title="习友秀">习友秀<span>习友秀</span></a>
+			    
+                <div class="clear0"></div>
+		   </div>
+		   
+	    </div>
+     </div>
+<!-- //top -->
+<!-- container -->
+      <div id="container">
+      <!-- leftside -->
+      <div class="left_side">
+         
+    
+      <div class="box_content">
+                <div class="in_head">
+                    <b><i>个人信息</i></b>
+                </div>
+                <div class="in_mid">
+                        <div class="user_picture"><img alt="" src="http://7659264.ciwong.com/photo.ashx"  /><span>张瑞阳</span></div>
+                        <ul class="list_msg">
+                              <li><label>所在学校：</label><div class="p_ggzl">
+                                  
+                                    <a href="http://class.ciwong.com/school_mian.aspx?orgid=17e58a94-3def-407d-8207-eb4d296ef347" target="_blank" title="东方小学"  class="link_01">东方小学</a><br />
+                                  </div>
+                               </li>
+                              <li><label>所在班级：</label><div class="p_ggzl">
+                                    
+                                    <a href="http://zone.class.ciwong.com/?ClassID=b6d1673d-6d4e-4d15-aadb-004474e13438" target="_blank" title="(2010)六年级（二）班" class="link_01">(2010)六年级</a><br />
+                                    </div>
+                               </li>
+                              <li><label>称　谓：</label><div class="p_ggzl"><div class="p_ggzl">童生</div></div></li>
+                              <li><label>积　分：</label><div class="p_ggzl"><span class="icon_jf">0</span></div></li>
+                              <li><label>蜂蜜果：</label><div class="p_ggzl"><span class="icon_fmg">0</span></div></li>
+                         </ul>
+                         <div class="clear10"></div>
+                         
+                         <div class="con_grxx">
+                              <a href="javascript:AddFriend('张瑞阳',0,7659264);" class="btn_1">加习友</a>
+                              <a href="javascript:AddAttention(0,7659264); " class="btn_1">加关注</a>
+                              <a href="javascript:Gift(0,7659264)" class="btn_1">送礼物</a>
+                              <a href="javascript:sendMsg(7659264,0,'张瑞阳')" class="btn_1">发消息</a>
+                              <div class="clear0"></div>
+                         </div>
+                         
+                </div>
+                <div class="in_foot"><b><i></i></b></div>            
+     </div>
+
+    <div class="box_content" style="overflow: inherit">
+        <div class="in_head">
+            <b><i><a href="/UserCenter/UserInfo.aspx?uin=7659264" class="link_02">详细</a>个人资料</i></b>
+        </div>
+        <div class="in_mid">
+            <ul class="list_msg" style="overflow: hidden">
+                <li>
+                    <label class="labbel_1">
+                        性别：</label><div class="p_ggzx">
+                            男</div>
+                </li>
+                <li>
+                    <label class="labbel_1">
+                        生日：</label><div class="p_ggzx">
+                            </div>
+                </li>
+                <li>
+                    <label class="labbel_1">
+                        家乡：</label><div class="p_ggzx">
+                            </div>
+                </li>
+                <li>
+                    <label class="labbel_1">
+                        爱好：</label><div title="" class="p_ggzx_2">
+                            </div>
+                </li>
+                <li>
+                    <label class="labbel_1">
+                        性格：</label><div class="p_ggzx">
+                            </div>
+                </li>
+                <li>
+                    <label class="labbel_1">
+                        格言：</label><div class="p_ggzx">
+                            </div>
+                </li>
+                <li>
+                    <label>
+                        自我介绍：</label><div class="clear0">
+                        </div>
+                </li>
+                <li>
+                    <p>
+                        </p>
+                </li>
+            </ul>
+            <div class="clear10">
+            </div>
+        </div>
+        <div class="in_foot">
+            <b><i></i></b>
+        </div>
+    </div>
+    
+    <div class="box_content">
+        <div class="in_head">
+            <b><i>最近访客</i></b>
+        </div>
+        <div class="in_mid">
+            <ul class="use_head">
+                
+                <div class="no_contain">
+                    暂无访客</div>
+                
+            </ul>
+            <div class="clear5">
+            </div>
+            
+            <div class="clear10">
+            </div>
+        </div>
+        <div class="in_foot">
+            <b><i></i></b>
+        </div>
+    </div>
+    
+      </div>
+      <!-- //leftside -->
+      <!-- center -->
+      <!-- //center -->  
+      <!-- rightside -->
+        
+    <div class="mid_side">
+        <div class="mood">
+            <a href="/Mood/?uin=7659264"
+                class="link_02">全部</a>
+            
+            <span>心情：</span>暂无最新心情
+            <div class="clear0">
+            </div>
+        </div>
+        <div class="box_content">
+            <div class="in_head">
+                <b><i>
+                    最新相片</i></b>
+            </div>
+            <div class="in_mid">
+                <ul class="box_photo">
+                    
+                    <div class="no_contain">
+                        还没有上传照片</div>
+                    
+                </ul>
+                <div class="clear10">
+                </div>
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+        <div class="box_content">
+            <div class="in_head">
+                <b><i>
+                    
+                    最新博文</i></b>
+            </div>
+            <div class="in_mid">
+                <ul class="blog_box">
+                    
+                    <li>
+                        <div class="blog_titl">
+                            <a href="/Blog/Detail.aspx?Bid=8612ea3b-9938-4c27-a862-d7a79010ed26&uin=7659264" class="link_01">
+                                安全最重要</a> <em>
+                                    2011/05/19 11:47</em><div class="clear0">
+                                    </div>
+                        </div>
+                        <div class="blog_txt color_02">
+                            <a style="float: right;"
+                                href="/Blog/Detail.aspx?Bid=8612ea3b-9938-4c27-a862-d7a79010ed26&uin=7659264" class="link_03">阅读全文</a></div>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+        
+        <div class="box_content">
+            <div class="in_head">
+                <b><i>才艺展示</i></b>
+            </div>
+            <div class="in_mid">
+                <ul class="table_menu">
+                    <li id="h1" class="curr"><a href="javascript:getTalent(1)">绘画(<i id="hh">0</i>)</a></li>
+                    <li id="h2"><a href="javascript:getTalent(2)">手抄报(<i id="sc">0</i>)</a></li>
+                    <li id="h3"><a href="javascript:getTalent(3)">书法(<i id="sf">0</i>)</a></li>
+                    <li id="h4"><a href="javascript:getTalent(4)">开口秀(<i id="yp">0</i>)</a></li>
+                </ul>
+                <ul id="talents1" class="box_talent" style="display: block">
+                </ul>
+                <ul id="talents2" class="box_talent" style="display: none">
+                </ul>
+                <ul id="talents3" class="box_talent" style="display: none">
+                </ul>
+                <ul id="talents4" class="box_talent" style="display: none">
+                </ul>
+                <div class="clear10">
+                </div>
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+        
+    </div>
+    <!-- //center -->
+    <!-- rightside -->
+    <div class="right_side">
+        
+        <div class="box_content">
+            <div class="in_head">
+                <b><i>
+                    荣誉</i></b>
+            </div>
+            <div class="in_mid">
+                
+                <div class="no_contain">
+                    暂无显示项</div>
+                
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+        
+        <div class="box_content">
+            <div class="in_head">
+                <b><i><a href="\Calendar\Default.aspx?uin=7659264&Y=2012&M=5"
+                    class="link_02">
+                    全部</a>学习历程</i></b>
+            </div>
+            <div class="in_mid">
+                <ul class="xxlc">
+                    
+                    <p>
+                        最近没有任何动静哦!</p>
+                    
+                </ul>
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+        <div class="box_content">
+            <div class="in_head">
+                <b><i><a href="/UserCollection/Default.aspx?uin=7659264" class="link_02">
+                    全部</a>张瑞阳的收藏屋</a></i></b>
+            </div>
+            <div class="in_mid">
+                <ul class="scw">
+                    
+                    <div class="no_contain">
+                        收藏屋里暂时是空的</div>
+                    
+                </ul>
+            </div>
+            <div class="in_foot">
+                <b><i></i></b>
+            </div>
+        </div>
+    </div>
+
+      <!-- //rightside -->
+      <div class="clear0"></div>
+      </div>
+    <!-- //Container -->
+    </div>
+<!-- //wrap --> 
+<!-- Foot -->
+    <div class="bottom" style= " text-align:center;">
+    	<p><a href="http://www.ciwong.com" target="_blank">习网首页</a> | <a href="http://www.ciwong.com/about/about.html" target="_blank">关于我们</a> | <a href="http://www.ciwong.com/about/law.html" target="_blank">法律声明</a> | <a href="http://www.ciwong.com/about/feedback.html" target="_blank">意见反馈</a> | <a href="http://www.ciwong.com/about/recruitment.html" target="_blank">诚聘英才</a> | <a href="http://www.ciwong.com/about/contact.html" target="_blank">联系方式</a> | <a href="http://www.ciwong.com/about/sitemap.html" target="_blank">网站地图</a></p> 
+        <p>Copyright © 2008 - 2011 CiWong.Inc. All Rights Reserved. <script type="text/javascript" src="http://img.ciwong.com/common/portal/tongji.js"></script></p> 
+        <p>ICP证粤B2-20080204　粤教信息[2008]7号</p> 
+    </div>
+<!-- //Foot -->
+</body>
+</html>

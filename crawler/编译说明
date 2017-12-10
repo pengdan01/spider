@@ -1,0 +1,5 @@
+首先git clone下来cc-pub工程
+
+然后修改build.sh里CC_PUB_DIR的配置
+
+运行./build.sh 就可以了

@@ -1,0 +1,4 @@
+将上传到 hadoop 上的 HbaseDump 格式(sf) resource 灌到 Job queue 中
+step1. 下载 HbaseDump 到本地(需要手动操作)
+step2. 执行本脚本, 进行灌 Job queue 
+

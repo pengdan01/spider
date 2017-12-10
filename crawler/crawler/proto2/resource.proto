@@ -1,0 +1,186 @@
+package crawler2;
+
+import "crawler/proto2/crawl_info.proto";
+
+// kMaxLinkSize: 允许的最大 url 链接长度为 4096 字节;  超过该长度限制的 url 链接被丢弃
+// kMaxHTMLSize: html 网页最大长度为 48MB; 超过该长度限制的网页将被截断 
+// 由于 gif图片较大, 4MB偏小, 需要调整大一些, 如果截断, 图床处理异常
+enum LengthLimit {
+  kMaxLinkSize = 4096;  // 4KB
+  kMaxHTMLSize = 50331648;  // 48MB
+}
+
+enum ResourceType {
+    kUnknown = 0;
+    kHTML = 1;
+    kCSS = 2;
+    kImage = 3;
+    kText = 4;
+    kJS = 5;
+    kFlash = 6;
+    kAudio = 7;
+    kVideo = 8;
+}
+
+message Brief {
+  // 该资源的唯一标识
+  // 
+  // XXX(suhua):
+  // 定义: url = NormalizeClickUrl(RawToClick(effective_url))
+  required string url = 1;
+
+  // 输入给爬虫的原始 url 
+  required bytes source_url = 2;
+
+  // 最终生效的 url, 即: 最终抓取到的网页对应的 url
+  required bytes effective_url = 3;
+
+  required ResourceType resource_type = 10;
+
+  // referer: 表示该 url 的来源
+  optional bytes referer = 13;
+
+  // web server http response header
+  //
+  // 对于多次 3XX 跳转抓下来的资源, http header 存放的是 最后一次 http 请求的
+  // response header 或者按请求顺序的所有 response header
+  optional bytes response_header = 20;
+
+  // 网页的原始编码, 该字段取值如下:
+  // "GB18030", "UTF-8", "BIG5", "UTF-16", "LATIN-1", "UTF-32", 以及 "CP936" 等等
+  optional string original_encoding = 25; 
+
+  // 表示该资源(html/image/css) 是否有截断
+  optional bool is_truncated = 30; 
+
+  optional CrawlInfo crawl_info = 40;
+  optional CrawlReason crawl_reason = 50;
+}
+
+// Robots 协议对网页的限制
+enum RobotsLevel {
+  kRobotsDisallow = 0;  // 不允许抓取
+  kNoRobots = 1;        // 无 Robots
+  kRobotsAllowOther = 2; // 有 robots 协议, 没有允许 360 抓取, 但是允许某些特定的 spider 抓取
+  kRobotsAllow = 3;     // 有 robots 协议, 并允许 360 抓取
+}
+
+message CrawlReason {
+  // baidu or google index this page
+  optional bool is_indexed_baidu = 1;
+  optional bool is_indexed_google = 2;
+  // some baidu or google 's indexed page link to the page
+  optional bool is_linked_baidu = 3;
+  optional bool is_linked_google = 4;
+  // crawled by realtime crawler, safe
+  optional bool is_realtime_crawl = 7;
+  // rank by classifier
+  optional float classifier_score = 8;
+  // robots
+  optional RobotsLevel robots_level = 9;
+  // pattern
+  optional bool is_safe_pattern = 10;
+  // safe sub link in graph which append from 'seeds'
+  optional bool is_linked_graph = 11;
+}
+
+message CssFile {
+  required bytes url = 1;
+  optional bytes raw_content = 2;
+  optional bytes utf8_content = 3;
+}
+
+message ImageFile {
+  required bytes url = 1;
+  optional bytes raw_content = 2;
+  // 图片识别出来的价格
+  // 只有当该图片时价格图片时, 该字段才有意义.
+  optional string price = 3;
+}
+
+message Content {
+  optional bytes raw_content = 1;
+  optional bytes utf8_content = 2;
+
+  // 将 raw_content 用 base::snappy::Compress() 压缩后得到的结果
+  // 可用 base::snappy::Uncompress() 解压得到 raw_content
+  optional bytes snappy_raw_content = 3;
+
+  // html 的 title, 经过 lineescape 处理
+  // 如果长度超过 1024 bytes, 截断成 1024 bytes
+  optional bytes html_title = 4;
+
+  repeated CssFile css_files = 10;
+  repeated ImageFile image_files = 11;
+  // XXX(pengdan): 存放 用户数据
+  optional bytes other = 20;
+}
+
+message ParsedData {
+  // 如果当前资源是网页, 其引用的 css 文件的 url 集合
+  repeated string css_urls = 10;
+  // 如果当前资源是网页, 其引用的 image 文件的 url 集合
+  repeated string image_urls = 20;
+  // 如果当前资源时网页, 其包含的anchor url 集合, <a href=...>blabla</a> 
+  repeated string anchor_urls = 30;
+}
+
+message RankScore {
+  required float rank_score = 1;
+  required int64 timestamp_in_sec = 2;  // 秒数 since unix epoch
+}
+
+// 指向网页的 anchor
+message AnchorInfo {
+  repeated string term = 1;
+  // NOTE(duyanlong): 复合文档中, term_id 为空,
+  // 在建正排索引时, 将 term 转换为 term_id, 依次存入
+  repeated int64 term_id = 2;
+  optional int32  freq = 5;
+}
+// 点击网页的 query
+message QueryInfo {
+  repeated string term = 1;
+  // NOTE(duyanlong): 复合文档中, term_id 为空,
+  // 在建正排索引时, 将 term 转换为 term_id, 依次存入
+  repeated int64 term_id = 2;
+  optional int32  freq = 5;
+}
+
+
+message Graph {
+  // 今后会放 anchors, querys 等
+  optional RankScore uv_rank = 1;
+  optional RankScore click_rank = 2;
+  optional RankScore show_rank = 3;
+  optional RankScore site_click_rank = 4;
+  repeated AnchorInfo anchor = 10;
+  repeated QueryInfo  query = 11;
+}
+
+message CommentData {
+  required bytes url = 1;
+  optional bytes raw_content = 2;
+}
+
+message Alt {
+  // 存放淘宝/京东等商品的评论数据, 数据为 JSON 格式, 例如:
+  // http://a.m.taobao.com/ajax/rate_list.do?item_id=20403228357&p=1&ps=150&&first=1
+  optional CommentData comment_data = 1;
+  // 特殊的图片, 例如: 京东的价格图片 
+  optional ImageFile price_image = 2;
+  // 存放淘宝/天猫商品的详细描述数据, 数据为 JSON 格式, 例如:
+  // http://a.m.taobao.com/ajax/desc_list.do?item_id=18894543060&sid=a79a4ac1
+  optional CommentData desc_detail = 3;
+  // 存放淘宝/天猫商品的参数数据, 数据为 JSON 格式, 例如:
+  // http://a.m.taobao.com/ajax/param.do?item_id=18894543060&sid=a79e9aba4ac1a39d
+  optional CommentData param = 4;
+}
+
+message Resource {
+  optional Brief brief = 1;
+  optional Content content = 2;
+  optional ParsedData parsed_data = 3;
+  optional Graph graph = 4;
+  optional Alt alt = 5;
+}

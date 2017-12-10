@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="网易旗下搜索引擎，主要提供网页、图片、热闻、视频、音乐、博客等传统搜索服务，同时推出海量词典、阅读、购物搜索等创新型产品。" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >
+<title>有道首页</title>
+<script>
+window['YD'] = {};
+YD.version = '1.7.2v4';
+</script>
+<link rel='shortcut icon' href='http://shared.ydstatic.com/images/favicon.ico' type='image/x-icon'/>
+<link href='http://shared.ydstatic.com/plugins/search-provider.xml' title='有道网页搜索' type='application/opensearchdescription+xml' rel='search'/>
+<link href="http://shared.ydstatic.com/r/1.0/s/a-c173.2.css?201201011" rel="stylesheet" type="text/css" />
+<link rel="canonical" href="http://www.youdao.com" />
+<style type="text/css">
+#yd{width:360px;height:135px;margin:0 auto;text-indent:-9999em;background:url(http://shared.ydstatic.com/oxo/p/logo.png);_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://shared.ydstatic.com/oxo/p/logo.png", sizingMethod="crop")}
+
+</style>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="t">
+  <div id="u">
+            <a href="http://www.163.com/" onclick="javascript:requestLog('FUNC_HIT','click=163home');">网易</a><span class="sl">|</span>
+            <a href="javascript:void(0)" onclick="javascript:this.href = '/i?keyfrom=youdao.homepage';requestLog('FUNC_HIT','click=gotoMyth');">个性首页</a><span class="sl">|</span>
+      <a id="chgSkinBtnHome" href="/skinchooser" onclick="javascript:requestLog('FUNC_HIT','click=changeSkin');">换肤</a><span class="sl">|</span>
+      <a href="http://www.youdao.com/setting" onclick="javascript:requestLog('FUNC_HIT','click=setting');">设置</a><span class="sl">|</span>
+            <a href="http://account.youdao.com/login?back_url=http%3A%2F%2Fwww.youdao.com%2F%3Flb%3D1&service=myth" onclick="javascript:requestLog('FUNC_HIT','click=login');">登录</a>
+        </div>
+  </div>
+<form id="w" action="/search" method="get" onsubmit="return recordSearchTime();">
+  <div id="f">
+    <h1 id="yd">有道 - 网易旗下搜索</h1>
+    <div id="nw">
+        <strong>网页</strong>
+        <a onClick="requestLog('FUNC_HIT','click=nav.image');return seturl(this,'image','web.index')" href="http://image.youdao.com/">图片</a>
+        <a onClick="requestLog('FUNC_HIT','click=nav.news');return seturl(this,'news','web.index')" href="http://news.youdao.com/">热闻</a>
+        <a onClick="requestLog('FUNC_HIT','click=nav.gouwu');return seturl(this,'gouwu','web.index')" href="http://gouwu.youdao.com/">购物</a>
+        <a onClick="requestLog('FUNC_HIT','click=nav.mp3');return seturl(this,'mp3','web.index')" href="http://mp3.youdao.com/">音乐</a>
+        <a onClick="requestLog('FUNC_HIT','click=nav.video');return seturl(this,'video','web.index')" href="http://video.youdao.com/">视频</a>
+        <a onClick="requestLog('FUNC_HIT','click=nav.dict');return seturl(this,'dict','web.index')" href="http://dict.youdao.com/">词典</a>
+        <a href="http://fanyi.youdao.com/" onClick="requestLog('FUNC_HIT','click=nav.fanyi');return seturl(this,'fanyi','web.index','translate?i=')">翻译</a>
+        <a class="mn" target="_blank" href="http://www.youdao.com/about/productlist.html"><u>更多»</u></a>
+    </div>
+    <div id="fw"><div id="fc" class="sp"><div id="qc"><input type="text" id="query" name="q" autocomplete="off" /></div><input type="submit" value="搜 索" id="qb" class="sp" /></div></div>
+        <div id="ao"><span style="color:red;margin-right:5px;">新!</span><a target="_blank" href="http://survey2.163.com/html/paytranslation/paper.html?site=searchhead">参与翻译使用情况调查，精美礼品等你拿！</a></div>
+      </div>
+    <script>document.getElementById('query').focus();</script>
+    <div id="b">
+    <p><a href="http://a.youdao.com/">企业推广</a> - <a href="http://www.youdao.com/about">关于有道</a> - <a href="http://i.youdao.com">官方博客</a> - <a href="http://job.youdao.com">诚聘英才</a></p>
+    <p id="cr">&nbsp;&nbsp;&copy;2012 网易公司&nbsp;&nbsp;<a href="http://www.youdao.com/terms/privacy.html">隐私政策</a> <a href="http://www.youdao.com/terms/index.html">服务条款</a> 京ICP证080268号 文网文[2010]096号 京公网安备110108003898号</p>
+    </div>
+    <input type="hidden" name="ue" value="utf8"/><input type="hidden" name="keyfrom" value="web.index"/>
+    </form>
+<div id="h"></div>
+
+<script>
+function fireDOMContentLoaded() {
+    jsLazyLoad('http://shared.ydstatic.com/js/suggest/autocomplete_json.r267738.js', function() {         initSuggest( '' );     });
+    initMenus();     lazyLoadSkin();           }
+function fireLoaded() {
+          addEvent(document.getElementById('query'), 'keyup', skinChgPGMonitor);  }
+function lazyLoadSkin() {
+var s = document.styleSheets[2];s.insertRule("html{background:#fff url(http://shared.ydstatic.com/images/skins/default/skin-index-x.jpg?200912151) repeat-x 0px -4px}",0);s.insertRule("body{background:url(http://shared.ydstatic.com/images/skins/default/youdaoskin.jpg) no-repeat center top}",0);
+}
+</script>
+<script type="text/javascript" src="http://shared.ydstatic.com/images/myth/js/home/home.1.7.4.1.js?_=1.7.2v4"></script> 
+</body>
+</html>

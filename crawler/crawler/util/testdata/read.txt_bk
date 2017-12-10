@@ -1,0 +1,27 @@
+// for html test data
+<li><a href="http://video.sina.com.cn/" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+<li><a href="http://video.sina.com.cn/#" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+<li><a href="http://video.sina.com.cn#" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+<li><a href="http://video.sina.com.cn" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+<li><A href="http://a.sina.com.cn/weibo/pengdan.xhtml" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+
+<li><a cd="9" href="http://ditu.google.cn/maps?client=aff-265" target="_blank">\u5728\u7ebf\u5730\u56fe</a></li>
+720             <li><a cd="1-7" href="/Shipin_Boke/">\u89c6\u9891\u64ad\u5ba2</a></li>
+73321             <li><a cd="1-8" href="/Yingshi_Kuandai/">\u5f71\u89c6\u5bbd\u5e26</a></li>
+<li class="firstChild"><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.265.com/');rue);">将265设为首页</a></li>
+<li><A href="http://www.265.com" id="linkTo_video" target="_blank" onclick="loginStatus.guide.close()">视频</a></li>
+<a cd="pink"   id="setTheme_pink"   href="javascript:_s.setTheme('pink')"></a>
+
+// for css test data
+<link type="text/css" rel="stylesheet" href="http://www.sohu.com/upload/style/global1212.css" />
+<link type="text/css" rel="stylesheet" href="http://www.sohu.com/upload/style/layout091102.css" />
+<link type="text/css" rel="stylesheet" href="http://www.sohu.com/upload/style/style110830.css" />
+<link type="text/css" rel="stylesheet" href="http://www.sohu.com/upload/style/style111128.css" />
+<link type="text/css" rel="stylesheet" href="http://r.suc.itc.cn/combo.action?v.11111502&r=/itoolbar/index/itoolbar.css&t=css&c=utf-8" />
+
+// for img test data
+<img src="http://images.sohu.com/bill/s2011/ranzhang/xsj1601852.jpg" border=0 width=160 height=185></img>
+<img src="http://images.sohu.com/bill/s2011/hailiu/focus/0465/1601851213.gif" border=0 width="160" height="185"></img>
+<img src="http://images.sohu.com/bill/s2011/hailiu/focus/0465/1601851213.gif" border=0 width="160" height="185">
+<img src="http://images.sohu.com/bill/s2011/hailiu/focus/1366/1601851216.jpg" border=0 width="160" height="185">
+<img src="http://images.sohu.com/bill/s2009/focus/xsj142_80-3k.jpg" border=0 width=142 height=80></img>

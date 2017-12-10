@@ -1,0 +1,6 @@
+check_http200_page_content: 统计的是无效网页占比, 即: 无效网页数(html simhash 计算判断出的) / http 返回 200 的 网页数
+
+从大站角度 看网页有效性
+check_valid_page: 统计的是大站(认为走 代理的站点 是 大站) 有效网页占比, 抓取的 url数 降序
+从网页有效占比角度看 站点
+check_valid_page: 统计的是 站点 有效网页占比, 占比升序

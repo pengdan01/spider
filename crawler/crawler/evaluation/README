@@ -1,0 +1,12 @@
+// 此包负责评估抓取数据的结果
+// 评估 crawler 
+// 评估值: 
+// 1. top n(UV) URL 抓取成功率
+// 2. top n(UV) Website 抓取成功率
+// 其中 top n(UV) URL 需要在Hadoop 平台上运行， 而
+// top n(UV) Website 抓取成功率只要在单机环境运行即可。
+
+// 工具
+// website_uv_per: 统计站点在 uv 当中所占的比例。
+// content_page_per: 统计内容页面在网页当中所占的比例。
+// sort_website_uv: 对网站进行 uv 排序

@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+      <title>艾文的空间 - 圈网你我他</title>
+      <link href="http://ppimg.niwota.com/personal/home_layout.css" rel="stylesheet" type="text/css" />
+
+      <link href="http://ppimg.niwota.com/personal/templates/style_0/style.css" rel="stylesheet" type="text/css" />
+      
+
+        <script language="JavaScript" type="text/javascript" src="http://ppimg.niwota.com/blog/js/space.js"></script>
+        <script language="JavaScript" type="text/javascript" src="http://ppimg.niwota.com/blog/js/ajax_func.js"></script>
+        <script type="text/javascript" defer="defer" src="http://ppimg.niwota.com/blog/js/pngfix.js"></script>
+        <script language="javascript" src="http://ppimg.niwota.com/blog/js/util.js" type="text/javascript"></script>
+        <script language="javascript" src="http://ppimg.niwota.com/blog/js/ctlutil.js" type="text/javascript"></script>
+        <script language="JavaScript" src="http://ppimg.niwota.com/blog/js/photodeal.js" type="text/javascript"></script>
+        <script language="javascript" src="http://ppimg.niwota.com/blog/js/check.js" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript" src="http://ppimg.niwota.com/blog/js/openpopups.js"></script>
+        <script type="text/javascript" language="javascript" src="/js/miniblog.js"></script>
+        <script type="text/javascript" language="javascript" src="/js/blogop.js"></script>
+
+
+        <script type="text/javascript" src="http://bendi.niwota.com/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="http://bendi.niwota.com/js/jquery.scrollfollow.js"></script>
+<script type="text/javascript" src="http://bendi.niwota.com/js/float_sxd.js"></script>
+
+    <script type="text/javascript">
+    function textCheck(){
+      if(0==0)
+      {
+        alert("您不能给该用户留言！");
+        return false;
+      }else if(0==2){
+        alert("该用户设置了只允许圈网好友留言的功能！");
+        return false;
+      }else
+      {
+        if(document.leavewordForm.leave_word.value == ''){
+          alert("留言内容不能为空！");
+          leavewordForm.leave_word.focus();
+          return false;
+        }
+
+        return true;
+      }
+    }
+    </script>
+        <script type="text/javascript">
+        var step=0;
+        function setTitle(){
+          step++;
+          if(step==3){
+            step=1;
+          }
+          if(step==1){
+            window.document.title="【　　　】";
+          }
+          if(step==2){
+            window.document.title="【新通知】";
+          }
+          setTimeout(setTitle,500);
+        }
+        </script>
+        </head>
+        <body >
+        <div id="navbar_container">
+        
+        
+          <div style="text-align:center;"><a href="http://www.niwota.com/user/sxdlogin.jsp" target="_blank"><img width="980" height="185" src="http://ppimg.niwota.com/ad/sxd/shenxian3.gif" /></a></div>
+          <div id="login_bar">
+            <form method="post" action="http://www.niwota.com/user/login_page.jsp"   id="menubar_login"  name="loginform" onsubmit="return checkLogin(this);">
+            <input type="hidden" name="doLogin" value="true"/>
+            <p>
+              <label>账户
+                <input type="text" name="username" class="input_text" id="user_name" value="" onfocus="if(this.value=='email/用户名')this.value=''" onblur="if(this.value=='')this.value='email/用户名'"/>
+              </label>
+              <label>密码
+                <input type="password" name="password" class="input_text" id="user_password"/>
+              </label>
+              <label>
+                <input type="checkbox" name="remember" id="checkbox" checked="checked" value="true" class="f-check"/>
+                记住</label>
+                <input type="submit" name="Submit" value="登录" class="login_button"  id="login_button"/>
+                <a href="http://www.niwota.com/user/getpwbyemail.jsp">找回密码</a> <a href="http://user.niwota.com/user/register.jsp?sign=space">快速注册</a></p>
+            </form>
+          </div>
+          <div id="navbar">
+            <p id="siteLogo"><a href="http://www.niwota.com">圈网</a></p>
+            <ul id="siteNav">
+              <li><a href="http://www.niwota.com">首页</a></li>
+              <li class="hasChilds">
+                <a href="http://www.niwota.com/user/usersubmsg.jsp">圈子</a>
+                <span class="more"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);"></span>
+                <ul id="quanzi_ul"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);">
+                  <li><a href="http://www.niwota.com/allmyclub.jsp">我的圈子</a></li>
+                  <li><a href="http://www.niwota.com/user/usersubmsg.jsp">圈内话题</a></li>
+                  <li><a href="http://www.niwota.com/base/myteamalbum.jsp">圈内相册</a></li>
+                  <li><a href="http://www.niwota.com/jiaoyou/myteamactive.jsp">圈内活动</a></li>
+                  <li><a href="http://bendi.niwota.com/groups.jsp">热门圈子</a></li>
+                </ul>
+              </li>
+              <li class="hasChilds">
+                <a href="http://bendi.niwota.com">同城</a>
+                <span class="more"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);"></span>
+                <ul id="network_ul"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);">
+                  <li><a href="http://bendi.niwota.com/network/index.jsp">北京</a></li>
+                  <li><a href="http://bendi.niwota.com/network/index2.jsp">保险业</a></li>
+
+                  <li><a href="http://bendi.niwota.com/network/bregionall.jsp">浏览网络</a></li>
+                  <li><a href="http://bendi.niwota.com/set.jsp">更换网络</a></li>
+                </ul>
+              </li>
+              <li class="hasChilds">
+                <a href="http://bendi.niwota.com/actives.jsp">活动</a>
+                <span class="more"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);"></span>
+                <ul id="friend_ul"  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);">
+                  <li><a href="http://www.niwota.com/jiaoyou/myact.jsp">我的活动</a></li>
+                  <li><a href="http://www.niwota.com/jiaoyou/friendactive.jsp">好友的活动</a></li>
+                  <li><a href="http://bendi.niwota.com/actives.jsp">热门活动</a></li>
+                  <li><a href="http://www.niwota.com/jiaoyou/myteamactive.jsp">圈内活动</a></li>
+                </ul>
+              </li>
+              <li class="hasChilds">
+                <a  onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);" href="javascript:void(0)">游戏应用</a>
+                <ul onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);" class="menu-apps">
+                  <div>
+                    <li><a href="http://hero.niwota.com/user/dologin.jsp" target="_blank">武林英雄</a></li>
+                    <li><a href="http://50sgbak.niwota.com/user/dologin.jsp" target="_blank">武林三国</a></li>
+                    <li><a href="http://rxsg.niwota.com/user/dologin.jsp" target="_blank">热血三国</a></li>
+                    <li><a href="http://tianyuan.niwota.com">阳光田园</a></li>
+                    <li><a href="http://appa.niwota.com/carshow/index.jsp">争车位</a></li>
+                    <li><a href="http://blog.niwota.com/usersale/market.jsp">好友买卖</a></li>
+                    <li><a href="http://jf.niwota.com/index.jsp">天黑请闭眼</a></li>
+                    <li><a href="http://appb.niwota.com/app_games/1_index.jsp">小游戏</a></li>
+                    <li><a href="http://dog.niwota.com">狗狗</a></li>
+                  </div>
+                  <li><a href="http://bendi.niwota.com/actives.jsp">活动</a></li>
+                  <li><a href="http://blog.niwota.com/amigo/friend_log.jsp">博客</a></li>
+                  <li><a href="http://photo.niwota.com/myphoto/friend_photo.jsp">相册</a></li>
+                  <li><a href="http://bendi.niwota.com/network/moresubmsg.jsp">话题</a></li>
+                  <li><a href="http://t.niwota.com/miniblog.jsp">记录</a></li>
+                  <li><a href="http://bendi.niwota.com/members.jsp">会员</a></li>
+                  <li><a href="http://blog.niwota.com/music/friend_mbox.jsp">音乐</a></li>
+                  <li><a href="http://appb.niwota.com/app_trueTopic/index.jsp">真心话</a></li>
+                  <li><a href="http://www.niwota.com/moreapp.jsp">更多应用</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul id="userNav">
+              <li><a href="http://user.niwota.com/user/16play/rminvitecenter.jsp">邀请</a></li>
+              <li><a href="http://blog.niwota.com/info/mypwd.jsp">设置</a> <span class="more" onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);">↓</span>
+                <ul onmouseover="dropMenu(this.parentNode);" onmouseout="hideMenu(this.parentNode);">
+                  <li><a href="http://blog.niwota.com/info/mypwd.jsp">帐户设置</a></li>
+                  <li><a href="http://blog.niwota.com/info/myinsi.jsp">隐私设置</a></li>
+                  <li><a href="http://blog.niwota.com/info/profile1.jsp">资料修改</a></li>
+                  <li><a href="http://blog.niwota.com/myblog/space_set.jsp">空间管理</a></li>
+                </ul>
+</li>
+            </ul>
+            <form id="top_search" name="searchForm" method="GET" action="http://search.niwota.com/s">
+            <p>
+              <input name="q" type="text" class="search_text" value="查找好友、活动、圈子"  onfocus="javascript:if(this.value=='查找好友、活动、圈子'){this.value=''}" onblur="javascript:if(this.value==''){this.value='查找好友、活动、圈子'}"/>
+              <button type="submit" class="search_button">搜索</button>
+            </p>
+            </form>
+          </div>
+          
+<script type="text/javascript">
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+
+<script type="text/javascript">
+
+try {
+
+  var pageTracker = _gat._getTracker("UA-280573-34");
+
+  pageTracker._setDomainName(".niwota.com");
+
+  pageTracker._trackPageview();
+
+} catch(err) {}</script>
+</div>
+<div id="wrapper">
+  <div id="header">
+    <div id="personal_head">
+      <h1>Gerry - go nuts <span>
+      <a href="http://gerryling.niwota.com">http://gerryling.niwota.com</a>&nbsp;&nbsp;
+      <a href="javascript:window.external.AddFavorite('http://gerryling.niwota.com','bboyivan的空间&nbsp;-&nbsp;gerryling.niwota.com')" target="_self">收藏空间</a>&nbsp;&nbsp;<a href="javascript:;"  onclick="setCopy('http://gerryling.niwota.com');alert('已经把该空间的网址复制到系统剪贴板，您可以使用（Ctrl+V或鼠标右键）粘贴功能，发送给您的朋友。','void 0')">复制</a>
+      </span>
+      </h1>
+<p>
+
+Welcome 2 my sapce.  Wish for World Peace.
+</p>
+</div>
+<div id="navigation">
+  <ul class="menu compact" id="personal_nav">
+    <li class="current"><a href="http://blog.niwota.com/space/46332240">空间首页</a></li>
+    <li><a href="http://blog.niwota.com/person/group.jsp?id=46332240">圈子</a></li>
+    
+    <li><a href="http://t.niwota.com/mini/46332240">记录<small></small></a></li>
+    <li><a href="http://blog.niwota.com/person/blog.jsp?id=46332240">博客<small></small></a></li>
+    <li><a href="http://photo.niwota.com/p/46332240.html">相册</a></li>
+    <li><a href="http://blog.niwota.com/person/friend.jsp?id=46332240">好友<small>(3)</small></a></li>
+    <li><a href="http://blog.niwota.com/person/profile.jsp?id=46332240">资料</a></li>
+    <li><a href="http://blog.niwota.com/person/interactive.jsp?id=46332240">留言<small>(1)</small></a></li>
+    <li><a href="http://blog.niwota.com/game/game.jsp?id=46332240">游戏</a></li>
+    
+  </ul>
+</div>
+</div>
+
+<div id="main" class="clearfix">
+    <div id="column_left" class="txt_normal">
+      <div class="col" id="info">
+        <div class="col_head">
+          <h3>个人信息</h3>
+        </div>
+        <div class="col_body">
+          <p id="avatar"><img src="http://ppimg.niwota.com/album/images/2009-05-12/1242111045375-bigface.jpg" alt="bboyivan" onload="phresize(this, 200);" /></p>
+          <p>&nbsp;<a href="http://photo.niwota.com/myphoto/setfaceurl.jsp"><img src="http://ppimg.niwota.com/images/icon_star_gray.gif" border="0" alt="申请星级用户" width="16" height="16" align="absmiddle" /></a>
+              <a href="http://www.niwota.com/mobile/open.jsp"><img src="/images/icon_mobile_gray.gif" border="0" alt="未绑定手机" width="16" height="16" align="absmiddle" /></a>
+              <a href="http://www.niwota.com/email/email.jsp"><img src="http://ppimg.niwota.com/images/email_notverified.gif" alt="未验证email" border="0" align="absmiddle"/></a>
+              
+          </p>
+          <p class="info"><span class="txt_light">姓名：</span>艾文<br />
+            <span class="txt_light">用户名：</span>bboyivan<br />
+            <span class="txt_light">ID：</span>46332240<br />
+            <span class="txt_light">城市：</span><a href="http://bendi.niwota.com/network/index.jsp?province=CN31" target="_blank">上海，全市</a></p>
+          <p class="info stats"><span class="txt_light">积分：</span>829<br />
+            <span class="txt_light">级别：</span>3级<br />
+            <span class="txt_light">头衔：</span>初级魔法师<br />
+            <span class="txt_light">访问量：</span>17</p>
+          <p class="actions">
+            <a href="javascript:void(0);" onclick="scroller('lwtexttop', 800);">发留言</a><a href="http://blog.niwota.com/msg/send.jsp?to=46332240" id="do_message" target="_blank">发消息</a><a href="http://apps.niwota.com/tease/tease.jsp?userid=46332240" id="do_tease" >逗一下</a><a href="http://apps.niwota.com/gift/gift.jsp?id=46332240" id="do_gift">送礼物</a><a href="http://blog.niwota.com/person/black_list.jsp?id=46332240" id="do_block" >屏蔽此人</a>
+            
+          </p>
+        </div>
+      </div>
+
+      <div class="col" id="basic_info">
+        <div class="col_head">
+          <h3>艾文的基本信息</h3>
+        </div>
+        <div class="col_body">
+          <table width="100%" cellspacing="0" cellpadding="0" border="0" class="info">
+            <tr>
+              <th class="txt_light">性别</th>
+              <td><a href="http://search.niwota.com/s?q=上海 全市 男&t=6" target="_blank">男</a></td>
+            </tr>
+            <tr>
+              <th class="txt_light">城市</th>
+              <td><a href="http://bendi.niwota.com/network/index.jsp?province=CN31" target="_blank">上海，全市</a></td>
+            </tr>
+            
+            <tr>
+              <th class="txt_light">生日</th>
+              <td>1984-12-8</td>
+            </tr>
+            
+            
+            <tr>
+              <th class="txt_light">星座</th>
+              <td>射手座</td>
+            </tr>
+            
+            <tr>
+              <th class="txt_light">家乡</th>
+              <td><a href="http://bendi.niwota.com/network/index.jsp?province=CN11" target="_blank">北京，全市</a></td>
+            </tr>
+            <tr>
+              <th class="txt_light">注册时间</th>
+              <td>2009-03-18 15:33</td>
+            </tr>
+            <tr>
+              <th class="txt_light">最新登录</th>
+              <td>2009-09-13 15:19</td>
+            </tr>
+          </table>
+          <p class="more">
+            
+            <a href="http://blog.niwota.com/person/profile.jsp?id=46332240">更多</a>
+            
+          </p>
+        </div>
+      </div>
+
+
+      <div class="col" id="life">
+        <div class="col_head">
+          <h3>艾文的生活方式</h3>
+        </div>
+        <div  class="col_body">
+          
+          <table width="100%" border="0" cellspacing="2" cellpadding="3"  class="info">
+            <tr>
+              <th width="26%"  class="txt_light">状态</th>
+              <td>单身</td>
+            </tr>
+            <tr>
+              <th class="txt_light">交友目的</th>
+              <td>
+                
+                交朋识友 
+                </td>
+            </tr>
+            
+            <tr>
+              <th class="txt_light">教育程度</th>
+              <td>
+                硕士
+
+                </td>
+            </tr>
+            
+            
+              <tr>
+                <th class="txt_light">行业</th>
+                <td>
+                  <a href="http://search.niwota.com/s?q=计算机系统&t=6" target="_blank">
+                    计算机系统
+                  </a>
+                </td>
+              </tr>
+              
+              
+                <tr>
+                  <th class="txt_light">职位</th>
+                  <td>
+                    技术人员/工程师
+                  </td>
+                </tr>
+                
+                
+                <tr>
+                  <th class="txt_light">收入水平</th>
+                  <td>
+                  8001-20000 元/月
+
+                  </td>
+                </tr>
+                
+                
+                <tr>
+                  <th class="txt_light">发型</th>
+                  <td>
+                  短发
+
+                  </td>
+                </tr>
+                
+                
+                <tr>
+                  <th class="txt_light">血型</th>
+                  <td>B</td>
+                </tr>
+                
+                
+                
+                
+                
+                <tr>
+                  <th class="txt_light">是否饮酒</th>
+                  <td>
+                    滴酒不沾
+
+                    </td>
+                </tr>
+                
+                
+                
+                <tr>
+                  <th class="txt_light">是否吸烟</th>
+                  <td>
+                    不
+
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                  <th class="txt_light">打扮</th>
+                  <td>
+                  随意
+                  </td>
+                </tr>
+                
+          </table>
+          <p class="more">
+            
+            <a href="http://blog.niwota.com/person/profile.jsp?id=46332240">更多</a>
+            
+          </p>
+          
+          </div>
+      </div>
+
+
+      <div class="col">
+        <div class="col_head" id="interests">
+          <h3>艾文的兴趣爱好</h3>
+        </div>
+        <div class="col_body txt_normal">
+          <table width="100%" cellspacing="0" cellpadding="0" border="0" class="info">
+            
+            <tr valign="top">
+              <th width="26%" class="txt_light">介绍</th>
+              <td width="74%">Another ordinary person on the earth.</td>
+            </tr>
+            
+            
+            <tr>
+              <th class="txt_light">兴趣</th>
+              <td>Break Dancing, Singing, Driving</td>
+            </tr>
+            
+            
+            
+            
+            
+            
+            <tr>
+              <th class="txt_light">音乐 </th>
+              <td>East Coast hip hop, Nu metal</td>
+            </tr>
+            
+            
+            
+            
+          </table>
+          <p class="more">
+            
+            <a href="http://blog.niwota.com/person/profile.jsp?id=46332240">更多</a>
+            
+          </p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+</div>
+<div id="column_middle" class="txt_normal">
+
+
+
+
+
+<div class="col" id="blog">
+  <div class="col_head">
+    <h3>艾文的博客<small></small></h3>
+  </div>
+  <div class="col_body txt_normal">
+  
+        </ul>
+        <p class="more"><a href="http://blog.niwota.com/logActionEx.shtml">写新文章</a> <a href="http://blog.niwota.com/person/blog.jsp?id=46332240">更多</a></p>
+        
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<a name="lwtexttop" id="lwtexttop"></a>
+<div class="col" id="guestbook">
+  <div class="col_head">
+    <h3>艾文的留言板<small>(1)</small></h3>
+  </div>
+  <div class="col_body txt_normal">
+    <a name="leaveword"></a>
+    
+        <form id="login_to_reply" name="form1" onsubmit="return checkLogin(this);" method="post" action="http://www.niwota.com/user/login_page.jsp" class="col clearfix">
+        <input type="hidden" name="doLogin" value="true"/>
+        <p><textarea name="textarea" class="input"></textarea></p>
+        <p>您还没有登录，现在不能留言，请先登录！</p>
+        <p class="float_left">
+          <label>帐户
+            <input name="username" type="text" value="" class="input" size="25"  maxlength="25" />
+          </label>
+          <label>密码
+            <input name="password" type="password" maxlength="20" class="input"  size="12" />
+          </label>
+          <label>
+            <input type="checkbox" name="remember" value="true"  checked="checked"/>
+            记住我</label>
+            <input name="Submit2" type="submit" class="btn" value="登 录" />
+        </p>
+        <p class="float_right"><a href="http://user.niwota.com/user/register.jsp?sign=msg">还没有帐号？请点这里注册。</a> <a href="http://www.niwota.com/user/getpw.jsp">找回密码</a></p>
+        </form>
+        
+        <p class="more"><a href="http://blog.niwota.com/person/interactive.jsp?id=46332240">更多</a></p>
+  </div>
+
+  
+
+</div>
+</div>
+
+
+<div id="column_right" class="txt_normal">
+<div class="col" id="visitors">
+    <div class="col_head">
+      <h3>最近访客</h3>
+    </div>
+    <div class="col_body">
+      <ul class="users clearfix">
+      
+        </ul>
+    </div>
+    <p class="more"><a href="http://blog.niwota.com/person/interactive.jsp?id=46332240">更多</a></p>
+</div>
+
+
+
+
+
+
+<div class="col" id="stats">
+  <div class="col_body">
+    <p class="txt_light">访问量: 17</p>
+    <p class="txt_light">博客文章: 0</p>
+    <p class="txt_light">留言数量: 1</p>
+  </div>
+</div>
+
+</div>
+<div class="clear"></div>
+</div>
+
+<div id="footer">
+  <ul class="menu compact" id="foot_nav">
+    <li><a href="http://www.niwota.com/aboutus/aboutindex.htm" target="_blank">关于圈网</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutservice.htm" target="_blank">服务条款</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutpri.htm" target="_blank">隐私政策</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutjob.htm" target="_blank">圈网招聘</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutnoright.htm" target="_blank">免责声明</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutcopyright.htm" target="_blank">版权声明</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutbiz.htm" target="_blank">投资与合作</a></li>
+    <li><a href="http://www.niwota.com/aboutus/aboutad.htm" target="_blank">广告投放</a></li>
+    <li><a href="http://blog.niwota.com/alllist/date.jsp" target="_blank">文章大全</a></li>
+    <li><a href="http://www.niwota.com/aboutus/help.jsp" target="_blank">在线求助</a></li>
+  </ul>
+  <p class="copyrights"><span id="copyright">Copyright &copy; 2004-2010 niwota.com. All rights reserved.</span> <span id="authentication">京ICP证060542号</span></p>
+</div>
+</div>
+<p>&nbsp;</p>
+
+
+</body>
+<script type="text/javascript" language="javascript">
+//window.focus();
+// 博客中图片的处理
+//resizeArticleImage();
+</script>
+</html>

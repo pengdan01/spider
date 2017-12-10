@@ -1,0 +1,4 @@
+nohup: 忽略输入
++ '[' 1 -ne 1 ']'
++ port_num=18000
++ .bin/beanstalkd -p 18000 -z 10240000 -s 30485760

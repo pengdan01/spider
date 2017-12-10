@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -x
+m04="180.153.227.159"
+scp ~/workplace/wly/crawler/control/HostIp/*.sh \
+    crawler@${m04}:~/crawler_control2/HostIp/
+if [ $? -ne 0 ];then
+  echo "copy to m04 from `hostname` failed" >&2
+  exit 1
+fi

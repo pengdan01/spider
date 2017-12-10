@@ -1,0 +1,13 @@
+TOOL1:
+offline_site_stat:
+1 该工具用来统计在本次抓取中，各个站点抓取的网页数。一般用来统计各个大站的抓取情况。
+2 当某一个站点抓取为 0 时，该信息不会在输出文件中存在, 即：只会输出抓取数 > 0 站点信息
+Usage:
+cd ~/wly_crawler_online;nohup bash -x crawler/tools/offline_site_stat/offline_site_stat.sh crawler/tools/offline_site_stat/offline_site_stat.conf &>log/offline_site_stat.log&
+
+Depending Datas:
+This tool will analyze the links that we have crawled in this crawler round. It will read saver donelist to get the hdfs dir.
+
+## OutPut:
+two files will be outputed. One is specific site stats.
+The other is about top N files (Sorted In Reverse Order of crawled number)

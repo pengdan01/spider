@@ -1,0 +1,71 @@
+#include <vector>
+#include <unordered_map>
+
+#include "log_analysis/common/log_common.h"
+#include "base/common/base.h"
+#include "base/common/logging.h"
+#include "base/strings/string_split.h"
+#include "base/strings/string_printf.h"
+#include "base/strings/string_number_conversions.h"
+#include "base/mapreduce/mapreduce.h"
+#include "base/hash_function/city.h"
+#include "nlp/common/nlp_util.h"
+
+void mapper() {
+  base::mapreduce::MapTask *task = base::mapreduce::GetMapTask();
+
+  std::string key;
+  std::string value;
+  std::string line;
+  std::vector<std::string> flds;
+  std::string query;
+  std::string site;
+  while (task->NextKeyValue(&key, &value)) {
+    line = key + "\t" + value;
+    if (line.empty()) continue;
+    flds.clear();
+    base::SplitString(line, "\t", &flds);
+    std::string query;
+    std::string dedup_id;
+    if (flds.size() > 5) {
+      dedup_id = flds[0];
+      const std::string& url = flds[2];
+
+      if (!url.empty()) {
+        if (log_analysis::IsGeneralSearch(url, &query, &site)) {
+          task->Output(query, dedup_id);
+        }
+      }
+    }
+  }
+
+  return;
+}
+
+void reducer() {
+  base::mapreduce::ReduceTask *task = base::mapreduce::GetReduceTask();
+  std::string key;
+  std::vector<std::string> flds;
+  while (task->NextKey(&key)) {
+    std::string value;
+    std::unordered_set<std::string> dedup;
+    while (task->NextValue(&value)) {
+      dedup.insert(value);
+    }
+    if (dedup.size() > 0) {
+      task->Output(key, base::IntToString(dedup.size()));
+    }
+  }
+  return;
+}
+
+int main(int argc, char *argv[]) {
+  base::mapreduce::InitMapReduce(&argc, &argv, "query count");
+  if (base::mapreduce::IsMapApp()) {
+    mapper();
+  } else if (base::mapreduce::IsReduceApp()) {
+    reducer();
+  } else {
+    CHECK(false);
+  }
+}

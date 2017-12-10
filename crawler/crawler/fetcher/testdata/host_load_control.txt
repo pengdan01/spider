@@ -1,0 +1,30 @@
+## Record format:
+## host max_concurrent_window_size QPS HH:MM-HH:MM
+## host: 站点
+## max_concurrent_window_size: 对站点 host 的最大并发访问数
+## QPS 
+## HH:MM-HH:MM 策略生效起始时间
+
+# 360
+www.hao360.cn 5 5 00:00-23:59
+edu.360.cn 5 5 00:00-23:59
+v.360.cn 5 5 00:00-23:59
+
+# sina
+www.sina.com.cn 10 20 00:00-08:30
+www.sina.com.cn 8 15 08:30-11:00
+www.sina.com.cn 10 20 17:19-23:59
+
+# sohu
+www.sohu.com 8 15 00:00-23:59
+
+# baidu
+www.hao123.com 8 15 00:00-23:59
+www.baidu.com 8 15 00:00-23:59
+zhidao.baidu.com 8 15 00:00-23:59
+wenku.baidu.com 8 15 00:00-23:59
+baike.baidu.com 8 15 00:00-23:59
+mp3.baidu.com 8 15 00:00-23:59
+
+# qq
+www.qq.com 8 15 00:00-23:59

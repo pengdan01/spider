@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <meta http-equiv="x-ua-compatible" content="ie=8" /> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <title>用户登录</title> <meta name="keywords" content='NEO天使三色|芭比爱隐形眼镜|美瞳隐形眼镜|美瞳网|亮彩眼镜|亮彩眼镜网|美瞳隐形眼镜|彩色隐形眼镜|隐形眼镜'> <meta name="description" content='亮彩眼镜网是杭州亮彩眼镜公司旗下电子商务网站，专业从事隐形眼镜,美瞳片及护理用品销售的，中国领先的电子商务销售平台。拥有强大的眼镜行业的价格优势、30天领先的退换货服务。做到价格同行业最低，服务同行业最好，本公司与各大隐形眼镜制造商有着良好的合作关系，经营的产品皆为正规渠道引进的原厂正品，有着完善的换货、退货与售后服务制度。'> <meta name="generator" content="ShopEx 4.8.5" /> <meta name="robots" content="noindex,noarchive,nofollow" />  <link rel="icon" href="favicon.ico" type="image/x-icon" /> <link rel="bookmark" href="favicon.ico" type="image/x-icon" /> <link rel="stylesheet" href="statics/style.css" type="text/css" /> <script type="text/javascript">
+var Shop = {"set":{"path":"\/","buytarget":"2","dragcart":null,"refer_timeout":15},"url":{"addcart":"http:\/\/www.zhencaipian.com\/?cart-ajaxadd.html","shipping":"http:\/\/www.zhencaipian.com\/?cart-shipping.html","payment":"http:\/\/www.zhencaipian.com\/?cart-payment.html","total":"http:\/\/www.zhencaipian.com\/?cart-total.html","viewcart":"http:\/\/www.zhencaipian.com\/?cart-view.html","ordertotal":"http:\/\/www.zhencaipian.com\/?cart-total.html","applycoupon":"http:\/\/www.zhencaipian.com\/?cart-applycoupon.html","diff":"http:\/\/www.zhencaipian.com\/?product-diff.html"}};
+</script> <script type="text/javascript" src="statics/script/tools.js"></script> <script type="text/javascript" src="statics/script/goodscupcake.js"></script> <script type="text/javascript">
+
+window.addEvent('domready',function(){
+			var ReferObj =new Object();
+			$extend(ReferObj,{
+				serverTime:1337059898,
+				init:function(){				
+        			var FIRST_REFER=Cookie.get('S[FIRST_REFER]');
+					var NOW_REFER=Cookie.get('S[NOW_REFER]');				
+					var nowDate=this.time=this.serverTime*1000;						
+					if(!window.location.href.test('#r-')&&!document.referrer||document.referrer.test(document.domain))return;				
+					if(window.location.href.test('#r-'))Cookie.dispose('S[N]');	
+					if(!FIRST_REFER){
+						if(NOW_REFER){
+							this.writeCookie('S[FIRST_REFER]',NOW_REFER,this.getTimeOut(JSON.decode(NOW_REFER).DATE));
+						}else{						
+							this.setRefer('S[FIRST_REFER]',Shop.set.refer_timeout);
+						}
+					}
+					this.setRefer('S[NOW_REFER]',Shop.set.refer_timeout);
+					this.createGUID();
+				},
+				getUid:function(){
+					var lf=window.location.href,pos=lf.indexOf('#r-');
+					return pos!=-1?lf.substr(pos+4):'';	
+				},
+				getRefer:function(){
+					return document.referrer?document.referrer:'';
+				},
+				setRefer:function(referName,timeout){
+					var uid=this.getUid(),referrer=this.getRefer();
+					var data={'ID':uid,'REFER':referrer,'DATE':this.time};
+					if('S[NOW_REFER]'==referName){		
+						var refer=JSON.decode(Cookie.get('S[FIRST_REFER]'));	
+						if(uid!=''&&refer&&refer.ID==''){						
+							var fdata={'ID':uid,'REFER':refer.REFER,'DATE':refer.DATE};
+							this.writeCookie('S[FIRST_REFER]',JSON.encode(fdata),this.getTimeOut(refer.DATE));							
+						}else if(uid==''){					
+							$extend(data,{'ID':refer.ID});
+						}	
+					}	
+					Cookie.set(referName,JSON.encode(data),{duration:(Shop.set.refer_timeout||15)});
+				},				
+				getTimeOut:function(nowDate){			
+				    var timeout=nowDate+Shop.set.refer_timeout*24*3600*1000;
+					var date=new Date(timeout);
+					return date;
+		 		},
+				writeCookie:function(key,value,timeout){
+					document.cookie=key+ '=' + value+'; expires=' + timeout.toGMTString();	
+				},
+				createGUID:function(){
+					var GUID = (function(){
+						var S4=function(){
+							return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+						};
+						return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4()).toUpperCase();
+					})();
+					Cookie.set('S[N]',GUID,{duration:3650});
+				}
+			});
+			ReferObj.init();
+});
+    
+
+  
+</script> <script type="text/javascript" src="statics/script/formplus.js"></script>  <link rel="stylesheet" type="text/css" href="http://www.zhencaipian.com/themes/lc/images/css.css" /> </head> <body> <div id="Top"> <div id="lcad1007"><div class="AdvBanner">  <a href="http://zhencaipian.com/?page-%E6%9C%AC%E6%9C%88%E4%B8%BB%E6%89%93.html" target="_blank"> <img src='http://www.zhencaipian.com/images//20120511/d5b3d6d5762b29e7.jpg' style=""/> </a>  </div> </div> <div class="TopWrap"> <div id="Logo"><a href="./"><img src="http://www.zhencaipian.com/images/default/20100106/a4c23f4a87cc25c5.gif" border="0"/></a></div> <div id="TopLinks"> <div id="TopLink"><a href="http://zhencaipian.com/?article-84.html" type="url"><strong><font color="#ff0000">媒体报道</font></strong></a>|<a href="http://zhencaipian.com/?article-88.html" type="url"><strong><font color="#3d85c6">积分换礼</font></strong></a>|<a href="http://www.zhencaipian.com/?article-90.html" type="url"><strong><font color="#ff0000">在线客服</font></strong></a>|<a href="http://www.zhencaipian.com/?article-62.html" type="url"><font color="#ff0000"><strong>特别声明</strong></font></a>|<a href="http://zhencaipian.com/?article-30.html" type="url" target="_blank">买家评价</a>|<a href="http://www.zhencaipian.com/?article-43.html" type="url">如何支付</a>|<a href="http://www.zhencaipian.com/?article-44.html" type="url">如何订购</a>|<a href="javascript:addFavorite('http://www.zhencaipian.com','亮彩眼镜网');">收藏本站</a></div> </div> <div id="searchbar"><form action="http://www.zhencaipian.com/?search-result.html" method="post" class="SearchBar"> <table cellpadding="0" cellspacing="0"> <tr> <td class="search_label"> <input name="name[]" size="10" class="inputstyle keywords" value="" /> </td>  <td><input type="submit" value="搜索" class="btn_search" onfocus='this.blur();'/> </td> </tr> </table> </form> </div> <div id="toptel"><div class="AdvBanner">  <a href="" target="_blank"> <img src='http://b9.images22.51img1.com/6000/qianyejiejie/9100b8afa706c71b065660cc7fb0cacd.jpg' style=""/> </a>  </div> <div class="AdvBanner">  <a href="http://www.zhencaipian.com/" target="_blank"> <img src='http://static.51img1.com/v3/home/images/0.gif' style=""/> </a>  </div> </div> </div> </div> <div id="menusfull"> <div id="menuswrap"> <div id="menus"> <div id="menu"><ul> <li class="lifirst"><a href="http://www.zhencaipian.com//?"><strong>首页</strong></a> </li><li class="lifirst"> <div align="left"><a href="http://www.zhencaipian.com//?page-%E6%9C%AC%E6%9C%88%E4%B8%BB%E6%89%93.html"><strong>本月优惠</strong></a> </div> </li> <li><a href="http://www.zhencaipian.com//?page-%E5%BD%A9%E7%89%87%E5%A5%97%E9%A4%90.html"><strong>人气组合</strong></a> </li> <li><a href="http://www.zhencaipian.com//?page-%E5%BD%A9%E8%89%B2%E9%9A%90%E5%BD%A2%E7%9C%BC%E9%95%9C.html"><strong>彩色隐形眼镜</strong></a> </li> <li><a href="http://www.zhencaipian.com//?page-%E9%9A%90%E5%BD%A2%E7%9C%BC%E9%95%9C.html"><strong>隐形眼镜</strong></a> </li> <li><a href="http://www.zhencaipian.com//?page-%E6%A1%86%E6%9E%B6%E7%9C%BC%E9%95%9C.html"><strong>框架眼镜</strong></a> </li> <li><a href="http://www.zhencaipian.com//?page-%E6%8A%A4%E7%90%86%E4%BA%A7%E5%93%81.html"><strong>护理产品</strong></a> </li> <li><a href="http://www.zhencaipian.com/?page-groupbuy.html"><strong>亮彩团购</strong></a> </li> <li><a href="http://www.zhencaipian.com/?page-promotion.html"><strong>限时抢购</strong></a> </li> 
+</ul> <STYLE type=text/css>#top { POSITION: relative } </STYLE> <DIV style="POSITION: absolute; WIDTH: 35px; BACKGROUND: url(http://www.zhencaipian.com/themes/lc/images/new.gif) no-repeat; HEIGHT: 30px; TOP: -16px; LEFT: 776px"></DIV></div> <div id="menubox"> <div id="hotkey"><p> 
+<img src="http://www.zhencaipian.com/images//20091005/b062232c515196a4.jpg" storager="images//20091005/b062232c515196a4.jpg|//20091005/b062232c515196a4.jpg|fs_storage"><a href="http://www.zhencaipian.com/?gallery--n,%E5%A5%B3%E7%9A%87-index.html" type="url" target="_blank">NEO混血款</a><a href="http://www.zhencaipian.com/?gallery-4.html" type="url" target="_blank">BESCON三色</a><a href="http://www.zhencaipian.com/?gallery--n,%E9%A6%99%E6%B8%AF-index.html" type="url" target="_blank">香港直邮区</a><a href="http://www.zhencaipian.com/?gallery--n,%E5%A5%A5%E5%85%8B%E6%8B%89-index.html" type="url" target="_blank">奥克拉</a><a href="http://zhencaipian.com/?product-830.html" type="url" target="_blank">NEO巧克力</a><a href="http://www.zhencaipian.com/?gallery-213.html" type="url" target="_blank">NEO微光</a><a href="http://www.zhencaipian.com/?gallery--n,%E5%B7%A7%E5%85%8B%E5%8A%9B-index.html" type="url" target="_blank">自然款</a><a href="http://www.zhencaipian.com//?page-%E5%BD%A9%E7%89%87%E5%A5%97%E9%A4%90.html" type="url" target="_blank">彩片套餐</a></p></div> <div id="infobar"><span id="foobar_widgets_805" style="position: relative;"> 您好,<span id="uname_widgets_805"></span>  <span id="loginBar_widgets_805">  <a href="http://www.zhencaipian.com/?passport-login.html">[请登录]</a>  [<a class="trustlogin trust__login" href="javascript:void(0)">信任登录</a>] <div id="accountlogin" ><h5>您还可以使用以下帐号登录：</h5><div class="logoimg"><span><img src="statics/accountlogos/trustlogo1_small.gif" /></span><span><img src="statics/accountlogos/trustlogo2_small.gif" /></span><span><img src="statics/accountlogos/trustlogo3_small.gif" /></span><span><img src="statics/accountlogos/trustlogo4_small.gif" /></span><span><img src="statics/accountlogos/trustlogo5_small.gif" /></span></div><div class="more"><a href="#">更多»</a></div> </div>  <a href="http://www.zhencaipian.com/?passport-signup.html">[免费注册]</a> </span>  <a href="http://www.zhencaipian.com/?cart.html" target="_blank" class="cart-container"> <span class="inlineblock CartIco">购物车</span> [<span id="Cart_widgets_805" class="cart-number">0</span>] <img src="statics/transparent.gif" style="width:11px;height:11px;background-image:url(statics/bundle.gif);background-repeat:no-repeat;background-position:0 -0px;" /> </a>  </span>  <style id='thridpartystyle'> .trustlogin { background:url(statics/icons/thridparty1.gif) no-repeat left; padding-left:18px; height:20px; line-height:20px; } #accountlogin{visibility:hidden;cursor:pointer;padding-top:0px; } </style> <script>
+(function(){
+    var loginBtn=$ES('.trust__login','loginBar_widgets_805'),timer;
+   $$(loginBtn,$('accountlogin')).addEvents({'mouseenter':function(){
+         if(timer)$clear(timer);
+         $('accountlogin').setStyles({'visibility':'visible','zIndex':'63322'});
+      },'mouseleave':function(){
+
+         timer=function(){$('accountlogin').setStyle('visibility','hidden')}.delay(200);
+      }
+   });
+   $('accountlogin').addEvent('click',function(e){loginBtn.fireEvent('click');})
+})();
+
+
+</script>  <script>
+/*
+*foobar update:2009-9-8 13:46:55
+*@author litie[aita]shopex.cn
+*-----------------*/
+window.addEvent('domready',function(){
+       var barId ="widgets_805";
+       var bar = $('foobar_'+barId);
+
+       var barOptions = {
+           MID:Cookie.get('S[MEMBER]'),
+           uname:Cookie.get('S[UNAME]'),
+           coin:[{"cur_name":"\u4eba\u6c11\u5e01","cur_code":"CNY","cur_sign":"\uffe5","cur_rate":"1.0000","def_cur":"true","disabled":"false"}],
+           curCoin:Cookie.get('S[CUR]'),
+           cartViewURl:'http://www.zhencaipian.com/?cart-view.html',
+           stick:false       };
+       if(barOptions.MID){$('uname_'+barId).setText(barOptions.uname);}
+       /*if(barOptions.MID){
+          $('loginBar_'+barId).hide();
+         $('memberBar_'+barId).show();
+          $('uname_'+barId).setText(barOptions.uname);
+       }else{
+          $('loginBar_'+barId).setStyle('visibility','visible');
+       }*/
+
+       if(coinBar=$('Cur_sel_'+barId)){
+             
+           var coinMenu = new Element('div',{'class':'coinmenu fmenu','styles':{'display':'none'}}).inject(document.body);
+    
+           barOptions.coin.each(function(item){
+                
+                if(item['cur_code']==barOptions['curCoin']){
+                   coinBar.getElement('strong').set('text',[item.cur_sign,item.cur_name].join(''));
+                }
+                coinMenu.adopt(new Element('div',{'class':'item',text:[item.cur_sign,item.cur_name].join(''),events:{
+                      
+                      click:function(){
+                          Cookie.set('S[CUR]',item.cur_code);
+                          window.location.href=window.location.href;
+                      }
+                
+                }}));
+           });
+           
+            coinBar.addEvents({
+                'mouseenter':function(){
+                   coinMenu.setStyles({
+                      top:coinBar.getPosition().y+coinBar.getSize().y,
+                      left:coinBar.getPosition().x,
+                      display:'block',
+                      visibility:'visible'
+                   });
+                }
+            });
+            new QMenu(coinBar,coinMenu);
+            
+       }
+       
+       if(cartCountBar = $('Cart_'+barId)){
+         cartCountBar.setText(Cookie.get('S[CART_COUNT]')?Cookie.get('S[CART_COUNT]'):0);
+            var cartViewMenu =  new Element('div',{'class':'cartviewmenu fmenu','styles':{'display':'none'}}).inject(document.body);
+            cartCountBar.addEvents({
+                 'mouseenter':function(){
+                   cartViewMenu.setStyles({
+                      top:bar.getPosition().y+bar.getSize().y,
+                      left:bar.getPosition().x,
+                      width:bar.getSize().x,
+                      display:'block',
+                      visibility:'visible'
+                   }).set('html','<div class="note">正在加载购物车信息...</div>');
+                    this.retrieve('request',{cancel:$empty}).cancel();
+                    this.store('request',new Request.HTML({update:cartViewMenu}).get(barOptions.cartViewURl));
+                }
+            });
+             new QMenu(cartCountBar,cartViewMenu);
+            
+      }
+
+});
+</script></div> </div> </div> </div> </div>  <div id="allouter"> <div id="allinside"> <div id="content"> <P align=right><A title="" href="http://www7.53kf.com/webCompany.php?arg=zhencaipian&amp;style=1&amp;language=zh-cn&amp;lytype=0&amp;charset=gbk&amp;kflist=off&amp;kf=&amp;zdkf_type=1&amp;referer=http%3A%2F%2Fwww.zhencaipian.com%2F&amp;keyword=http%3A//zhencaipian.com/shopadmin/index.php&amp;tfrom=1&amp;tpl=crystal_blue" target=_blank><IMG src="http://b0.images22.51img1.com/6000/qianyejiejie/0a8af6e3d0ae10426f23847a210b76c0.jpg" width=293 height=90 storager="images//20110108/d7edd09f3a334899.jpg|//20110108/d7edd09f3a334899.jpg|fs_storage"></A></P> <div class="PassportWrap"><form method="post" action='http://www.zhencaipian.com/?passport-verify.html' class='loginform'> <input type="hidden" name="isfastbuy" value="">  <div class="RegisterWrap" style="width:420px; float:left; padding:5px;"> <h4 style="float:left;">已注册用户，请登录</h4>  <div style="clear:both;"></div> <div class="intro" ><div class="customMessages">如果您已是本站会员，请登录<br/></div></div>  <div id="formlogin" class="form"> <input name="forward" type="hidden" value=""> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <th><i>*</i>用户名：</th> <td><input autocomplete="off" class="x-input inputstyle" name="login" class="inputstyle" required="true" id="in_login" tabindex="1" type="text" /><a style="margin-left:6px; " href="http://www.zhencaipian.com/?passport-signup.html">立即注册</a></td> </tr> <tr> <th><i>*</i>密码：</th> <td><input autocomplete="off" class="x-input inputstyle" name="passwd" class="inputstyle" type="password" required="true" id="in_passwd" tabindex="2" /><a style="margin-left:6px;" href="http://www.zhencaipian.com/?passport-lost.html">忘记密码？</a></td> </tr>  <tr> <th></th> <td><input class="actbtn btn-login" type="submit" value="登录" tabindex="4" /> <input type="hidden" name="forward" value=""> </td> </tr> </table>  </div> <input type='hidden' name='ref_url' value='http://www.zhencaipian.com/?member.html'/> </div>  <div class="RegisterWrap" style="width:420px; float:left; padding:5px;"> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td><h4 class="thridpartyicon">信任登录</h4> </td> <td></td> </tr> </table> <div class="intro"> <div class="customMessages">您还可以使用以下帐号登录：</div> </div> <div id="formthridlogin" class="form"> <ul class="trustlogos"> <li><img src="statics/accountlogos/trustlogo1.gif"/></li> <li><img src="statics/accountlogos/trustlogo2.gif"/></li> <li><img src="statics/accountlogos/trustlogo3.gif"/></li> <li><img src="statics/accountlogos/trustlogo4.gif"/></li> <li><img src="statics/accountlogos/trustlogo5.gif"/></li> </ul> <div class="more"><a href="#">更多»</a></div> <center><input type="button" tabindex="4" value="登录" class="actbtn btn-login trust__login"></center> </div> </div>  <div class="clearfix"></div> </form>  <script>
+window.addEvent('domready',function() {
+	 if(RemoteLogin){RemoteLogin.init();}
+	if(!$('iframemask'))return;
+$('iframemask').width= $('mini-loginform').getCoordinates().width;
+$('iframemask').height= $('mini-loginform').getCoordinates().height;
+	
+ 
+
+});
+
+</script> </div>  </div> </div> </div> <div id="footbg"> <div id="footwrap"> <div id="foot"> <div id="footbox"> <div id="foot_tel"> <div class="AdvBanner">  <a href=""><img src="http://www.zhencaipian.com/themes/lc/images/tel_02.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://www.zhencaipian.com//alipay/index.php"><img src="http://www.zhencaipian.com/themes/lc/images/alipay02.jpg"></a>  </div> </div> <div id="foot_main"> <div id="foot_tree"> <div class="AdvBanner">  <a href="http://www.zhencaipian.com/?article-36.html"><img src="http://ba.images22.51img1.com/6000/qianyejiejie/ade7cb463c5bfffc3e2ed35c4584eb2e.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://www.zhencaipian.com/?article-43.html"><img src="http://b8.images22.51img1.com/6000/qianyejiejie/8098a5be3d18e14c5c8573fbdbe62ca8.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://www.zhencaipian.com//?"><img src="http://bb.images22.51img1.com/6000/qianyejiejie/b65d14c031fd9d559f7407d89ce624bf.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://www.zhencaipian.com/?article-49.html"><img src="http://bc.images22.51img1.com/6000/qianyejiejie/c9ade363bf4e72e83cc3ce32c9ae5c2f.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://www.zhencaipian.com//?page-%E5%BD%A9%E8%89%B2%E9%9A%90%E5%BD%A2%E7%9C%BC%E9%95%9C.html"><img src="http://b1.images22.51img1.com/6000/qianyejiejie/1a6f5869fe8d5d326c896d6b1ff4178e.jpg"></a>  </div>  <div class="AdvBanner">  <a href="http://zhencaipian.com/?article-52.html"><img src="http://bb.images22.51img1.com/6000/qianyejiejie/bcdc8bd2b191d3cf318e4aa0baf3a8ed.jpg"></a>  </div> </div> <div id="foot_user"><div class="AdvBanner">  <a href="" target="_blank"> <img src='http://zhencaipian.com/images//20100802/b1f590b0b8d585e8.jpg' style="width:380px;height:80px;"/> </a>  </div> </div> </div> <div id="foot_article"> <div class="ArticleListWrap">  <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td width="15%"> <div class="titleImg"><a href="http://www.zhencaipian.com/?article-105.html"><img src="themes/lc/images/article_pic.jpg" alt=""/></a></div> </td> <td><div class="ArticleList">  <ul>  <li>  <a href="http://www.zhencaipian.com/?article-30.html" title="亮彩眼镜网顾客评价">亮彩眼镜网顾客评价</a></li>  <li>  <a href="http://www.zhencaipian.com/?article-82.html" title="彩妆如何搭配美瞳">彩妆如何搭配美瞳</a></li>  <li>  <a href="http://www.zhencaipian.com/?article-41.html" title="正确戴隐形眼镜必学招">正确戴隐形眼镜必学招</a></li>  <li>  <a href="http://www.zhencaipian.com/?article-40.html" title="什么是隐形眼镜？">什么是隐形眼镜？</a></li>  </ul>  </div> </td> </tr> </table>  </div></div> </div> <div id="foot_links"><DIV style="TEXT-ALIGN: center"><A href="http://zhencaipian.com/?article-65.html" type=url>亮彩眼镜好吗？</A><A href="http://www.zhencaipian.com/?article-46.html" type=url>眼睛干涩别乱滴眼药水</A><A href="http://www.zhencaipian.com/?article-47.html" type=url>如何分辨隐形眼镜正反</A><A href="http://www.zhencaipian.com/?article-48.html" type=url>框架度数与隐形度数的换算</A><A href="http://www.zhencaipian.com/?article-66.html" type=url>隐形眼镜含水量越高越好吗?</A></DIV></div> <div id="footer"><img src="index.php?cron=passport%3Alogin&p=aHR0cDosLHd3dy56aGVuY2FpcGlhbi5jb20sP21lbWJlci1zZXR0aW5nLmh0bWw%3D" width="1" height="1" border="none" /> <div id='template-modal' style='display:none;'> <div class='dialog'> <div class='dialog-title'> <div class='title span-auto'>{title}</div> <div class='dialog-close-btn' >X</div> <div style="clear:both"></div> </div> <div class='dialog-content'> {content} </div> </div> </div>  <script>
+(function(){
+ RemoteLogin={
+        init:function(){
+             if(!$$('.trust__login')||$ES('.trustdialog').length)return;    
+             $$('.trust__login').removeEvents('click').addEvent('click',this.show.bind(this));
+        },    
+        show:function(){
+             new Request({
+
+			    onRequest:function(){
+                      this.loginDialog = new Element('div',{'class':'dialog trustdialog','id':'trust_footer_login'}).set('html',$E('#template-modal .dialog').get('html').substitute({
+                      title:'信任登录',
+                      content:'<iframe src="" id="RemoteFrm" width="100%" height="90%" frameborder="0" styles="border:none;background: none repeat scroll 0% 0% transparent; "></iframe>'
+                       })).setStyles({display:'none',width:0}).inject(document.body);
+
+                      this.loginDialog.getElement('.dialog-close-btn').addEvent('click',function(){$('trust_footer_login').destroy();});  
+					  this.loginDialog.setStyles({width:440,height:330,display:'block'}).amongTo(window);
+				},
+                onComplete:function(e){
+                      if(e){
+                        var remotesrc='http://openid.ecos.shopex.cn/index.php?certi_id=461462264&callback_url=http%3A%2F%2Fwww.zhencaipian.com%2F';
+                      }else{
+                        var remotesrc='http://www.zhencaipian.com/error.html';
+                      }
+                      this.loginDialog.getElement('iframe').src=remotesrc;
+                }
+            }).post("http://www.zhencaipian.com/?passport-trust_login.html");
+        }       
+
+    };
+    RemoteLogin.init();
+})();
+</script>  <style id="thridpartystyle"> .thridpartyicon { background:url(statics/icons/thridparty0.gif) no-repeat left center; height:30px; line-height:30px; text-indent:35px;} #accountlogin { width:180px; border:2px solid #badbf2; position:absolute; background:#fff; padding:5px;} #accountlogin h5 { border-bottom:1px solid #e2e2e2; margin:0px 5px 10px 5px;padding:0; height:22px; line-height:22px; color:#333333; font-weight:normal;} #accountlogin .logoimg { float:left; margin-left:5px;} #accountlogin .logoimg span img { margin:6px 3px 0 3px; } #accountlogin .more { text-align:right; float:right;} #accountlogin .more a { text-decoration:underline;} .trustlogos li{ display:inline; padding:2px;} .btn-trustlogin {background:url(statics/btn-trustlogin.gif); width:87px; height:30px; margin-bottom:35px;} .trustdialog .dialog-content { padding:0px; height:320px;} .RegisterWrap {} .RegisterWrap h4 { height:30px; line-height:30px;} .RegisterWrap .more { height:30px; line-height:30px; text-align:right; font-size:14px; color:#333333;} .RegisterWrap .more a { text-decoration:underline;} .RegisterWrap .form { } .RegisterWrap #formlogin,.RegisterWrap #formthridlogin { height:160px; border:1px solid #CCCCCC; margin:10px 0; padding:15px;} .RegisterWrap .customMessages { height:40px;} .dialog-title { margin:0 5px;} .dialog-title .title { padding:10px 0 2px 10px;} .dialog-title .dialog-close-btn {font-family:Arial Black;color:#fff;background:#FF9955;border:1px #FA6400 solid;font-size:14px;cursor:pointer; width:21px; margin-top:5px; text-align:center;} .dialog-title .dialog-close-btn:hover {background:#ff6655;border-color:#ff6655;} </style> <script>
+$('thridpartystyle').inject(document.head);
+</script> <div class="themefoot"><div style="TEXT-ALIGN: center">&nbsp;&nbsp;&nbsp; 
+<img src="http://www.zhencaipian.com/images//20100702/731c683fc02863d4.gif" storager="images//20100702/731c683fc02863d4.gif|//20100702/731c683fc02863d4.gif|fs_storage"> &nbsp;&nbsp; 
+<img src="http://www.zhencaipian.com/images//20100702/03d523df6c9c569c.gif" storager="images//20100702/03d523df6c9c569c.gif|//20100702/03d523df6c9c569c.gif|fs_storage">&nbsp;&nbsp;&nbsp; 
+<img src="http://www.zhencaipian.com/images//20100702/3b5cb7d978e70710.gif" storager="images//20100702/3b5cb7d978e70710.gif|//20100702/3b5cb7d978e70710.gif|fs_storage">&nbsp;&nbsp;&nbsp; 
+<img src="http://www.zhencaipian.com/images//20110509/9ebd0b895a0a5696.jpg">&nbsp;&nbsp; 
+<img height="55" src="http://www.zhencaipian.com/images//20091105/e77731eb84301351.gif" width="116" storager="images//20091105/e77731eb84301351.gif|//20091105/e77731eb84301351.gif|fs_storage">&nbsp;&nbsp; 
+<img height="55" alt="网上买鞋" src="http://www.zhencaipian.com/images//20091105/b5aa9784e0a192cc.gif" width="116"> &nbsp; 
+<img src="http://www.zhencaipian.com/images//20100702/30c4e85d0d027515.gif" storager="images//20100702/30c4e85d0d027515.gif|//20100702/30c4e85d0d027515.gif|fs</div><div style=" font-family:verdana;line-height:20px;font-size:11px;text-align:center;?=""></div>
+<div style="TEXT-ALIGN: center"><span style="COLOR: rgb(0,0,0)">Copyright © &nbsp;杭州亮彩眼镜公司 浙江省杭州市萧山区南阳街道14号&nbsp; 2007-2011, All Rights Reserved</span>&nbsp;&nbsp;<a title="" href="https://www.alipay.com/" target="_blank"></a><br style="COLOR: rgb(0,0,0)"><span style="COLOR: rgb(0,0,0)">全国服务热线：</span><font style="FONT-WEIGHT: bold; color: rgb(0,0,0)" size="3">4006068990</font><span style="COLOR: rgb(0,0,0)">&nbsp;&nbsp;&nbsp; </span><span style="COLOR: rgb(0,0,0)">E-mail：</span><font style="COLOR: rgb(0,0,0)" size="2"><a href="mailto:vip@zhencaipian.com">vip@zhencaipian.com</a></font>&nbsp; <a href="https://www.alipay.com/" target="_blank"></a></div>
+<div style="TEXT-ALIGN: center"><font color="#000000">杭州总公司：4006068990-0571&nbsp; 北京分公司：4006068990-101&nbsp;&nbsp;</font><font color="#000000"> 上海分公司：4006068990-021&nbsp; 南京分公司：4006068990-025</font></div>
+<div style="TEXT-ALIGN: center"><font color="#000000">大连分公司：4006068990-0411 合肥售后中心：4006068990-0551&nbsp; 芜湖镜湖光学店：4006068990-0553&nbsp;</font></div>
+<div style="TEXT-ALIGN: center"><font color="#000000">（因本公司在全国有七家分公司，库存不一，所以不排除邮寄时需分多个包裹寄出。） 
+<img style="WIDTH: 91px; height: 83px" height="189" src="http://www.zhencaipian.com/images//20120508/74001a5f954d6528.png" width="208"></font></div>
+<div style="TEXT-ALIGN: center">&nbsp;</div>
+<div style="TEXT-ALIGN: center"><a title="NEO天使三色" href="http://www.zhencaipian.com/?gallery-101.html" type="url">NEO天使三色</a>&nbsp;&nbsp;&nbsp; 
+<style type="text/css"> <!-- .STYLE2 { font-size: 12px; font-family: Arial, Helvetica, sans-serif; } --> </style>
+<a title="芭比爱隐形眼镜" href="http://www.zhencaipian.com/?gallery-92.html" type="url">芭比爱隐形眼镜</a>&nbsp;&nbsp;&nbsp;<a title="美瞳隐形眼镜" href="http://zhencaipian.com/?gallery-42.html" type="url">美瞳隐形眼镜</a>&nbsp;&nbsp;&nbsp;<a title="美瞳网" href="http://zhencaipian.com/?gallery-42.html" type="url">美瞳网</a>&nbsp;&nbsp; </div>
+<table style="FONT-WEIGHT: bold; margin-left: auto; width: 771px; margin-right: auto; height: 28px; text-align: left" cellspacing="0" cellpadding="0" border="1">
+<tbody>
+<tr>
+<td>
+<marquee style="WIDTH: 740px; height: 16px" scrollamount="2">亮彩眼镜网是杭州亮彩眼镜公司旗下电子商务网站，专业从事隐形眼镜,美瞳片及护理用品销售的，中国领先的电子商务销售平台。拥有强大的眼镜行业的价格优势、30天领先的退换货服务。做到价格同行业最低，服务同行业最好，本公司与各大隐形眼镜制造商有着良好的合作关系，经营的产品皆为正规渠道引进的原厂正品，有着完善的换货、退货与售后服务制度。 
+<marquee></marquee></marquee></td></tr></tbody></table>
+<p align="center">
+<img height="0" src="http://zs15.cnzz.com/stat.htm?id=2303089&amp;r=&amp;lg=zh-cn&amp;ntime=0.62184200%201281404757&amp;repeatip=" width="0" border="0" 63&amp;rtime="'12&amp;cnzz_eid=64339546-1279688063-http%3A//www.zhencaipian.com/&amp;showp=1440x900&amp;st=792&amp;sin=&amp;res=0" ???=""></p></div><div style="font-family:Verdana;line-height:20px!important;height:auto!important;font-size:11px!important;text-align:center;overflow:none!important;text-indent:0!important;"><a href='http://service.shopex.cn/show/certinfo.php?certi_id=461462264&url=http%3A%2F%2Fwww.zhencaipian.com%2F' target='_blank'><img src='statics/bottom-authorize.gif'></a><br><a href="http://store.shopex.cn/rating/store_detail.php?ref=www.zhencaipian.com&check=8a3c6a0e387b71bb01fe6eb26896e7e2&str=%E6%97%A0" target="_blank" style="color:#666;text-decoration:none;cursor:pointer">Powered&nbsp;by&nbsp;<b style="color:#5c719e">Shop</b><b style="color:#f39000">Ex</b></a><span style="font-size:9px;">&nbsp;v4.8.5</span><span style="color:#999;display:none">&nbsp|Gzip enabled</span>&nbsp;<br/><span>虚机提供<a href="http://www.222idc.com" target="_blank">巨盈网络</a></span>&nbsp;<a href="http://www.miibeian.gov.cn/" target="blank" style="color:#666;text-decoration:none;cursor:pointer;display:block;" class="textcenter">浙ICP备09028938号</a><span style="display:none"><script src='http://pw.cnzz.com/c.php?id=80439456&l=2' language='JavaScript' charset='gb2312'></script></span></div></div> </div> </div> </div> </body> </html> 

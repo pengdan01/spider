@@ -1,0 +1,5 @@
+#ip/host  max_qps max_connection  time_period
+www.baidu.com	15	8	00:00-23:59
+www.sohu.com	15	8	00:00-23:59
+www.sina.com.cn	15	8	00:00-23:59
+all.qidian.com	4	4	00:00-23:59

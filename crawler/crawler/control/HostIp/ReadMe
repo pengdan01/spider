@@ -1,0 +1,7 @@
+
+A. host_ip_query_regular.sh 进行例行的 host dns 查询, 并把查询结果存储到指定地址, 查询的数据源来自 30 天累计的 site uv 数据
+  给定 Host, 查询 IP
+  1. 生成 HDFS 文件, 以供批量查询使用, 可以大幅减轻 DNS Server 压力, 并提升查询速度
+  2. 定期更新 HDFS 文件, 保持和 DNS Server 结果一致
+
+B. host_ip_query_tipical.sh 查询的数据源随意指定, 结合例行查询的结果, 返回待查询数据的 ip

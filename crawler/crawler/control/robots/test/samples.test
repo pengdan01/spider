@@ -1,0 +1,17 @@
+zhidao.baidu.com	A	User-agent: Baiduspider/gcnDisallow: /w?\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: MSNBot\nAllow: /\n\nUser-agent: Baiduspider-image\nAllow: /\n\nUser-agent: YoudaoBot\nAllow: /\n\nUser-agent: Sogou web spider\nAllow: /\n\nUser-agent: Sogou inst spider\nAllow: /\n\nUser-agent: Sogou spider2\nAllow: /\n\nUser-agent: Sogou blog\nAllow: /\n\nUser-agent: Sogou News Spider\nAllow: /\n\nUser-agent: Sogou Orion spider\nAllow: /\n\nUser-agent: JikeSpider\nAllow: /\n\nUser-agent: Sosospider\nAllow: /\n\nUser-agent: *\nDisallow: /\n
+zhidao.baidu.com	B	http://zhidao.baidu.com/	a
+zhidao.baidu.com	B	http://zhidao.baidu.com	b
+zhidao.baidu.com	B	http://zhidao.baidu.com/question/473777148.html	c
+www.baidu.com	A	User-agent: Baiduspider/gc\r\nDisallow: /baidu\r\nDisallow: /s?\r\n\r\nUser-agent: Googlebot\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: MSNBot\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Baiduspider-image\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: YoudaoBot\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou web spider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou inst spider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou spider2\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou blog\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou News Spider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sogou Orion spider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: JikeSpider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\nUser-agent: Sosospider\r\nDisallow: /baidu\r\nDisallow: /s?\r\nDisallow: /shifen/\r\nDisallow: /homepage/\r\nDisallow: /cpro\r\n\r\n\r\nUser-agent: *\r\nDisallow: /\r\n
+www.baidu.com	B	http://www.baidu.com	d
+www.baidu.com	B	http://www.baidu.com/	e
+www.baidu.com	B	http://www.baidu.com/baidu?wd=q	f
+www.xx.com	A	
+www.xx.com	B	http://www.xx.com/	g
+www.xx.com	B	http://www.xx.com/file/	h
+www.yy.com	A	User-agent: *\r\nDisallow: /\r\n
+www.yy.com	B	http://www.yy.com	i
+www.yy.com	B	http://www.yy.com/	j
+www.yy.com	B	http://www.yy.com/file/	k
+www.zz.com	B	http://www.zz.com/	l
+www.zz.com	B	http://www.zz.com/file	m

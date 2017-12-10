@@ -1,0 +1,19 @@
+#!/bin/bash
+
+user=crawler
+m04="180.153.227.159"
+scp ~/wly/crawler/control/robots_forbidden/*.sh \
+    $user@${m04}:~/crawler_control/robots_forbidden/
+if [ $? -ne 0 ];then
+  echo "copy to m04 from `hostname` failed" >&2
+  exit 1
+fi
+
+if [ "${1}" = all ];then
+  rsync -cavz ~/wly/.build/opt/targets/crawler/control/robots_forbidden/* \
+      $user@${m04}:~/crawler_control/robots_forbidden/
+  if [ $? -ne 0 ];then
+    echo "copy to m04 from `hostname` failed" >&2
+    exit 1
+  fi
+fi

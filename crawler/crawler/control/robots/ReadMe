@@ -1,0 +1,16 @@
+
+robots 协议
+给定 url 集合, 用 robots 协议对 url 进行过滤, 输出通过 robots 协议的 url
+无法通过 robots 协议的 url 会被打印到 abnormal data 中
+
+输入数据:
+1. robots 协议 sfile
+2. 待判定的 url 集合, 可以包含多个字段, 字段之间以 \t 分割, 需要指定 url 所在字段
+
+输出:
+输出能抓取的 url, 并附上抓取类型
+抓取类型有4个取值
+donot_allow=0
+has_no_robots=1
+others_allow=2
+allow=3

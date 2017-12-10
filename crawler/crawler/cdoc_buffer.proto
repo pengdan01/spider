@@ -1,0 +1,16 @@
+import "feature/web/page/html_features.proto";
+
+package crawler2.realtime_fetcher;
+
+message CDocBufferRequest {
+  required feature.HTMLInfo html_info = 1;
+}
+
+message CDocBufferResponse {
+  required bool success = 1;
+  optional string reason = 2;
+}
+
+service CDocBufferService {
+  rpc Submit(CDocBufferRequest) returns (CDocBufferResponse);
+}

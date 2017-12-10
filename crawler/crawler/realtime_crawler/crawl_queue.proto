@@ -1,0 +1,132 @@
+import "crawler/proto2/resource.proto";
+import "crawler/proto2/probe.proto";
+
+package crawler2.crawl_queue;
+
+message JobQueue {
+  required string ip = 1;
+  required int32 port = 2;
+  optional string tube_name = 3;
+  optional int32 priority = 5 [default = 5];  // 优先级
+  optional int32 delay = 6 [default = 0];
+  optional int32 ttr = 10 [default = 600];  // time to run
+}
+
+message FeatureItem{
+  required string key = 1;
+  required string value = 2;
+}
+
+message JobDetail {
+  required string url = 1;          // 待抓去 URL
+  // XXX(pengdan):  20140725
+  // 背景: 对于普通的网页或者图片, 不需要设置 |redirect_url|, 实际抓取的就是 |url| 本身;
+  // 对于 JS 网页抓取, 当前处理逻辑是: 对外面显示统计都是用 |url|, 而实际真正抓取请求使
+  // 用的 |redirect_url|. 
+  // 当前 JS 抓取实现是: 用 Java 引擎负责对 JS 渲染
+  optional string redirect_url = 2; // 需要真正抓取的 URL
+  optional string ip = 5;           // 如果已经为他的 分配了 IP
+  optional ResourceType resource_type = 10 [default = kHTML];
+  optional bool use_proxy = 20 [default = false];     // 是否使用代理
+  optional string referer = 21;
+  optional double importance = 22 [default = 0.5];
+  optional int32 priority = 23 [default = 5];
+  optional int32 depth = 24 [default = 0];
+  repeated FeatureItem features = 30; // add cookie, user_agent here
+  optional string proxy = 31;     // 代理, such as: http://100.9.21.90:1080 or socks5://124.0.0.3:1002
+  optional bytes post_body = 32; // post_body(if set ,will using POST method)
+}
+
+//// 有关调度的信息
+//// 统计信息反映如下的方面：
+//// 1. crawler当前抓取能力
+//// 2. 站点抓取性能
+//// 3. 站点，path 下页面价值
+//message ScheduleInfo {
+//  optional uint64 site_sign = 1 [default = 0];
+//  optional uint64 domain_sign = 2 [default = 0];
+//  optional uint64 url_sign = 3 [default = 0];
+//  optional uint64 father_url_sign = 4 [default = 0];  // 父节点的 url sign
+//  optional string url = 5;   // source url
+//  optional uint64 last_schedule_time = 6; //上一次调度的时间, 首次加入的填 0
+//  optional bool reset_cycle_info = 7;     //重置 cycle 信息
+//  optional bool valid = 8;
+//
+//  optional int64 url_grab_time = 10; // 抓取消耗的时间
+//  optional int64 url_crawler_time = 11; // 从 task 提交到抓取完成，提交到 extractor 的时间
+//  optional int32 url_grab_retry_times = 15;  // 抓取时重试的次数
+//  // url抓取的状态 0：成功 1: 重试太多 2：crawler压力大丢弃 3：压力控制丢弃 4:原因不明 
+//  // 5: 4** 未抓取 6:5** 未抓取 7： 其他未抓取 8: 页面不存在 9：连接失败 10: 生成复合文档失败
+//  // 在 crawler 中同时用来记录 url 的抓取状态
+//  optional int32 url_status = 20 [default = 0];
+//  optional int32 page_type = 21  [default = 5]; // 0: 索引页 1: 新闻页 2：论坛页 3：问答页 4: 新索引页 5: 其他
+//  optional int32 link_follow_depth = 22;  // link 的 follow 深度
+//  optional int32 site_level = 23;  // site的评级
+//  optional int32 page_importance = 24; // 页面价值
+//  optional int32 new_url_num = 25;   // 索引页发现的新 url 数量
+//
+//  // 以下是调度的主要特征
+//  optional int32 cycle_new_url_num = 50;
+//  optional int32 cycle_grab_time = 51;
+//  optional int32 cycle_crawler_time = 52;
+//  optional int32 cycle_grab_retry_times = 53;
+//
+//  repeated int32 cycle_url_status_num = 54;
+//  repeated int32 cycle_page_type_num = 55;
+//
+//  optional int32 predict_best_schedule_period = 70;  // 预测的最佳调度周期
+//  optional int32 last_schedule_period = 71;   // 上一次的调度周期, 单位秒
+//  optional float predict_weight = 72;       // 预测的重要性
+//  optional float last_weight = 73;          // 上一次使用的重要性
+//  
+//  optional string father_xpath = 100;  // 在父页面中的 xpath 信息
+//  optional string fath_anchor= 101;    // 在父页面中的 anchor 描述
+//}
+//
+//message NewUrlsInfo {
+//  repeated string urls = 1;   // 一组url
+//  repeated string extra_uniq_info = 3;  // 用于做去重判断时，附加的 key 
+//  optional string father_url = 2;  // 父节点的 source url
+//  optional ScheduleInfo father_schedule_info = 5;  // 父节点的调度信息
+//}
+//
+//message AnchorUrl {
+//  repeated string urls = 1;  // 一个 father url 只能有权重 1 的 anchor 描述, 所以要记录 anchor来自哪里
+//}
+//
+//message RawAnchorInfo {
+//  optional string url = 1;
+//  repeated string anchors = 2;  // anchor 的文本
+//  repeated int32 counter = 3;  // anchor 出现次数 ，与 anchors 一一对应，降序排列
+//  repeated AnchorUrl anchor_url = 4;  // 记录 anchor 出自哪些 url
+//}
+
+// 抓取队列的任务格式
+// 1. detail 定定义一个完成的任务
+// 2. job_sumitted_timestamp 定义任务提交日期
+// 3. target_queue 任务完成之后，交给那个 job_queue 保存
+// 4. user_data 用户数据
+// 5. retry_times 重试次数， 及此任务提交的次数
+message JobInput {
+  required JobDetail detail = 1;
+  optional int64 submitted_timestamp = 5 [default = 0];  // 提交任务的时间
+  optional JobQueue  target_queue = 10;
+  optional bytes extra_data = 25;  // 用于程序内部传输数据
+  optional bytes user_data = 30;   // 数据将原封不同传输到下游
+  //optional ScheduleInfo schedule_info = 40; // 调度信息 
+  optional int32 tried_times = 50 [default = 0];    // 重试次数
+  // 尝试次数, 任务被取到爬虫之后可能由于load controller 原因被取消
+  // 如果次数过多直接放弃即可（表明爬去能力无法满足所有任务，需要
+  // 将任务丢弃一部分）
+  optional int32 fetched_times = 60[default = 0];   
+
+  optional ProbeDetailCrawlRequest probe_crawl_request = 61;
+}
+
+message JobOutput {
+  required JobInput job = 1;
+  optional int64 completed_timestamp = 5 [default = 0];  // 完成任务的时间
+  optional Resource res = 10;
+  optional string detail = 20;
+  repeated FeatureItem features = 30;
+}

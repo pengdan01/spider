@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>个人简历-云才网（招聘无处不在 求职自由自在）</title>
+<link rel="stylesheet" type="text/css" href="http://www.ynrs.com/css/style2.css" />
+<link rel="stylesheet" type="text/css" href="http://www.ynrs.com/css/resume1.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.ynrs.com/css/resume2.css" media="print" />
+<!--[if IE 6]>
+<style type="text/css">
+html{overflow:hidden;}
+body{height:100%;overflow:auto;}
+#resume-menu{position:absolute;right:24px;}
+</style>
+<![endif]-->
+<script type="text/javascript" src="http://www.ynrs.com/js/function.js"></script>
+<script type="text/javascript" src="http://www.ynrs.com/js/xmlhttp.js"></script>
+<script type="text/javascript" src="http://www.ynrs.com/js/floatCls.js"></script>
+<script type="text/javascript" src="http://www.ynrs.com/js/floatIframeCls.js"></script>
+<script type="text/javascript">
+var PICURL = 'http://www.ynrs.com/';
+var InfoID = 179557;
+var IsRev = 0;
+var Memo = '';
+var MyUserID = 0;
+var MyIsDown = 0;
+var funcName = 'init';
+var errInfo = '';
+var U_Amount = 0;
+var rip_user = '';
+var r_all_amount = 0;
+var F_javenum =0 ;
+cmFrmDv_init(0);
+
+window.onload = function()
+{
+	reCalBodySize();
+	bodyLoad('cmFrmDv');
+
+	get_initInfo();
+}
+
+function get_initInfo()
+{
+	//check login and meme,invitinfo, update hits
+	XMLHttp.sendReq('GET', '/sys/api/resume_check.asp?action=initInfo&InfoID=' + InfoID, '', xmlOnLoad);
+}
+
+//登陆验证后的回调函数
+function callBackFunc(sType)
+{
+	closeDiv('cmFrmDv');
+
+	get_initInfo();
+}
+
+//初始化接口返回
+function rev_info(iUserID, iIsDown, MemoStr, MutualStr, ConStr, I_Amount , Vip_user, U_all_amount,Fast_javenum)
+{
+	//alert(iUserID + '\n' + MemoStr + '\n' + MutualStr + '\n' + ConStr);
+	var tArr, Arr, i = 0;
+
+	if(iUserID)
+	{
+		MyUserID = iUserID;
+		MyIsDown = iIsDown;
+		U_Amount = I_Amount 
+		rip_user = Vip_user
+		r_all_amount= U_all_amount
+		F_javenum=Fast_javenum
+		if(MyUserID == InfoID)
+		{
+			$('viewJianYi').style.display = 'none';
+			$('viewDownBtn').style.display = 'none';
+		}
+	}
+
+	//备注
+	tArr = MemoStr.split('$');
+	if(2 == tArr.length && MyUserID != InfoID)
+	{
+		$('remarks').style.display = '';
+		if(tArr[0])
+		{
+			$('remarks_body0').style.display = 'none';	//关闭提示
+			
+			$('remarks_memo').value = tArr[0];
+			$('remarks_content').innerHTML = tArr[0];
+			$('marks_uptime').innerHTML = '<br />上次更新时间：' + tArr[1];
+		}
+		else
+		{
+			$('remarks_body0').style.display = '';		//提示 备注
+			$('remarks_body1').style.display = 'none';
+		}
+	}
+
+	//处理邀请
+	var tStr = '';
+	tArr = MutualStr.split('##');
+	for(var i = 0; i < tArr.length; i++)
+	{
+		Arr = tArr[i].toString().split('$');
+		if(5 == Arr.length)
+		{
+			tStr += '<div class="bw pd-2">';
+			tStr += '	' + Arr[0] + ' 申请“<strong>' + Arr[1] + '</strong>”职位&nbsp;&nbsp;';
+			if(2 == Arr[3])
+			{
+				tStr += '<span style="color:red">(已通知面试)</span>';
+			}
+			else if(3 == Arr[3])
+			{
+				tStr += '<span style="color:red">(等待考虑)</span>';
+			}
+			else if(4 == Arr[3])
+			{
+				tStr += '<span style="color:red">(已婉拒)</span>';
+			}
+			else
+			{
+				tStr += '	<button type="button" onclick="loadHnrcFrm(\'/sys/company/applyResumeReply.asp?act=interface&id=' + Arr[2] + '&fact=apply\')">同意</button>&nbsp;';
+				tStr += '	<button type="button" onclick="loadHnrcFrm(\'/sys/company/applyResumeReply.asp?act=interface&id=' + Arr[2] + '&fact=question\')">考虑</button>&nbsp;';
+				tStr += '	<button type="button" onclick="loadHnrcFrm(\'/sys/company/applyResumeReply.asp?act=interface&id=' + Arr[2] + '&fact=refuse\')">谢绝</button>&nbsp;';
+				tStr += '	<button type="button" onclick="loadHnrcFrm(\'/sys/company/applyResumeReply.asp?act=interface&id=' + Arr[2] + '&fact=Pelete\')">删除</button>';
+			}
+			tStr += ' &nbsp; <a href="javascript:viewPostIntro(' + Arr[2] + ')"><img id="postIntroImg' + Arr[2] + '" src="' + PICURL + 'images/per_bg/plus.gif">查看求职信</a>';
+			tStr += '<div id="postIntro' + Arr[2] + '" class="postIntro" style="display:none">' + Arr[4] + '</div>';
+			tStr += '</div>';
+		}
+	}
+	if(tStr)
+	{
+		$('apply1').innerHTML = tStr;
+		$('apply2').innerHTML = tStr;
+		$('apply1').style.display = '';
+		$('apply2').style.display = '';
+	}
+
+	if('viewContact' == funcName) return viewContact();
+
+	set_conStr(ConStr);
+	
+	if('invite' == funcName) return invitePerson();
+}
+
+function viewPostIntro(id)
+{
+	var tO = $('postIntro' + id);
+	if('none' == tO.style.display)
+	{
+		tO.style.display = '';
+		$('postIntroImg' + id).src = PICURL + '/images/per_bg/minus.gif';
+	}
+	else
+	{
+		tO.style.display = 'none';	
+		$('postIntroImg' + id).src = PICURL + '/images/per_bg/plus.gif';
+	}
+}
+
+function set_conStr(str)
+{
+	//联系方式
+	tArr = str.split('$');
+	if(1 == tArr.length)
+	{
+		errInfo = str;
+		
+		if('viewContact1' == funcName)
+		{
+			alert(errInfo);
+			$('viewContact').style.display = 'none';
+		}
+		return;
+	}
+	
+	var conStr = '';
+	if(tArr[1])
+	{
+		while(-1 != tArr[1].indexOf(' ')) tArr[1] = tArr[1].replace(' ', '');
+	}
+	if(tArr[0])
+	{
+		tStr = '';
+		if(tArr[1]) tStr = '-1';
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">联系电话' + tStr + '：</td><td>' + tArr[0] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[1])
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">联系电话-2：</td><td>' + tArr[1] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[2])
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">手机号码：</td><td>' + tArr[2] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[3])
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">电子邮件：</td><td>' + tArr[3] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[4])
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">&nbsp;QQ号码：</td><td>' + tArr[4] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[5])
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">联系地址：</td><td>' + tArr[5] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(tArr[6])
+
+	{
+		conStr += '<tr>';
+		conStr += '	<td><table class="cf"><tr><td nowrap="nowrap">邮政编码：</td><td>' + tArr[6] + '</td></tr></table></td>';
+		conStr += '</tr>';
+	}
+	if(conStr)
+	{
+		$('viewContact').style.display = 'none';
+		conStr = '<table class="list-d">' + conStr + '</table>';
+		$('MsgLabel').innerHTML = conStr;
+	}
+}
+
+/*
+	用户的几种状态：
+	1、未登陆，MyUserID = 0, MyIsDown = 0;
+	2、已登陆，未购买，MyUserID > 0, MyIsDown = 0
+	3、已登陆，已购买，MyUserID > 0, MyIsDown = 1
+	
+	打开页面，通过get_initInfo()初始化状态
+		回调rev_info()，如果MyIsDown > 0那么get_Contact()；
+	未登陆的点“查看联系方式”->viewContact();
+		首先loadHnrcFrm(login.asp)，然后回调get_Contact()
+		如果已经登陆但MyIsDown = 0（未购买），则提示确认后调用get_Contact()
+	未登陆的点“邀请面试”->invitePerson();
+		首先loadHnrcFrm(login.asp)，登陆后直接浮出邀请窗口（跟投递简历类同）
+*/
+
+function showremarks(isShow)
+{
+	var tO = $('remarks_body2');
+	if('none' == tO.style.display || isShow)
+	{
+		tO.style.display = '';
+		$('remarks_body1').style.display = 'none';
+	}
+	else
+	{
+		tO.style.display = 'none';
+		if($('remarks_memo').value) $('remarks_body1').style.display = '';
+	}
+}
+
+//查看联系方式
+function viewContact()
+{
+	funcName = 'viewContact';
+	if(MyUserID)
+	{
+	//1=等待审核 ,2审核未通过,3试用企业点数用完,6试用企业点数未用完,4 VIP企业到期 5VIP企业未到期点数用完,6VIP企业未到期点数用完
+	if (F_javenum==1)
+	{
+	alert('你的资料还未审核,请把企业资料完善后把贵企业把营业执照（加盖公章）传到0871-5651234.通过审核后才能查看简历联系方式！');
+	}
+	else if(F_javenum==2)
+	{
+	alert('你的资料未通过审核,原因可能:\n\n (1)企业资料没有认真填写;\n\n(2)贵企业还没把营业执照（加盖公章）传到0871-5651234.通过审核后才能查看简历联系方式！');
+	}
+	else if(F_javenum==3)
+	{
+	alert('对不起,您的权限已经过期,请升级！');
+	}
+	else if(F_javenum==4)
+	{
+	alert('对不起,VIP企业已经过期,请升级！');
+	}
+	else if(F_javenum==5)
+	{
+	alert('对不起,VIP企业权限已经过期,请升级！');
+	}
+	else{
+	//if(U_Amount>0)
+	// {
+		if(!MyIsDown)
+		{
+			if(confirm('确定查看此简历联系方式？请慎重,查看一个简历,将扣除一个点\n\n 【云才网提示您:】\n\n 您是'+rip_user+',您总的可以查看简历联系方式〖'+r_all_amount+'〗份 \n\n 您还可以查看〖'+U_Amount+'〗份个人简历联系方式'))
+			{
+			  //if(confirm('提示:查看一个简历,将扣除一个点\n\n 你目前还可以查看:'+U_Amount+' 份简历'))
+			    //{
+				 XMLHttp.sendReq('GET', '/sys/api/resume_check.asp?action=contact&InfoID=' + InfoID, '', xmlOnLoad);
+				 funcName = 'viewContact1';
+				//}
+			}
+		}
+		else
+		{
+			XMLHttp.sendReq('GET', '/sys/api/resume_check.asp?action=contact&InfoID=' + InfoID, '', xmlOnLoad);
+			funcName = 'viewContact1';
+		}
+	}
+	 //else
+	//{
+	//alert('对不起您的点数已经用完了,请升级！');
+	//}
+		
+	}
+	else
+	{
+		//loadHnrcFrm('/sys/api/login.asp?act=interface&backfunc=callBackFunc');
+		window.open ('/sys/api/login.asp?act=interface&backfunc=callBackFunc', 'newwindow', 'height=450, width=600, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no')
+	}
+}
+
+//邀请面试
+function invitePerson()
+{
+	funcName = '';
+	if(MyUserID)
+	{   
+	    if(confirm('提示:为保证最快与个人取得联系 \n\n 云才网建议您:直接打电话和个人联系'))
+		{
+		//loadHnrcFrm('/sys/company/InvitePerson.asp?act=interface&resumeid=' + InfoID);
+		window.open ('/sys/company/InvitePerson.asp?act=interface&resumeid=' + InfoID, 'newwindow', 'height=450, width=600, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no')
+		}
+	}
+	else
+	{
+		funcName = 'invite';
+		//loadHnrcFrm('/sys/api/login.asp?act=interface&backfunc=callBackFunc(1)');
+		window.open ('/sys/api/login.asp?act=interface&backfunc=callBackFunc(1)', 'newwindow', 'height=450, width=600, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no')
+	}
+}
+
+//收藏简历
+function addInfo()
+{    
+    if(confirm('提示:为保证最快与个人取得联系 \n\n 云才网建议您:直接打电话和个人联系'))
+	{
+	//loadHnrcFrm('/sys/company/addInfo.asp?act=interface&InfoID=' + InfoID);
+	window.open ('/sys/company/addInfo.asp?act=interface&InfoID=' + InfoID, 'newwindow', 'height=450, width=600, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no')
+	}
+}
+//给个人留言
+function msg_addInfo()
+{    
+	{
+	//loadHnrcFrm('/sys/msgtoperson.asp?act=interface&InfoID=' + InfoID);
+	window.open ('/sys/msgtoperson.asp?act=interface&InfoID=' + InfoID, 'newwindow', 'height=450, width=600, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=n o, status=no')
+	}
+}
+
+
+
+function goForm(tO)
+{
+	//save memo
+	$('mark_btn1').disabled = true;
+	$('mark_btn2').disabled = true;
+
+	var url = '/sys/api/memo.asp?action=save_memo&InfoID=' + InfoID;
+	XMLHttp.sendReq('POST', url, 'memo=' + tO.remarks_memo.value, xmlOnLoad);
+	
+	return false;
+}
+
+//save memo and return info
+function marksRev(str, iUptime)
+{
+	$('mark_btn1').disabled = false;
+	$('mark_btn2').disabled = false;
+
+	$('marks_uptime').innerHTML = '<br />上次更新时间：' + iUptime;
+
+	if(str) alert(str);
+	
+	$('remarks_body2').style.display = 'none';
+	var tStr = $('remarks_memo').value;
+	if(tStr)
+	{
+		$('remarks_content').innerHTML = tStr;
+		$('remarks_body1').style.display = '';
+	}
+	else
+	{
+		$('remarks_body0').style.display = '';
+	}
+}
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<div id="resume-container">
+	<div id="resume-header">
+		<div id="remarks" class="r-block-c pd-4" style="display:none">
+			<p>
+				备注信息(<strong><a href="#" onclick="showremarks()">修改/添加</a></strong>)
+				<span id="remarks_body0" class="pd-4">您可以加入对该简历的标注(比如电话沟通的印象，参加面试的结果)，以免重复通知面试。</span>
+			</p>
+			<p id="remarks_body1" class="tb">
+				<span id="remarks_content"></span>
+				<span id="marks_uptime"></span>
+			</p>
+			<div id="remarks_body2" style="display:none">
+				<form onsubmit="return goForm(this)">
+				<b>您可以加入对该简历的标注(比如参加面试的结果)，以便下次打开时能记得以前的沟通过程。</b><br />
+				<textarea rows="3" class="sr" id="remarks_memo" name="remarks_memo" style="width:98%"></textarea>
+				<hr size="1" color="#FFCC00" />
+				<p>
+					&nbsp;
+					<button type="submit" id="mark_btn1" class="small_btn twos">保存</button>&nbsp;
+					<button type="button" id="mark_btn2" class="small_btn twos" onclick="showremarks()">取消</button>
+					<cite>(不超过200字)</cite>
+				</p>
+				</form>
+			</div>
+		</div>
+		<div id="apply1" class="r-block-c pd-4 mg-t" style="display:none"></div>
+	位置：</span><a href="http://www.ynrs.com">云南招聘网</a> &gt;&gt; 个人简历</div>
+	<div id="resume-main">
+	  <div class="r-block-b pd-0">
+      <table class="list-a">
+        <tr>
+          <td>简历编号：179557 </td>
+          <td>更新时间：2010-10-4</td>
+          <td>登录时间：2010-12-16</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+    <div class="r-block-b pd-0 mg-t">
+      <h3>基本资料</h3>
+      <table width="100%">
+  <tr>
+	<td valign="top"><table class="list-a">
+		<tr>
+		  <td width="222">姓　　名：杨海军</td>
+		  <td width="157">性　　别：男</td>
+		</tr>
+		<tr>
+		  <td width="222">年　　龄：27</td>
+		  <td width="222">最高学历：大专</td>
+		</tr>
+		<tr>
+		  <td width="222">身　　高：175CM</td>
+		  <td width="222">体　　重：0KG</td>
+		</tr>
+		<tr>
+		  <td width="222">婚烟状况：未婚</td>
+		  <td width="222">现所在地：云南省昆明市</td>
+		</tr>
+		<tr>
+		  <td width="222">求职方向：市场营销</td>
+		  <td width="222">工作经验：10年以上</td>
+		</tr>
+		<tr>
+		  <td colspan="2">特点概述：特点概述</td>
+		</tr>
+	  </table></td>
+	<td align="right"><img src="httP://www.ynrs.com/images/per_bg/noneface.gif" width="120" height="150" /></td>
+  </tr>
+</table>
+	  	
+	  <h3>自我评价</h3>
+	  <table class="list-c">
+		<tr>
+		  <td>人之所以能是相信能！(自带车）</td>
+		</tr>
+	  </table>
+	
+		  <h3>求职意向</h3>
+	  <table class="list-c">
+		<tr>
+		  <td width="288"><table><tr><td>期望行业：</td><td style="vertical-align:top;">贸易、商务、进出口</td>
+		  </tr></table></td>
+		  <td width="288"><table><tr><td>期望职位：</td><td style="vertical-align:top;">部门主管</td>
+		  </tr></table></td>
+		</tr>
+		<tr>
+		  <td width="288">职位名称：市场营销</td>
+		  <td width="288"><table><tr>
+			  <td>期望地区：</td><td style="vertical-align:top;">云南省昆明市</td>
+		  </tr></table></td>
+		</tr>
+		<tr>
+		  <td width="288">期望薪资：3000-4499</td>
+		  <td width="288">到岗时间：随时到岗</td>
+		</tr>
+	  </table>
+	
+		  <h3>教育历程</h3>
+	  <table class="list-b">
+		<tr>
+		  <th>学校名称</th>
+		  <th>学历</th>
+		  <th>专业</th>
+		  <th>专业类别</th>
+		  <th>年份</th>
+		</tr>
+	     <tr>
+    <td>江西财经学院</td>
+    <td>大专</td>
+    <td>市场营销</td>
+    <td>财经类</td>
+    <td>2004/9~2007/7</td>
+  </tr>
+
+	  </table>
+	
+	  <h3>工作经历</h3>
+	        <table class="list-c">
+        <caption>
+        <cite>2006/3~2010/7</cite>云南报业集团
+        </caption>
+        <tr>
+          <td width="288">所处行业：媒体、影视制作、新闻出版</td>
+          <td width="288">公司规模：1000人以上</td>
+        </tr>
+        <tr>
+          <td width="288">任职部门：教育出版</td>
+          <td width="288">职　　位：调度</td>
+        </tr>
+        <tr>
+          <td colspan="2"><table><tr><td width="60">工作描述：</td><td>调度全身图书配发</td></tr></table></td>
+        </tr>
+      </table>
+      <h3>车</h3>
+      <table class="list-c">
+        <tr>
+          <td>自带面包车</td>
+        </tr>
+      </table>
+
+		
+	  <h3>联系方式</h3>
+	
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- '1=等待审核 ,2审核未通过,3试用企业点数用完,6试用企业点数未用完,4 VIP企业到期 5VIP企业未到期点数用完,6VIP企业未到期点数用完,7未登录，8已经购买过-->
+
+<tr>
+    <td>对不起，只有企业会员才能查看联系方式！[ <a href="http://www.ynrs.com/sys/company/reg.asp" target="_blank">免费注册</a> ] [ <a href="http://www.ynrs.com/sys/login.asp" target="_blank">登陆帐号</a> ]</td>
+  </tr>
+   
+</table>
+	</div>
+	<br />
+
+	<div class="r-block-b pd-0">
+	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#99AEFF">
+        <tr>
+          <td bgcolor="#FFFFFF">凡在网上邀请面试的，请根据个人的联系方式，主动与求职个人联系。<a href="http://www.ynrcsc.com/ynrcscnet/help/why.asp" target="_blank" style="text-decoration: underline;color: #000099;">为什么要主动?</a>
+如果发邮件给求职者，请在邮件中注明该信息来源于www.ynrs.com</td>
+          </tr>
+      </table>
+	  </div>
+	 <table width="45%" height="28" border="0" align="center" cellpadding="0" cellspacing="3">
+        <tr>
+          <td width="7%" align="center"></td>
+          <td width="25%" align="center"><button type="button" onclick="invitePerson()">邀请面试</button></td>
+          <td width="23%" align="center"><button type="button" onclick="addInfo()">加入收藏</button></td>
+          <td width="19%" align="center"><button type="button" onclick="window.print()">打印简历</button></td>
+          <td width="26%" align="center"><input type="submit" name="Submit4" value="关闭窗口" onClick="window.close();"></td>
+        </tr>
+      </table>
+	</div>
+ <div id="apply2" class="r-block-c pd-4 mg-t" style="display:none"></div>
+<span style="visibility:hidden"><script src='http://s125.cnzz.com/stat.php?id=558460&web_id=558460' language='JavaScript' charset='gb2312'></script>
+</span>
+  </div>
+</body>
+</html>

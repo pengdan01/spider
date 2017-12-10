@@ -1,0 +1,7 @@
+
+从 show rank 和 pv log 中挖掘被 robots 协议禁止的重要网站的 url, 限制 url 的目录最大深度
+
+输入, show rank, uv rank
+输出, sf 格式
+key: source url \t level(1/2)   1 更牛B
+value: resource

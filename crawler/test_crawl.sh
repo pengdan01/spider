@@ -1,0 +1,1 @@
+ .build/dbg/targets/spider/crawler/task_pusher  --ip=100.85.69.55 --port=50060 --datapath='/home/pengdan/wly/spider/crawler/test_url.txt' --post_body='appId=1&columnId=852&isCarousel=1&lastId=&lastOnlineTime=&lastSortNo=&sessionId=0158272d239e4ba7a71d75b6612423ac&token=' --logtostderr

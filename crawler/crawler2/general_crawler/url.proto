@@ -1,0 +1,44 @@
+package crawler3.url;
+
+// 需要使用 ResourceType 结构
+import "crawler/proto2/resource.proto";
+
+// 种子 urls 或者新发现的 urls
+message NewUrl {
+  required string clicked_url = 1;  // clicked_url
+  // url 发现深度. 例如: 假设从 urlA 中提取出了新链接 urlB, 则 depth(urlB) = depth(urlA) + 1
+  // 根节点的 depth 为 0
+  required int32 depth = 3 [default = 0];  
+  // url 类型
+  required crawler2.ResourceType resource_type = 4 [default = kHTML];
+  optional string referer = 5;    // |clicked_url| 从 |referer| 提取得到   
+}
+
+// url 抓取状态, 这个数据存在 redis 集群中
+message CrawledUrlStatus {
+  required uint64 sign = 1;  // clicked_url 签名
+  optional string clicked_url = 5;  // clicked_url
+  optional int64 latest_crawl_timestamp = 10 [default = 0];  // 最近一次抓取时间点
+  optional bool is_crawled = 15 [default = false];  // 最近一次是否成功抓取
+  optional int32 depth = 20 [ default = 0];  
+  optional int32 priority = 21 [default = 50];  // 抓取优先级 [0-99]: 取值越小, 表示抓取优先级越高 
+  optional int32 successive_failed_times = 25 [default = 0];  // 没有使用这个值 
+  optional bytes extra_data = 30;  // reversed for special use 
+}
+
+// 淘宝商品 item 信息
+message TaobaoProductInfo {
+  required string link = 1;  // 淘宝商品的链接
+  required int64 timestamp = 2;  // 淘宝商品的信息采集时间
+
+  optional string item_id = 3;  // 淘宝商品的 id
+  optional string trade_num = 5;  // 30 天内该商品交易了多少笔
+  optional string title = 7;  // 商品页面显示的 title 
+  optional string price = 9;  // 商品没有打折等活动时的价格
+  optional string current_price = 11;  // 商品当前的价格
+  optional string image_link = 13;  // 商品图片链接地址 
+
+  optional string seller_id = 15;  // 卖主店铺 id 
+  optional string commend = 17;  // 对该商品的评论数 
+  optional string loc = 19;  // 店铺所在城市 
+}

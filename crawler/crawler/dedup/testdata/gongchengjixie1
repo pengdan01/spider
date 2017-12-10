@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd" >
+<html>
+  <head>
+    <title>中国工程采购网</title>
+    <link href="n_css/style.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+<body>
+ 	<!-- header -->
+ 	<div id="wrap">    
+     
+<script src="n_js/header.js" type="text/javascript"></script>
+ <div id ="header">
+     <div id="header_1">
+      <div id="note">
+        &nbsp;
+      </div>
+      <div id="toolbar">
+        <a href="http://www.zgcg360.com"  target="_blank">首页</a> | <a href="thirdIndex.php?type=hyfw" target="_blank">会员服务</a> | <a href="thirdIndex.php?type=news2&footerType=operation" target="_blank">联系我们</a>
+      </div>
+      </div>
+ </div>
+<div id="mainnav_2">
+      <div id="quick-search_right">
+        <div div id="tab">
+		<ul>
+		<li id="li1" class="sub"><span onmouseover="showdiv(1)">项目</span></li>
+		<li id="li2"><span onmouseover="showdiv(2)">工程招标</span></li>
+		<li id="li3"><span href="#" onmouseover="showdiv(3)">采购</span></li>
+        <li id="li4"><span href="#" onmouseover="showdiv(4)">中标</span></li>
+        <li id="li5"><span href="#" onmouseover="showdiv(5)">业主</span></li>
+		<li id="li6"><span href="#" onmouseover="showdiv(6)">关键字</span></li>
+		</ul>
+	
+	<div id="all">
+		<div id="div1" class="dise">
+		 <form name='headerSearch1' action="subIndex.php?type=xmjs"  method='post' class="search"  >
+		  <input  type="text" name="key_word" type="text"  class="input_1" value="请输入项目关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue"/>
+		  <input name="search" type="image" src="n_images/search_3.png" align="absmiddle" value="搜索" text="搜索"  /></div>
+		  </form>
+		
+		 <form name='headerSearch2' action="subIndex.php?type=gczb"  method='post' class="search"  >
+		<div id="div2" class="undise">
+		<input  type="text" name="key_word"  class="input_1" value="请输入工程招标关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" />
+		 <input name="search" type="image" src="n_images/search_3.png"  align="absmiddle" value="搜索" text="搜索" /></div>
+		 </form>
+		
+		 <form name='headerSearch3' action="subIndex.php?type=caizb"  method='post' class="search"  >
+		<div id="div3" class="undise">
+		<input type="text"  name="key_word" class="input_1" value="请输入采购关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" /> 
+		<input name="search" type="image" src="n_images/search_3.png"  align="absmiddle" value="搜索" text="搜索" /></div> 
+		</form>
+		
+		<form name='headerSearch4' action="subIndex.php?type=zbgs"  method='post' class="search"  >
+        <div id="div4" class="undise">
+		<input type="text" name="key_word"  class="input_1" value="请输入中标关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" /> 
+		<input name="search" type="image" src="n_images/search_3.png"  align="absmiddle" value="搜索" text="搜索" /></div> 
+		</form>
+		
+		<form name='headerSearch5' action="subIndex.php?type=cgyz"  method='post' class="search"  >
+        <div id="div5" class="undise">
+		<input type="text" name="key_word" id="" class="input_1" value="请输入采购业主关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" />
+		 <input name="search" type="image"   src="n_images/search_3.png"  align="absmiddle" value="搜索" text="搜索" /></div> 
+		 </form>
+		 
+		  <form name='headerSearch6' action="subIndex.php?type=label"  method='post' class="search"  >
+        <div id="div6" class="undise">
+		<input type="text" name="key_word" id="" class="input_1" value="请输入关键字" onfocus="if(this.value == this.defaultValue) this.value = ''" onblur="if(this.value == '') this.value = this.defaultValue" />
+		 <input name="search" type="image"   src="n_images/search_3.png"  align="absmiddle" value="搜索" text="搜索" /></div> 
+		 </form>
+		 
+	</div>
+	
+	
+    </div>
+      </div>
+  </div>    
+  <!-- 主导航菜单 -->
+ <!DOCTYPE html PUBLIC "//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd" >
+<link rel="stylesheet" href="n_css/table.css" />
+
+<div id="menu"> 
+    <div id="menu_left"><img src="n_images/menu_bj_1.png" width="5" height="39" /></div>
+    <div id="menu_nav">
+		  <ul>
+		    <li><a href="../subIndex.php?type=xmjs&status_code=1">拟建项目</a></li>
+			
+			<li><a href="../subIndex.php?type=zbgs">中标公示</a></li>
+            
+			<li><a href="../subIndex.php?type=gczb">工程招标</a></li>
+            
+			<li><a href="../subIndex.php?type=caizb">设备采购</a></li>
+            
+			<li><a href="../subIndex.php?type=xmjs&status_code=2">在建项目</a></li>
+            
+            <li><a href="../subIndex.php?type=cgyz">采购业主档案</a></li>
+            
+            <li><a href="../subIndex.php?type=news&news_code=1070">行业期刊</a></li>
+            
+            <li><a href="../subIndex.php?type=xmjs&xmjs_area_code=34">境外项目</a></li>
+			 <!--li><img src="n_images/menu_bj_4.png" width="5" height="39" /></li-->
+            <li><a href="../subIndex.php?type=xmjs&xmjs_code=1028">项目简讯</a></li>
+		  </ul>
+         
+    </div>
+    <div id="menu_right"><img src="n_images/menu_bj_3.png" width="5" height="39" /></div>
+  </div>  
+  <!--广告及新闻--> 
+<link href="n_css/css.css" rel="stylesheet" type="text/css">
+  <div id="hot_keyword"><p><img src="n_images/megaphone.png" width="16" height="16" align="absmiddle" /> 行业研究报告</p></div>
+  
+  <div id="Scroll"><marquee direction="left" onMouseOver="this.stop()"; onMouseOut="this.start()" scrollamount="2" scrolldelay="30" width="100%" height="20">
+	
+	  					<A HREF="thirdIndex.php?type=news&id=138334" target='_blank'><B>《2011年中国电力行业研究报告》</B></A>
+								<A HREF="thirdIndex.php?type=news&id=138265" target='_blank'><B>《2011年中国铁路行业研究报告》</B></A>
+								<A HREF="thirdIndex.php?type=news&id=138259" target='_blank'><B>《2011年中国高速公路行业研究报告》</B></A>
+								<A HREF="thirdIndex.php?type=news&id=138226" target='_blank'><B>《2011年中国科研教育行业研究报告》</B></A>
+			  </marquee></div>
+ <!-- 主体内容 --> 
+ <div id="content">
+   
+  
+   
+   
+     
+	  <!-- 右边 -->
+   <div id="Subpageright">
+    <script>alert('该项目已被删除！');window.close();</script>
+
+<link href="n_css/style.css" rel="stylesheet" type="text/css">
+     <div id="topnav"><img src="n_images/icon_5.gif" width="11" height="11" align="absmiddle" /> 
+	 <a href="http://www.zgcg360.com">中国工程采购信息网</a> >> <a href="../subIndex.php?type=xmjs">项目建设</a> >> 项目详情</div>
+	 
+	 <form name='form1' action="subIndex.php?type=xmjs&status_code=&xmjs_code=&xmjs_area_code=" method='post' class="search">
+		 <div id="search">
+			<div style="float:left"><input name='key_word' type='text' class="text2" value="请输入项目关键字"  style="width:260;">&nbsp;<select name='zhuanti_code' class='sub1'><option value=0>选择专题</option><option value=101>火电项目</option><option value=104>公路和城市道路项目</option><option value=105>轨道交通项目</option><option value=106>核准备案项目</option><option value=108>烟气脱硫</option><option value=109>机场项目</option><option value=110>环保水处理项目</option><option value=112>文体场馆项目</option><option value=114>电网项目</option><option value=115>水利水电项目</option><option value=120>新能源发电项目</option><option value=121>各地重点项目建设</option><option value=124>商用建筑项目</option><option value=125>桥梁隧道项目</option><option value=126>科研教育项目</option><option value=127>医院项目</option><option value=128>旅游项目</option><option value=129>政府和公益事业项目</option><option value=130>仓储物流码头项目</option><option value=131>金属冶金项目</option><option value=132>采矿项目</option><option value=133>石油化工项目</option><option value=134>铁路项目</option><option value=135>中标公示</option><option value=136>高速公路项目</option><option value=137>医药化工项目</option><option value=138>医疗用品制造项目</option><option value=139>酒店宾馆项目</option><option value=140>住宅项目</option><option value=141>工业制造项目</option><option value=142>烟酒食品饮料项目</option><option value=143>轻工纺织项目</option><option value=144>通信电子信息项目</option><option value=145>建材项目</option><option value=146>造纸及纸制品项目</option><option value=147>水利项目</option><option value=148>市政项目</option><option value=149>农林牧渔项目</option><option value=150>家具项目</option></select>&nbsp;<select name='jindu_code' class='sub1'><option value=0>选择进度</option><option value=2>可研</option><option value=3>设计</option><option value=4>项目建议书</option><option value=5>环评</option><option value=6>备案核准</option><option value=7>报建</option><option value=8>勘察设计招标</option><option value=9>工程招标</option><option value=10>工程承包商确定</option><option value=111>在建</option><option value=112>材料设备招标</option><option value=113>开工准备</option><option value=114>投资商确定</option><option value=115>招商拟建</option><option value=116>水土保持方案评审</option></select>&nbsp;<select name='area_code' class='sub1'><option value=0>选择地区</option><option value=1>北京</option><option value=2>上海</option><option value=3>天津</option><option value=4>重庆</option><option value=5>广东</option><option value=6>浙江</option><option value=7>山东</option><option value=8>江苏</option><option value=9>黑龙江</option><option value=10>河北</option><option value=11>辽宁</option><option value=12>湖北</option><option value=13>吉林</option><option value=14>安徽</option><option value=15>云南</option><option value=16>山西</option><option value=17>福建</option><option value=18>江西</option><option value=19>湖南</option><option value=20>陕西</option><option value=21>河南</option><option value=22>四川</option><option value=23>海南</option><option value=24>新疆</option><option value=25>广西</option><option value=26>内蒙</option><option value=27>宁夏</option><option value=28>甘肃</option><option value=29>西藏</option><option value=30>青海</option><option value=31>贵州</option><option value=32>跨省</option><option value=33>港澳台</option><option value=34>国外</option></select>&nbsp;<input type="submit" value=" 搜索 " name="login"  class="menu"></div>
+		 </div>
+	 </form>
+	 
+     <div id="industry">
+       <div id="Text">
+         <h1></h1>
+		 `<p ><table width="100%" >
+		 
+		 			 <tr>
+			   <td align="left" height=20  width="25%">项目地区：</td>
+			   <td align="left" height=20  width="30%">批准文号：</td>
+			   <td align="left" height=20  width="25%">发布日期：</td>
+			   <td align="left" height=20 >截止年份：</td>
+			 </tr>					
+			 <tr>
+				 <td align="left" height=20 width="25%">项目进度：</td>
+			   <td align="left" height=20 width="25%">投资金额：</td>
+			   <td align="left" height=20 >装机容量：</td>
+			   <td align="left" height=20 >装机构成：</td>
+			 </tr>	
+		 		 </table></p>
+		 
+       </div>
+     </div>
+	 
+	 <div id="thirdContent" >
+		 <p ><b>项目内容：</b></p><tr><td align='left' valign='top'>&nbsp;&nbsp;&nbsp;&nbsp;............</td></tr>
+		 
+	 </div>
+	 
+
+
+<div style=" height:60px; float:left;">&nbsp; </div>
+<div id="thirdContent2">
+<TABLE cellSpacing=1 cellPadding=0 width=400 border=0 bgcolor='#ef9e29' align="center"> 
+<tr>
+	<td align=center>
+		<TABLE cellSpacing=3 cellPadding=2 width=400 border=0  align="center" bgcolor="#f7fbff" style=" padding-left:10px;">
+		   <TR>
+			  <TD height=32 align="center"><font color="#000066"><b>[详细信息仅向收费会员提供]</b></font></TD>
+		  </TR>
+		 <tr align="center">
+         <td>您已经是会员请登录</td></tr>
+	     <tr align="center">
+         <td>您还不是会员请这里<a href="register.php" target="_blank"><B>[注册]</B> </a></td></tr>
+		  <tr align="center">
+         <td>更多详情请了解<a href="thirdIndex.php?type=hyfw" target="_blank"><B><U>[会员服务]</U></B> </a> </td></tr>
+		  
+
+		<tr><td width="100%" align="left">如果您需要解决登录及其他问题，请您与中国工程采购网联系 </td>
+		  </tr>
+		 <tr><td width="100%" align="left">客服热线：010 - 68768020  68019661 </td>
+		  </tr>
+		 <tr>
+		   <td width="100%" align="left">传真号码：010 - 51951830</td>
+		  </tr>
+		<tr>
+		   <td width="100%" align="left">电子邮件：service@capeimcc.org.cn </td>
+		  </tr>
+	</table>
+   </td>
+</tr>
+</table>
+</div>
+   </div>
+   
+    <!-- 左边 -->
+   <div id="Subpageleft">
+     
+<link href="n_css/style.css" rel="stylesheet" type="text/css">
+<script src="n_js/login.js" type="text/javascript"></script>
+
+<form id="login" name="login" method="post" action="#"  onsubmit="return lg(this)">
+<div id="Login">
+        <h1><center><a href="#" onclick="reg()" class="sub_1">免费注册</a></center></h1>
+        <ul>
+         <li>登录名称：<input id="name" name="name" type="text" class="input_1" style="width:110px;" /></li>
+         <li>登录密码：<input id="password" name="password" type="password" class="input_1" style="width:110px;" /></li>
+		 
+         <li >&nbsp;&nbsp;<a href="getPass.php" target="_blank" class="sub_3">忘记密码</a> | <a href="thirdIndex.php?type=hyfw" class="sub_4" target="_blank">会员服务</a>
+		 &nbsp;<input id="enter" name="enter" type="submit" value="登录"></li>
+         </ul>
+       </div>
+</form>
+	<!DOCTYPE html PUBLIC "//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd" >
+<link href="n_css/style.css" rel="stylesheet" type="text/css">
+<div id="banner_2">
+			<a href="http://www.yiyang.com.cn/index.aspx" title="溢洋水处理" target="_blank">
+	<img  src="../admin/mark/upload/_405781.jpg" width="200" height="65" align="absmiddle" border="0px" /></a></div>
+<div id="banner_2">
+			<a href="http://www.zgcg360.com/" title="中国工程采购网" target="_blank">
+	<img  src="../admin/mark/upload/_352744.gif" width="200" height="65" align="absmiddle" border="0px" /></a></div>
+	
+	
+<div id="trade_news">
+   <h1><span><a href="../subIndex.php?type=xmjs&status_code=1">更多..</a></span>拟建项目</h1>
+   <UL>
+   <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558885" id="n2"  target="_blank">·山西义棠煤业有限责任公司...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558884" id="n2"  target="_blank">·山西灵石银源安苑煤业有限...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558883" id="n2"  target="_blank">·国道307线白家庄至张家河...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558882" id="n2"  target="_blank">·山西梅园嘉元煤业有限公司...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558881" id="n2"  target="_blank">·山西煤炭运销集团猫儿沟煤...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=1&id=558880" id="n2"  target="_blank">·黄埔新园项目</A></LI> 
+	</UL>
+</div>
+<div id="trade_news">
+           <h1><span><a href="../subIndex.php?type=xmjs&status_code=2">更多..</a></span>在建项目</h1>
+           <UL>
+		   <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558863" id="n2"  target="_blank">·阳城县西丰、九九水库除险...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558858" id="n2"  target="_blank">·长子县李家庄水库除险加固...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558856" id="n2"  target="_blank">·临县湫水河上游段河道治理...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558852" id="n2"  target="_blank">·临县郭家洼提黄灌溉工程项...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558846" id="n2"  target="_blank">·阳曲县阴山、寨沟、龙王沟...</A></LI> <LI><A href="../thirdIndex.php?type=xmjs&status_code=2&id=558843" id="n2"  target="_blank">·太原市迎泽区南沙河水库除...</A></LI> 
+            </UL>
+        </div>
+<div id="trade_news_2">
+           <h1><span><a href="../subIndex.php?type=gczb">更多..</a></span>工程招标</h1>
+           <UL>
+		   <LI><A href="../thirdIndex.php?type=gczb&id=151815" id="n2"  target="_blank">·王港闸下移项目施工围堰工...</A></LI> <LI><A href="../thirdIndex.php?type=gczb&id=151814" id="n2"  target="_blank">·大丰市高新技术区国际软件...</A></LI> <LI><A href="../thirdIndex.php?type=gczb&id=151813" id="n2"  target="_blank">·金色家园周边绿化带等绿化...</A></LI> <LI><A href="../thirdIndex.php?type=gczb&id=151812" id="n2"  target="_blank">·竹行片区道路交通设施工程</A></LI> <LI><A href="../thirdIndex.php?type=gczb&id=151811" id="n2"  target="_blank">·南京市六合区文化广电局建...</A></LI> <LI><A href="../thirdIndex.php?type=gczb&id=151810" id="n2"  target="_blank">·双跃安置点景观、绿化工程</A></LI> 
+            </UL>
+        </div>
+<div id="trade_news_3">
+           <h1><span><a href="../subIndex.php?type=caizb">更多..</a></span>设备采购</h1>
+           <UL>
+		   <LI><A href="../thirdIndex.php?type=caizb&id=272221" id="n2"  target="_blank">·镇江市武警支队营房建设项...</A></LI> <LI><A href="../thirdIndex.php?type=caizb&id=272220" id="n2"  target="_blank">·江苏省电力通信有限公司电...</A></LI> <LI><A href="../thirdIndex.php?type=caizb&id=272219" id="n2"  target="_blank">·三门峡铝业钢棒420吨采购</A></LI> <LI><A href="../thirdIndex.php?type=caizb&id=272218" id="n2"  target="_blank">·三门峡铝业压滤机滤板采购</A></LI> <LI><A href="../thirdIndex.php?type=caizb&id=272217" id="n2"  target="_blank">·三门峡铝业布袋除尘器PPS...</A></LI> <LI><A href="../thirdIndex.php?type=caizb&id=272216" id="n2"  target="_blank">·大学科技园研发中心中央空...</A></LI> 
+            </UL>
+        </div>
+   </div>
+ </div>
+	
+
+<div class="union">
+	<div class="unionName">合作机构</div>
+	<div class="unionList"> 
+		 <a href="http://www.sdpc.gov.cn" target="_blank">中华人民共和国国家发展和改革委员会</a> |
+		 <a href="http://www.mofcom.gov.cn" target="_blank">中华人民共和国商务部</a> | 
+		 <a href="http://www.mof.gov.cn" target="_blank"> 中华人民共和国财政部</a> | 
+		 <a href="http://www.mlr.gov.cn" target="_blank">中华人民共和国国土资源部</a> |
+		 <br/> 
+		 <a href="http://www.zhb.gov.cn" target="_blank">中华人民共和国国环境保护部</a>  |
+		 &nbsp; <a href="http://www.stats.gov.cn" target="_blank"> 中华人民共和国国家统计局</a> | 
+		 <a href="http://www.drc.gov.cn" target="_blank">国务院发展研究中心</a> |   
+		 <a href="http://www.ccgp.gov.cn/new" target="_blank">中国政府采购网</a>|  
+		  <a href="http://cn.chinagate.cn" target="_blank">中国发展门户网</a></div>
+	<div class="unionName"><br/>友情链接</div>
+	<div class="unionList">
+		<a href="http://www.cec.org.cn/" target="_blank">中国电力企业联合会</a> |
+		 <a href="http://www.chinaequip.gov.cn/" target="_blank">国家重大技术装备网</a> | 
+		 <a href="http://www.hbzhan.com/" target="_blank"> 中国环保设备展览网</a> | 
+		  <a href="http://www.51beijian.com/" target="_blank">无忧配件网</a> |
+		  <a href="http://www.epday.com/" target="_blank"> 中国环境保护网</a> 
+
+	
+	</div>
+</div>
+
+
+<div id="footer">
+   <a href="http://www.zgcg360.com" >首页</a> - <a href="thirdIndex.php?type=news2&footerType=us" target="_blank">关于我们</a> - <a href="thirdIndex.php?type=news2&footerType=link" target="_blank">网站导航</a> - <a href="thirdIndex.php?type=hyfw" target="_blank">会员服务</a> - <a href="thirdIndex.php?type=news2&footerType=adv" target="_blank">广告服务</a> - <a href="thirdIndex.php?type=news2&footerType=law" target="_blank">法律声明</a> - <a href="thirdIndex.php?type=news2&footerType=operation" target="_blank">联系我们</a>
+ </div>
+ <!-- 版权 -->
+ <div id="copyright">
+  <p>入网咨询：86-010-51951830、客服热线：86-010-68768020 、 <a href="thirdIndex.php?type=hyfw" target="_blank">更多会员服务</a>..<br />
+     Copyright&nbsp;&copy;&nbsp; 2010 中国工程采购信息网  Rights Reserved   <a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">京ICP备10215808号</a><br />
+  </p>
+ </div>   
+  </div>
+</body>
+</html>

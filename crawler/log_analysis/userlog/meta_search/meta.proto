@@ -1,0 +1,12 @@
+// meta search 信息
+message MetaInfo {
+  required uint64 url = 1;
+  // 超过 kInt32Max 需要截断
+  required uint32 count = 2;
+}
+
+// ds 返回给 root server 的应答
+message QueryMetaInfo {
+  repeated MetaInfo meta = 1;
+}
+

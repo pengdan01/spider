@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -x
+
+send_task_prepare=${1:-0}
+send_schedule=${2:-0}
+send_stat=${3:-0}
+
+m04=180.153.227.159
+user="crawler"
+rootdir=/home/$user/crawler_control2/
+
+scp crawler_schedule.sh ${user}@${m04}:${rootdir}/
+[[ $? -ne 0 ]] && exit 1
+
+# task_prepare
+tardir=task_prepare
+if [[ ${send_task_prepare} == 0 ]];then
+  scp task_prepare/scripts/*.sh ${user}@${m04}:${rootdir}/${tardir}/
+  [[ $? -ne 0 ]] && exit 1
+  rsync -cavz ~/workplace/wly/.build/opt/targets/crawler/control/task_prepare/* ${user}@${m04}:${rootdir}/${tardir}/bin/
+  [[ $? -ne 0 ]] && exit 1
+fi
+
+# schedule
+tardir=schedule
+if [[ ${send_schedule} == 0 ]];then
+  scp schedule/*.{sh,py,conf} ${user}@${m04}:${rootdir}/${tardir}/
+  [[ $? -ne 0 ]] && exit 1
+  rsync -cavz schedule/dns_black_list schedule/host_load_control_tab.txt schedule/proxy_white_list ${user}@${m04}:${rootdir}/${tardir}/
+  [[ $? -ne 0 ]] && exit 1
+  rsync -cavz ./schedule/multidns ${user}@${m04}:${rootdir}/${tardir}/
+  [[ $? -ne 0 ]] && exit 1
+  rsync -cavz ~/workplace/wly/.build/opt/targets/crawler/control/schedule/* ${user}@${m04}:${rootdir}/${tardir}/
+  [[ $? -ne 0 ]] && exit 1
+fi
+
+# stat
+if [[ ${send_stat} == 0 ]];then
+  scp stat/*.sh ${user}@${m04}:${rootdir}/stat
+  [[ $? -ne 0 ]] && exit 1
+  rsync -cavz ~/workplace/wly/.build/opt/targets/crawler/control/stat/* ${user}@${m04}:${rootdir}/stat/bin
+  [[ $? -ne 0 ]] && exit 1
+fi

@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" >
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=GBK" />	
+<META NAME="description" CONTENT="yfzl77lz7x.bokee.com,博客网,bokee.com,bokee,生活,社会,文化,情感,娱乐,文学,经济,教育,科技,体育,图片" />
+<META NAME="keywords" CONTENT="yfzl77lz7x.bokee.com,博客网,bokee.com,bokee,生活,社会,文化,情感,娱乐,文学,经济,教育,科技,体育,图片" />
+<META NAME="author" CONTENT="yfzl77lz7x 博客网 bokee.com" />
+<META NAME="robots" CONTENT="all" />
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+<META HTTP-EQUIV="Expires" CONTENT="0" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss2.b" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://yfzl77lz7x.bokee.com/rsd.b" />
+<link id='blogdriverFrameCss' href="http://blogteam.bokee.com/pub/frame/1024/31.css" rel="stylesheet" type="text/css" />
+<link id='poplogin' href="http://blogteam.bokee.com/pub/css/poplogin.css" rel="stylesheet" type="text/css" />
+<link id='blogdriverCss' href="http://blogteam.bokee.com/pub/template/1024/31/2/index.css" rel="stylesheet" type="text/css" />
+<link id='blogdriverCss' href="http://blogteam.bokee.com/pub/css/update.css" rel="stylesheet" type="text/css" />
+<link id='blogdriverCss' href="http://blogteam.bokee.com/pub/css/theme-select.css" rel="stylesheet" type="text/css" />
+<link id='blogdriverCss' href="http://blogteam.bokee.com/pub/css/normal.css" rel="stylesheet" type="text/css" />
+<style>
+#page-switch #back-to-mine{
+    width:91px;
+    padding-left:4px;
+    padding-right:0px;
+    background:url(http://blogteam.bokee.com/pub/images/ln-back2.gif) center left no-repeat;
+}
+</style>
+<title>yfzl77lz7x.bokee.com</title>
+<script src="http://blogteam.bokee.com/pub/js/prototype.js?ver=20061107" language="JavaScript"></script>
+<script src="http://blogteam.bokee.com/pub/js/cookie.js" language="JavaScript" ></script>
+<script src="http://blogteam.bokee.com/pub/js/index.js" language="JavaScript"></script>
+<script language="JavaScript" src="http://blogteam.bokee.com/pub/js/header.js?ver=20061109" ></script>
+<script type="text/javascript" src="http://blogteam.bokee.com/pub/js/login.js"/><script>
+<script src="http://reg.bokee.com/account/web/js/login.js" language="JavaScript"></script>
+<script src="/pub/js/operation.js?ver=20061225" language="JavaScript"></script>
+<script >
+	var blogID=getBlogID();		
+	var access='0';
+	//alert("blogID is : " + blogID);
+	//alert("access is : " + access);
+	var href=document.location.href.replace(/http:\/\//ig,"");
+	href=href.substring(0,href.indexOf("/"));
+	//alert(href);
+	// access != 0 表示不能访问
+	// href ！= blogID 表示
+	if(access!=0&&href!=blogID){
+		window.location.href='http://www.bokee.com';
+	}
+    var calendarUrl="/pub/logDate.xml";
+	var albumUrl="/pub/Album.xml";
+	var albumTypename="default";	
+	var isIE=(navigator.appName.indexOf("Microsoft")!=-1);
+	var isNav=(navigator.appName.indexOf("Netscape")!=-1);
+	function init(){				
+		setCalendar();
+	    setFlash();
+	    setImg();
+	}
+	function setCalendar(){
+	     var myFlash= document.calendarFlash;
+ 		 if(myFlash){
+		     myFlash.SetVariable("url","/query.b?type=cal");
+		 }
+	}
+	
+	function setPhoto(){
+	     var myFlash = document.myFlash;
+		  if(myFlash){
+		     if(parseInt(myFlash.offsetWidth)>0){
+				  myFlash.SetVariable("url", albumUrl);
+				  myFlash.SetVariable("awidth", parseInt(myFlash.offsetWidth));
+				  myFlash.SetVariable("typename",albumTypename);
+			  }
+		  }
+	}	
+	function myFlash_DoFSCommand(command, args){
+	  if (args == "calendar"){
+		setCalendar();
+	  }
+	  else{
+		 setPhoto(); 
+	  }
+	}
+	if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && 
+	  	navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1) {
+	  	document.write('<SCRIPT LANGUAGE=VBScript\> \n');
+	  	document.write('on error resume next \n');
+	 	document.write('Sub myFlash_FSCommand(ByVal command, ByVal args)\n');
+	 	document.write(' call myFlash_DoFSCommand(command, args)\n');
+	 	document.write('end sub\n');
+	 	document.write('</SCRIPT\> \n');
+	}
+	
+	function setFlash(){
+		var myFlshObj =  document.myFlash;
+		var photoAlbum=document.getElementById('photoAlbum');		
+		if(photoAlbum&&myFlshObj){		
+			var awidth=0;
+			awidth=parseInt(photoAlbum.offsetWidth);
+			if(awidth<260)	myFlshObj.height='150px';
+			if(awidth>=260 && awidth<350) myFlshObj.height='240px';
+			if(awidth>=350 && awidth<370) myFlshObj.height='305px';
+			if(awidth>=370 && awidth<550) myFlshObj.height='320px';
+			if(awidth>=550 && awidth<730) myFlshObj.height='455px';
+			if(awidth>=730)	myFlshObj.height='590px';
+		}
+	}
+		
+	function setAlbumUrl(name){
+		albumTypename=name;
+        setFlash();
+		myFlash_DoFSCommand(null,"test");
+	}
+	function showLoginWindow(ev){
+	var obj = document.getElementById("pop-login");
+	if(document.all){
+		obj.style.top = ev.clientY +'px';
+		obj.style.left = ev.clientX - 272 +'px';
+	}
+	else{
+		obj.style.top = ev.pageY +'px';
+		obj.style.left = ev.pageX - 272 +'px'
+	}
+	obj.style.display ="block";
+	document.getElementById("pop-user-name").focus();
+	}
+	function hideLoginWindow(){
+		document.getElementById("pop-login").style.display ="none";
+	}
+	var blogID=getBlogID();
+	var UserName = "";
+	if(blogID!=null){
+		var tmpUserName=blogID.split(".");
+		UserName=tmpUserName[0];
+	}
+	function resize(obj){
+	   if(window.event.srcElement.tagName == 'A'){
+	    	return;
+	   }
+       obj.parentNode.childNodes[1].style.display = obj.parentNode.childNodes[1].style.display=='none' ? 'block': 'none';
+       obj.parentNode.childNodes[2].style.display = obj.parentNode.childNodes[2].style.display=='none' ? 'block': 'none';       	       
+	}
+	
+	 function tab(event){
+	    var evt = (document.all)?window.event:event;
+		if(evt.keyCode == 9){
+	      document.getElementById("pop-password").focus();
+	      return false;
+	    }
+	    else{
+		  return evt.keyCode;
+	    }
+	}
+	function tab1(event){
+	    var evt = (document.all)?window.event:event;
+		if(evt.keyCode == 9){
+	      document.getElementById("save").focus();
+	      return false;
+	    }
+	    else{
+		  return evt.keyCode;
+	    }
+	}
+	function tabTrack(event) {
+		 var evt = (document.all)?window.event:event;
+		if(evt.keyCode == 9){
+	      document.getElementById("pop-password-track").focus();
+	      return false;
+	    }
+	    else{
+		  return evt.keyCode;
+	    }	
+	}
+</script>
+
+<!-- xu google count -->
+<script type="text/javascript">
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' 
+
+
+type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+
+
+
+<script type="text/javascript">
+
+var pageTracker = _gat._getTracker("UA-3943461-1");
+
+pageTracker._initData();
+
+pageTracker._trackPageview();
+
+</script>
+
+
+<!--SmartMedia Begin:-->
+<SCRIPT type="text/javascript" SRC="http://smjs.allyes.com/sm.js"></SCRIPT>
+<SCRIPT type="text/javascript" SRC="http://smjs.allyes.com/bokee++inpage++sm++show.js"></SCRIPT>
+<!--SmartMedia End-->
+
+<style>
+   #friends img{
+     display:none;
+   }
+   .friendListImg{border: 1px solid #CCC;margin: 5px;}
+   table {
+　　　table-layout: fixed;
+　　　word-wrap:break-word;
+　　}
+　　div {
+　　　word-wrap:break-word;
+　　}
+</style>
+</head>
+
+<body id="blogdriver" onload="init()">
+
+
+<script>
+    writeTop(getUserName() , '0');
+</script>	
+<div id="container">  
+<!-- 弹出式登录框 -->
+<div id="pop-login">
+	<FORM METHOD=POST ACTION="http://reg.bokee.com/account/LoginCtrl.b"  name="fm" onsubmit="return check()">
+		<table>
+			<tr>
+				<td class="pop-col1"><label for="pop-user-name">用户名</label></td><td class="pop-col2"><input id="pop-user-name" name="username" value="" type="text" onkeydown="return tab(event)"/> <a href="http://reg.bokee.com/account/web/register.jsp">注 &nbsp;  &nbsp;册</a> </td>
+			</tr>
+			<tr>
+				<td  class="pop-col1">密　码</td><td class="pop-col2"><input id="pop-password"  name="password" type="password" onkeydown="return tab1(event)"/>  <a href="http://reg.bokee.com/account/GetPwdCtrl.b">忘记密码</a></td>
+			</tr>
+			<tr>
+				<td  class="pop-col1">保存密码</td><td class="pop-col2"><input name="save" value="0" type="checkbox">  &nbsp; &nbsp; <input type="submit" value="登录" id="pop-sbumit-btn" />&nbsp; &nbsp; <span id="pop-cancel"><img src="http://blogteam.bokee.com/pub/images/close-pop.gif" onclick="javascript:hideLoginWindow();" alt="取消" /></span></td>
+			</tr>
+	  </table>
+	  <input type="hidden" name="url" value="">
+	  <input type="hidden" name="action" value="">
+	</form>
+</div>
+
+<!-- 
+<div id="pop-login-track">
+	<FORM METHOD=POST ACTION="http://reg.bokee.com/account/LoginCtrl.b"  name="fmTrack" onsubmit="return checkTrack()">
+		<table>
+			<tr>
+				<td class="pop-col1">
+					若想引用
+				</td>
+				<td class="pop-col2">
+					，请先登陆!
+				</td>
+			</tr>
+			<tr>
+				<td class="pop-col1"><label for="pop-user-name">用户名</label></td>
+				<td class="pop-col2"><input id="pop-user-name-track" name="username" value="" type="text" onkeydown="return tabTrack(event)"/>
+				<input type="submit"  value="登录" id="pop-sbumit-btn" style="width:36px;height:17px" /></td>
+			</tr>
+			<tr>
+				<td  class="pop-col1">密　码</td><td class="pop-col2"><input id="pop-password-track"  name="password" type="password" />  <span id="pop-cancel"><img src="http://blogteam.bokee.com/pub/images/close-pop.gif" onclick="javascript:hideLoginWindowById('pop-login-track');" alt="取消" /></span></td>
+			</tr>
+
+	  </table>
+	  <input type="hidden" id="url-track" name="url" value="">
+	  <input type="hidden" name="action" value="">
+	</form>
+</div>
+-->
+<div id="pageHeader">
+
+	<div id="blog-title" >
+		<h1>yfzl77lz7x.bokee.com&nbsp;&nbsp;&nbsp;&nbsp;<span class="title-font" style="cursor:hand" onclick="javascript:window.clipboardData.setData('Text','http://yfzl77lz7x.bokee.com/');alert('直接粘贴(ctrl+v)到MSN或QQ里就可以发送给好友啦!^_^Y');" >复制</span></h1>
+		<p></p>
+	    
+	</div>
+	  
+	  
+<script>
+    writeHeader('main','yfzl77lz7x.bokee.com','18973743');
+</script>
+</div>
+<div id="pageBody">
+
+<div id='leftDiv'>
+<div id='myPhoto' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_0.gif' /></span>个人形象</p></h3><div class='col-body'><div class="newly-right myPhotoCenter"><dl class="people-dl"><dt><img id='photoImg' width='120px;' height='120px;' onError="this.src='http://blogteam.bokee.com/pub/images/logo_s.png'" src='http://yfzl77lz7x.bokee.com/inc/logo_s.png'/></dt><dd class="people"><p><a href="javascript:doAddFriend('yfzl77lz7x.bokee.com')"><img src="http://blogteam.bokee.com/pub/images/myphoto-addfriend.gif"/>加为好友</a>&nbsp;<a href="javascript:popPostMsg('yfzl77lz7x.bokee.com');"><img src="http://blogteam.bokee.com/pub/images/myphoto-msg.gif"/>发送私信</a></p><p><a href="#addNote"><img src="http://blogteam.bokee.com/pub/images/myphoto-note.gif"/>给我留言</a>&nbsp;<a href="javascript:addFavorite('','http://yfzl77lz7x.bokee.com/');"><img src="http://blogteam.bokee.com/pub/images/myphoto-favo.gif"/>加入收藏</a></p><p><a href="http://group.bokee.com/group/userjump.action?userId=18973743&blogId=yfzl77lz7x.bokee.com"><img src="http://blogteam.bokee.com/pub/images/myphoto-group.gif"/>我的群组</a>&nbsp;<a href="javascript:commendblog('yfzl77lz7x.bokee.com');"><img src="http://blogteam.bokee.com/pub/images/myphoto-friend.gif"/>荐给好友</a></p></dd></dl></div></div><div class="newly-bot"><div class="newly-bot01"></div></div><form action='/control/showChat.b' id="chatRoomFrmMyPhoto" method='post' target='_blank'><input type="hidden" id='chatNamePostMyPhoto' name='chatNamePost' value=''/><input type="hidden" id='urlMyPhoto' name='url' value=' '/></form></div>
+<div id='userInfo' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_12.gif' /></span>个人资料</p></h3><div class='col-body'><div class="newly-right"><p  class="ziliao-P">昵称： <a href="http://www.booso.com/search?keyword=yfzl77lz7x&radiobutton=orderByTime" target="_blank">yfzl77lz7x</a><BR/>姓名： <BR/>性别： <a href="http://www.booso.com/search?keyword=%E7%94%B7&radiobutton=orderByTime" target="_blank">男</a><BR/>生日： <a href="http://www.booso.com/search?keyword=1980-1-1&radiobutton=orderByTime" target="_blank">1980-1-1</a><BR/>星座： <BR/>学历： <BR/>院校： <BR/>行业： <BR/>头衔： <BR/>位置： --<BR/>家乡： --<BR/>个人标签： <BR/>个人简介：<BR/><BR/>座右铭：<BR/></p><p class="jiarud pingl-Dl"><a href=http://id.bokee.com/showInfo.b?username=yfzl77lz7x>详细资料..</a></p></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='myMusic' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_6.gif' /></span>我的音频</p></h3><div class='col-body'><div class="newly-right"><script language="JavaScript" src="http://blogteam.bokee.com/pub/js/exobud.js"></script><script language="JavaScript" src="/43/37/97/yfzl77lz7x.bokee.com/playlist.js"></script><script language="JScript" for="Exobud" event="openStateChange(sf)">evtOSChg(sf);</script><script language="JScript" for="Exobud" event="playStateChange(ns)">evtPSChg(ns);</script><script language="JScript" for="Exobud" event="error()">evtWmpError();</script><script language="JScript" for="Exobud" event="Buffering(bf)">evtWmpBuff(bf);</script><object classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" id="Exobud"type="application/x-oleobject" width="0" height="0"style="position:relative;left:0px;top:0px;width:0px;height:0px;"><param name="autoStart" value="true"><param name="balance" value="0"><param name="currentPosition" value="0"><param name="currentMarker" value="0"><param name="enableContextMenu" value="false"><param name="enableErrorDialogs" value="false"><param name="enabled" value="true"><param name="fullScreen" value="false"><param name="invokeURLs" value="false"><param name="mute" value="true"><param name="playCount" value="1"><param name="rate" value="1"><param name="uiMode" value="none"><param name="volume" value="100"></object><form name="exobudform" id="exobudform" action="" method="post"><div id="player" class="t-3"><div id="pannel"><div id="indicator"><table><tr><td id="audio-info"><input type="text" id="disp1" class="title" value="歌名" readonly /></td><td id="play-time"><input type="text" class="time" id="disp2" value="00:00" readonly onClick="chgTimeFmt()"/></td><td id="fav-song"><script>wirteFavoriteMusic();</script></td></tr></table></div><div id="payler-btns"><table><tr><td id="playback"><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-pre.gif" alt="上一首" title="上一首" onClick="playPrev()" name="prevt"/></a><a href="\#x"><img id="play-pause" src="http://blogteam.bokee.com/pub/images/icon-play.gif" alt="播放" title="播放" name="playt"/></a><a style="display:none;" href="\#x"><img onclick="wmpPP()" src="http://blogteam.bokee.com/pub/images/icon-pause.gif" alt="暂停" title="暂停" name="pauzt"/></a><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-next.gif" alt="下一首" title="下一首" onClick="playNext()" name="nextt"/></a><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-stop.gif" alt="停止" title="停止" onClick="wmpStop()"  name="stopt"/></a></td><td id="volume"><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-v-down.gif" alt="减小音量" title="减小音量" onClick="wmpVolDn()" name="vdn"/></a><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-mute.gif" alt="静音" title="静音" onClick="wmpMute()" name="vmute"/></a><a href="\#x"><img src="http://blogteam.bokee.com/pub/images/icon-v-up.gif" alt="增大音量" title="增大音量" onClick="wmpVolUp()" name="vup"/></a></td><input type="hidden" class ="buttons" name="rept" value="Ｌ" title="切换是否重复播放目前的曲目" onClick="chkRept()" style="height:18;cursor:hand" /><input type="hidden" class ="buttons" name="pmode" value="" title="播放顺序 (S=循序 R=随机)" onClick="chgPMode()" style="height:18;cursor:hand" /></tr></table></div></div><div id="player-mid"><div id="playlist"><ul class="pingl-Dl" id="mmList"></ul><div id="pageList"></div><span id="pageInfo"></span><div id="capText" style="width:100%;height:60;color:white;background-color:#555555;padding-top:3px;padding-left:5px;display:none"></div></div></div></div><script language="JavaScript">initExobud();player.className=playerStyle;</script></form></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='stat' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_14.gif' /></span>统计</p></h3><div class='col-body'><div class="newly-right"><p id="diarystat"  style="margin-left:10px;">统计中，请等候...</p><p id="numstat" style="margin-left:10px;">统计中，请等候...</p><script>statCount('yfzl77lz7x')</script></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+</div>
+<div id='centerDiv'>
+<div id='blogIndex' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_4.gif' /></span>日志</p></h3><style>#blogIndex .entry-body p{text-indent:0;line-height:25px;}</style><div class='col-body'><div class="newly-right"><div class='diary-all'><div class='entry-preview'><div class='entry-title' style='cursor:hand' onClick='resize(this)'><h2><a href='/viewdiary.53052119.html'>取翅中11个</a></h2><p><span class=fenlei-Span>分类:<a href='http://yfzl77lz7x.bokee.com/cat.0.html'>默认栏目</a></span></p></div><div class='entry-body'>摘要：无&nbsp;&nbsp;&nbsp;&nbsp;<a href='/viewdiary.53052119.html'>查看全文</a></div><div class='entry-footer'><span class='f'><span class='pub-date' title='发布日期'>2010.9.12</span> <span class='pub-time' title='发布时间'>08:36</span> <span class='ln-author'>作者：<a class='author' href='http://id.bokee.com/showInfo.b?username=yfzl77lz7x'>yfzl77lz7x</a></span> <a href="#" class="ln-trackbacks" onclick="track('yfzl77lz7x.bokee.com','53052119',event);return false;">引用:0</a> | </script><a href='javascript:void(0);' class='ln-bookmark' onClick='addFavorite("取翅中11个","http://yfzl77lz7x.bokee.com/viewdiary.53052119.html")'>收藏</a> | <a href='/viewdiary.53052119.html#remark' class='ln-comments'>评论：0</a></span></div></div><div class='entry-preview'><div class='entry-title' style='cursor:hand' onClick='resize(this)'><h2><a href='/viewdiary.53052085.html'>吸血鬼邪魅美男（赞啦）</a></h2><p><span class=fenlei-Span>分类:<a href='http://yfzl77lz7x.bokee.com/cat.0.html'>默认栏目</a></span></p></div><div class='entry-body'>摘要：无&nbsp;&nbsp;&nbsp;&nbsp;<a href='/viewdiary.53052085.html'>查看全文</a></div><div class='entry-footer'><span class='f'><span class='pub-date' title='发布日期'>2010.9.12</span> <span class='pub-time' title='发布时间'>08:36</span> <span class='ln-author'>作者：<a class='author' href='http://id.bokee.com/showInfo.b?username=yfzl77lz7x'>yfzl77lz7x</a></span> <a href="#" class="ln-trackbacks" onclick="track('yfzl77lz7x.bokee.com','53052085',event);return false;">引用:0</a> | </script><a href='javascript:void(0);' class='ln-bookmark' onClick='addFavorite("吸血鬼邪魅美男（赞啦）","http://yfzl77lz7x.bokee.com/viewdiary.53052085.html")'>收藏</a> | <a href='/viewdiary.53052085.html#remark' class='ln-comments'>评论：0</a></span></div></div><div class='entry-preview'><div class='entry-title' style='cursor:hand' onClick='resize(this)'><h2><a href='/viewdiary.52718194.html'>专访章鱼帝保罗</a></h2><p><span class=fenlei-Span>分类:<a href='http://yfzl77lz7x.bokee.com/cat.0.html'>默认栏目</a></span></p></div><div class='entry-body'>摘要：无&nbsp;&nbsp;&nbsp;&nbsp;<a href='/viewdiary.52718194.html'>查看全文</a></div><div class='entry-footer'><span class='f'><span class='pub-date' title='发布日期'>2010.9.6</span> <span class='pub-time' title='发布时间'>16:43</span> <span class='ln-author'>作者：<a class='author' href='http://id.bokee.com/showInfo.b?username=yfzl77lz7x'>yfzl77lz7x</a></span> <a href="#" class="ln-trackbacks" onclick="track('yfzl77lz7x.bokee.com','52718194',event);return false;">引用:0</a> | </script><a href='javascript:void(0);' class='ln-bookmark' onClick='addFavorite("专访章鱼帝保罗","http://yfzl77lz7x.bokee.com/viewdiary.52718194.html")'>收藏</a> | <a href='/viewdiary.52718194.html#remark' class='ln-comments'>评论：0</a></span></div></div><div class='entry-preview'><div class='entry-title' style='cursor:hand' onClick='resize(this)'><h2><a href='/viewdiary.52538011.html'>空格可转换控制另一个木块的</a></h2><p><span class=fenlei-Span>分类:<a href='http://yfzl77lz7x.bokee.com/cat.0.html'>默认栏目</a></span></p></div><div class='entry-body'>摘要：无&nbsp;&nbsp;&nbsp;&nbsp;<a href='/viewdiary.52538011.html'>查看全文</a></div><div class='entry-footer'><span class='f'><span class='pub-date' title='发布日期'>2010.9.3</span> <span class='pub-time' title='发布时间'>14:09</span> <span class='ln-author'>作者：<a class='author' href='http://id.bokee.com/showInfo.b?username=yfzl77lz7x'>yfzl77lz7x</a></span> <a href="#" class="ln-trackbacks" onclick="track('yfzl77lz7x.bokee.com','52538011',event);return false;">引用:0</a> | </script><a href='javascript:void(0);' class='ln-bookmark' onClick='addFavorite("空格可转换控制另一个木块的","http://yfzl77lz7x.bokee.com/viewdiary.52538011.html")'>收藏</a> | <a href='/viewdiary.52538011.html#remark' class='ln-comments'>评论：0</a></span></div></div><div class='entry-preview'><div class='entry-title' style='cursor:hand' onClick='resize(this)'><h2><a href='/viewdiary.52537970.html'>我在博客有家了</a></h2><p><span class=fenlei-Span>分类:<a href='http://yfzl77lz7x.bokee.com/cat.0.html'>默认栏目</a></span></p></div><div class='entry-body'>摘要：<P>　我已经在博客网落户了，欢迎你时常过来看看，大家多多交流哦。我会在这里记录我的工作也会记录我的心情与你分享。也希望你记住我的地址，你可以把她添加到你的收藏夹（Ctrl＋D），也可以把她复制下来告诉你的朋友们</P><P>　我的博客地址：　　<A href="http://yfzl77lz7x.bokee.com">http://yfzl77lz7x.bokee.com</A></P>&nbsp;&nbsp;<a href='/viewdiary.52537970.html'>查看全文</a></div><div class='entry-footer'><span class='f'><span class='pub-date' title='发布日期'>2010.9.3</span> <span class='pub-time' title='发布时间'>14:09</span> <span class='ln-author'>作者：<a class='author' href='http://id.bokee.com/showInfo.b?username=yfzl77lz7x'>yfzl77lz7x</a></span> <a href="#" class="ln-trackbacks" onclick="track('yfzl77lz7x.bokee.com','52537970',event);return false;">引用:0</a> | </script><a href='javascript:void(0);' class='ln-bookmark' onClick='addFavorite("我在博客有家了","http://yfzl77lz7x.bokee.com/viewdiary.52537970.html")'>收藏</a> | <a href='/viewdiary.52537970.html#remark' class='ln-comments'>评论：0</a></span></div></div></div><ul class='diary-easy pingl-Dl'><li><a href='/viewdiary.53052119.html'>取翅中11个</a></li><li><a href='/viewdiary.53052085.html'>吸血鬼邪魅美男（赞啦）</a></li><li><a href='/viewdiary.52718194.html'>专访章鱼帝保罗</a></li><li><a href='/viewdiary.52538011.html'>空格可转换控制另一个木块的</a></li><li><a href='/viewdiary.52537970.html'>我在博客有家了</a></li></ul><p align="right"><a href="/diaryIndex.b">更多日志..</a></p></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='photoAlbum' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_5.gif' /></span>图片</p></h3><div class='col-body'><div class="newly-right"><div id='flash-img-browser'><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100%" id="myFlash"><PARAM NAME=movie VALUE="/pub/flash/PhotoPlayerMain.swf"><param NAME=quality VALUE=high><EMBED src="/pub/flash/PhotoPlayerMain.swf" width="100%" quality=high  NAME="myFlash" swLiveConnect="true" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED></OBJECT></div><table class="showAlbum-Table"><tr><td width='40'></td><td width='*'></td></tr><script language='JavaScript'>albumUrl="/43/37/97/yfzl77lz7x.bokee.com/photo/photo.xml";setAlbumUrl("全部图片");</script></table><p class="jiarud"><a href="/photo/showPhoto.b">更多图片..</a></p></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='joinedGroup' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_13.gif' /></span>我加入的博客群</p></h3><div class='col-body'><div class="newly-right"><div  class="pingl-Dlff"><a href=http://group.bokee.com/group/my.action>我加入的全部博客群..</a></div><div class="clear-b"></div></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='renark' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_7.gif' /></span>最新评论</p></h3><div class='col-body'><div class="newly-right"><script type='text/javascript'> document.write("<script type='text/javascript' src='/43/37/97/yfzl77lz7x.bokee.com/remark.js?t"+new Date() + "'></s"+"cript>"); </script></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='guestBook' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_8.gif' /></span>留言</p></h3><div class='col-body'><div class="newly-right"><div id='msg-list'><script type='text/javascript' src='/43/37/97/yfzl77lz7x.bokee.com/note.js'></script></div><p id='more-msg'  class="jiarud"><a name="addNote"></a><a href='/note/listNote.b'>[查看更多留言]</a></p><div id="leave-msg"><form method='post' name='leaveNote' id='leaveNote'><p><textarea  name='noteContent'  id='noteContent' style='width:85%'></textarea></p><p><input id='nickName' name='nickName'  type='text' value='博客网友' onclick='select();' onKeyDown='if(event.keyCode==13){event.returnValue=false;}' maxlength='40' style='width:85%'/><input id='node_cmt-btn' name='node_cmt-btn' type='button' value='发表' onclick='noteSubmit()'/></p></form></div></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+</div>
+<div id='rightDiv'>
+<div id='friendList' class='operation'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_11.gif' /></span>我的好友</p></h3><div class='col-body'><div class="newly-right"><ul class="friendtuo"><li ><a href="http://helpmm.bokee.com" target="_blank" title=""><img class="friendListImg" width="112px" height="112px"  onError="this.src='http://blogteam.bokee.com/pub/images/logo_s.png'" src="http://helpmm.bokee.com/inc/logo_s.png"/></a></li><li >helpmm</li></ul><div align='center' style='clear:both'><iframe src='http://images.love21cn.com/w3/st/bokee.html' marginheight='0' marginwidth='0'  scrolling='no' frameborder='0' height='88' style='width:153px'></iframe></div><div  class="pingl-Dlff"><a href="/sn/guestFriendCard.b">更多好友..</a></div><div class="clear-b"></div></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+<div id='impress' class='operation opeaa'><h3 class='select'><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_16.gif' /></span>我的工具</p></h3><div class='col-body'><div class="newly-right"><div class="rx_div"><div class="rx_con"><TABLE class=linkimg-rx cellSpacing=0 cellPadding=0 width="100%" border=0><TBODY><TR><TD><div style="text-align:center;">以下服务由<FONT color=red>瑞星</FONT>友情提供</div></TD></TR><tr><td class="youqingTd"><a href="http://allyesbjafa.allyes.com/main/adfclick?db=allyesbjafa&bid=91930,44798,272&cid=46697,1246,1&sid=89806&show=ignore&url=http://www.rising.com.cn/2008/kaka6/index.html?AID=0617004" target=_blank><b>瑞星免费1年！</b></a></td></tr><tr><td class="youqingTd"><a href="http://bokee.allyes.cn/main/adfclick?db=bokee&bid=248,1340,1753&cid=0,0,0&sid=17243&advid=100&camid=275&show=ignore&url=http://tool.ikaka.com" target=_blank><b>卡卡助手下载</b><br>（免费杀流氓软件工具）</a></td></tr><tr><td class="youqingTd"><a href="http://allyesbjafa.allyes.com/main/adfclick?db=allyesbjafa&bid=91930,44798,272&cid=46697,1246,1&sid=89806&show=ignore&url=http://www.rising.com.cn/2008/get6/" target=_blank><b>瑞星08版暑期热卖</b></a></td></tr></TBODY></TABLE></div></div></div><DIV class='select ad_rx'><h3 class='select'><P class=newly-title><SPAN class=newly-Img><img src='http://blogteam.bokee.com/pub/images/ico_16.gif'/></SPAN>定制广告</P></h3></DIV><DIV class='newly-right guanggao-Div' style='text-align: center;'><iframe marginheight="0" marginwidth="0" frameborder="0" width="220" height="176" scrolling="no" src="http://bokee.allyes.cn/main/adfshow?user=BokeeNetwork|blogmainpage|blogmainpage_BTN_1&db=bokee&border=0&local=yes"><noscript><a href="http://bokee.allyes.cn/main/adfclick?user=BokeeNetwork|blogmainpage|blogmainpage_BTN_1&db=bokee"><img src="http://bokee.allyes.cn/main/adfshow?user=BokeeNetwork|blogmainpage|blogmainpage_BTN_1&db=bokee" width="220" height="176" border="0"></a></noscript></iframe></DIV><DIV class='select ad_rx'><h3 class='select'><P class=newly-title><SPAN class=newly-Img><img src='http://blogteam.bokee.com/pub/images/ico_16.gif'/></SPAN>阿里妈妈</P></h3></DIV><DIV class='newly-right guanggao-Div' style='text-align: center;'><A class='youqingTd' href='http://alimamainc.bokee.com/viewdiary.20242958.html' target=blank><B>阿里妈妈与bokee联手&nbsp;&nbsp;<br>专业定做属于您自己的广告</B></A></DIV><div class='select ad_rx'><h3 class=select><p class='newly-title'><span class='newly-Img'><img src='http://blogteam.bokee.com/pub/images/ico_16.gif' /></span>我的广告</p></h3></div><div class="newly-right guanggao-Div"><script src='http://ally.bokee.com/bi?blog=yfzl77lz7x.bokee.com&type=1'></script></div></div><div class="newly-bot"><div class="newly-bot01"></div></div></div>
+</div>
+    
+
+</div>
+
+<!-- 11-30.bak -->
+<div id="pageFooter">
+	<p>Copyright 2002-2008 Bokee.com </p>
+	<p>All Rights Reserved</p>
+</div>
+</div>
+
+<img src="/stats/pvcounter.fcgi?username=yfzl77lz7x&oid=yfzl77lz7x_vh,yfzl77lz7x_wc" style="width:0;height:0;display:none;" />
+<img src="http://yfzl77lz7x.bokee.com/43/37/97/yfzl77lz7x.bokee.com/photo/photo.xml" style="width:0;height:0;display:none;" />
+<img src="http://yfzl77lz7x.bokee.com/43/37/97/yfzl77lz7x.bokee.com/photo/album.xml" style="width:0;height:0;display:none;" />
+
+<!-- 扩展标签 -->
+<div id="extraDiv1"></div><div id="extraDiv2"></div><div id="extraDiv3"></div>
+<div id="extraDiv4"></div><div id="extraDiv5"></div><div id="extraDiv6"></div>
+
+
+<img id="call" src="" style="width:0;height:0;display:none;" />
+<img id="self" src="" style="width:0;height:0;display:none;" />
+
+<script  language="javascript">
+if(getBlogID()!=null){
+document.getElementById('self').src="http://"+getBlogID()+"/visitor/visitor.fcg?owner=" +getBlogIDName() +"&accessor=" + "yfzl77lz7x.bokee.com".split(".")[0] +"&op=2";
+document.getElementById('call').src="http://yfzl77lz7x.bokee.com/visitor/visitor.fcg?owner=" + "yfzl77lz7x.bokee.com".split(".")[0] +"&visitor=" + getBlogIDName()+ "&p=0&type=0&op=0";
+}
+	
+	var trackDiaryId;
+	var trackBlogId;
+
+	function track(diaryBlogId,diaryId,event) {
+	
+		trackDiaryId = diaryId;
+		trackBlogId = diaryBlogId;
+		
+		if(blogID != null) {
+			
+			var trackUrl = "http://"+blogID	+"/trackback/doTrackDiary.b?trackDiaryUrl=http://"+diaryBlogId+"/trackback/trackDiary.b?diaryId="+diaryId;
+			document.location = trackUrl;
+			return;
+		}
+		
+		showLoginWindowAndById("pop-login-track","pop-user-name-track",event);
+	}
+</script>
+</body>
+</html>
+<script src="http://blogteam.bokee.com/pub/js/advertisement.js" language="JavaScript"></script>

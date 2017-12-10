@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<HTML XMLNS="http://www.w3.org/1999/xhtml" LANG="zh-CN">
+<HEAD><!--STATUS OK-->
+	<META http-equiv="Content-Type" CONTENT="text/html;charset=GBK" />
+	<TITLE>个人主页                </TITLE>
+</HEAD>
+<BODY>
+<script language="javascript">
+location.href="/qq1000x/home";
+</script>
+</BODY>
+</HTML>

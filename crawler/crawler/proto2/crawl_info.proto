@@ -1,0 +1,57 @@
+package crawler2;
+
+message CrawlInfo {
+  // 使用 index model 计算得到的分数
+  // XXX(pengdan): 现在这个字段存放的 importance 值
+  optional double score = 1;
+  // http response code
+  optional int64 response_code = 5;
+
+  // url 最后修改日期. -1 表明 web server 隐藏了 url 更新信息.
+  // 微秒数 sine unix epoch
+  optional int64 file_timestamp = 10;
+  // 抓取时间戳(该 url 被抓取到本地的时间点) 
+  // 微秒数 sine unix epoch
+  optional int64 crawl_timestamp = 15;
+
+  // 对 该 url 的抓取总耗时(单位: 秒)
+  optional double crawl_time = 20;
+  // 建立 http 连接耗时(单位: 秒) 
+  optional double connect_time = 21;
+  // 从发起连接请求到 握手(handshake) 结束耗时(单位: 秒)
+  optional double appconnect_time = 22;
+  // 从发起连接 到开始文件传送的耗时(单位: 秒)
+  optional double pretransfer_time = 23;
+  // 从发起连接 到收到第一个字节的耗时(单位: 秒)
+  optional double starttransfer_time = 24;
+  // 重定向总耗时(单位: 秒)
+  optional double redirect_time = 25;
+
+  // 平均下载速度(单位: 字节/秒)
+  optional double donwload_speed = 30;
+  // 下载字节数(取值来至 http 协议头的 Content-Length 字段)
+  optional double content_length_donwload = 31;
+  // http 协议头大小(单位: 字节)
+  optional int64 header_bytes = 32;
+  // 内容类型 (取值来至 http 协议头的 Content-Type 字段)
+  optional bytes content_type = 33;
+
+  // 更新失败总次数 
+  optional int32 update_fail_times = 40;
+  // 重定向次数
+  optional int64 redirect_times = 41;
+
+  // NOTE(suhua): from 字段已经废弃, 请勿使用
+  //
+  // 用来标识该 url 的数据来源, 下游模块会对不同的数据来源进行区分出来
+  // 'U' : 表示来自 User Log , 即: Url-Refer-Cnt
+  // 'P' : 表示来自 PV log
+  // 'S' : 表示来自 Search Log
+  // 'N' : 表示来自 网页提取出来的新的 link
+  // 'E' : 表示来自 用户通过 Seeds 配置文件
+  // 'L' : 表示来自 Linkbase
+  // 'M' : 表示来自 update module 
+  // 'K' : 表示不知道 该 url 的来源
+  optional string from = 50;
+}
+

@@ -1,0 +1,1 @@
+.bin/submit_query_task  --datapath=$1 --ip=127.0.0.1 --port=19000 --target_ip=10.115.86.100 --target_port=20010 --priority=0

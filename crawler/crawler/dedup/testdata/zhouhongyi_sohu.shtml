@@ -1,0 +1,1420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+<meta name="description" content="周鸿祎搅局智能手机复制免费模式？">
+<meta name="keywords" content="周鸿祎 张毅">
+<meta name="robots" content="all">
+<script type="text/javascript">
+
+  var videoNum = 0;
+
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>周鸿祎搅局智能手机复制免费模式？-搜狐IT</title>
+<script src="http://www.sohu.com/sohuflash_1.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://js.sohu.com/library/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+jQuery(function(jq){
+	//标签
+	function changeTab(lis, divs, nums, nowCls){
+		lis.each(function(i){
+			var els = jq(this);
+			els.mouseenter(function(){
+				lis.removeClass(nowCls);
+				divs.stop().hide();
+				jq(this).addClass(nowCls);
+				divs.eq(i).show();
+			});
+		}).eq(nums).mouseenter();
+	}
+	
+	var divA = jq("#kind-video"); //视频菜单
+	changeTab(divA.find(".video-menu li"), divA.find(".video-cont"), videoNum, "video-menu-now");
+	
+	jq(".fontsize").hover(function(){
+		jq(".fontsize-layer").show();
+		},function(){
+		jq(".fontsize-layer").hide();
+	});
+	
+	var phoneNumInput = jq(".rightbar-wrapper .phoneNews .rssArea .Ftxt"),
+		phoneNumBtn = jq(".rightbar-wrapper .phoneNews .rssArea .Fbtn");
+	phoneNumInput.hover(function(){  // xlx
+		jq(this).parent().addClass("current");
+	},function(){
+		jq(this).parent().removeClass("current");
+	});
+	phoneNumInput.focus(function(){
+		var _this = $(this);
+		var val = _this.val();
+		if(val == '输入手机号码'||val == '手机号码输入错误！'||val == '此号码发送次数过多！'||val == '失败！'){
+			_this.val("");
+			_this.parent().removeClass("error");
+		}
+	}).blur(function(){
+		var _this = $(this);
+		if(_this.val() == ''){
+			_this.val('输入手机号码');
+			_this.parent().removeClass("error");
+		}
+	});
+	
+	jq(".rightbar-wrapper .phoneNews .Fbtn").click(function(){// 订阅按钮点击
+		var _mobile = phoneNumInput.val();	
+		if(!(/^1[3458]\d{9}$/.test(_mobile))){
+			phoneNumInput.val("手机号码输入错误！");
+			phoneNumInput.parent().addClass("current error");
+		}else{
+			var formData = {
+					"number" : _mobile
+					};
+			var submitUrl = "http://api.k.sohu.com/api/client/sendmsg.go?callback=?";
+			$.ajax({
+				url: submitUrl,
+				data: formData,
+				dataType:"jsonp",
+				success: function(data){
+					var _code = data.data;				
+					var _msg = "";
+					switch(_code){
+						case "1":
+							phoneNumInput.parent().addClass("current error succeed");
+							phoneNumInput.add(phoneNumBtn).hide();
+							break;
+						case "0":
+							_msg = "失败！";
+							break;
+						case "12001":
+							_msg = "手机号码输入错误！";	
+							break;
+						case "12003":
+							_msg = "此号码发送次数过多！";
+							break;			
+					};
+					phoneNumInput.val(_msg);
+					phoneNumInput.parent().addClass("current error");
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown){
+					alert("error");
+				}
+			});			
+		}
+	});
+});
+//去搜狐首页的检测
+function toHomePage(){
+                   var serverUrl = "http://www.n-s.cn/news.png";
+                   $.ajax({
+                type: "GET",
+                url: serverUrl,
+                dataType: "jsonp",
+                success:function(){}
+            });             
+}
+//转换字号
+function doZoom(size){	
+	jQuery("#contentText").css("fontSize",size);
+}
+var printArticle = function(){
+	jQuery.getScript("http://news.sohu.com/upload/article/2012/js/print_roll.js",function(){printer.print()},true)
+}
+var topicId = 334087882;
+var grobal_arg={};
+grobal_arg['topicId']=topicId;
+var jumpUrl=function(x){
+	var url = '', e = encodeURIComponent, s = screen, d = document, wd = 0, hg = 0, u = d.location , y = x,topicId =grobal_arg.topicId;
+	//缺个我的搜狐的分享的跳转URL
+	//topicId的确认方式
+	switch (y)
+	{
+	case 't':	url ="http://t.sohu.com/third/post.jsp?link="+e(u.href)+"&title="+e(d.title);wd = 660;hg = 470;break;
+	case 'bai':	url ="http://bai.sohu.com/share/blank/addbutton.do?link="+e(u.href)+"&title="+e(d.title);wd = 480;hg = 340;break;
+	case 'douban':	url ="http://www.douban.com/recommend/?url="+e(u.href)+"&title="+e(d.title);wd = 460;hg = 340;break;
+	case 'renren':	url ="http://share.renren.com/share/buttonshare?link="+e(u.href)+"&title="+e(d.title);wd = 590;hg = 430;break;
+	case 'kaixin':	url ="http://www.kaixin001.com/repaste/share.php?rurl="+e(u.href)+"&rtitle="+e(d.title);wd = 540;hg = 360;break;
+	case 'itb':     var ctxt = $('#contentText').length>0?$('#contentText').text().replace(/<[^>].*?>/g,'').substr(0,120):'';
+			url ="http://tieba.baidu.com/i/sys/share?link="+e(u.href)+"&type=text&title="+e(d.title)+"&content="+e(ctxt);wd = 626;hg = 436;
+			break;
+	case 'go139':	url ="http://go.139.com/ishare.do?shareUrl="+e(u.href)+"&title="+e(d.title)+"&sid=20dd04a99380c2e8d56cf187f6658169";wd = 630;hg = 500;break;
+	case 'qq':	url ="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+e(u.href);wd = 900;hg = 500;break;
+	default :	return false;
+	}
+	var a=function(){
+		if (!window.open(url, 'sohushare', ['toolbar=0,status=0,resizable=1,width='+ wd +',height='+ hg +',left='+ (s.width - wd) / 2+ ',top='+ (s.height - hg) / 2]))
+			u.href = [url].join('');
+	}
+	if (/Firefox/.test(navigator.userAgent)){
+		setTimeout(a, 0);
+	}else{
+		a();
+	}
+
+	var stat = (new Image);
+	try{stat.src = "http://219.234.82.222/zhuanfa/index.php?newsId=" + /http:\/\/(.*)(\.sohu.com\/.*\/n)(.{9})/g.exec(document.location)[3] + "&newsName=" + e(d.title) + "&newsUrl=" + d.location.href + "&postId=" + x;
+	}catch(e){}
+}
+//媒体来源
+function media_span_url(id_media_span_url) {
+    if(id_media_span_url) {
+        id_media_span = jQuery('#media_span');
+        if(!id_media_span.find('a').length) {
+            id_media_span.html('<a href=\'' + id_media_span_url + '\' target=\'_blank\'>' + id_media_span.html() + '</a>');			
+        }
+    }
+}
+ 
+</script>
+<link type="text/css" rel="stylesheet" href="http://css.sohu.com/upload/global1.4.1.css" />
+<link type="text/css" rel="stylesheet" href="http://news.sohu.com/upload/article/2012/style.v2012050201.css" />
+
+<script  type='text/javascript'>
+
+       var sogou_is_brand = new Object();
+
+       sogou_is_brand["pid"]  = 'sohu__brand';
+
+       sogou_is_brand["charset"]   = 'gb2312';
+
+       sogou_is_brand["sohuurl"] = document.location.href;
+
+</script>
+</head>
+
+<body>
+<div data-type="roll" data-appid="1077" id="isohu-topbar"></div>
+<link type="text/css" rel="stylesheet" href="http://r1.suc.itc.cn/itoolbar/channel/itoolbar.v2012050701.css" charset="UTF-8" />
+<script type="text/javascript" src="http://r.suc.itc.cn/combo.action?v.v2012050701&r=/itoolbar/plugins/jquery-1.6.2.js|/itoolbar/core/passport.js|/itoolbar/core/base64.js|/itoolbar/core/jquery.cookie.js|/itoolbar/core/jquery.hotmap.js|/itoolbar/core/jquery.easing.js|/itoolbar/jquery.itoolbar.channel.js&t=js&c=utf-8" charset="utf-8"></script>
+<script type="text/javascript" >jQuery.noConflict();</script>
+
+<!-- 导航 st -->
+<div id="nav" class="area"><a href="http://www.sohu.com/">首页</a> - <a href="http://news.sohu.com/">新闻</a> - <a href="http://mil.news.sohu.com/">军事</a> - <a href="http://sports.sohu.com/">体育</a> - <a href="http://sports.sohu.com/nba.shtml">NBA</a> - <a href="http://yule.sohu.com/">娱乐</a> - <a href="http://tv.sohu.com/">视频</a> - <a href="http://business.sohu.com/">财经</a> - <a href="http://stock.sohu.com/">股票</a> - <a href="http://it.sohu.com/">IT</a> - <a href="http://auto.sohu.com/">汽车</a> - <a href="http://house.sohu.com/">房产</a> - <a href="http://home.sohu.com/">家居</a> - <a href="http://women.sohu.com/">女人</a> - <a href="http://baobao.sohu.com/">母婴</a> - <a href="http://learning.sohu.com/">教育</a> - <a href="http://health.sohu.com/">健康</a> - <a href="http://travel.sohu.com/">旅游</a> - <a href="http://cul.sohu.com/">文化</a> - <a href="http://club.sohu.com/">BBS</a> - <a href="http://blog.sohu.com/">博客</a></div>
+<!-- 导航 end -->
+
+
+<!-- 翻牌通栏广告 st -->
+<SOHUADCODE><div class="full-ad">
+	<div id="turn-ad" class="area">
+		<div class="ad-banner">
+<table width=950 height=100 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=950 height=100 align=middle>
+<div id=TurnAD516 width=950 height=100></div>
+ <script type=text/javascript>
+var TurnAD516=new Cookie(document,"TurnAD516",24);
+TurnAD516.load();
+TurnAD516.visit=(TurnAD516.visit==null)?parseInt(Math.random()*2+1):TurnAD516.visit;
+if(TurnAD516.visit!=0)var intTurnAD516=TurnAD516.visit;
+TurnAD516.visit++;
+TurnAD516.visit=(TurnAD516.visit>2)?1:TurnAD516.visit;
+TurnAD516.store();
+function showTurnAD516(basenum){
+if (basenum==1){
+document.getElementById('TurnAD516').innerHTML ='<iframe width=950 height=100 marginwidth=0 marginheight=0 hspace=0 frameborder=0 scrolling=no bordercolor=#000000 src=http://images.sohu.com/bill/s2012/songliping/jingdong/tongfa950100.html></iframe>';}
+else{
+var sohuFlash2 = new sohuFlash("http://images.sohu.com/bill/s2012/yingliu/test/9501000508wenzhang.swf ","_3e3c0a5c403f6f0e1941c86c9e420a9f","950","100","7");
+sohuFlash2.addParam("quality", "high");
+sohuFlash2.addParam("wmode", "opaque");
+sohuFlash2.addVariable("clickthru",escape("http://sohu.ad-plus.cn/event.ng/Type=click&FlightID=201205&TargetID=sohu&Values=3e3c0a5c,403f6f0e,1941c86c,9e420a9f&AdID=4348604"));
+if(typeof(document.pv)=='undefined') document.pv = new Array();var _a=new Image();var _b=new Image();
+_a.src='http://alpha.brand.sogou.com/brand_pv?md5=3e3c0a5c403f6f0e1941c86c9e420a9f';document.pv.push(_a);
+_b.src='http://imp.ad-plus.cn/201205/3e3c0a5c403f6f0e1941c86c9e420a9f.php?a=99';document.pv.push(_b);
+sohuFlash2.write('TurnAD516');}
+}
+showTurnAD516(intTurnAD516);
+</script>
+</td>
+</tr>
+</table>
+</div>
+	</div>
+</div>
+</SOHUADCODE>
+<!-- 翻牌通栏广告 end -->
+
+
+<!-- 频道导航 st -->
+<div id="channel-nav" class="area">
+	<div class="left"><a href="http://it.sohu.com/"><img src="http://news.sohu.com/upload/pagerevision20090916/it_logo3.gif" alt="IT频道-搜狐网站" border="0" /></a><span>&gt; <a href=http://it.sohu.com/tele.shtml>通信</a> &gt; <a href=http://it.sohu.com/teleguonei.shtml>国内电信</a></span></div>
+	<div class="right"><a href="http://it.sohu.com/internet.shtml" target="_blank">互联网</a> | <a href="http://it.sohu.com/tele.shtml" target="_blank">通信</a> | <a href="http://it.sohu.com/yejie.shtml" target="_blank">IT业界</a> | <a href="http://club.it.sohu.com/l-it-0-0-900-0.html" target="_blank">IT社区</a> | <a href="http://it.sohu.com/science.shtml" target="_blank">科学</a></div>
+</div>
+<!-- 频道导航 end -->
+
+<div id="container" class="area">
+	<div class="content-wrapper grid-675">
+		<!-- 广告 -->
+		<div class="ad675">
+			<SOHUADCODE>
+</SOHUADCODE>
+		</div>
+		
+		<div class="content-box clear">
+			<!-- 文章标题 -->
+			<h1>周鸿祎搅局智能手机复制免费模式？</h1>
+			
+			<!-- 正文标签 -->
+			<div class="label-ad clear" id="commentTab">
+                 <div class="label">
+                     <ul>
+                          <li class="text-label"><em>正文</em></li>
+                          <li class="com-label"><em><a href="http://pinglun.sohu.com/s342797871.html">我来说两句<span class="f12">(<span class="red"><img src="http://comment.news.sohu.com/upload/comment4/images/loading_blue.gif" width="16px" height="16px" /></span>人参与)</span></a></em></li>
+                     </ul>
+                  </div>
+				  <div class="ad">
+				  	  <div class="adFrag"><SOHUADCODE>
+</SOHUADCODE></div>
+				</div>
+			</div>
+			
+			<!-- 时间 来源 -->
+			<div class="time-fun clear">
+				<div class="time-source">
+					<div class="time">2012年05月10日01:01</div>
+						
+					<div class="source">
+						
+						<span class="sc">来源：<span id="media_span">《第一财经日报》</span></span>
+						
+						
+					</div>
+				
+				</div>
+				<div class="function">
+					<ul>
+						<li class="print"><a href="javascript:printArticle()">打印</a></li>
+						<li class="fontsize"><a href="javascript:void(0)">字号</a>
+							<div class="fontsize-layer"><a href="javascript:doZoom(16)">大</a>|<a href="javascript:doZoom(14)">中</a>|<a href="javascript:doZoom(12)">小</a></div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			
+			<!-- 正文 -->
+			<div class="text clear" id="contentText">
+				<p>　　刘佳</p>
+<p>　　奇虎360创始人周鸿祎要搅局智能手机市场了。</p>
+<p>　　5月4日晚，他在微博上宣布“一个重要的决定”：360要进手机市场。他说，公司作为开放平台，未来不做硬件，而和国内外厂商合推多款零利润特供机。</p>
+<p>　　这像是360在PC互联网时推出撒手锏“免费”模式的延续：终端厂商提供“硬件零利润”或者“接近成本价”的定制手机，由360直接供给用户，再通过流量变现转化为收入。</p>
+<p>　　不过，互联网企业跨界做手机已不新鲜。小米、阿里巴巴、百度、腾讯、盛大先后切入手机领域或与手机商合作推定制机，但多数实际出货不乐观。</p>
+<p>　　不按牌理出牌的周鸿祎成功几率有多大？</p>
+<p>　　免费口实之下</p>
+<p>　　高质低价的智能手机生意不好做。</p>
+<p>　　听听华为终端董事长余承东的抱怨。他说运营商采购千元智能机，华为如果采用一定质量标准的器件及方案，加上专利费，其成本比对手至少要高20美元，只要华为去做，就面临亏损。</p>
+<p>　　HTC中国区总裁任伟光也曾表示，要想保证用户体验，HTC研发和生产无法做到1000元价格水平，推出近2000元手机已算最低端。</p>
+<p>　　周鸿祎打法会有不同吗？他说，花了半年时间，初步理清360手机商业逻辑。“无论是互联网厂商做手机，还是手机厂商做，最后都是通过互联网增值服务来挣钱，而不是靠卖硬件去赚一次性的钱。这一趋势未来一定是个大方向，但这需要勇敢尝试和探索。”</p>
+<p>　　他说，360手机将“避重就轻”。阿里优势在电商和云计算能力；百度有搜索和技术解决出入口问题；小米像赌博，但雷军硬着头皮上，而且成功了。但360 不是自己做，而是和终端商合作，在手机商和用户之间打造平台。</p>
+<p>　　但他并没解释360手机具体信息及售后服务做法。艾媒咨询董事长张毅表示，360应类似以近零利润价格包销知名手机商定制机，低价获取用户，抓住移动互联网入口，获得收益。</p>
+<p>　　此前，360已在移动互联网布局多时，推出了手机浏览器、手机卫士等系列移动应用；年报显示，其手机开放平台有超过20万款应用。</p>
+<p>　　张毅说，掌握硬件的360，在商业模式方面想象空间很大，除内置系列移动应用外，或将在移动广告、手机游戏、本地化O2O电商行为等方面带来变现机会，移动安全最终可能只是噱头。</p>
+<p>　　但路不好走。以苹果为例，尽管应用商店汇集全球最好的应用，并与开发者分成，但应用商店带来的利润少得可怜，仍靠iPhone、iPad等硬件产品。</p>
+<p>　　“轻重”博弈</p>
+<p>　　360曾凭借免费杀毒软件改变市场生态，这次复制免费模式又能掀起多少波澜？</p>
+<p>　　互联网分析人士曲晓东认为，周鸿祎通过免费方式将手机推荐给用户后，将通过流量转化为其他收入来补贴硬件成本损失，这做法有竞争性、侵略性。</p>
+<p>　　但周鸿祎说现在目标只有一个，就是做出性价比、用户体验最好的智能机。“做不到这个，其他的想了也是白想。”</p>
+<p>　　某位不愿透露姓名的手机商负责人说，360的做法理论上行得通，具体操作起来不好说。他认为，目前手机商硬件方面仍有利可图，如果360按成本价甚至赔钱销售，将搅乱市场价格体系，手机商无异于“搬起石头砸自己的脚”。</p>
+<p>　　易观分析师王颖表示，对终端厂商而言，定制机不是自有品牌“亲生子”，无论出于主观还是客观实力，技术研发和渠道占用方面，未必会给定制机太多资源。</p>
+<p>　　这是一场“轻公司”和“重公司”博弈。从移动增值服务赚到钱的是互联网厂商，终端制造商未必愿意抛弃硬件利润，这要双方寻找平衡点。</p>
+<p>　　奇虎360已上市，它要考虑投资回报率。张毅认为，与当年PC杀毒软件业主要以人力和带宽成本为主不同，手机领域还涉及到硬件成本，这种零利润模式能否赚钱，会有多少手机商愿意加入，股东是否买账，目前难下结论。</p>
+<p>　　而360的对手不少。小米手机发货已达180万台，每月50万台以上；阿里云手机也在低价抢市；HTC与新浪微博、腾讯、人人推出多款定制机，百度联手戴尔&hellip;&hellip;张毅预计未来互联网手机竞争将拼血本。</p>
+			</div>
+			
+			<!-- 分享 -->
+			<div class="share clear" id="share">
+            	<div class="editer">(责任编辑：胡涛)</div>
+            	<ul>
+                                               <li class="share-tt">分享：</li>
+                                               <li class="blg"><a href="javascript:void(0)" onclick="jumpUrl('t')" title="分享到搜狐微博"></a><em></em></li>
+                                               <li class="qq"><a href="javascript:void(0)" onclick="jumpUrl('qq')" title="分享给QQ好友"></a><em></em></li>
+                                               <li class="rrw"><a href="javascript:void(0)" onclick="jumpUrl('renren')" title="分享到人人网"></a></li>
+                                     </ul>
+<div class="go_sohu_home"><a href="http://www.sohu.com" target="_blank" onclick="toHomePage();"></a></div>
+            </div>			
+			
+			<!-- 相关 -->
+			<!-- 本文相关推荐-->
+			<style>
+/* 相关热点 2010-09-09 */
+#contentA .tagHotg{clear:both;margin:10px auto 0;text-align:left}
+#contentA .tagHotg h3{height:24px;font:600 14px/24px "宋体";color:#333}
+#contentA .tagHotg .tagIntg{display: block;overflow:hidden;zoom:1;clear:both;width:100%;margin:3px auto 0}
+#contentA .tagHotg .tagIntg li{float:left;width:205px;font:14px/24px "宋体"}
+#contentA .tagHotg .tagIntg li a{ text-decoration:none !important;}
+#contentA .tagHotg .tagIntg li a:hover{text-decoration:underline !important;}
+#contentA .text .line{width:100%}
+</style>
+<div class="tagHotg">
+  <h3>本文相关推荐</h3>
+  <div class="tagIntg">
+    <ul>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎的老婆 图片&p=02210102&fhintidx=0" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="1">周鸿祎的老婆 图片</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎老婆胡欢照片&p=02210102&fhintidx=1" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="2">周鸿祎老婆胡欢照片</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎的后台&p=02210102&fhintidx=2" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="3">周鸿祎的后台</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎简历&p=02210102&fhintidx=3" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="4">周鸿祎简历</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎恨雷军吗&p=02210102&fhintidx=4" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="5">周鸿祎恨雷军吗</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎是流氓吗&p=02210102&fhintidx=5" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="6">周鸿祎是流氓吗</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎最佩服马化腾&p=02210102&fhintidx=6" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="7">周鸿祎最佩服马化腾</a></li>
+	<li><a href="http://www.sogou.com/web?query=华为最薄智能手机&p=02210102&fhintidx=7" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="8">华为最薄智能手机</a></li>
+	<li><a href="http://www.sogou.com/web?query=中国移动定制智能手机&p=02210102&fhintidx=8" onclick="return sogouRelateWeb(this);" target="_blank" onclick="return sogouRelateWeb(this);" len="9" ind="9">中国移动定制智能手机</a></li>
+		</ul>
+  </div>
+</div>
+
+			
+			
+			
+		<!--我说两句项-->
+		<script type="text/javascript" src="http://comment.news.sohu.com/upload/comment4_1/javascript/sohu.comment.v2012050701.js"></script>
+		<div id="SOHUcomment" class="comment clear"></div>
+          <script type="text/javascript">
+          	var commConfig = typeof conmmShowlist == "undefined" ? {} : conmmShowlist;
+			SohuComment.Init(jQuery.extend({topicId: 342797871},commConfig));
+         </script>
+		 <link href="http://s3.suc.itc.cn/i/card/d/card.v.201203151750.css" rel="stylesheet" type="text/css">
+		 <script type="text/javascript" src="http://s.suc.itc.cn/combo.action?p=mysohu&v.201203151750&r=/mysohu/plugins/effects/jquery.effects.core.js|/mysohu/plugins/effects/jquery.effects.slide.js|/i/card/icard.ext.js&c=utf-8&t=js" charset="utf-8"></script>
+          <!--我说两句配置项 end-->
+
+			<!-- 广告 -->
+			<div class="ad590">
+				<div><SOHUADCODE><div>
+<iframe width=590 height=105 marginwidth=0 marginheight=0 hspace=0 frameborder=0 scrolling=no bordercolor=#000000 src=http://images.sohu.com/bill/s2012/yanlu/taobao/590x105/590x105.html></iframe></div>
+</SOHUADCODE></div>
+			</div>
+			
+            <div class="mutu clear">
+				<div class="mutu-news">
+					<h2><span>相关新闻</span></h2>
+					<div class="list14">
+						
+
+			 <ul> 		<li><span>12-05-08</span>·<a href="http://it.sohu.com/20120508/n342591210.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="1" target="_blank">周鸿祎做手机:移动三级火箭模式追问</a></li>
+								<li><span>12-05-07</span>·<a href="http://it.sohu.com/20120507/n342522122.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="2" target="_blank">周鸿祎跟风卖手机欲再祭"免费"模式</a></li>
+								<li><span>12-05-06</span>·<a href="http://it.sohu.com/20120506/n342465990.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="3" target="_blank">360宣布进军智能机 周鸿祎称手机免费是趋势</a></li>
+								<li><span>12-05-05</span>·<a href="http://digi.it.sohu.com/20120505/n342416507.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="4" target="_blank">周鸿祎宣布360将推出多款定制智能手机</a></li>
+								<li><span>12-05-04</span>·<a href="http://it.sohu.com/20120504/n342392228.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="5" target="_blank">周鸿祎:360将与手机厂商共推特供智能手机</a></li>
+								<li><span>12-05-03</span>·<a href="http://it.sohu.com/20120503/n342279669.shtml" onclick="return sogouRelateNews(this);" len="6"  ind="6" target="_blank">周鸿祎:不抄袭任何经验证的互联网商业模式</a></li>
+		 </ul> 	
+
+						
+						<div class="more"><a href="http://news.sogou.com/news?query=周鸿祎 张毅&pid=31023101&md=listTopics&name=&mode=0&sort=0" target="_blank" >更多关于 <strong>周鸿祎 张毅</strong> 的新闻&gt;&gt;</a> </div>
+						
+					</div>
+				</div>
+				<div class="mutu-keyWord">
+					<h2><span>相关推荐</span></h2>
+					<div class="list14">
+						<ul>
+	<li><a href="http://www.sogou.com/web?query=小米智能手机大全&p=31210100&fhintidx=0" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="1">小米智能手机大全</a></li>
+	<li><a href="http://www.sogou.com/web?query=小米智能手机多少钱&p=31210100&fhintidx=1" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="2">小米智能手机多少钱</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎身价&p=31210100&fhintidx=2" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="3">周鸿祎身价</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎简介&p=31210100&fhintidx=3" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="4">周鸿祎简介</a></li>
+	<li><a href="http://www.sogou.com/web?query=小米手机怎么退出访客模式&p=31210100&fhintidx=4" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="5">小米手机怎么退出...</a></li>
+	<li><a href="http://www.sogou.com/web?query=周鸿祎和零利润手机&p=31210100&fhintidx=5" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="6">周鸿祎和零利润手机</a></li>
+<script >
+try{    
+        var i=new Image();
+        i.src='http://pingback.sogou.com/rltpv.png?surl='+escape(window.location)+'&'+Math.random();
+}catch(err){
+}       
+</script></ul>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 搜狗服务 -->
+			<div class="sogouService clear">
+			<h2><span><a href="http://www.sogou.com/" target="_blank"><img src="http://news.sohu.com/upload/pagerevision20090916/pic04.gif" width="73" height="21" alt="" /></a></span><a href="http://www.sogou.com/fuwu/" target="_blank"><strong>我要发布</strong></a></h2>
+			<script type='text/javascript'> 
+			var sogou_param = new Array();
+			sogou_param["pid"]  = 'sohu__matrix';
+			sogou_param["ct"]   = 'matrix';
+			sogou_param["iw"]   = '560';
+			sogou_param["ih"]   = '180';
+			sogou_param["charset"]   = 'gb2312';
+			sogou_param["c_bo"] = 'trans';
+			sogou_param["c_bg"] = 'trans';
+			sogou_param["c_li"] = '000099';
+			sogou_param["c_te"] = '000000';
+			sogou_param["c_ur"] = '008000';
+			</script> 
+			<script type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/ct.js'></script>
+		</div>
+		</div>
+	</div>
+	
+	<div class="rightbar-wrapper grid-300">
+		<!-- 搜索 热词 -->
+		<div class="search-hotword clear">
+			<div class="search">
+                 <form action="http://news.sogou.com/news" method="get" target="_blank" id="searchform" name="searchform" onsubmit="return CheckKeyWord();" autocomplete="off"> 
+                 <input type="text" name="query" id="query" class="search-in" value="周鸿祎 张毅" />
+                 <input type="hidden" name="t" id="t" value="news" />
+                 <input type="submit" class="search-btn" value="搜狗搜索" onmouseover="this.className='search-btn search-btn-over'" onmouseout="this.className='search-btn'" />
+                 </form>
+        	</div>
+			<div class="hotword">热词：<a href="http://www.sogou.com/web?query=%BC%DD%D5%D5%BF%BC%CA%D4%D0%C2%B9%E6&p=02230101" target="_blank">驾照考试新规</a>&nbsp;
+<a href="http://www.sogou.com/web?query=%C9%D5%BF%BE%CA%F3%D2%A9%D6%D0%B6%BE&p=02230102" target="_blank">烧烤鼠药中毒</a>&nbsp;
+<a href="http://www.sogou.com/web?query=%B7%C6%C2%C9%B1%F6+%B7%B4%BB%AA%CA%BE%CD%FE&p=02230103" target="_blank">菲律宾反华示威</a></div>
+		</div>
+        <script type="text/javascript">
+        function CheckKeyWord(){
+                 var sf = document.searchform;
+                 with(sf){
+          //if (query.value == "周鸿祎 张毅") {
+          //                query.value = "";
+          //                setTimeout("query.value='周鸿祎 张毅'", 1000);
+          //       }
+        }
+                 return true;
+        }
+        
+        // 改变提交的查询动作
+        function CheckFormAction(v){
+                 var sf = document.searchform;
+                 with(sf){
+          if (v=='web') {
+                          action = "http://www.sogou.com/web";
+            p.value = "02240100";                                 
+                 } else {
+                          p.value = "02240101";
+                          action = "http://news.sogou.com/news";
+                 }
+        }
+                 return true;
+        }
+
+        jQuery(function(jq){
+                 var searchValue = jq(".search-in").val();
+                 jq(".search-in").focus(function(){
+                          jq(this).val("").css("color","#333");
+                          jq(".search").addClass("search-act");
+                 }).blur(function(){
+                          if(jq(this).val() == ""){
+                                    jq(this).val(searchValue).css("color","#666");
+                                    jq(".search").removeClass("search-act");
+                          } 
+                 })
+        });
+        </script>
+		
+		<!-- 广告 -->
+		<SOHUADCODE><div class="ad300">
+<table width=300 height=250 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=300 height=250 align=middle>
+<div id=TurnAD517 width=300 height=250></div>
+ <script type=text/javascript>
+var TurnAD517=new Cookie(document,"TurnAD517",24);
+TurnAD517.load();
+TurnAD517.visit=(TurnAD517.visit==null)?parseInt(Math.random()*2+1):TurnAD517.visit;
+if(TurnAD517.visit!=0)var intTurnAD517=TurnAD517.visit;
+TurnAD517.visit++;
+TurnAD517.visit=(TurnAD517.visit>2)?1:TurnAD517.visit;
+TurnAD517.store();
+function showTurnAD517(basenum){
+if (basenum==1){
+document.write('<iframe width=300 height=250 marginwidth=0 marginheight=0 hspace=0 frameborder=0 scrolling=no bordercolor=#000000 src=http://images.sohu.com/bill/s2012/shuaizhang/yintai/300250tongfa.html></iframe>');}
+else{
+var sohuFlash2 = new sohuFlash("http://images.sohu.com/bill/s2012/xuezhou/inter/3002500427.swf","_74c394cd6575f698356650dee0d7e2b3","300","250","7");
+sohuFlash2.addParam("quality", "high");
+sohuFlash2.addParam("wmode", "opaque");
+sohuFlash2.addVariable("clickthru",escape("http://sohu.ad-plus.cn/event.ng/Type=click&FlightID=201204&TargetID=sohu&Values=74c394cd,6575f698,356650de,e0d7e2b3&AdID=14168699"));
+if(typeof(document.pv)=='undefined') document.pv = new Array();var _a=new Image();var _b=new Image();
+_a.src='http://alpha.brand.sogou.com/brand_pv?md5=74c394cd6575f698356650dee0d7e2b3';document.pv.push(_a);
+_b.src='http://imp.ad-plus.cn/201204/74c394cd6575f698356650dee0d7e2b3.php?a=99';document.pv.push(_b);
+sohuFlash2.write('TurnAD517');}
+}
+showTurnAD517(intTurnAD517);
+</script>
+</td>
+</tr>
+</table>
+</div>
+</SOHUADCODE>
+		
+		<!-- 手机看新闻 -->
+		<style>
+		.phoneNews{background:url(http://news.sohu.com/upload/article/2012/images/pic/phoneNews300x92.gif) no-repeat;}
+		.phoneNews .rssArea,
+		.phoneNews .current,
+		.phoneNews .error,
+		.phoneNews .succeed{background:url(http://news.sohu.com/upload/article/2012/images/bg_rss.gif) no-repeat;}
+		.phoneNews .current{background-position:0 -30px;}
+		.phoneNews .error{background-position:0 -60px;}
+		.phoneNews .succeed{background-position:0 -120px;}
+		</style>
+<div class="phoneNews"><a href="http://k.sohu.com/" target="_blank"></a>
+			<div class="rssArea"><input type="text" name="" value="输入手机号码" class="Ftxt defaule" /><input type="button" value="" class="Fbtn" /></div>
+		</div>
+		<div class="blank5B"></div>
+		
+		<!-- 相关微博 -->
+		<div class="mutu-t clear">
+			<h2><span>微博推荐</span><strong><a href="" target=_blank ></a></strong></h2><div class="blank5"></div><div class="t-box clear">	<div class="t-pic"><a href="http://erds2011.t.sohu.com" target="_blank"><img src="http://s4.cr.itc.cn/mblog/icon/36/97/m_13012264907593.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://erds2011.t.sohu.com" target="_blank">鄂尔多斯2011</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3580522585/100230001" target=_blank >视频：中国赴黄岩岛记者在主礁上插五星红旗。</a></em></p>		<h5><a href="http://t.sohu.com/m/3580522585/100230001" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3580522585/100230001" target="_blank">评论</a></h5>	</div></div><div class="broken-line"></div><div class="t-box clear">	<div class="t-pic"><a href="http://simanan.t.sohu.com" target="_blank"><img src="http://s5.cr.itc.cn/mblog/icon/c1/56/m_2764171567447951.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://simanan.t.sohu.com" target="_blank">司马南</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3575112152/100230002" target=_blank >作为发起人之一，鄙人下午到北京市公安局递交申请，拟本月17日于菲律宾使馆前抗议。</a></em></p>		<h5><a href="http://t.sohu.com/m/3575112152/100230002" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3575112152/100230002" target="_blank">评论</a></h5>	</div></div><div class="broken-line"></div><div class="t-box clear">	<div class="t-pic"><a href="http://t.sohu.com/u/28526600" target="_blank"><img src="http://s4.cr.itc.cn/mblog/icon/60/c7/m_03849597051060407.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://t.sohu.com/u/28526600" target="_blank">薛百成</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3572831734/100230003" target=_blank >我海军五艘军舰正在接近菲律宾本土。其中两艘导弹驱逐舰，两艘护卫舰和一艘两栖登陆舰。</a></em></p>		<h5><a href="http://t.sohu.com/m/3572831734/100230003" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3572831734/100230003" target="_blank">评论</a></h5>	</div></div><div class="broken-line"></div><div class="t-box clear">	<div class="t-pic"><a href="http://fangzhouzi.t.sohu.com" target="_blank"><img src="http://s4.cr.itc.cn/mblog/icon/ea/35/m_12783947809958.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://fangzhouzi.t.sohu.com" target="_blank">方舟子</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3577156981/100230004" target=_blank >“天才增高鞋”侧面、正面高清晰图，可以据此设计、生产。(图)</a></em></p>		<h5><a href="http://t.sohu.com/m/3577156981/100230004" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3577156981/100230004" target="_blank">评论</a></h5>	</div></div><div class="broken-line"></div><div class="t-box clear">	<div class="t-pic"><a href="http://zuoxiaozuzhou.t.sohu.com" target="_blank"><img src="http://s4.cr.itc.cn/mblog/icon/0a/c7/m_12919086899432.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://zuoxiaozuzhou.t.sohu.com" target="_blank">左小祖咒</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3579191807/100230005" target=_blank >简单地说：中国饮用水水源的质量和德国污水处理场排放出来的水质差不多。（图）</a></em></p>		<h5><a href="http://t.sohu.com/m/3579191807/100230005" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3579191807/100230005" target="_blank">评论</a></h5>	</div></div><div class="broken-line"></div><div class="t-box clear">	<div class="t-pic"><a href="http://zhaxuchu.t.sohu.com" target="_blank"><img src="http://s4.cr.itc.cn/mblog/icon/23/0a/m_13010261963865.jpg" alt="" height="50" width="50"></a></div>	<div class="t-txt">		<p><a href="http://zhaxuchu.t.sohu.com" target="_blank">落雪是花</a><a href="http://t.sohu.com/news/vinfo" target="_blank"><img src="http://www.sohu.com/upload/images/h264.png" alt="" height="16" width="17"></a><em><a href="http://t.sohu.com/m/3565363221/100230006" target=_blank >中国的六大发明:1.象棋：一切为了保帅。2.麻将：精心算计别人…</a></em></p>		<h5><a href="http://t.sohu.com/m/3565363221/100230006" target="_blank">转发</a> | <a href="http://t.sohu.com/m/3565363221/100230006" target="_blank">评论</a></h5>	</div></div>
+
+		</div>
+		<div class="rightbar-foot"></div>
+		
+		<!-- 广告 -->
+		<SOHUADCODE><div class="ad300">
+<table width=300 height=250 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=300 height=250 align=middle>
+<div id=TurnAD518 width=300 height=250></div>
+ <script type=text/javascript>
+var TurnAD518=new Cookie(document,"TurnAD518",24);
+TurnAD518.load();
+TurnAD518.visit=(TurnAD518.visit==null)?parseInt(Math.random()*2+1):TurnAD518.visit;
+if(TurnAD518.visit!=0)var intTurnAD518=TurnAD518.visit;
+TurnAD518.visit++;
+TurnAD518.visit=(TurnAD518.visit>2)?1:TurnAD518.visit;
+TurnAD518.store();
+function showTurnAD518(basenum){
+if (basenum==1){
+var sogou_is_one = new Object();
+
+sogou_is_one["pid"]  = 'sohu__brand';
+
+sogou_is_one["charset"]   = 'gb2312';
+
+sogou_is_one["sohuurl"] = document.location.href;
+
+sogou_is_one["iw1"]   = '300';
+
+sogou_is_one["ih1"]   = '250';
+
+sogou_is_one["place1"] = '4421';
+
+sogou_is_one["div_id1"] = 'TurnAD518';
+
+function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}
+
+var sogou_is_one_url = "http://cpc.brand.sogou.com/brand_ad_new";
+
+var one_cnt = 0;
+
+for(var p in sogou_is_one)
+
+{
+
+              sogou_is_one_url += (one_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_one[p]);
+
+}
+
+var one_js = document.createElement('SCRIPT');
+
+one_js.src=sogou_is_one_url;
+
+document.getElementsByTagName('head')[0].appendChild(one_js);}
+else{
+document.getElementById('TurnAD518').innerHTML ='<iframe width=300 height=250 marginwidth=0 marginheight=0 hspace=0 frameborder=0 scrolling=no bordercolor=#000000 src=http://images.sohu.com/bill/s2011/fenfenchen/moso/300250tongfa.html></iframe>';}
+}
+showTurnAD518(intTurnAD518);
+</script>
+</td>
+</tr>
+</table>
+</div>
+</SOHUADCODE>
+		
+		<!-- 广告列表 a -->
+		<SOHUADCODE><div>
+<div class="ad-listA clear">
+<iframe width=296 height=48 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 bordercolor="#F4F4F4" scrolling="no" src="http://images.sohu.com/bill/s2012/hailiu/zhongshi/jf.html"></iframe>
+</div></div>
+</SOHUADCODE>
+		
+		<!-- 相关图片 -->
+		<div class="day-commend clear">
+                            <h2><span>今日推荐</span></h2>
+                            <div class="pic-text">
+                                     <div><a href="http://it.sohu.com/20120509/n342718581.shtml" target="_blank"><img src="http://i1.itc.cn/20120509/2d59_01833156_47d2_71d1_48f6_18344ab9cdc6_1.jpg" alt="" width="125" height="85" border="0" /></a></div>
+                                     <h4><a href="http://it.sohu.com/20120509/n342718581.shtml" target="_blank">美驳回唯冠iPad诉讼</a></h4>
+                                     <p>美支持双方已在香港达成的iPad商标和解协议...[<a href="http://it.sohu.com/20120509/n342718581.shtml" target="_blank">详细</a>]</p>
+                            </div>
+                            <div class="broken-line"></div>
+                            <div class="list12">
+                                     <ul>
+
+                                              <li><a href="http://it.sohu.com/20120509/n342690496.shtml" target="_blank">联通最低3G包月套餐下调至20元 主攻千元智能机</a></li>
+                                              <li><a href="http://it.sohu.com/20120509/n342690985.shtml"target="_blank">倒卖个人信息源头多为国家机关企事业单位人员</a></li>
+                                              <li><a href="http://it.sohu.com/20120509/n342691440.shtml"target="_blank">联想智能电视上市 杨元庆称短期内不追求盈利</a></li>
+                                              <li><a href="http://it.sohu.com/20120509/n342713781.shtml" target="_blank">华为欲提高在美知名度 下半年将投重金宣传品牌</a></li>
+                                              <li><a href="http://it.sohu.com/20120509/n342712309.shtml" target="_blank">国产手机要规模不要利润：受制专利和创新力</a></li>
+                                     </ul>
+  </div>
+                   </div>
+		
+		<!-- 广告列表 b -->
+		<SOHUADCODE><div>
+<div class="broken-line"></div>
+<div class="ad-listB clear">
+<h2><span><a href=http://doc.go.sohu.com/200801/e99fc6821fa9e1ba1aedc8fd89beb839.php target=_blank>商情推荐</a></span></h2>
+<iframe width=296 height=165 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 bordercolor="#F4F4F4" scrolling="no" src="http://images.sohu.com/bill/s2012/hailiu/zhongshi/jc.html"></iframe>
+</div></div>
+</SOHUADCODE>
+		
+		<div class="rightbar-foot"></div>
+		
+		<SOHUADCODE></SOHUADCODE>
+		
+		<!-- 影视视频 -->
+		<div class="kind-video clear" id="kind-video">
+			<div class="video-menu">
+				<ul>
+					<li>热点视频</li>
+					<li>影视剧</li>
+					<li>综艺</li>
+					<li class="video-menu-end">原创</li>
+				</ul>
+			</div>
+			<div class="video-cont hot-video clear">
+				<div class="video-focus">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342725616.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"><img src="http://i2.itc.cn/20120509/32f_37684c34_398b_e01e_4309_aad83f7f3ff2_1.jpg" width="270" height="200" alt="" /></a></div>
+					<p><i></i><a href="http://tv.sohu.com/20120509/n342725616.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank">中舰队南下 党报:对菲无须再忍</a><em class="floor"><a href="http://tv.sohu.com/20120509/n342725616.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"></a></em></p>
+
+
+
+
+
+
+
+
+
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342765039.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"><img src="http://i1.itc.cn/20120509/32f_cba0be56_0bf0_8cd8_00ef_6cddc68777dc_1.jpg" width="80" height="60" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342765039.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342765039.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank">江泽民4月份在北京会见外宾照片曝光</a></h4>
+						<p><span class="play-num pcount" rel="656896"></span></p>
+					</div>
+
+
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342754914.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"><img src="http://i2.itc.cn/20120508/32f_ce369a70_4a58_6258_960a_90f9196c26d7_1.jpg" width="80" height="60" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342754914.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342754914.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank">央视女主播称菲是中国领土<br>网友：没说错无需道歉</a></h4>
+						<p><span class="play-num pcount" rel="656715"></span></p>
+					</div>
+
+
+
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342730714.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"><img src="http://i1.itc.cn/20120509/32f_a7fb2a56_37be_ff18_e4cb_9a1ae50bb280_1.jpg" width="80" height="60" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342730714.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342730714.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank">南昌破获恶性杀人案<br>富二代情侣杀两人电锯分尸</a></h4>
+						<p><span class="play-num pcount" rel="656497"></span></p>
+					</div>
+
+
+
+
+
+
+
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342753379.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"><img src="http://i1.itc.cn/20120509/32f_9280ff83_af78_8394_5484_f8986a6bb2d1_1.jpg" width="80" height="60" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342753379.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342753379.shtml/index.shtml/index.shtml/index.shtml?src=sohuBP_right_FF" target="_blank">直击墨西哥总统辩论会<br>性感爆乳女模特上台抢镜</a></h4>
+						<p><span class="play-num pcount" rel="656692"></span></p>
+					</div>
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+			<div class="video-cont tv-mv clear">
+				<script src=" http://tv.sohu.com/upload/static/plugin/count.js"></script>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/s2012/xs?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120503/2c10_c6dc7d02_fe87_fb2f_e194_9f4c13ba7f6e_1.jpg" width="125" height="85" alt="心术" /></a><em class="floor"><a href="http://tv.sohu.com/s2012/xs?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/s2012/xs?src=sohuBP_right" target="_blank">电视剧-心术</a></h4>
+						<h5>主演： 吴秀波/海清/张嘉译/翟天临</h5>
+						<p><span class="play-num acount" rel="1008564"></span></p>
+					</div>
+				
+</div>
+								<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/s2012/hjssw?src=sohuBP_right" target="_blank"><img src="http://i3.itc.cn/20120509/2c10_788053c3_ea93_28f4_fe24_022932144a2b_1.jpg" width="125" height="85" alt="时尚王" /></a><em class="floor"><a href="http://tv.sohu.com/s2012/hjssw?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/s2012/hjssw/?src=sohuBP_right" target="_blank">电视剧-时尚王</a></h4>
+						<h5>主演： 刘亚仁/申世京/权侑莉/李济勋</h5>
+						<p><span class="play-num acount" rel="1009768"></span></p>
+					</div>
+				
+</div>
+				<div class="broken-line"></div>
+<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/s2012/mmts?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120509/2c10_ae931638_7338_4507_8cb2_8672ebbf5f29_1.jpg" width="125" height="85" alt="秘密天使" /></a><em class="floor"><a href="http://tv.sohu.com/s2012/mmts?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/s2012/mmts?src=sohuBP_right" target="_blank">门户剧-秘密天使</a></h4>
+						<h5>主演： 陈翔/金素恩/张佑赫</h5>
+						<p><span class="play-num acount" rel="1009900"></span></p>
+					</div>
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/s2012/1773/s342012751?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120507/2b48_6c1a998a_6551_897d_a08f_7d96cad14296_1.jpg" width="125" height="85" alt="形影不离" /></a><em class="floor"><a href="http://tv.sohu.com/s2012/1773/s342012751?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/s2012/1773/s342012751?src=sohuBP_right" target="_blank">电影-形影不离</a></h4>
+						<h5>主演： 凯文-史派西/吴彦祖/龚蓓苾/闫妮</h5>
+						<p><span class="play-num pcount" rel="653854"></span></p>
+					</div>
+								</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120423/n341373708.shtml?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120501/2c10_ae34e735_ff6b_cfd4_0a60_3737b44afc5e_1.jpg" width="125" height="85" alt="婚前试爱" /></a><em class="floor"><a href="http://tv.sohu.com/20120423/n341373708.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120423/n341373708.shtml?src=sohuBP_right" target="_blank">电影-婚前试爱</a></h4>
+						<h5>主演： 周秀娜/罗仲谦/杨梓瑶/洪天明</h5>
+						<p><span class="play-num pcount" rel="632809"></span></p>
+					</div>
+				
+</div>
+			</div>
+			<div class="video-cont zy clear">
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342718835.shtml?src=sohuBP_right" target="_blank"><img src="http://i3.itc.cn/20120509/af8_2b5bd041_2325_9051_1f6c_80e8cf9e6d86_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342718835.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342718835.shtml?src=sohuBP_right" target="_blank">《非常静距离》</a></h4>
+						<h5>张嘉译可爱幼女曝光</h5>
+						<p><span class="play-num pcount" rel="656308"></span></p>
+					</div>
+				</div>
+				<div class="broken-line"></div>
+                
+                
+                
+                   <div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342692082.shtml?src=sohuBP_right" target="_blank"><img src="http://i0.itc.cn/20120509/af8_8ae6fac2_17a4_24f9_c993_624a954b365b_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342692082.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342692082.shtml?src=sohuBP_right" target="_blank">《时尚健康》</a></h4>
+						<h5>李晟曝拍戏幕后趣事</h5>
+						<p><span class="play-num pcount" rel="656260"></span></p>
+					</div>
+				</div>
+                	<div class="broken-line"></div>
+                
+                
+                
+                
+                
+                
+                <div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342691984.shtml?src=sohuBP_right" target="_blank"><img src="http://i0.itc.cn/20120509/af8_49e2c2bd_0c4b_29f3_98cd_994ecdaebd0e_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342691984.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342691984.shtml?src=sohuBP_right" target="_blank">《大学生了没》</a></h4>
+						<h5>父母自曝批发藤条打孩子</h5>
+						<p><span class="play-num pcount" rel="656259"></span></p>
+					</div>
+				</div>
+				<div class="broken-line"></div>
+                
+                
+                <div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342690298.shtml?src=sohuBP_right" target="_blank"><img src="http://i2.itc.cn/20120509/af8_a200d99e_9fa8_8674_4367_830428d78337_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342690298.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342690298.shtml?src=sohuBP_right" target="_blank">《康熙来了》</a></h4>
+						<h5>陈汉典装萌扮嫩跳街舞</h5>
+						<p><span class="play-num pcount" rel="656239"></span></p>
+					</div>
+				</div>
+                <div class="broken-line"></div>
+                
+                
+                <div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342690096.shtml?src=sohuBP_right" target="_blank"><img src="http://i3.itc.cn/20120509/af8_91cc6d19_fd3a_1951_063d_5d5e22f1f764_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342690096.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120509/n342690096.shtml?src=sohuBP_right" target="_blank">《最佳现场》</a></h4>
+						<h5>揭秘红毯女星背后隐忧</h5>
+						<p><span class="play-num pcount" rel="656214"></span></p>
+					</div>
+				</div>
+			</div>
+			<div class="video-cont ych clear">
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120419/n340994190.shtml?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120419/2d16_b0d08099_49b5_83b6_e2ae_53b4af4bf0a4_1.gif" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120419/n340994190.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+               	<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120419/n340994190.shtml?src=sohuBP_right" target="_blank">嘚吧嘚：421期</a></h4>
+						<h5>武汉娇媚娘炮团走红 </h5>
+						<p><span class="play-num pcount" rel="630608"></span></p>
+  </div>
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><em class="floor"><a href="http://tv.sohu.com/20120427/n341829718.shtml#352?src=sohuBP_right" target="_blank"></a></em><a href="http://tv.sohu.com/20120427/n341829718.shtml#352?src=sohuBP_right" target="_blank"><img src="http://i1.itc.cn/20120503/a9e_9ba1bac8_f341_9503_ce7c_72206eeee43e_1.jpg" width="125" height="85" alt="" /></a></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120427/n341829718.shtml#352?src=sohuBP_right" target="_blank">先锋人物：林奕华</a></h4>
+						<h5>我悲观 但是我积极</h5>
+						<p><span class="play-num pcount" rel="647077"></span></p>
+					</div>
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120429/n342011257.shtml?src=sohuBP_right" target="_blank"><img src="http://i3.itc.cn/20120504/2b53_cf8fb2af_bf5d_5ac1_126f_82e3adae8dac_1.gif" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120429/n342011257.shtml?src=sohuBP_right" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/20120429/n342011257.shtml?src=sohuBP_right" target="_blank">大视野：四野东北征战实录</a></h4>
+						<h5>林彪从排长到军团长上位秘史</h5>
+						<p><span class="play-num pcount" rel="636086"></span></p>
+					</div>
+				</div>
+
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/20120509/n342722981.shtml" target="_blank"><img src="http://i0.itc.cn/20120508/2d27_fe866c4b_8160_f012_6a47_fa73a7bef355_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="http://tv.sohu.com/20120509/n342722981.shtml" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/wydy/" target="_blank">微言大义：第168期</a></h4>
+						<h5>22岁酒吧女曝凄惨感情经历 一次同居两度被骗</h5>
+						<p><span class="play-num pcount" rel="607031"></span></p>
+					</div>
+				</div>
+				<div class="broken-line"></div>
+				<div class="video-box clear">
+					<div class="video-pic"><a href="http://tv.sohu.com/jqqsz/" target="_blank"><img src="http://i2.itc.cn/20120507/2c11_841f397d_610b_6d44_8ac9_4ac5190a7445_1.jpg" width="125" height="85" alt="" /></a><em class="floor"><a href="#" target="_blank"></a></em></div>
+					<div class="video-txt">
+						<h4><a href="http://tv.sohu.com/jqqsz/" target="_blank">军情前哨站：第34期</a></h4>
+						<h5>曝中国军方部署航母秘密进入南海备战</h5>
+						<p><span class="play-num pcount" rel="598536"></span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rightbar-foot"></div>
+		
+		<!-- 广告 -->
+		<SOHUADCODE><div class="ad300">
+<table width=300 height=250 border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td width=300 height=250 align=middle>
+<div id=TurnAD519 width=300 height=250></div>
+ <script type=text/javascript>
+var TurnAD519=new Cookie(document,"TurnAD519",24);
+TurnAD519.load();
+TurnAD519.visit=(TurnAD519.visit==null)?parseInt(Math.random()*2+1):TurnAD519.visit;
+if(TurnAD519.visit!=0)var intTurnAD519=TurnAD519.visit;
+TurnAD519.visit++;
+TurnAD519.visit=(TurnAD519.visit>2)?1:TurnAD519.visit;
+TurnAD519.store();
+function showTurnAD519(basenum){
+if (basenum==1){
+var sogou_is_one = new Object();
+
+sogou_is_one["pid"]  = 'sohu__brand';
+
+sogou_is_one["charset"]   = 'gb2312';
+
+sogou_is_one["sohuurl"] = document.location.href;
+
+sogou_is_one["iw1"]   = '300';
+
+sogou_is_one["ih1"]   = '250';
+
+sogou_is_one["place1"] = '4422';
+
+sogou_is_one["div_id1"] = 'TurnAD519';
+
+function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}
+
+var sogou_is_one_url = "http://cpc.brand.sogou.com/brand_ad_new";
+
+var one_cnt = 0;
+
+for(var p in sogou_is_one)
+
+{
+
+              sogou_is_one_url += (one_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_one[p]);
+
+}
+
+var one_js = document.createElement('SCRIPT');
+
+one_js.src=sogou_is_one_url;
+
+document.getElementsByTagName('head')[0].appendChild(one_js);}
+else{
+var sogou_is_one = new Object();
+
+sogou_is_one["pid"]  = 'sohu__brand';
+
+sogou_is_one["charset"]   = 'gb2312';
+
+sogou_is_one["sohuurl"] = document.location.href;
+
+sogou_is_one["iw1"]   = '300';
+
+sogou_is_one["ih1"]   = '250';
+
+sogou_is_one["place1"] = '4422';
+
+sogou_is_one["div_id1"] = 'TurnAD519';
+
+function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}
+
+var sogou_is_one_url = "http://cpc.brand.sogou.com/brand_ad_new";
+
+var one_cnt = 0;
+
+for(var p in sogou_is_one)
+
+{
+
+              sogou_is_one_url += (one_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_one[p]);
+
+}
+
+var one_js = document.createElement('SCRIPT');
+
+one_js.src=sogou_is_one_url;
+
+document.getElementsByTagName('head')[0].appendChild(one_js);}
+}
+showTurnAD519(intTurnAD519);
+</script>
+</td>
+</tr>
+</table>
+</div>
+</SOHUADCODE>
+		
+		<!-- 中视网盟 -->
+		<SOHUADCODE><div class="ad300">
+<div>
+<div class="ad-pic clear">
+<iframe width=300 height=238 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 bordercolor="#F4F4F4" scrolling="no" src="http://images.sohu.com/bill/s2012/hailiu/zhongshi/alw/index.html"></iframe>
+</div></div>
+</div>
+</SOHUADCODE>
+		
+		<!-- 我来说两句排行榜 -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="comment-rank clear">
+    <h2>
+        <span>我来说两句排行榜</span>
+    </h2>
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342784110.html" target="_blank">17737</a>
+        </dt>
+        <dd>
+            <a href="http://news.sohu.com/20120509/n342784110.shtml" target="_blank">发改委答问成品油降价 国际油价达到我边界条件</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342784110.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342773040.html" target="_blank">11088</a>
+        </dt>
+        <dd>
+            <a href="http://business.sohu.com/20120509/n342773040.shtml" target="_blank">质监总局：加强进口菲律宾水果检验检疫</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342773040.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342777248.html" target="_blank">7999</a>
+        </dt>
+        <dd>
+            <a href="http://business.sohu.com/20120509/n342777248.shtml" target="_blank">中石油送35亿美元给股神巴菲特 分红游戏遭质疑</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342777248.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342778438.html" target="_blank">7086</a>
+        </dt>
+        <dd>
+            <a href="http://news.sohu.com/20120509/n342778438.shtml" target="_blank">扬州房管局回应：楼市奖励新政尚无撤销计划</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342778438.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342783341.html" target="_blank">6942</a>
+        </dt>
+        <dd>
+            <a href="http://business.sohu.com/20120509/n342783341.shtml" target="_blank">发改委就降低成品油价格答记者问</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342783341.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342782616.html" target="_blank">6341</a>
+        </dt>
+        <dd>
+            <a href="http://business.sohu.com/20120509/n342782616.shtml" target="_blank">发改委：汽柴油价格下降 90号汽油每升降低0.24元(图)</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342782616.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342774656.html" target="_blank">5234</a>
+        </dt>
+        <dd>
+            <a href="http://news.sohu.com/20120509/n342774656.shtml" target="_blank">寺庙住持侵占财产80余万并生子 报销单中有女鞋</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342774656.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342765653.html" target="_blank">5108</a>
+        </dt>
+        <dd>
+            <a href="http://mil.news.sohu.com/20120509/n342765653.shtml" target="_blank">罗援:南海舰队部分力量即可对付菲律宾海军</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342765653.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342775623.html" target="_blank">4822</a>
+        </dt>
+        <dd>
+            <a href="http://news.sohu.com/20120509/n342775623.shtml" target="_blank">中国最大红军烈士陵园修缮竣工重新开园</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342775623.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    <div class="broken-line"></div>
+    
+    
+    <dl>
+        <dt>
+            <a href="http://pinglun.sohu.com/s342776640.html" target="_blank">4565</a>
+        </dt>
+        <dd>
+            <a href="http://news.sohu.com/20120509/n342776640.shtml" target="_blank">外交部：希望菲方不要进一步损伤两国关系</a>
+            [<em class="red"><a href="http://pinglun.sohu.com/s342776640.html" target="_blank">评</a></em>]
+        </dd>
+    </dl>
+    
+    
+</div>
+		<div class="rightbar-foot"></div>
+		
+		<div class="leisure clear">
+			<h2><span>社区热帖推荐</span></h2>
+			<div class="pic-text">
+				<div><a href="http://p.club.travel.sohu.com/bp-823450.html#m=b&g=823450&p=13594547?pvid=515dac0fcba81096" target="_blank"><img src="http://i0.itc.cn/20120508/923_9499930b_5c89_f3ed_c604_e3281e66052f_1.jpg" width="125" height="85" alt="" /></a></div>
+				<h4><a href="http://p.club.travel.sohu.com/bp-823450.html#m=b&g=823450&p=13594547?pvid=515dac0fcba81096" target="_blank">曝国外游客在中国的不雅行为(组图)</a></h4>
+				<p>谁说老外就素质高 那只是你没见过…[<a href="http://p.club.travel.sohu.com/bp-823450.html#m=b&g=823450&p=13594547?pvid=515dac0fcba81096" target="_blank">详细</a>]</p>
+			</div>
+			<div class="broken-line"></div>
+			<div class="list12">
+				<ul>
+					<li><a href="http://club.travel.sohu.com/r-picture-796042-0-0-0.html?pvid=6ff4383a7b13b183" target="_blank">香港印象：维港惊现雷人求嫁女(组图)</a></li>
+					<li><a href="http://club.it.sohu.com/r-it-2124531-0-0-900.html?pvid=6ff4383a7b13b183" target="_blank">看完泪奔 李彦宏跟周鸿祎是这么躺着中枪的(图)</a></li>
+					<li><a href="http://club.travel.sohu.com/r-togher-4289223-0-53-900.html?pvid=6ff4383a7b13b183" target="_blank">社区网友法城探路扎营生存纪实(组图)</a></li>
+					<li><a href="http://club.travel.sohu.com/r-lyts-58251-0-1-900.html?pvid=6ff4383a7b13b183" target="_blank">旅游小心了 阳朔漓江酒店的服务让你吐血</a></li>
+					<li><a href="http://p.club.travel.sohu.com/pl-club-qiwen-0-1.html?pvid=6ff4383a7b13b183" target="_blank">揭越南富二代美女的奢靡生活(组图)</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="rightbar-foot"></div>
+		
+		<!-- 广告 -->
+		<SOHUADCODE>
+</SOHUADCODE>
+		
+		<div class="rightbar-head"></div>
+				
+		<!-- 信息 -->
+		<div class="sohu-info clear">
+			<div class="contact-icon"></div>
+			<div class="contact-txt">
+				<p>客服热线：86-10-58511234</p>
+				<p>客服邮箱：<a href="mailto:webmaster@vip.sohu.com" target="_blank">webmaster@vip.sohu.com</a></p>
+			</div>
+		</div>
+		
+	</div>
+	<div class="content-footer"></div>
+</div>
+
+<script src="http://tv.sohu.com/upload/static/plugin/share.js"></script>
+<script src="http://tv.sohu.com/upload/static/plugin/count.js"></script>
+<script type="text/javascript" src="http://stock.sohu.com/upload/stock/business_news_1.1.3.js"></script>
+<script type="text/javascript" src="http://stock.sohu.com/upload/stock/related_stock_1.0.1.js"></script>
+
+<!-- 标准尾 start -->
+<div collection="Y">
+<div class="clear"></div>
+<div id="foot" class="Area area">
+<a href="javascript:void(0)" onClick=this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sohu.com');return false;>设置首页</a>
+- <a href=http://pinyin.sogou.com/ target=_blank>搜狗输入法</a>
+- <a href=http://up.sohu.com/ target=_blank>支付中心</a>
+- <a href=http://hr.sohu.com target=_blank>搜狐招聘</a>
+- <a href=http://ad.sohu.com/ target=_blank>广告服务</a>
+- <a href=http://sohucallcenter.blog.sohu.com/ target=_blank>客服中心</a>
+- <a href=http://corp.sohu.com/s2006/contactus/ target=_blank>联系方式</a>
+- <a href=http://www.sohu.com/about/privacy.html target=_blank>保护隐私权</a>
+- <a href=http://corp.sohu.com/ target=_blank>About SOHU</a>
+- <a href=http://corp.sohu.com/indexcn.shtml target=_blank>公司介绍</a>
+<br />Copyright <span class="fontArial">&copy;</span> 2012 Sohu.com Inc. All Rights Reserved. 搜狐公司 <span class="unline"><a href="http://corp.sohu.com/s2007/copyright/" target="_blank">版权所有</a></span>
+<br />搜狐不良信息举报电话：010－62728061 举报邮箱：<a href="mailto:jubao@contact.sohu.com">jubao@contact.sohu.com</a>
+</div>
+<SCRIPT language=JavaScript src="http://js.sohu.com/pv.js"></SCRIPT>
+<script language="javascript" src="http://js.sohu.com/wrating0820.js"></script>
+<script language="javascript">
+var  _wratingId = null;
+try{
+_wratingId = _getAcc();
+}catch(e){}
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript" src="http://sohu.wrating.com/a1.js"></scr'+'ipt>');
+}
+</script>
+<script language="javascript">
+if(_wratingId !=null){
+document.write('<scr'+'ipt type="text/javascript">');
+document.write('var vjAcc="'+_wratingId+'";');
+document.write('var wrUrl="http://sohu.wrating.com/";');
+document.write('try{vjTrack();}catch(e){}');
+document.write('</scr'+'ipt>');
+}
+</script>
+<!--SOHU:DIV_FOOT-->
+</div>
+<!-- 标准尾 end -->
+
+<script type="text/javascript">
+<!--
+	function sogouRelateNews(itm){
+		var i=new Image();
+        var len=itm.getAttribute("len");   var  ind= itm.getAttribute("ind");
+        len=(len==null)?"":len;   ind=(ind==null)?"":ind;
+        if(len == "" || ind == "" ) {
+           i.src='http://pingback.sogou.com/rltnews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+        } else {
+           i.src='http://pingback.sogou.com/rltnews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+        }
+	    return true;
+	}
+
+	function sogouRelateWeb(itm){
+		var i=new Image();
+        var len=itm.getAttribute("len");  var  ind= itm.getAttribute("ind");
+        len=(len==null)?"":len; ind=(ind==null)?"":ind;
+        if(len == "" || ind == "" ) {
+	 	     i.src='http://pingback.sogou.com/rltweb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+        } else {
+		     i.src='http://pingback.sogou.com/rltweb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+        }
+		return true;
+	}
+
+	function sogouRelateSaybar(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rltsb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+
+	function sogouRelateBlog(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rltblog.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+	
+	function sogouHotSaybar(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rlthotsb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+
+    function sogouRelateVideoNews(itm){
+      var i=new Image();
+      var len=itm.getAttribute("len");  var  ind= itm.getAttribute("ind");
+      len=(len==null)?"":len;    ind=(ind==null)?"":ind;
+      if(len == "" || ind == "" ) {
+        i.src='http://pingback.sogou.com/rltvideonews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+      } else {
+        i.src='http://pingback.sogou.com/rltvideonews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+      }
+	  return true;
+    }
+
+
+//-->
+</script>
+
+<SOHUADCODE><Script language="Javascript">var cWidth=980;</script>
+<Script language="Javascript" src="http://images.sohu.com/bill/s2012/gates/all/adm2012.js"></Script>
+<script src='http://images.sohu.com/bill/s2010/gates/sohucstech/javascript/56523c71afaace3477bbaaecd935573f.js' type='text/javascript'></script>
+<!—不能删除 投飞行广告时也必须带上—>
+<script type="text/javascript">
+if(typeof(document.pv)=='undefined') document.pv = new Array();var _a=new Image();
+_a.src='http://xls.go.sohu.com/201012/ee970cf0f5c53c86014a16fd32d9629a.php?14';
+document.pv.push(_a);
+imp(urlpath,183);
+if(PVUV_CheckArticle("sci11",24,1)){imp(urlpath,184);}
+if(PVUV_CheckArticle("sci12",24*365,1)){imp(urlpath,185);}
+
+</script>
+<!—不能删除—>
+<!--<Script language="Javascript">
+AD = new ADM("FLOAT", 2);
+    AD.src = "http://images.sohu.com/bill/s2009/shanbai/baojie/6yue/1001000602.swf";
+    AD.href="http://goto.sogou.com/200905/256711c20f526ea88028870e1a36e2cc.php";
+    AD.tag="";
+    AddSchedule(AD);
+</script>--><script language="javascript" src="http://images.sohu.com/bill/s2009/gates/window/sogouwin.js"></script>
+<script language="javascript">
+var sogou_is_one = new Object();
+sogou_is_one["pid"]  = 'sohu__brand';
+sogou_is_one["charset"]   = 'gb2312';
+sogou_is_one["place1"] = '700501';
+sogou_is_one["iw1"]   = '350';
+sogou_is_one["ih1"]   = '250';
+sogou_is_one["isvip"] = '2';
+sogou_is_one["mid"] = '1';
+sogou_is_one["season"] = '1';
+sogou_is_one["sohuurl"] = document.location.href;
+sogou_is_one["style"] = new String(Math.floor(Math.random()*5));
+
+function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}
+var sogou_is_one_url = "http://pd.brand.sogou.com/brand_texing";
+var one_cnt = 0;
+for(var p in sogou_is_one)
+{
+        sogou_is_one_url += (one_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_one[p]);
+}
+
+var one_js = document.createElement('SCRIPT');
+one_js.src=sogou_is_one_url;
+document.getElementsByTagName('head')[0].appendChild(one_js);
+</script>
+
+
+<script type="text/javascript" src="http://images.sohu.com/bill/s2012/gates/all/sohuad.min.js"></script><script type="text/javascript" src="http://images.sohu.com/bill/s2011/gates/js/test/ee4f7cebb2ef825bf6b3c8730c929929_42.js"></script></SOHUADCODE>
+<script type='text/javascript'>
+
+function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}
+
+var sogou_is_brand_url = "http://cpc.brand.sogou.com/brand_ad_new";
+
+var brand_cnt = 0;
+
+for(var p in sogou_is_brand)
+
+{
+           if(typeof(sogou_is_brand[p]) == "string")
+                   sogou_is_brand_url += (brand_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_brand[p]);
+
+}
+
+if (brand_cnt>3)
+
+{
+
+         var test= document.createElement('SCRIPT');
+
+         test.src=sogou_is_brand_url;
+
+         document.getElementsByTagName('head')[0].appendChild(test);
+
+}
+
+</script>
+
+
+<div style="display:none" id="sohu-dt0220mine-tag">info</div><script src='http://news.sohu.com/upload/pop/mytag.min.js' type='text/javascript'></script>
+
+<script>
+function pingtest(){
+  var serverUrl = "http://123.126.48.158/ping.png";
+  $.ajax({
+  type: "GET",
+  url: serverUrl,
+  data:{refer:document.referrer},
+  dataType: "jsonp",
+  success:function(){}
+  });             
+}
+setTimeout(pingtest,5000);
+</script>
+
+</body>
+</html>

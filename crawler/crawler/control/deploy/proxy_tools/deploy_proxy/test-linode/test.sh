@@ -1,0 +1,32 @@
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://www.youku.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://zhidao.baidu.com/ --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+curl http://wenwen.soso.com/z/q375993444.htm?ch=ww.home.djjwt  --socks5-hostname localhost:7070  >/dev/null &
+
+wait

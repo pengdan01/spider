@@ -1,0 +1,19 @@
+* 按照shell规范写
+# scheduler TODO
+* host_load 废弃
+* 并需要分小时统计
+* ip load 不能从 host load 得到, 如果 host 的 uv 特别低, 会导致host load中不存在, 从而影响 ip load 的计算
+* 切任务的时间目前是假设单机,单并发. 需要考虑单机多并发, 默认并发度是 1000
+* 抓取失败的, merge 回去, 分析失败的原因(),并形成反馈
+
+* payload 字段指定是否使用proxy
+
+# task_prepare TODO
+* CSS included
+* 半个月里面没有出现过的,要马上弄下来
+* 半个月里面重复出现的,可以不抓
+* C(t) = H(t) - sigma(Ws) + Fail(t-1) + SuperH
+
+# evaluate
+* 内部评估, scheduler 和 fetcher 的评估, 评估指标, 关键站点是否都抓取成功
+

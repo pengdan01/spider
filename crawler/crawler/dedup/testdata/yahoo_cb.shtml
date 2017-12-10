@@ -1,0 +1,663 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<title>分析称汤普森学历造假正演变成雅虎灾难_互联网_比特网</title>
+<meta name="description" content="有关雅虎首席执行官斯科特·汤普森(Scott Thompson)学历造假的新闻报道，已经演变成一场对其职业生涯的地毯式搜索。 分析称汤普森学历造假正演变成雅虎灾难" />
+<meta name="keywords" content="雅虎,汤普森,学历造假,Splunk,F5Networks" />
+<!-- baidu_tc page: 
+{"page_type":"CONTENT","default_block_action":"DELETE"} --> 
+<link type="text/css" media="all" href="http://www.chinabyte.com/TLimages2009/chinabyte/css/news_article.css" rel="stylesheet" />
+<link type="text/css" media="all" href="http://www.chinabyte.com/TLimages2009/chinabyte/css/news_top.css" rel="stylesheet" />
+<script type="text/javascript" src="http://www.chinabyte.com/TLimages2009/chinabyte/js/jquery-1.3.1.js"></script>
+<script type="text/javascript" src="http://www.chinabyte.com/TLimages2009/chinabyte/js/news_article.js"></script>
+<script src="http://passport.chinabyte.com/cas/bar/bar20.jsp" type="text/javascript"></script> 
+<SCRIPT type=text/javascript> 
+/* 显示层并向全局注册 */
+function showLayer(id){
+	 $("#"+id).fadeIn(100);
+}
+function hideLayer(id){
+	 $("#"+id).fadeOut(100);
+}
+
+var szs = new Array( '12','14','16' );
+var startSz = 1;
+function zoomDoc( inc ) {
+	var sz = startSz;
+	sz += inc;
+	if ( sz < 0 ) sz = 0;
+	if ( sz > 2 ) sz = 2;
+	startSz = sz;
+    $('#main-article').css('font-size',szs[sz]+'px');
+}
+
+var articleID = 12329081;
+var channelId = 44;
+var articleTitle = '分析称汤普森学历造假正演变成雅虎灾难'; //本文标题
+var articleURL = "";//本文链接
+var referId=articleID;
+//多标签box s
+function boxs(id,defaultItem,how){
+$(id+" .bd div.tab-panel:eq("+defaultItem+")").show().siblings().hide();
+$(id+" .hd ul li:eq("+defaultItem+")").addClass("selected").siblings().removeClass("selected");
+$(id+" .hd ul li").bind(how, function(){
+  var idt = $(id+" .hd ul li").index(this);
+  $(id+" .hd ul li:eq("+idt+")").addClass("selected").siblings().removeClass("selected");
+  $(id+" .bd div.tab-panel:eq("+idt+")").show().siblings().hide();
+  $(id).css("background","#fff");
+  $(id).css("margin-bottom","10px");
+});
+}
+//多标签boxs e
+
+/*开始执行*/ 
+$(document).ready(function(){ 
+	boxs('#xwphb',0,"mousemove"); 
+	$('.bshare-custom').css("position","relative");
+//	$('.bshare-custom').append('<img src="http://www.chinabyte.com/w/pic/310/yj.gif" width="24" height="15" style="position:absolute;top:-13px;left:50px;" />'); 
+	$('#main-article p:last').append('<img src="http://www.chinabyte.com/TLimages2009/chinabyte/images/news2011/end.gif" width="10" height="14" style="vertical-align:text-bottom" />'); 
+
+
+
+	$('#big').click(function(){zoomDoc(1);});
+	$('#small').click(function(){zoomDoc(-1);});
+	jQuery('#m44').addClass('active');  
+}); 
+var rssurl="<a href='http://net.chinabyte.com/index.xml' class='rss' title='订阅RSS' target='_self'></a>";
+if(articleTitle!=""){
+var opiniontitle=articleTitle;
+}else{
+var opiniontitle=document.title;
+}
+var opinionurl=document.location.href;
+</SCRIPT>
+</head>
+
+<body>
+<div id="header">
+    <div id="header">
+	<div id="t_navigation">
+    	<div class="wrap">
+        	<ul id="nav">
+            	<li class="jquery_out"><a href="http://www.chinabyte.com" target="_self">首页</a></li>
+                <li class="mainlevel" id="mainlevel_01"><a href="http://news.chinabyte.com/" target="_self">新闻中心</a>
+                    <ul id="sub_01">
+                        <li><a href="http://it.chinabyte.com/" target="_self">IT业界</a></li>
+                        <li><a href="http://view.chinabyte.com/" target="_self">视点</a></li>
+                        <li><a href="http://telecom.chinabyte.com/" target="_self">通信</a></li>
+                        <li><a href="http://net.chinabyte.com/" target="_self">互联网</a></li>
+                    </ul>
+              </li>
+
+                <li class="mainlevel" id="mainlevel_02"><a href="http://cloud.chinabyte.com/" target="_self">云计算</a>
+                    <ul id="sub_02">
+                        <li><a href="http://cloud.chinabyte.com/news/" target="_self">云资讯</a></li>
+                        <li><a href="http://cloud.chinabyte.com/tech/" target="_self">云技术</a></li>
+                        <li><a href="http://cloud.chinabyte.com/zt/cloudmaps/" target="_self">云地图</a></li>
+                        <li><a href="http://cloud.chinabyte.com/vertical/" target="_self">行业云</a></li>
+                    </ul>
+              </li>
+                
+                <li class="mainlevel" id="mainlevel_03"><A href="http://e.chinabyte.com/" target="_self">企业IT采购</A>
+                    <ul id="sub_03">
+                        <li><a href="http://storage.chinabyte.com/" target="_self">存　储 </a></li>
+                        <li><a href="http://soft.chinabyte.com/" target="_self">软件与服务</a></li>
+                        <li><a href="http://soft.chinabyte.com/os/" target="_self">操作系统</a></li>
+                        <li><a href="http://soft.chinabyte.com/database/" target="_self">数据库/开发</a></li>
+                        <li><a href="http://server.chinabyte.com/" target="_self">服务器</a></li>
+                        <li><a href="http://network.chinabyte.com/" target="_self">网络</a></li>
+                        <li><a href="http://sec.chinabyte.com/" target="_self">安全</a></li>
+                    </ul>
+              </li>
+                
+                <li class="mainlevel" id="mainlevel_04"><A href="http://info.chinabyte.com/" target="_self">信息化</A>
+                    <ul id="sub_04">
+                        <li><a href="http://do.chinabyte.com/" target="_self">行业</a></li>
+                        <li><a href="http://smb.chinabyte.com/" target="_self">中小企业</a></li>
+                        <li><a href="http://cio.chinabyte.com/" target="_self">CIO</a></li>
+                        <li><a href="http://solution.chinabyte.com/" target="_self">方案库</a></li>
+                    </ul>
+              </li>     
+
+                
+                <li class="mainlevel" id="mainlevel_05"><A href="http://nbpc.chinabyte.com/"  target="_self">商务办公</A>
+                    <ul id="sub_05">
+                        <li><a href="http://nbpc.chinabyte.com/biz/" target="_self">商务本</a></li>
+                        <li><a href="http://nbpc.chinabyte.com/aio/" target="_self">一体电脑</a></li>
+                        <li><a href="http://nbpc.chinabyte.com/pc/" target="_self">商务机</a></li>
+                        <li><a href="http://oa.chinabyte.com/" target="_self">OA设备</a></li>
+                        <li><a href="http://oa.chinabyte.com/aio/" target="_self">一体机</a></li>
+                        <li ><a href="http://oa.chinabyte.com/printer/" target="_self">打印机</a></li>
+                        <li ><a href="http://oa.chinabyte.com/projector/" target="_self">投影机</a></li>
+                        <li ><a href="http://oa.chinabyte.com/digimulti/" target="_self">数码复合机</a></li>
+                    </ul>
+              </li>
+                
+                <li class="mainlevel" id="mainlevel_06"><A href="http://shang.chinabyte.com/" target="_self">上品消费</A>
+                    <ul id="sub_06">
+                        <li><a href="http://shang.chinabyte.com/nb/" target="_self">笔记本</a></li>
+                        <li><a href="http://shang.chinabyte.com/tablet/" target="_self">平板电脑</a></li>
+                        <li><a href="http://icloud.chinabyte.com/" target="_self">云体验</a></li>
+                        <li><a href="http://hea.chinabyte.com/" target="_self">家电</a></li>
+                        <li><a href="http://shang.chinabyte.com/aio/" target="_self">一体机</a></li>
+                        <li><a href="http://shang.chinabyte.com/mobile/" target="_self">智能手机</a></li>
+                        <li><a href="http://shang.chinabyte.com/dt/" target="_self">台式机</a></li>
+                        <li><a href="http://shang.chinabyte.com/shangpin/" target="_self">尚品</a></li>
+                    </ul>
+              </li>           
+                <div class="clear"></div>
+            </ul>
+            <ul class="snslink"><li><!-- <a href="http://bang.chinabyte.com/">比特邦</a>- --><a href="http://blog.chinabyte.com/">博客</a>-<a href="http://bbs.chinabyte.com/">论坛</a>-<a href="http://tech.chinabyte.com/">技工场</a>-<a href="http://product.chinabyte.com/">产品库</a>-<a href="http://video.chinabyte.yesky.com/">视频</a>-<a href="http://www.chinabyte.com/ztzh/">专题</a>-<a href="http://com.chinabyte.com/">企业专区</a>-<a href="http://blog.chinabyte.com/salon/">沙龙</a></li></ul>
+            <span><a href="http://passport.chinabyte.com/" rel="nofollow">登录</a>|<a href="http://passport.chinabyte.com/register.jsp" rel="nofollow">注册</a></span>
+        </div>
+    </div>
+    <div class="logo_b">
+    	<div class="logo"><img src="http://www.chinabyte.com/TLimages2009/chinabyte/images/all/logo300x108" width="125" height="45" /><p>新闻中心</p></div>
+        <div class="ss"><form  id="top_search" ame="search"  action="http://search.chinabyte.com/searchchianbyte.do"><input type="text" class="text"onblur="this.style.color='#8a8a8a';if(this.value=='')this.value='请输入搜索关键字';"onfocus="this.style.color='#000';if(this.value=='请输入搜索关键字')this.value='';" value="请输入搜索关键字" name=wd /><input type="submit" class="but" value=""/></form></div>
+        <div class="share"><p class="mag_t10">我们也在这里：</p>
+            <p>
+            	<a href="http://weibo.com/cbnews/" style="color:#000000;text-decoration:none;font-size:12px;font-weight:normal" class="sina" target="_self" title="比特网新浪微博" rel="nofollow"></a>
+				<a href="http://user.qzone.qq.com/1517281698" class="qqzon" title="QQ空间"></a>
+                <a href="http://t.qq.com/chinabyte/" title="比特网腾讯微博" rel="nofollow" class="qqwb" rel="nofollow"></a>
+                <script>document.write(rssurl);</script> 
+                <a href=javascript:window.open('http://opinion.chinabyte.com/reader/reader.jhtml?sitemapId=1&url='+opinionurl+'&title='+opiniontitle+'');void(0)  class='mail' target="_self"></a>				
+            </p>            
+        </div>
+    </div>
+    <div id="menu">
+    	<UL><!-- baidu_tc block_begin: {"type":"PAGE_NAV", "action":"SHOW"} -->
+        <li style="margin-left:10px"><A id=m2 href="http://news.chinabyte.com/" target="_self">新闻首页</A>|</li><li><A id=m38621 href="http://it.chinabyte.com/" target="_self">业界</A>|</li><li><A id=m38820 href="http://hea.chinabyte.com/" target="_self">家电</A>|</li><li><A id=m44 href="http://net.chinabyte.com/" target="_self">互联网</A>|</li><li><A id=m46 href="http://telecom.chinabyte.com/" target="_self">通信</A>|</li><!-- baidu_tc block_end --><SPAN><label>推荐：</label><A href="http://news.chinabyte.com/zt/juheye/">新闻热点</A><A href="http://news.chinabyte.com/zt/kbh/">科博会</A><A href="http://telecom.chinabyte.com/zt/topic3gmp/">3G手机</A><A href="http://telecom.chinabyte.com/zt/topicwlw/">物联网</A><A href="http://telecom.chinabyte.com/zt/topicsmartphone/">智能手机</A><A href="http://news.chinabyte.com/zt/topicdc/">低碳经济</A></SPAN>            
+        </UL>
+    </div>
+</div>
+</div>
+<div class="wrap">
+	<div class="ad950x90"> </div>
+</div>
+<div class="clear"></div>
+<div id="main">
+	<div class="main_left">
+<!-- ws -->
+<!-- baidu_tc block_begin: {"type":"MYPOS", "action":"SHOW"} --> 
+		<div class="wnav">位置：  <a href="http://www.chinabyte.com/" target="_self">比特网</a> &gt; <a href="http://net.chinabyte.com/" target="_self">互联网</a> > 正文</div>
+<!-- baidu_tc block_end -->
+		 <div class="hd">
+<!-- baidu_tc block_begin: {"type":"TITLE", "action":"SHOW"} --> 
+				<h1 id="artibodyTitle">分析称汤普森学历造假正演变成雅虎灾难</h1>
+<!-- baidu_tc block_end -->
+				<div class="titBar">
+					<div class="info"><span class="date">2012-05-09 09:46</span><span class="where">腾讯网</span><span class="auth">晁晖</span></div>
+					<div class="keywords">关键字：汤普森 学历造假 <a href="http://com.chinabyte.com/yahoo/">雅虎</a>  Splunk F5Networks </div>
+					<div id="fontsize"><div id="big">A+</div><div id="small">A-</div></div>
+				</div> 
+		 </div>
+<div id="artibody">
+		<div id="main-article" class="BSHARE_POP">
+		<div class="guanggao"> </div>
+<!-- baidu_tc block_begin: {"type":"CONTENT", "action":"SHOW"} --> 
+                  <P>　　北京时间5月9日消息，据国外媒体报道，有关<a class="keyword_link" id="k530831196" href="http://com.chinabyte.com/yahoo/" target="_blank">雅虎</a>首席执行官斯科特·汤普森(Scott Thompson)学历造假的新闻报道，已经演变成一场对其职业生涯的地毯式搜索。英国《卫报》(The Guardian)报道称，汤普森还是另外两家上市公司——Splunk和F5 Networks的董事，这违反了雅虎的相关规章制度。</P>
+<P>　　对汤普森困境的幸灾乐祸已经到了一个临界点，将带来事与愿违的结果，这是包括始作俑者、对冲基金Third Point掌门丹·勒布(Dan Loeb)在内的股东所没有预料到的。</P>
+<P>　　勒布最先披露了汤普森的学历造假问题，对雅虎的敷衍非常不满。作为雅虎股东，勒布有权要求董事会和首席执行官披露事实真相。具有讽刺意味的是，勒布的行为可能导致Third Point持有的雅虎股票贬值。事实上，雅虎被廉价出售的可能性越来越大。</P>
+<P>　　汤普森将丢掉雅虎首席执行官职位，那么谁会取而代之呢？雅虎目前一片混乱，由汤普森主导的复兴进程才刚刚开始，新任首席执行官将接手汤普森的工作。</P>
+<P>　　雅虎需要的是另外一个史蒂夫·<a class="keyword_link" id="k530831684" href="http://www.chinabyte.com/keyword/乔布斯/" target="_blank">乔布斯</a>(Steve Jobs)，能像乔布斯那样，利用自己的聪明才智、人格魅力和想象力复兴雅虎。市场研究公司Enderle Group首席分析师洛布·恩德勒(Rob Enderle)表示，但不幸的是，“具备这样才能的人不会出任雅虎首席执行官”。</P>
+<P>　　如果聘请不到强有力的首席执行官，雅虎就可能成为收购目标，收购者看上的主要是雅虎的资产。<a class="keyword_link" id="k530831352" href="http://com.chinabyte.com/google/" target="_blank">谷歌</a>就可能有意收购雅虎的知识产权(可能会继续起诉<a class="keyword_link" id="k530832740" href="http://www.chinabyte.com/keyword/Facebook/" target="_blank">Facebook</a>侵犯专利)。其他有意收购雅虎的还包括<a class="keyword_link" id="k530831298" href="http://com.chinabyte.com/microsoft/" target="_blank">微软</a>，甚至<a class="keyword_link" id="k530831379" href="http://www.chinabyte.com/keyword/AOL/" target="_blank">AOL</a>。</P>
+<P>　　恩德勒指出，雅虎可能的另外的一个买家是中国合作伙伴<a class="keyword_link" id="k530831195" href="http://com.chinabyte.com/alibaba/" target="_blank">阿里巴巴</a>，“它也想要雅虎的资产，但如果价格合适，会买下整个公司”。</P>
+<!-- baidu_tc block_end -->
+		</div>
+ </div>         
+		<div class="CBeditor">[责任编辑：姜静]</div>
+        <form action="http://opinion.chinabyte.com/reader/reader.jhtml" name="feedbackForm" id="feedbackForm" target="_blank">
+<input type="hidden" name="sitemapId" value="" id="sitemapId" />
+<input type="hidden" name="articleId" value="" id="articleId"/>
+<input type="hidden" name="readerName" value="" id="readerName"/>
+<input type="hidden" name="title" value="" id="title"/>
+<input type="hidden" name="url" value="" id="url"/>
+</form>		
+                  <div class="Feedback"><a onclick='javascript:submitFeedback();' style='cursor:hand;'>[我要挑错]</a></div>
+
+		<div class="tool-article">
+
+			<div class="share1">
+<div class="bshare-custom" style="width:380px;float:left;"><a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到人人网" class="bshare-renren" href="javascript:void(0);"></a><a title="分享到Gmail" class="bshare-gmail" href="javascript:void(0);"></a><a title="分享到开心网" class="bshare-kaixin001" href="javascript:void(0);"></a><a title="分享到i贴吧" class="bshare-itieba" href="javascript:void(0);"></a><a title="分享到搜狐微博" class="bshare-sohuminiblog" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon" href="javascript:void(0);"></a></div><script language="javascript" type="text/javascript" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=c2433a10-0ad2-4273-987a-41747caa944e&amp;pophcol=2&amp;lang=zh&bp=clipboard,email,bsharesync,baiducang,msn,neteasemb,taojianghu,qqxiaoyou,feixin,ifengmb,tianya,greader,saveaspdf,shouji,wealink,xianguo,follow5"></script><script language="javascript" type="text/javascript" src="http://static.bshare.cn/b/bshareC2P.js"></script>
+			</div>
+
+		   <div class="share2">
+				<a href="javascript:LoadPrintJs();" target="_self" class="printPage">打印</a><a href="javascript:window.close()" target="_self" class="wclose">关闭</a>
+		   </div>
+
+		</div>
+ 		
+		<div class="mod clearfix">
+			<div class="box mr">
+				<div class="hd"><h3>相关文章</h3></div>
+				<div class="bd">
+<ul class="list">
+<li><a href="http://net.chinabyte.com/477/12328977.shtml">传雅虎董事帕蒂哈特将引咎辞职</a></li>  
+<li><a href="http://net.chinabyte.com/471/12328971.shtml">雅虎CEO已获700万美元报酬</a></li>  
+<li><a href="http://net.chinabyte.com/457/12328957.shtml">雅虎组建委员会查CEO学历造假</a></li>  
+<li><a href="http://net.chinabyte.com/13/12328513.shtml">传雅虎成立三人委员会</a></li>  
+<li><a href="http://net.chinabyte.com/423/12328423.shtml">雅虎CEO致信员工：对造假门道歉</a></li>  
+
+</ul>
+<div class="more"><a href="http://net.chinabyte.com">更多互联网相关文章>></a></div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="hd"><h3>相关博文</h3></div>
+				<div class="bd">
+<ul class="list">
+<li><a href="http://blog.chinabyte.com/a/2783569.html">iPad占据平板95%网络流量</a></li>
+<li><a href="http://blog.chinabyte.com/a/2783568.html">苹果iPad 2再降50美金 国行有望近期跟进</a></li>
+<li><a href="http://blog.chinabyte.com/a/2783566.html">ＣＳＤＮ泄密事件致京东商城２０００余账户被盗</a></li>
+<li><a href="http://blog.chinabyte.com/a/2783565.html">木马群起攻击Word文档 专家建议及时打好补丁</a></li>
+<li><a href="http://blog.chinabyte.com/a/2783564.html">腾讯开放平台携手行云 应用一键发布至全球</a></li>
+  
+</ul>
+<div class="more"><a href="http://blog.chinabyte.com/">更多博文推荐文章>></a></div>
+				</div>
+			</div>
+		<div class="clearfix"></div>
+		</div>
+
+
+<div id="wpl">
+<div class="hd">
+        <ul class="tab-holder clearfix">
+          <li class="selected">网友评论</li>
+          <li>社交评论</li>
+        </ul>
+</div>
+<div class="bd">
+	<div class="tab-panel">
+<!-- comment start -->
+            <div class="commentWrapper"><a name="commentAnchor" id="commentAnchor"></a>
+<!-- 评论后载 -->
+<span id="span_loadComment">
+<script type="text/javascript"> 
+<!--//
+var site = 'cb';//站点名称
+var type = "article";//评论类型
+if (channelId==0) channelId=22;
+var articleID = 12329081;
+var articleTitle = '分析称汤普森学历造假正演变成雅虎灾难'; //本文标题
+var articleURL = "";//本文链接
+var domain=document.domain;
+if(typeof(articleID) != "undefined") { 
+ document.write("<script language=\"JavaScript\" charset=\"gb2312\" src=\"http://comment.chinabyte.com/commentjs/"+site+"/"+type+"/"+(articleID%5000)+"/"+articleID+".js\"><\/script>");}
+//-->
+</script>
+<script type="text/javascript" src="http://www.chinabyte.com/w/js/comment_cb_news_110603.js" charset="gbk"></script>
+</span>
+            </div>
+<!-- comment end -->
+	</div>
+	<div class="tab-panel hidden">
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://uyan.cc/js/iframe.js?UYUserId=2856" async=""></script>
+<!-- UY END -->
+
+	</div>
+</div>
+</div>
+
+		
+<!-- we -->
+	</div>
+    <!--left end-->
+    <div class="main_right">
+        <div class="ad300x250"> </div>
+        <div class="rbox">
+        	<div class="titleA"><h3>专题</h3></div>
+<div class="zt">
+	<ul class="ultw">
+						<li><a href="http://net.chinabyte.com/zt/yokutudo/" title="专题：优酷土豆合并成立新公司"><img src="http://image.tianjimedia.com//uploadImages/2012/072/W052K61MVT25_L.jpg" /></a><p><a href="http://net.chinabyte.com/zt/yokutudo/" title="专题：优酷土豆合并成立新公司">专题：优酷土豆合并成立新公司</a></p></li>
+								<li><a href="http://net.chinabyte.com/zt/alib2b/" title="专题：阿里巴巴集团私有化B2B业务"><img src="http://image.tianjimedia.com//uploadImages/2012/053/V24B6BXL139R_L.jpg" /></a><p><a href="http://net.chinabyte.com/zt/alib2b/" title="专题：阿里巴巴集团私有化B2B业务">专题：阿里巴巴集团私有化B2B业务</a></p></li>
+																					</ul>
+	<ul class="list1">
+														<li><tt>●</tt><a href="http://net.chinabyte.com/zt/fbipo/" title="专题：Facebook递交IPO申请">专题：Facebook递交IPO申请</a></li>
+								<li><tt>●</tt><a href="http://net.chinabyte.com/zt/2011biaoqing/" title="2011比特网互联网频道年终盘点">2011比特网互联网频道年终盘点</a></li>
+								<li><tt>●</tt><a href="http://net.chinabyte.com/zt/jerryquit/" title="专题：杨致远辞去雅虎所有职务">专题：杨致远辞去雅虎所有职务</a></li>
+								<li><tt>●</tt><a href="http://net.chinabyte.com/zt/changyou-17173/" title="畅游并购游戏资讯门户17173 推进平台战略">畅游并购游戏资讯门户17173 推进平台战略</a></li>
+					</ul>
+</div>
+        </div>
+        <div class="rbox">
+        	<div class="titleA"><h3>名人博客</h3></div>
+            <div class="blog">
+            	<div class="tit"><A href="http://blog.chinabyte.com/it/">IT业界</A><A href="http://blog.chinabyte.com/net/">互联网</A><A href="http://blog.chinabyte.com/telecom/">通信</A><A href="http://blog.chinabyte.com/info/">信息化</A><A href="http://blog.chinabyte.com/">更多&gt;&gt;</A></div>
+                <ul class="bloglist">
+                	<script src="../b_28092_blog_out.js" type="text/javascript"></script>
+                </ul>
+                <ul class="bzname">
+                	<script src="../b_28092_bzname_out.js" type="text/javascript"></script>
+                </ul>
+            </div>
+        </div>
+        <div class="rbox">
+        	<script src="../b_28092_ltrt_out.js" type="text/javascript"></script>
+        </div>  
+       <div class="rbox">
+        	<div class="titleA"><h3>比特焦点</h3></div>
+<ul class="btjd">
+    
+<!-- saved from url=(0065)http://www.chinabyte.com/TLimages2009/chinabyte/include/btjd.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"></head><body><li><a class="jd3" title="Android" href="http://telecom.chinabyte.com/zt/topicandroid/">Android</a></li>
+<li><a class="jd1" title="物联网" href="http://telecom.chinabyte.com/zt/topicwlw/">物联网</a></li>
+<li><a class="jd3" title="乐Phone" href="http://telecom.chinabyte.com/zt/topiclephone/">乐Phone</a></li>
+<li><a class="jd2" title="移动商务" href="http://telecom.chinabyte.com/zt/topicydsw/">移动商务</a></li>
+<li><a class="jd2" title="智能手机" href="http://telecom.chinabyte.com/zt/topicsmartphone/">智能手机</a></li>
+<li><a class="jd3" title="iPhone" href="http://telecom.chinabyte.com/zt/topiciphone/">iPhone</a></li>
+<li><a class="jd1" title="创业板" href="http://hea.chinabyte.com/zt/chuangyeban/">创业板</a></li>
+<li><a class="jd2" title="操作系统" href="http://soft.chinabyte.com/os/">操作系统</a></li>
+<li><a class="jd2" title="网络安全" href="http://network.chinabyte.com/">网络安全</a></li>
+<li><a class="jd1" title="笔记本" href="http://shang.chinabyte.com/nb/">笔记本</a></li>
+<li><a class="jd2" title="一体电脑" href="http://shang.chinabyte.com/aio/">一体电脑</a></li>
+<li><a class="jd4" title="平板电脑" href="http://www.chinabyte.com/zq/pingbanPC/">平板电脑</a></li>
+<li><a class="jd2" title="商务本" href="http://nbpc.chinabyte.com/biz/">商务本</a></li>
+<li><a class="jd1" title="营销管理" href="http://blog.chinabyte.com/marketing/">营销管理</a></li>
+<li><a class="jd1" title="数据库工场" href="http://tech.chinabyte.com/forum-index-gid-121.html">数据库工场</a></li>
+<li><a class="jd3" title="英特尔" href="http://com.chinabyte.com/intel/">英特尔</a></li>
+<li><a class="jd3" title="IBM" href="http://com.chinabyte.com/ibm/">IBM</a></li>
+<li><a class="jd2" title="海尔" href="http://com.chinabyte.com/haier/">海尔</a></li>
+<li><a class="jd2" title="惠普" href="http://com.chinabyte.com/hp/">惠普</a></li>
+<li><a class="jd2" title="TCL" href="http://com.chinabyte.com/tcl/">TCL</a></li>
+<li><a class="jd1" title="戴尔" href="http://product.chinabyte.com/notebookpc/dell/">戴尔</a></li>
+<li><a class="jd1" title="神州数码" href="http://com.chinabyte.com/digitalchina/">神州数码</a></li>
+<li><a class="jd2" title="华为" href="http://com.chinabyte.com/huawei/">华为</a></li>
+<li><a class="jd2" title="AMD" href="http://com.chinabyte.com/amd/">AMD</a></li>
+<li><a class="jd1" title="宏碁" href="http://com.chinabyte.com/acer/">宏碁</a></li>
+<li><a class="jd3" title="负载均衡" href="http://networking.ctocio.com.cn/balancing2010/">负载均衡</a></li>
+<li><a class="jd1" title="微软技术大会" href="http://teched.chinabyte.com/">微软技术大会</a></li>
+<li><a class="jd1" title="云会议" href="http://network.chinabyte.com/zt/quanshi/">云会议</a></li>
+<li><a class="jd3" title="三网融合" href="http://telecom.chinabyte.com/zt/topicsanwang/">三网融合</a></li>
+<li><a class="jd2" title="文件存储" href="http://storage.chinabyte.com/">文件存储</a></li>
+
+</body></html>
+</ul>
+<div class="clearfix"></div>
+        </div>
+        <div class="rbox" id="xwphb">
+        	<div class="titleA"><h3>新闻评论排行榜</h3></div>
+<div class="hd">
+        <ul class="tab-holder clearfix">
+          <li class="selected">一天</li>
+          <li>一周</li>
+          <li>一月</li>
+        </ul>
+</div>
+<div class="bd">
+<div class="tab-panel">
+          <ul class="list">
+            	<script src="../b_28092_r_rdph_r_out.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">sc1();</script>
+          </ul>
+        </div>
+        <div class="tab-panel hidden">
+          <ul class="list">
+            	<script src="../b_28092_r_rdph_z_out.js" type="text/javascript"></script>
+          </ul>
+        </div>
+        <div class="tab-panel hidden">
+          <ul class="list">
+            	<script src="../b_28092_r_rdph_y_out.js" type="text/javascript"></script>
+          </ul>
+        </div>
+</div>
+        </div>
+        <div class="rbox">
+        	<div class="titleA"><h3>新闻邮件订阅</h3></div>
+         		 <form id="subscribeForm" name="subscribeForm" action="http://maillist.chinabyte.com/mail/common/subscribe!addSubscribeTemps.do" method="post">
+            <input type="hidden" id="siteId" name="siteId" value="3"/>
+            <input type="hidden" id="ac" name="ac" value="subscribe" />
+<DIV class=mailbox>
+<DL class="dylist">
+<DT><LABEL class=fl><INPUT id=mailGroupId1 value=69 type=checkbox name=mailGroupId><A onmousemove="showLayer('show1')" onmouseout="hideLayer('show1')"><LABEL for=mailGroupId1>企业信息化周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId2 value=124 type=checkbox name=mailGroupId><A onmousemove="showLayer('show2')" onmouseout="hideLayer('show2')"><LABEL for=mailGroupId2>新闻中心热点推荐</LABEL></A></LABEL> 
+<DD id=show1 class=none>
+<DIV class=layout>
+<DIV class=t>企业信息化周刊</DIV>
+<DIV class=d>比特网信息化周刊为您全力奉献信息化领域每周热点新闻、时事评论、案例点评、产经动态等内容。独家点评各类热点新闻，带给您不一样的视角感受。</DIV></DIV>
+<DD id=show2 class=none>
+<DIV class=layout>
+<DIV class=t>新闻中心热点推荐</DIV>
+<DIV class=d>在如今这个信息爆炸的时代里，每天都会有数不清的新闻通过各种渠道涌到我们面前，而真正有价值的应该进入我们心里的，却很可能随着日历牌的翻动被我们忽略。作为对一周新闻进行回顾的《比特网新闻中心每周热点推荐》，就是要告诉您过去的七天都发生了哪些新闻，更希望和您一起，站在七天的高度来看待过去一周的新闻。</DIV></DIV></DD></DL>
+<DL class=dylist>
+<DT><LABEL class=fl><INPUT id=mailGroupId3 value=68 type=checkbox name=mailGroupId><A onmousemove="showLayer('show3')" onmouseout="hideLayer('show3')"><LABEL for=mailGroupId3>博客新闻周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId4 value=125 type=checkbox name=mailGroupId><A onmousemove="showLayer('show4')" onmouseout="hideLayer('show4')"><LABEL for=mailGroupId4>数据中心热点播报</LABEL></A></LABEL> 
+<DD id=show3 class=none>
+<DIV class=layout>
+<DIV class=t>比特网博客新闻周刊</DIV>
+<DIV class=d>以最快速度追踪业界热点新闻，以最全面的视角解读业界的新鲜事，以最互动的方式来倾听最广大网民的声音，打造“最快、最丰富、最好看”的一周热点评论。</DIV></DIV>
+<DD id=show4 class=none>
+<DIV class=layout>
+<DIV class=t>数据中心热点播报</DIV>
+<DIV class=d>业内首个只为报道数据中心资讯内容的专业频道，是为数据中心用户及厂商而建设的专业平台。以数据中心专业技术内容为核心，贯穿新鲜资讯、技巧方法和用户案例等高附加值内容。以为网友提供最具实用价值的信息为原则，以成为用户最信赖的行业专家为目标，打造高时效、高品质、高前瞻的最全威频道。企业数据中心热点播报，为您精心奉上过去一周数据中心最精彩、权威资讯_chinabyte比特网。</DIV></DIV></DD></DL>
+<DL class="dylist">
+<DT><LABEL class=fl><INPUT id=mailGroupId5 value=1002 type=checkbox name=mailGroupId><A onmousemove="showLayer('show5')" onmouseout="hideLayer('show5')"><LABEL for=mailGroupId5>chinabyte商业智选</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId6 value=1007 type=checkbox name=mailGroupId><A onmousemove="showLayer('show6')" onmouseout="hideLayer('show6')"><LABEL for=mailGroupId6>chinabyte网络周刊</LABEL></A></LABEL> 
+<DD id=show5 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte商业智选</DIV>
+<DIV class=d>比特网商用电脑携办公自动化频道，倾力打造最权威的企业办公设备采购指导中心和软硬件整合资讯中心。为您提供第一手的专业化资讯及深度分析，帮助商用个人与企业用户实现商务智选。</DIV></DIV>
+<DD id=show6 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte网络周刊 </DIV>
+<DIV class=d>向企业网管员以及网络技术和产品使用者提供关于组网、建网、网络管理、网络运维等最新技术和实用技巧，帮助网管答疑解惑，成为网管好帮手。</DIV></DIV></DD></DL>
+<DL class=dylist>
+<DT><LABEL class=fl><INPUT id=mailGroupId7 value=1004 type=checkbox name=mailGroupId><A onmousemove="showLayer('show7')" onmouseout="hideLayer('show7')"><LABEL for=mailGroupId7>chinabyte服务器周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId8 value=1003 type=checkbox name=mailGroupId><A onmousemove="showLayer('show8')" onmouseout="hideLayer('show8')"><LABEL for=mailGroupId8>chinabyte软件视界</LABEL></A></LABEL> 
+<DD id=show7 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte服务器周刊</DIV>
+<DIV class=d>就服务器和数据中心领域的产业动态、技术热点、热门产品、实用技巧，向企业CIO/CTO、IT管理层、技术人员提供一周精选套餐，为数据中心决策者、使用者提供一份服务器行业以及数据中心领域最新动态及产品应用的技术套餐。</DIV></DIV>
+<DD id=show8 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte软件视界</DIV>
+<DIV class=d>以数据库和管理软件为重点的全面软件产业热点、应用方案推荐、实用技巧分享等等。</DIV></DIV></DD></DL>
+<DL class="dylist">
+<DT><LABEL class=fl><INPUT id=mailGroupId9 value=1005 type=checkbox name=mailGroupId><A onmousemove="showLayer('show9')" onmouseout="hideLayer('show9')"><LABEL for=mailGroupId9>chinabyte存储周刊</LABEL></A></LABEL><LABEL class=fl><INPUT id=mailGroupId10 value=1006 type=checkbox name=mailGroupId><A onmousemove="showLayer('show10')" onmouseout="hideLayer('show10')"><LABEL for=mailGroupId10>chinabyte安全周刊</LABEL></A></LABEL> 
+<DD id=show9 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte存储周刊</DIV>
+<DIV class=d>就存储和虚拟化领域的产业动态、技术热点、热门产品、实用技巧，向企业CIO/CTO、IT管理层、技术人员提供一周精选套餐。</DIV></DIV>
+<DD id=show10 class=none>
+<DIV class=layout>
+<DIV class=t>chinabyte安全周刊</DIV>
+<DIV class=d>向企业信息安全专业人士提供安全领域最新的热点技术、热门产品、实用技巧、安全漏洞和木马病毒下载。</DIV></DIV></DD></DL>
+<DIV class=ezine>
+<DIV class=textbox><input type="text" class="text" id="email" name="email" onblur="this.style.color='#8a8a8a';if(this.value=='')this.value='例：abc@chinabyte.com';" onfocus="this.style.color='#000';if(this.value=='例：abc@chinabyte.com')this.value='';" value="例：abc@chinabyte.com" /><BUTTON type="button" onclick=submitSubscribe();></BUTTON> </DIV></DIV>
+</DIV></FORM>
+        </div>
+        <div class="ad300x250"> </div>
+    </div>
+    <!--right end-->
+        <div class="picbox">
+        	  <div class="jiaodiantushangtext"> </div>
+            	<ul>
+<script language="javascript" type="text/javascript">sc2();</script>
+<li><a href="http://server.chinabyte.com/cloud/mc/" title="三足鼎立 看关键任务如何入云端"><img src="http://image.tianjimedia.com//uploadImages/2012/130/U56K5O30NV74_L.jpg" width="200" height="125" /></a> 
+<p><a href="http://server.chinabyte.com/cloud/mc/" title="三足鼎立 看关键任务如何入云端">三足鼎立 看关键任务如何入云端</a></p></li>
+<li><a href="http://hea.chinabyte.com/zt/smarttv/" title="专题：联想PC+战略 暨智能电视发布会"><img src="http://image.tianjimedia.com//uploadImages/2012/129/4EY6449DLKC0_L.jpg" width="200" height="125" /></a> 
+<p><a href="http://hea.chinabyte.com/zt/smarttv/" title="专题：联想PC+战略 暨智能电视发布会">专题：联想PC+战略 暨智能电视发布会</a></p></li>
+<li><a href="http://server.chinabyte.com/skycloud2012/" title="天云科技打造中国云计算的“催化剂”"><img src="http://image.tianjimedia.com//uploadImages/2012/124/04NA5LT4SU30_L.jpg" width="200" height="125" /></a> 
+<p><a href="http://server.chinabyte.com/skycloud2012/" title="天云科技打造中国云计算的“催化剂”">天云科技打造中国云计算的“催化剂”</a></p></li>
+</ul>
+      </div>
+<div class="wrap">
+	<div class="ad950x90"><DIV class='adv_CB_inner_wzydbcolumn' advid='17593246_1'><script language='JavaScript' src='http://adsame.tianjimedia.com:80/s?z=yesky&c=101017'></script></DIV></div>
+</div>
+<a href="#header" target="_self" id="goheader">回到页首</a>
+</div>
+<div id="bottmnav">
+  <div class="yqlink">
+  </div>    
+    <div class="webmap" id="lay">
+   	  <div class="wrap">
+        	<p class="sns"><a href="http://www.chinabyte.com/">比特网首页</a><a href="http://bang.chinabyte.com/" rel="nofollow">比特邦</a><a href="http://blog.chinabyte.com/" rel="nofollow">博客</a><a href="http://bbs.chinabyte.com/" rel="nofollow">论坛</a><a href="http://tech.chinabyte.com/" rel="nofollow">技工场</a><a href="http://product.chinabyte.com/" rel="nofollow">产品库</a><a href="http://video.chinabyte.yesky.com/" rel="nofollow">视频</a><a href="http://www.chinabyte.com/ztzh/" rel="nofollow">专题</a><a href="http://com.chinabyte.com/" rel="nofollow">企业专区</a><a href="http://blog.chinabyte.com/salon/" rel="nofollow">沙龙</a></p>
+            <ul class="mapnav">
+            	<li class="nav_lif"><span class="border"><a href="http://news.chinabyte.com/" rel="nofollow">新闻中心</a></span>
+                	<ul>
+                    	<li><a href="http://it.chinabyte.com/" rel="nofollow">业界</a></li>
+                        <li><a href="http://hea.chinabyte.com/" rel="nofollow">家电</a></li>
+                        <li><a href="http://telecom.chinabyte.com/" rel="nofollow">通信</a></li>
+                        <li><a href="http://net.chinabyte.com/" rel="nofollow">互联网</a></li>
+                    </ul>                
+                </li>
+                <li class="nav_lif"><span class="border"><a href="http://e.chinabyte.com/" rel="nofollow">企业采购</A></span>
+                    <ul>
+                        <li><a href="http://cloud.chinabyte.com/" rel="nofollow">云计算</a></li>
+                        <li><a href="http://storage.chinabyte.com/" rel="nofollow">存　储 </a></li>
+                        <li><a href="http://soft.chinabyte.com/" rel="nofollow">软件与服务</a></li>
+                        <li><tt class="gray">·</tt><a href="http://soft.chinabyte.com/os/" class="gray" rel="nofollow">操作系统</a></li>
+                        <li><tt class="gray">·</tt><a href="http://soft.chinabyte.com/database/" class="gray" rel="nofollow">数据库/开发</a></li>
+                        <li><a href="http://server.chinabyte.com/" rel="nofollow">服务器</a></li>
+                        <li><a href="http://datacenter.chinabyte.com/" rel="nofollow">数据中心</a></li>
+                        <li><a href="http://network.chinabyte.com/" rel="nofollow">网络</a></li>
+                        <li><a href="http://sec.chinabyte.com/" rel="nofollow">安全</a></li>
+                    </ul>
+                </li>
+                <li class="nav_lif"><span class="border"><a href="http://info.chinabyte.com/" rel="nofollow">信息化</A></span>
+                    <ul>
+                        <li><a href="http://do.chinabyte.com/" rel="nofollow">行业</a></li>
+                        <li><a href="http://smb.chinabyte.com/" rel="nofollow">中小企业</a></li>
+                        <li><a href="http://cio.chinabyte.com/" rel="nofollow">CIO</a></li>
+                        <li><a href="http://solution.chinabyte.com/" rel="nofollow">方案库</a></li>
+                    </ul>
+                </li>
+                <li class="nav_lif"><span class="border"><a href="http://nbpc.chinabyte.com/" rel="nofollow">商务办公</A></span>
+                    <ul>
+                        <li><a href="http://nbpc.chinabyte.com/biz/" rel="nofollow">商务本</a></li>
+                        <li><a href="http://nbpc.chinabyte.com/aio/" rel="nofollow">一体电脑</a></li>
+                        <li><a href="http://nbpc.chinabyte.com/pc/" rel="nofollow">商务机</a></li>
+                        <li><a href="http://oa.chinabyte.com/" rel="nofollow">OA设备</a></li>
+                        <li><tt class="gray">·</tt><a href="http://oa.chinabyte.com/aio/" class="gray" rel="nofollow">一体机</a></li>
+                        <li ><tt class="gray">·</tt><a href="http://oa.chinabyte.com/printer/" class="gray" rel="nofollow">打印机</a></li>
+                        <li ><tt class="gray">·</tt><a href="http://oa.chinabyte.com/projector/" class="gray" rel="nofollow">投影机</a></li>
+                        <li ><tt class="gray">·</tt><a href="http://oa.chinabyte.com/digimulti/" class="gray" rel="nofollow">数码复合机</a></li>
+                    </ul>
+                </li>                
+                <li class="nav_lif"><span class="border"><a href="http://shang.chinabyte.com/" rel="nofollow">上品消费</A></span>
+                    <ul>
+                        <li><a href="http://shang.chinabyte.com/nb/" rel="nofollow">笔记本</a></li>
+                        <li><a href="http://shang.chinabyte.com/dt/" rel="nofollow">台式机</a></li>
+                        <li><a href="http://shang.chinabyte.com/aio/" rel="nofollow">一体电脑</a></li>
+                        <li><a href="http://shang.chinabyte.com/shangpin/" rel="nofollow">尚品</a></li>
+                    </ul>
+                </li>        
+            </ul><div class="close" onclick="javascript:hide_div('lay')">—关闭网站地图</div>  
+      </div>      
+    </div>
+</div>
+<!-- 页脚 -->
+<div id="footer">
+    <div class="footer">
+  <div class="footer-nav"> <A href="http://www.tianjimedia.com/249/11453749.shtml"  rel="nofollow">关于我们</A> | <A href="http://www.tianjimedia.com/english/31/8262031.shtml"  rel="nofollow">About us</A> | <A href="http://www.tianjimedia.com/attorney/"  rel="nofollow">网站律师</A> | <A href="http://www.tianjimedia.com/ar/"  rel="nofollow">天极服务</A> | <A href="http://maillist.chinabyte.com/"  rel="nofollow">电子杂志</A> | <A href="http://rss.chinabyte.com/"  rel="nofollow">RSS订阅</A> | <A href="http://www.tianjimedia.com/invitation/"  rel="nofollow">加入我们</A> | <A href="http://www.tianjimedia.com/tjdt/list/"  rel="nofollow">天极动态</A> | <A href="http://www.chinabyte.com/mtdq"  rel="nofollow">媒体大全</A> | <span id="xwbq"><A href="http://www.chinabyte.com/keyword/">新闻标签</A>
+        <div id="keyword-list">
+		<a href="http://www.chinabyte.com/list/num/">0-9</a> 
+		<a href="http://www.chinabyte.com/list/A/">A</a> 
+		<a href="http://www.chinabyte.com/list/B/">B</a> 
+		<a href="http://www.chinabyte.com/list/C/">C</a> 
+		<a href="http://www.chinabyte.com/list/D/">D</a> 
+		<a href="http://www.chinabyte.com/list/E/">E</a> 
+		<a href="http://www.chinabyte.com/list/F/">F</a> 
+		<a href="http://www.chinabyte.com/list/G/">G</a> 
+		<a href="http://www.chinabyte.com/list/H/">H</a> 
+		<a href="http://www.chinabyte.com/list/I/">I</a> 
+		<a href="http://www.chinabyte.com/list/J/">J</a> 
+		<a href="http://www.chinabyte.com/list/K/">K</a> 
+		<a href="http://www.chinabyte.com/list/L/">L</a> 
+		<a href="http://www.chinabyte.com/list/M/">M</a> 
+		<a href="http://www.chinabyte.com/list/N/">N</a> 
+		<a href="http://www.chinabyte.com/list/O/">O</a> 
+		<a href="http://www.chinabyte.com/list/P/">P</a> 
+		<a href="http://www.chinabyte.com/list/Q/">Q</a> 
+		<a href="http://www.chinabyte.com/list/R/">R</a> 
+		<a href="http://www.chinabyte.com/list/S/">S</a> 
+		<a href="http://www.chinabyte.com/list/T/">T</a> 
+		<a href="http://www.chinabyte.com/list/U/">U</a> 
+		<a href="http://www.chinabyte.com/list/V/">V</a> 
+		<a href="http://www.chinabyte.com/list/W/">W</a> 
+		<a href="http://www.chinabyte.com/list/X/">X</a> 
+		<a href="http://www.chinabyte.com/list/Y/">Y</a> 
+		<a href="http://www.chinabyte.com/list/Z/">Z</a>
+	</div></span> | <A href="http://www.chinabyte.com/sitemap.html" rel="nofollow">网站地图</A> </div>
+  <div class="copyright">
+    <P>比特网 版权所有 渝ICP证B2-20030003号</P>
+    <P>Copyright (C) 1999-2011 Chinabyte.com, All Rights Reserved</P>
+    <P>客户服务、商务合作电话：010-82657868-583 举报邮箱：qa@staff.chinabyte.com <a href="http://opinion.chinabyte.com/reader/reader.jhtml?sitemapId=1&url=http://www.chinabyte.com&title=比特网"  rel="nofollow">在线意见</a></P>
+  </div>
+
+</div>
+
+<div id="sinawb"><a href="http://www.chinabyte.com/w/s/20120417/" target="_blank" style="display:block;position:absolute;top:-36px;left:12px;"><img src="/w/pic/623/hint.png" width="172" height="40" border="0" /></a>
+<script type="text/javascript" charset="utf-8">
+(function(){
+  var _w = 106 , _h = 24;
+  var param = {
+    url:location.href,
+    type:'5',
+    count:'', /**是否显示分享数，1显示(可选)*/
+    appkey:'3903542333', /**您申请的应用appkey,显示分享来源(可选)*/
+    title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
+    pic:'', /**分享图片的路径(可选)*/
+    ralateUid:'1660387637', /**关联用户的UID，分享微博会@该用户(可选)*/
+	language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+    rnd:new Date().valueOf()
+  }
+  var temp = [];
+  for( var p in param ){
+    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+  }
+  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+})()
+</script>			
+</div>
+
+	<script type="text/javascript">
+			$('#fontsize').prepend( $("#sinawb") ); 
+	</script>
+</div>
+<!--广告 预留块--->
+
+<!--新counter开始-->
+<script src="http://counter.tianjimedia.com/web-utils.js"></script>
+<script type="text/javascript"> 
+initCookie();
+    var re = new RegExp(".*/(\\d+)(_(\\d+))?\\.shtml","ig");
+    var _aid = "-1";
+    if(re.exec(document.location.href) != null){
+       _aid = RegExp.$1
+    }
+sentParamter(_aid,'1');
+</script>
+<!--新counter结束-->
+
+
+<!-- START GA.js -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11575536-1']);
+  _gaq.push(['_setDomainName', '.chinabyte.com']);
+  _gaq.push(['_addOrganic', 'baidu', 'word']);
+  _gaq.push(['_addOrganic', 'google', 'q']);
+  _gaq.push(['_addOrganic', 'soso', 'w']);
+  _gaq.push(['_addOrganic', '3721', 'name']);
+  _gaq.push(['_addOrganic', 'yodao', 'q']);
+  _gaq.push(['_addOrganic', 'vnet', 'kw']);
+  _gaq.push(['_addOrganic', 'sogou', 'query']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- END GA.js -->
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=b07c0a1f-d800-4990-9af7-3415e3d9cd5d&style=-1"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareDrag.js"></script>
+<!-- 百分点 -->
+<script type="text/javascript" charset="utf-8" src="http://static1.baifendian.com/service/bite/bite_goods.js"></script>
+<script type="text/javascript" src="/TLimages2009/chinabyte/js/copymsg.js"></script>
+</body>
+</html>
+                                               

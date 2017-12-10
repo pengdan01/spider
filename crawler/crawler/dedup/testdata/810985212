@@ -1,0 +1,75 @@
+798
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+	<meta charset="utf-8" />
+	<title> QQ空间 </title>
+	<script type="text/javascript">
+	<!--
+		var g_iUin = parseInt('810985212', 10),
+			g_iLoginUin =  parseInt('0', 10),
+			g_dns_name = '',
+			qzuin, qzpath,
+			u = 'http://z.qq.com/',
+			p = location.pathname,
+			ppr, dnr, t;
+		
+		if(qzuin = (g_iUin || g_iLoginUin)){
+			ppr = new RegExp('^\\/' + qzuin + '\\/?$', 'i');
+			g_dns_name && (dnr = new RegExp('^\\/' + g_dns_name + '\\/?$', 'i'));
+			if(p == '/' || ppr.test(p) || (g_dns_name && dnr.test(p))){
+				if(g_iUin == g_iLoginUin){
+					u = u + 'index.jsp?srctype=10';
+				}else{
+					u = u + 'index.jsp?srctype=10&qzuin=' + qzuin + '&qzpath=%2Fmain';
+				}
+			}else if(p.length > 1){ //to app
+				ppr = new RegExp('^\\/' + qzuin + '\\/?', 'i');
+				g_dns_name && (dnr = new RegExp('^\\/' + g_dns_name + '\\/?', 'i'));
+				t = p.replace(dnr, '').replace(ppr, '');
+				u = u + 'index.jsp?srctype=10&qzuin=' + qzuin + '&qzpath=%2F' + encodeURIComponent(t);
+			}
+		}
+
+		location.href = u;
+	//-->
+	</script>
+	<style>
+		body {
+			background-color: #F3F3F3;
+		}
+		.cont_wrap {
+			background: #FFF;
+			-moz-box-shadow: 0 0 3px #666;
+			-webkit-box-shadow: 0 0 3px #666;
+			box-shadow: 0 0 3px #666;
+			padding: 10px;
+			margin: 10px;
+			font-size: 14px;
+		}
+		.cont_wrap h2 {
+			background: #E1ECFE;
+			font-size: 14px;
+			padding: 5px 8px;
+			margin: 0;
+		}
+		.cont_wrap p {
+			padding: 20px;
+			margin: 0;
+			line-height: 1.5;
+		}
+	</style>
+</head>
+<body>
+	<div class="cont_wrap">
+		<noscript id="no_script">
+		<h2>提示</h2>
+		<p id="tips_2">
+			建议您使用<a href="http://z.qq.com/">精简版QQ空间(z.qq.com)</a>，因为您输入的链接所对应的QQ空间版本可能无法很好的展示在当前设备中。</a>。
+		</p>
+		</noscript>
+	</div>
+</body>
+</html>
+0
+

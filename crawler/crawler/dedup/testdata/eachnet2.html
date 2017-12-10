@@ -1,0 +1,596 @@
+
+
+
+
+
+
+
+ 
+
+
+
+
+<!DOCTYpE html pUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>	
+
+        
+        
+        HAPPY365精品店 - 易趣店铺
+      
+      
+</title>
+
+        
+       
+       <meta name="Description" content="HAPPY365精品店," />
+       
+	  
+<link href="http://image.eachnet.com/sys/css/global.css?v=2007122004" rel="stylesheet" type="text/css" />
+<link href="http://i0.eachimg.cn/2/c/store/100524/t.css" rel="stylesheet" type="text/css" />
+<link href="http://image.eachnet.com/sys/css/stores/templates/t1.css?v=2007121701" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://i2.eachimg.cn/2/j/app/live800/livechat.js"></script>
+<style type="text/css">
+		@import url(http://i3.eachimg.cn/2/c/global.css);
+	</style>
+<style type="text/css">
+#info {background:url(http://i3.eachimg.cn/sys/img/stores/templates/t3/bginfo.jpg) repeat-x  bottom;}
+#info {height:115px; padding:10px; width:930px; margin:auto;}
+#info #this {float:left; width:380px;}
+#info #storelogo {display:block; float:left;}
+#info #storelogo img {display:block; height:100px; width:100px; margin:7px 0}
+#info #this dl {float:left; padding:0 0 0 15px; margin:0; width:265px;}
+#info #this dt {clear:left; float:left;}
+#info #this dd {margin:0;}
+#info #this dd strong{font-weight:normal; float:left; padding-right:6px}
+#info #this dt,#info #this dd,#info #tools{height:19px; line-height:19px;}
+#info #tools {float:left; padding:2px 15px;}
+#info #announcement {float:right; height:90px; padding:11px 10px; width:515px;}
+#info #announcement .cc {line-height:150%; margin:5px 0; overflow:hidden; width:505px; word-break:break-all;}
+#info #announcement .cc marquee {height:70px;}
+#info #btnaf{float:left;padding-right:6px; margin-top:4px}
+#info span.live800{display:block; float:left}
+#info span.live800 a{display:block;width:75px;height:22px;background-image:url(http://i1.eachimg.cn/sys/img/stores/index/livechat.gif);background-repeat:no-repeat;overflow:hidden;margin:0;padding:0}
+#info span.live800 a.online{background-position:0 0;}
+#info span.live800 a.offline{background-position:0 -22px;}
+#list ul li .price img{width:auto; height:auto; display:inline; vertical-align:top;}
+</style>
+<script language="javascript" type="text/javascript"> 
+var shopSortItems = new Array();
+</script>
+<style type="text/css" media="screen">
+@import url(http://i3.eachimg.cn/2/c/global.css);
+@import url(http://i3.eachimg.cn/2/c/common/base.css);
+#header {background:none;}  
+</style>
+<script src="http://i3.eachimg.cn/2/j/jend/core.js" type="text/javascript"></script>
+<script src="http://i3.eachimg.cn/2/j/jend/ui.js" type="text/javascript"></script>
+<script src="http://i3.eachimg.cn/2/j/app/comm.js" type="text/javascript"></script>
+<script src=" http://i3.eachimg.cn/2/j/app/htools.js" type="text/javascript"></script>
+<script src="http://image.eachnet.com/js/v2007.js?v=100115.js"></script>
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+_ebay={}
+_ebay.page_id='shop.proList3';
+_ebay.msg_id='524011';
+var MAX_LENGTH = 100;
+var shopServer = "http://store.eachnet.com";
+var thirdShopServer = "store.eachnet.com";
+var myServer = "http://my.eachnet.com";
+var prdServer = "http://item.eachnet.com";
+var searchServer = "http://search.eachnet.com";
+function changeSort(order) {
+	document.getElementById("startIndex").value = 0;
+	document.getElementById("startIndexmes").value = 0;
+	document.getElementById("act").value = "list";
+	document.proListActionForm.orderBy.value = order;
+	if(order != 4){
+		document.proListActionForm.ishot.value = 0;
+	}else{
+		document.proListActionForm.orderBy.value = 0;	
+	}
+	document.proListActionForm.action = shopServer + "/shop/proList.do";
+	document.proListActionForm.target = "_self";
+	document.proListActionForm.submit();
+}
+
+function fnhot(){
+	 document.proListActionForm.sortId.value = 0;
+	 document.proListActionForm.ishot.value = 1;	 
+	 document.proListActionForm.shopId.value = 101665;	  
+}
+
+function changeCss(order){
+    if(order == 0){
+	  document.proListActionForm.prdShow.value = "end";
+	}else if(order == 3){
+	  document.proListActionForm.prdShow.value = "new";
+	}else if(order == 4){
+	  document.proListActionForm.prdShow.value = "hot";
+	}else{
+	  document.proListActionForm.prdShow.value = "";
+	}
+}
+function checkMessageForm ( ) {
+		if ( document.getElementById("messageContent").value == "" ) {
+			Str = "<font color='red'>\u8bf7\u586b\u5199\u7559\u8a00\u5185\u5bb9\uff01</font>";
+			document.getElementById("msgError").innerHTML = Str;
+		} else {
+			if ( document.getElementById("messageContent").value.length > MAX_LENGTH ) {
+				Str = "<font color=red>\u5b57\u6570\u4e0d\u5f97\u8d85\u8fc7" + MAX_LENGTH + "!</font>";
+				document.getElementById("msgError").innerHTML = Str;
+			} else {
+				if (document.getElementById("randomCode").value == "") {
+					Str = "<font color='red'>\u8bf7\u586b\u5199\u9a8c\u8bc1\u7801\uff01</font>";
+					document.getElementById("msgError").innerHTML = Str;
+				} else {
+					document.addMessageForm.submit();
+				}
+			}
+		}
+}
+
+/** 格式化物品价格显示方式 */  
+function formatPrice ( num ) {
+	if ( isNaN(num) )  return num;
+	num = Math.ceil(num) / 100;		//搜索结果以分为单位
+	var strs = num.toString().split('.');
+	var ichars = strs[0].split('');
+	var istr = "";
+	var l = ichars.length-1;
+	for ( var i = 1; i <= ichars.length; i++, l-- ) {
+		istr = ichars[l] + istr;
+		   if ( i % 3 == 0 )
+		     istr = ',' + istr;
+		}
+	
+	var fstr = '00';
+	if ( strs.length == 2 )
+	   fstr = strs[1];
+	if ( fstr.length == 1 )
+	   fstr += '0';
+  return istr.replace(/^,+/,'') + '.' + fstr;  
+}
+
+/*截取过长的物品名称*/
+var recommend_length = 44;
+var list_length = 47;
+function intercept ( str, len ) {
+  if ( str == null )
+     return;
+  var strlen = 0; 
+  for ( var i = 0; i < str.length; i++ ) {
+	if ( str.charCodeAt(i) > 128 ) {
+	  strlen += 2;
+	} else {
+	  strlen++;
+	} 		
+	if ( strlen >= len ) 
+      return str.substring(0, i + 1) + "...";
+  }
+
+  return str;
+}
+/*截取过长的店铺名称*/
+function interceptName(str,len){
+  alert(str);
+  alert(len);
+  if(str == null)
+     return;
+  var strlen = 0; 
+  for(var i = 0; i < str.length; i++){
+	if(str.charCodeAt(i) > 128){
+	  strlen += 2;
+	}else{
+	  strlen++;
+	} 		
+	if(strlen >= len) 
+      return str.substring(0, i+1);
+  }
+  return str;
+}
+	
+var  shopId=101665;
+var shopPath = shopServer + "/shop/proList.do?";
+var shopPathNew = shopServer + "/shop/";
+//店铺别名 yuegan 2009-3-4
+var shpSuffix = "sttianxing";
+
+function ShopSortItem(sortid,pid,sortname){
+  this.sortid=sortid;
+  this.pid=pid;
+  this.sortname=sortname;
+  return this;
+} 
+//输出商品目录
+
+function writeShopSort(){
+  var otherStr='';
+  for(var i = 0; i < shopSortItems.length; i ++){
+    var shopSortItem = shopSortItems[i]; 
+    if(shopSortItem.pid == 0){
+      var firstStr = '';
+      var secondStr='';
+      for(var j = 0; j < shopSortItems.length; j++){
+        if(shopSortItem.sortid == shopSortItems[j].pid){
+          var thirdStr = '<ul>';
+          for(var k = 0; k < shopSortItems.length; k++){
+            if(shopSortItems[j].sortid == shopSortItems[k].pid){
+             // thirdStr += '<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[k].sortid+'>' + shopSortItems[k].sortname + '</a></li>';
+              //店铺别名存在则使用三级域名
+            		  if(shpSuffix != "" && shpSuffix.length != 0){
+            		 	 thirdStr += '<li><a href=' + 'http://' + shpSuffix + '.' + thirdShopServer + '/shop/' + shopSortItems[k].sortid + '------------.html' + '>' + shopSortItems[k].sortname +  '</a></li>';
+            		  }else{
+              		     //thirdStr += '<li><a href=' + shopPathNew + shopSortItems[k].sortid +  '-----------' + shopId + '-.html' +'>' + shopSortItems[k].sortname + '</a></li>';
+              		     thirdStr += '<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[k].sortid+'>' + shopSortItems[k].sortname + '</a></li>';
+              		  }
+            }
+          }
+          if(thirdStr != '<ul>'){
+        	//secondStr += '<li class=s><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[j].sortid+'>' + shopSortItems[j].sortname + '</a>';
+        	 //店铺别名存在则使用三级域名
+          	  if(shpSuffix != "" && shpSuffix.length != 0){
+        		secondStr += '<li class=s><a href=' + 'http://' + shpSuffix + '.' + thirdShopServer + '/shop/' + shopSortItems[j].sortid + '------------.html' + '>' + shopSortItems[j].sortname + '</a>';
+        	  }else{
+        	    //secondStr += '<li class=s><a href=' + shopPathNew + shopSortItems[j].sortid +  '-----------' + shopId + '-.html' +'>' + shopSortItems[j].sortname + '</a>';
+        	    secondStr += '<li class=s><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[j].sortid+'>' + shopSortItems[j].sortname + '</a>';
+        	  }
+        	secondStr += thirdStr +'</ul></li>';
+          }else{
+        	//secondStr += '<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[j].sortid+'>' + shopSortItems[j].sortname + '</a></li>';
+        	 //店铺别名存在则使用三级域名
+          	   if(shpSuffix != "" && shpSuffix.length != 0){
+        		secondStr += '<li><a href=' + 'http://' + shpSuffix + '.' + thirdShopServer + '/shop/' + shopSortItems[j].sortid + '------------.html' + '>' + shopSortItems[j].sortname + '</a></li>';
+        	  }else{
+        	    //secondStr += '<li><a href=' + shopPathNew + shopSortItems[j].sortid +  '-----------' + shopId + '-.html' +'>' + shopSortItems[j].sortname + '</a></li>';
+        	    secondStr += '<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItems[j].sortid+'>' + shopSortItems[j].sortname + '</a></li>';
+        	  }
+          }        
+        }
+     }
+     if(secondStr != ''){
+    	//firstStr = '<li class=s><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItem.sortid+'>' + shopSortItem.sortname + '</a>';
+    	 //店铺别名存在则使用三级域名
+       if(shpSuffix != "" && shpSuffix.length != 0){
+    	  firstStr = '<li class=s><a href=' + 'http://' + shpSuffix + '.' + thirdShopServer + '/shop/' + shopSortItem.sortid+ '------------.html'+'><span id=down>' + shopSortItem.sortname + '</span></a>';
+        }else{
+          //firstStr = '<li class=s><a href=' + shopPathNew + shopSortItems.sortid +  '-----------' + shopId + '-.html' + '><span id=down>' + shopSortItem.sortname + '</span></a>';
+          firstStr = '<li class=s><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItem.sortid+'>' + shopSortItem.sortname + '</a>';
+        }
+    	firstStr += '<ul>' + secondStr + '</ul></li>'
+     }else{
+      //firstStr = ('<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItem.sortid+'>' + shopSortItem.sortname + '</a></li>' );
+      //店铺别名存在则使用三级域名
+       if(shpSuffix != "" && shpSuffix.length != 0){
+    	  firstStr = ('<li><a href=' + 'http://' + shpSuffix + '.' + thirdShopServer + '/shop/' + shopSortItem.sortid+ '------------.html'+'><span>' + shopSortItem.sortname + '</span></a></li>');
+        }else{
+          //firstStr = ('<li><a href=' + shopPathNew + shopSortItem.sortid +  '-----------' + shopId + '-.html' + '><span>' + shopSortItem.sortname + '</span></a></li>');
+          firstStr = ('<li><a href=' + shopPath + 'shopId=' + shopId + '&sortId=' + shopSortItem.sortid+'>' + shopSortItem.sortname + '</a></li>' );
+        }
+     }
+     if(shopSortItem.sortname =='其它物品'){
+       otherStr = firstStr;
+       continue;
+     }
+     document.writeln(firstStr);     
+   }  
+  }
+  document.writeln(otherStr);
+}
+</script>
+<div id="mainheader">
+
+<div id="simpleheader">  <div id="logo"><a href="http://www.eachnet.com/"><img src="http://i0.eachimg.cn/2/i/logo.png" alt="易趣" /></a></div>  <ul id="topnav">    <li class="n1"><a href="http://login.eachnet.com/usr/toRegister.do" rel="nofollow">注册</a></li>    <li class="n3"> <a href="http://my.eachnet.com/my/myeachnet.do" rel="nofollow">我的易趣</a> </li>    <li class="n2"><a href="http://item9.eachnet.com/calc.do?_fromid=navi_simnewfreestore_n">自助代购</a></li>    <li class="n1"><a href="http://bbs.eachnet.com/">社区</a></li>    <li class="n1"><a href=" http://www.eachnet.com/help/help.html">帮助</a></li>  </ul>  <div id="headersearch">    <div id="headerlogin">您好<span  class="mm1">☺</span><a href="http://login.eachnet.com/usr/login.do" rel="nofollow"  class="mm2">[登录]</a><a href="http://login.eachnet.com/usr/toRegister.do" rel="nofollow"  class="mm2">[免费注册]</a></div>    <form target="_blank" method="post" action="http://search.eachnet.com/Search" class="c">      <fieldset>        <legend>搜索物品</legend>        <label for="headerkeywordz">输入物品名称</label>        <span  class="mm1">        <input type="text" value="输入物品关键字" onfocus="if(value=='输入物品关键字') {value=''}" onblur="if(value=='') {value='输入物品关键字'}" name="keyword" id="headerkeywordz" title="请输入物品名称" />        </span>        <input type="submit" value="搜索" class="s" />      </fieldset>    </form>  </div></div><div class="advbg0707"><iframe src="http://www.eachnet.com/myLogin/dealsBanner.html" width="980px" height="100px" frameborder="0"></iframe></div></div>
+<div id="crumb">
+<a href="http://www.eachnet.com">首页</a> &gt;&gt;
+<a href="http://www.eachnet.com/store/">易趣店铺</a> &gt;&gt;<strong>HAPPY365精品店</strong>
+</div>
+<div style="margin: -36px auto 5px; text-align: right; width: 950px; line-height: 20px;">
+ 
+	
+	  <a href="http://search.eachnet.com/store-history/sttianxing/page1.html" target="_blank">历史物品&gt;&gt;</a>
+	
+	
+ 
+</div>
+
+
+<div id="title">
+  <ul>
+	<li><h1 class=c>首页</h1></li>
+	<li><h1><a href="http://feedback.eachnet.com/feedback/viewAllMyFeedback.do?usrOnlyID=1019520574" target="blank">信用评价</a></h1></li>
+	
+  </ul>
+</div>
+
+<script language="javascript" src="http://feedback.eachnet.com/js/feedback/feedback_func.js"></script>
+<div id="info"> 
+  <div id="this">
+    
+			  
+			    <a id="storelogo" href="http://sttianxing.store.eachnet.com"><img title="HAPPY365精品店" src="http://image.eachnet.com/pic/nopic.gif" /> </a>
+			  
+			  
+	
+    <dl>
+	  <dt>易趣卖家：</dt><dd>sttianxing</dd>
+	</dl>
+	<dl>
+	  <dt>总信用度：</dt><dd><script type="text/javascript">showTotalCredit('1019520574');</script><script>showTotalStar('1019520574'); </script></dd>
+	  <dt>总好评率：</dt><dd><script type="text/javascript">showTotalPositiveRate('1019520574');</script></dd>
+	  <dt>创店日期：</dt><dd>2007-06-14</dd>
+	  <dt>认证服务：</dt><dd><script language="javascript">showQualityIcon("1019520574");showCertIcon("1019520574",1);showPSIcon("1019520574");</script></dd>
+    </dl>
+    <script type="text/javascript">showFeedback();</script>
+    <div id="tools"><a id="btnaf" href="http://my.eachnet.com/usr/addShopFavorite.do?shopID=101665" target="blank">收藏这个店铺</a><span class="live800" lim:params="uid=1019520574"></span></div>
+  </div>
+  <div id="announcement">
+    <h2>店铺公告</h2>
+    <div class="cc">
+      <marquee direction="up" behavior="scroll" scrollamount="1" onMouseOut="start();" onMouseOver="stop();" scrolldelay="85">
+      
+      </marquee>
+    </div>
+  </div>
+</div>
+ 
+
+<div id="main">
+  <div id="nav">
+    <div>
+	  <h3>商品目录</h3> 
+       
+		<ul>
+		   <li><a href='http://store.eachnet.com/shop/sttianxing/category1.html' ><span>其它物品</span></a></li>
+		</ul>  
+      
+    </div>
+    
+	
+	
+  </div> 
+ <script type="text/javascript">
+	var startIndexmes = 0;
+	var startIndex = 0
+	var startIndexmes = 0;
+	var prdType = 0;
+	var MAX_LENGTH=100;
+  </script>  
+<form name="proListActionForm" method="get" action="/shop/proList.do;jsessionid=14EAAF2FA6E24B8064AC9136939D2CE9"> 
+  
+  <input type="hidden" name="startIndex" id ="startIndex"/>
+  <input type="hidden" name="shopId" value="101665" />
+  <input type="hidden" name="sortId" id="sortId" value="0" />
+  <input type="hidden" name="sortName" value=""/>
+  <input type="hidden" name="showWay" value="1" />
+  <input type="hidden" name="startIndexmes" id ="startIndexmes"/>
+  <input type="hidden" name="prdType" id="prdType"  value="0"/>
+  <input type="hidden" name="prdShow" value=""/>
+  <input type="hidden" name="orderBy" value="1"/>
+  <input type="hidden" name="act" id="act"/>
+  <input type="hidden" name="ishot" value="0" />
+  <input type="hidden" name="first" value="true">
+  <script language="JavaScript" src="http://store.eachnet.com/js/shop/proList_sh.js"></script>
+  <div id="tnav"> 
+    <ul>
+	  <li class="c"><a href="http://store.eachnet.com/shop/sid101665/allitem-page1.html" target="_blank">所有商品</a></li>
+	  <li class=""><a href="http://store.eachnet.com/shop/sid101665/hotsearch-page1.html">热搜精选</a></li>
+	  <li class=""><a href="http://store.eachnet.com/shop/sid101665/newitem-page1.html">新到商品</a></li>
+	  <li class=""><a href="http://store.eachnet.com/shop/sid101665/tobeend-page1.html">即将结束</a></li>
+    </ul>
+    <p>
+	<input type="text" class="i" id="searchkeyword" name="searchkeyword" maxlength="50" onFocus="this.value='';" value="" onkeydown = "if(event.keyCode==13){search();return false;}"/> <input type=button value=搜索 onClick="search()"/></p>
+  </div>    
+
+ <div id="pagecontent">
+  
+  <div id="showtype">  
+    <ul>
+      
+        
+        
+          <li><a class=gs href="javascript:go(2);">橱窗显示</a></li>
+          <li><a class=ls href="#">列表显示</a></li>
+        
+      	  
+      <li>
+		
+		  
+		  
+		    <a class=down href="javascript:changeCss(6);changeSort(6);">价格排序</a>
+		  
+		
+	  </li>
+
+        <li>
+		
+		  
+		  
+		    <a class=numup  href="javascript:changeCss(7);changeSort(7);">售出数量排序</a>
+		  
+		
+	  </li>
+
+    </ul>
+     <p>在 所有物品 中找到 0 件物品</p>
+     
+  </div>
+  
+</div>
+</form>
+   
+  <div id="feedback">      
+	<h3>留言本</h3>
+	
+      
+       
+           <div><p>此店铺暂时没有留言……</p></div>
+       
+        
+  </div>	
+    <form name="addMessageForm" action="" id="addMessageForm" method="post">
+    <input type="hidden" name="shopId" value="101665" />
+    <div id="feedbackform">
+      
+       <p><img src="http://image.eachnet.com/pic/icon_info_16x16.gif" alt="" width="16" height="16" align="middle" />&nbsp;&nbsp;您需要先<a href="http://login.eachnet.com/usr/login.do">登录</a>，才能给卖家留言。</p>
+      
+      
+	</div>
+   </form>
+
+</div>
+<script>var _mcfg={id:1,page_id:'shop.proList3',msg_id:'524011'};</script>
+ 
+
+
+
+<script src="http://i0.eachimg.cn/2/j/app/e/m.js" type="text/javascript"></script>
+<div id="footer">
+<div style="width: 470px; margin: 10px auto; padding:0 10px">
+<ul id="reference" style="height:22px; overflow:hidden;">
+<li style="display:block;height:22px; overflow:hidden;border:0">
+  热词索引：
+  <a href="http://search2.eachnet.com/list/items/a/1.html">A</a>
+  <a href="http://search2.eachnet.com/list/items/b/1.html">B</a>
+  <a href="http://search2.eachnet.com/list/items/c/1.html">C</a>
+  <a href="http://search2.eachnet.com/list/items/d/1.html">D</a>
+  <a href="http://search2.eachnet.com/list/items/e/1.html">E</a>
+  <a href="http://search2.eachnet.com/list/items/f/1.html">F</a>
+  <a href="http://search2.eachnet.com/list/items/g/1.html">G</a>
+  <a href="http://search2.eachnet.com/list/items/h/1.html">H</a>
+  <a href="http://search2.eachnet.com/list/items/i/1.html">I</a>
+  <a href="http://search2.eachnet.com/list/items/j/1.html">J</a>
+  <a href="http://search2.eachnet.com/list/items/k/1.html">K</a>
+  <a href="http://search2.eachnet.com/list/items/l/1.html">L</a>
+  <a href="http://search2.eachnet.com/list/items/m/1.html">M</a>
+  <a href="http://search2.eachnet.com/list/items/n/1.html">N</a>
+  <a href="http://search2.eachnet.com/list/items/o/1.html">O</a>
+  <a href="http://search2.eachnet.com/list/items/p/1.html">P</a>
+  <a href="http://search2.eachnet.com/list/items/q/1.html">Q</a>
+  <a href="http://search2.eachnet.com/list/items/r/1.html">R</a>
+  <a href="http://search2.eachnet.com/list/items/s/1.html">S</a>
+  <a href="http://search2.eachnet.com/list/items/t/1.html">T</a>
+  <a href="http://search2.eachnet.com/list/items/u/1.html">U</a>
+  <a href="http://search2.eachnet.com/list/items/v/1.html">V</a>
+  <a href="http://search2.eachnet.com/list/items/w/1.html">W</a>
+  <a href="http://search2.eachnet.com/list/items/x/1.html">X</a>
+  <a href="http://search2.eachnet.com/list/items/y/1.html">Y</a>
+  <a href="http://search2.eachnet.com/list/items/z/1.html">Z</a>
+  <a href="http://search2.eachnet.com/list/items/0-9/1.html">0-9</a>
+</li>
+<li style="display:block;height:22px; overflow:hidden;border:0">
+  店铺索引：
+  <a href="http://search3.eachnet.com/list/stores/a/1.html">A</a>
+  <a href="http://search3.eachnet.com/list/stores/b/1.html">B</a>
+  <a href="http://search3.eachnet.com/list/stores/c/1.html">C</a>
+  <a href="http://search3.eachnet.com/list/stores/d/1.html">D</a>
+  <a href="http://search3.eachnet.com/list/stores/e/1.html">E</a>
+  <a href="http://search3.eachnet.com/list/stores/f/1.html">F</a>
+  <a href="http://search3.eachnet.com/list/stores/g/1.html">G</a>
+  <a href="http://search3.eachnet.com/list/stores/h/1.html">H</a>
+  <a href="http://search3.eachnet.com/list/stores/i/1.html">I</a>
+  <a href="http://search3.eachnet.com/list/stores/j/1.html">J</a>
+  <a href="http://search3.eachnet.com/list/stores/k/1.html">K</a>
+  <a href="http://search3.eachnet.com/list/stores/l/1.html">L</a>
+  <a href="http://search3.eachnet.com/list/stores/m/1.html">M</a>
+  <a href="http://search3.eachnet.com/list/stores/n/1.html">N</a>
+  <a href="http://search3.eachnet.com/list/stores/o/1.html">O</a>
+  <a href="http://search3.eachnet.com/list/stores/p/1.html">P</a>
+  <a href="http://search3.eachnet.com/list/stores/q/1.html">Q</a>
+  <a href="http://search3.eachnet.com/list/stores/r/1.html">R</a>
+  <a href="http://search3.eachnet.com/list/stores/s/1.html">S</a>
+  <a href="http://search3.eachnet.com/list/stores/t/1.html">T</a>
+  <a href="http://search3.eachnet.com/list/stores/u/1.html">U</a>
+  <a href="http://search3.eachnet.com/list/stores/v/1.html">V</a>
+  <a href="http://search3.eachnet.com/list/stores/w/1.html">W</a>
+  <a href="http://search3.eachnet.com/list/stores/x/1.html">X</a>
+  <a href="http://search3.eachnet.com/list/stores/y/1.html">Y</a>
+  <a href="http://search3.eachnet.com/list/stores/z/1.html">Z</a>
+  <a href="http://search3.eachnet.com/list/stores/0-9/1.html">0-9</a>
+</li>
+<li style="display:block;height:22px; overflow:hidden;border:0">
+  历史索引：
+  <a href="http://search1.eachnet.com/list/history/a/1.html">A</a>
+  <a href="http://search1.eachnet.com/list/history/b/1.html">B</a>
+  <a href="http://search1.eachnet.com/list/history/c/1.html">C</a>
+  <a href="http://search1.eachnet.com/list/history/d/1.html">D</a>
+  <a href="http://search1.eachnet.com/list/history/e/1.html">E</a>
+  <a href="http://search1.eachnet.com/list/history/f/1.html">F</a>
+  <a href="http://search1.eachnet.com/list/history/g/1.html">G</a>
+  <a href="http://search1.eachnet.com/list/history/h/1.html">H</a>
+  <a href="http://search1.eachnet.com/list/history/i/1.html">I</a>
+  <a href="http://search1.eachnet.com/list/history/j/1.html">J</a>
+  <a href="http://search1.eachnet.com/list/history/k/1.html">K</a>
+  <a href="http://search1.eachnet.com/list/history/l/1.html">L</a>
+  <a href="http://search1.eachnet.com/list/history/m/1.html">M</a>
+  <a href="http://search1.eachnet.com/list/history/n/1.html">N</a>
+  <a href="http://search1.eachnet.com/list/history/o/1.html">O</a>
+  <a href="http://search1.eachnet.com/list/history/p/1.html">P</a>
+  <a href="http://search1.eachnet.com/list/history/q/1.html">Q</a>
+  <a href="http://search1.eachnet.com/list/history/r/1.html">R</a>
+  <a href="http://search1.eachnet.com/list/history/s/1.html">S</a>
+  <a href="http://search1.eachnet.com/list/history/t/1.html">T</a>
+  <a href="http://search1.eachnet.com/list/history/u/1.html">U</a>
+  <a href="http://search1.eachnet.com/list/history/v/1.html">V</a>
+  <a href="http://search1.eachnet.com/list/history/w/1.html">W</a>
+  <a href="http://search1.eachnet.com/list/history/x/1.html">X</a>
+  <a href="http://search1.eachnet.com/list/history/y/1.html">Y</a>
+  <a href="http://search1.eachnet.com/list/history/z/1.html">Z</a>
+  <a href="http://search1.eachnet.com/list/history/0-9/1.html">0-9</a>
+</li>
+</ul>
+</div>
+
+		<ul id="ftnav" style="width:465px">
+			<li><a href="http://www.eachnet.com/abouteachnet.html" rel="nofollow" target="_blank">关于易趣</a></li>
+			<li><a href="http://www.eachnet.com/licence.html" rel="nofollow" target="_blank">营业执照</a></li>
+			<li><a href="http://help.eachnet.com/help/tns/securitycenter.htm" rel="nofollow" target="_blank">诚信与安全</a></li>
+			<li><a href="http://www.eachnet.com/links.html" target="_blank">合作伙伴</a></li>
+			<li><a href="http://www.ule.com.cn/" target="_blank">邮乐</a></li>
+			<li><a href="http://help8.eachnet.com/help" rel="nofollow" target="_blank">帮助</a></li>
+			<li><a href="http://www.eachnet.com/sitemap.html">网站地图</a></li>
+			<li class="bn"><a target="_blank" href="http://www.eachnet.com/abouteachnet.html" rel="nofollow"><em></em></a></li>
+		</ul>
+
+	<ul id="copyright">
+		<li>Copyright © 2010 易趣版权所有</li>
+		<li><a target="_blank" href="http://www.miibeian.gov.cn" rel="nofollow">ICP证号：沪B2-20090007</a></li>
+		<li class="fc1"><a target="_blank" href="http://www.315online.com.cn/member/315080055.html" rel="nofollow">网上交易保障中心</a></li>
+		<li class="fc2"><a target="_blank" href="http://net.china.cn/" rel="nofollow">不良信息举报中心</a></li>
+		<li class="fc3" id="bn"><a target="_blank" href="http://net.china.cn/" rel="nofollow">上海网警网络110</a></li>
+	</ul>
+</div>
+<script type="text/javascript"> 
+//<![CDATA[
+rm.a("reference",1,22,'top','1',600);
+//]]>
+</script>
+<noscript>
+<img src="http://http.eachnet.com/?noscript&id=1" width="1" height="1">
+</noscript>
+<script type="text/javascript" language="javascript"> 
+_ebay.id=1;
+_ebay.send='http://http.eachnet.com/';
+_count(_ebay);
+</script> 
+<script>
+  if(typeof _mcfg=="undefined"){
+    _mcfg = {id:1};
+  }
+</script>
+<script src="http://i0.eachimg.cn/2/j/app/v2009.js" type="text/javascript"></script>
+<div id="smh_te" style="display:none">lhost</div>
+<script type=text/javascript>
+if ( typeof(document.reloadImage) == "object" ) {
+  document.reloadImage.src = shopServer + "/ConfirmCode?" + Math.random();
+}	
+document.getElementById("addMessageForm").action = 'http://store.eachnet.com/shop/addMessage.do?' + Math.random();
+</script>
+</body>
+</html>

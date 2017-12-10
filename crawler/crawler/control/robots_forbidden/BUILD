@@ -1,0 +1,26 @@
+
+cc_binary(name = "gather_url",
+          srcs = ["gather_url.cc",],
+          deps = ["//base/common/BUILD:base",
+                  "//base/strings/BUILD:strings",
+                  "//base/file/BUILD:file",
+                  "//base/mapreduce/BUILD:mapreduce",
+                  "//web/url/BUILD:url",
+          ],
+          )
+
+cc_binary(name = "resource_graph",
+          srcs = ["resource_graph.cc",],
+          deps = ["//base/common/BUILD:base",
+                  "//base/strings/BUILD:strings",
+                  "//base/file/BUILD:file",
+                  "//base/hash_function/BUILD:hash_function",
+                  "//web/url/BUILD:url",
+                  "//web/url_norm/BUILD:url_norm",
+                  "//rpc/redis/BUILD:redis_control",
+                  "//crawler/proto2/BUILD:proto_transcode",
+                  "//crawler/proto2/BUILD:resource_proto",
+                  "//crawler/proto2/BUILD:gen_hbase_key",
+                  "//feature/redis_dict/BUILD:redis_dict_util",
+          ],
+          )

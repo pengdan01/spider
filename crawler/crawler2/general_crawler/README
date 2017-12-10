@@ -1,0 +1,5 @@
+task_pusher.cc: 从 文件 中读取 url , 提交到 抓取模块 crawler 监控的队列;
+task_pusher_queue_version.cc: 从指定队列中读取 url , 提交到 抓取模块 crawler 监控的队列;
+
+task_pusher_for_schedule.cc: 从 文件 中读取 url , 提交到 调度 scheduler 监控的队列;
+task_pusher_for_schedule_queue_version.cc: 从指定队列中读取 url , 提交到 调度 scheduler 监控的队列;

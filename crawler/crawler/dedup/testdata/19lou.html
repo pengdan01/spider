@@ -1,0 +1,38 @@
+<script language="javascript">
+
+var url=document.location.href;
+var s = url.indexOf("?"); 
+
+var redirectUrl='';
+var domain=document.domain.substr(document.domain.indexOf(".")+1);
+
+if(s>0)
+{
+	redirectUrl=url.substr(s+1);
+	SetCookie("_Z3nY0d4C_","37XgPK9h",365,"/",domain);
+	document.location.href=redirectUrl;
+
+}
+else
+{
+
+	document.location.href="http://www."+domain;
+}
+
+function SetCookie (name, value) {  
+var expdate = new Date();
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+
+if(expires!=null && expires>=0) expdate.setTime(expdate.getTime() + ( expires * 24*60*60*1000 ));
+
+document.cookie = name + "=" + escape (value) +((expires == null || expires < 0) ? ((expires==-1)?"; expires=-1":"") : ("; expires="+ expdate.toGMTString()))
++((path == null) ? "" : ("; path=" + path)) +((domain == null) ? "" : ("; domain=" + domain))
++((secure == true) ? "; secure" : "");
+}
+
+</script>

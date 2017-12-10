@@ -1,0 +1,12 @@
+TOOL1:
+handle_page_linkbase:
+1 该工具为 batch page base 中的所有网页算 一个 simhash 
+2 同时将 simhash 附件到对应 Linkbase 中的 记录
+Usage:
+1. Build 并上传到 上海:
+cd /home/pengdan/workplace/wly && bash -x crawler/tools/handle_page_linkbase/build_and_transer_to_shanghai.sh
+2. 根据具体数据类型, 在脚本中修改数据路径, 然后执行:
+bash -x ssign_page_simhash.sh 
+bash -x linkbase_normalize.sh 
+
+## OutPut:

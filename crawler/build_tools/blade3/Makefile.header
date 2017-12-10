@@ -1,0 +1,361 @@
+OPENMPI_DIR = /usr/local
+
+ifeq ($(SIMPLIFY_GCC), yes)
+  CC  = bash build_tools/gccfilt/gfilt.sh gcc
+  CXX = bash build_tools/gccfilt/gfilt.sh g++
+  MPICC  = bash build_tools/gccfilt/gfilt.sh ${OPENMPI_DIR}/bin/mpicc
+  MPICXX = bash build_tools/gccfilt/gfilt.sh ${OPENMPI_DIR}/bin/mpic++
+else
+  CC  = gcc
+  CXX = g++
+  MPICC  = ${OPENMPI_DIR}/bin/mpicc
+  MPICXX = ${OPENMPI_DIR}/bin/mpic++
+endif
+
+LLVM_DIR = build_tools/blade3
+LAYOUT_TOOL_DIR = build_tools/blade3/bin
+AR  = ar rcs
+
+CPPFLAGS  = -D__STDC_FORMAT_MACROS -DUSE_SYMBOLIZE -I.build/pb/c++ -I./build_tools/third_party/include -I.
+
+# COMPILE_FLAGS 设置的是对 C 和 C++ 都生效的那部分编译选项
+COMPILE_FLAGS  = -pthread -MMD -msse3 \
+            -fPIC -fstrict-aliasing \
+            -Wall -Wextra \
+            -Wtrigraphs \
+            -Wuninitialized \
+            -Wwrite-strings \
+            -Wpointer-arith \
+            -Wno-unused-parameter \
+            -Wmissing-include-dirs  \
+            -Wno-missing-field-initializers
+# 下列选项会使很多第三方库编译失败, 只好暂时屏蔽掉
+#           -Wredundant-decls
+
+WARN_AS_ERROR = -Werror
+
+CFLAGS    = -D_GNU_SOURCE ${COMPILE_FLAGS} -Werror-implicit-function-declaration
+
+# NOTE: 这里一定要用 gnu++0x
+CXXFLAGS  = ${COMPILE_FLAGS} -std=gnu++0x \
+						-Wvla \
+            -Wnon-virtual-dtor \
+            -Woverloaded-virtual \
+            -Wno-invalid-offsetof \
+            -Werror=non-virtual-dtor
+
+# 注意: linker 对库的顺序敏感，不要随意更改库的顺序
+LDFLAGS  = -pthread \
+           -Lbuild_tools/third_party/lib \
+           -luuid -laio -lidn -lssl -lcrypto -ldl -lrt \
+           -licui18n -licuio -licule -liculx -licutu -licuuc -licudata \
+           -lminizip -lz -lbz2 -lpcrecpp -lpcreposix -lpcre
+
+# OPT_CFLAGS 和 OPT_CXXFLAGS, 分别针对 C 程序和 C++ 程序, 独立设置
+OPT_CC = ${CC}
+OPT_CXX = ${CXX}
+OPT_CPPFLAGS = ${CPPFLAGS} -DNDEBUG -DUSE_TCMALLOC=1
+OPT_CFLAGS = ${CFLAGS} -O3 -ggdb3 -Wformat=2 -Wstrict-aliasing=3 -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free3 -Wframe-larger-than=65535 
+OPT_CXXFLAGS = ${CXXFLAGS} -O3 -ggdb3 -Wformat=2 -Wstrict-aliasing=3 -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -Wframe-larger-than=65535 
+# libunwind 一定要放在最后，libtcmalloc_and_profiler 一定要放在倒数第二
+OPT_LDFLAGS = -lglog -lgflags -lgtest -lgmock ${LDFLAGS} -lprotobuf -ltcmalloc_and_profiler -lunwind
+
+# DBG_CFLAGS 和 DBG_CXXFLAGS, 分别针对 C 程序和 C++ 程序, 独立设置
+DBG_CC = ${CC}
+DBG_CXX = ${CXX}
+DBG_CPPFLAGS = ${CPPFLAGS} -DUSE_TCMALLOC=1 -D_GLIBCXX_DEBUG -isystem build_tools/local/include/c++/4.4.6
+DBG_CFLAGS = ${CFLAGS} -ggdb3 -Wformat=2 -Wstrict-aliasing=3 -fno-inline -fno-omit-frame-pointer -fno-builtin -fno-optimize-sibling-calls -Wframe-larger-than=65535 
+DBG_CXXFLAGS = ${CXXFLAGS} -ggdb3 -Wformat=2 -Wstrict-aliasing=3 -fno-inline -fno-omit-frame-pointer -fno-builtin -fno-optimize-sibling-calls -Wframe-larger-than=65535 
+# libunwind 一定要放在最后，libtcmalloc_and_profiler 一定要放在倒数第二
+DBG_LDFLAGS = -lglog -lgflags_debug -lgtest_debug -lgmock_debug ${LDFLAGS} -lprotobuf_debug -ltcmalloc_and_profiler -lunwind
+
+# diagnosis optimized version
+DIAG_OPT_CC = ${LLVM_DIR}/bin/clang
+DIAG_OPT_CXX = ${LLVM_DIR}/bin/clang++
+DIAG_OPT_CPPFLAGS = ${CPPFLAGS} -DNDEBUG -Ibuild_tools/local/lib/clang/3.1/include -Ibuild_tools/local/include/c++/4.4.6
+DIAG_OPT_CFLAGS = ${CFLAGS} -O3 -ggdb -faddress-sanitizer -fno-omit-frame-pointer
+DIAG_OPT_CXXFLAGS = ${CXXFLAGS} -O3 -ggdb -faddress-sanitizer -fno-omit-frame-pointer 
+DIAG_OPT_LDFLAGS = -Lbuild_tools/third_party/lib/asan -lglog -lgflags -lgtest -lgmock ${LDFLAGS} -lprotobuf -Lbuild_tools/local/lib/clang/3.1/lib/linux -lclang_rt.asan-x86_64
+
+# diagnosis debug version
+DIAG_DBG_CC = ${LLVM_DIR}/bin/clang
+DIAG_DBG_CXX = ${LLVM_DIR}/bin/clang++
+DIAG_DBG_CPPFLAGS = ${CPPFLAGS} -Ibuild_tools/local/lib/clang/3.1/include -Ibuild_tools/local/include/c++/4.4.6
+DIAG_DBG_CFLAGS = ${CFLAGS} -ggdb -faddress-sanitizer -fno-omit-frame-pointer -fno-inline -fno-builtin
+DIAG_DBG_CXXFLAGS = ${CXXFLAGS} -ggdb -faddress-sanitizer -fno-omit-frame-pointer -fno-inline -fno-builtin
+# currently no debug version of gflags for diag_dbg. it needs too much modifications and is unnecessary.
+DIAG_DBG_LDFLAGS =-Lbuild_tools/third_party/lib/asan -lglog -lgflags -lgtest -lgmock ${LDFLAGS} -lprotobuf -Lbuild_tools/local/lib/clang/3.1/lib/linux -lclang_rt.asan-x86_64
+
+# NOTE(liuyong): the following version designed for checking the classes' layouts.
+STRUCT_CHECK_DBG_CC = ${DIAG_DBG_CC}
+STRUCT_CHECK_DBG_CXX = ${DIAG_DBG_CXX}
+STRUCT_CHECK_DBG_CPPFLAGS = ${DIAG_DBG_CPPFLAGS} -emit-record-layout
+STRUCT_CHECK_DBG_CFLAGS = ${DIAG_DBG_CFLAGS} -emit-record-layout
+STRUCT_CHECK_DBG_CXXFLAGS = ${DIAG_DBG_CXXFLAGS} -emit-record-layout
+# No LDFLAGS exists, since we just check the layouts only.
+
+STRUCT_CHECK_OPT_CC = ${DIAG_OPT_CC}
+STRUCT_CHECK_OPT_CXX = ${DIAG_OPT_CXX}
+STRUCT_CHECK_OPT_CFLAGS = ${DIAG_OPT_CFLAGS} -emit-record-layout 
+STRUCT_CHECK_OPT_CPPFLAGS = ${DIAG_OPT_CPPFLAGS} -emit-record-layout
+STRUCT_CHECK_OPT_CXXFLAGS = ${DIAG_OPT_CXXFLAGS} -emit-record-layout
+# No LDFLAGS exists, since we just check the layouts only.
+
+STRUCT_CHECK_TOOL = ${LAYOUT_TOOL_DIR}/check_layouts --ignore_file ${LAYOUT_TOOL_DIR}/ignores.cfg --log_dir .build/struct_check_log
+
+# 注意：jni 需要额外的 头文件 和 动态库 (libjvm.so，整个系统唯一可能依赖的动态库)
+#JAVA7_DIR=/usr/lib/jvm/java-7-oracle
+#JNI_CPPFLAGS = -I${JAVA7_DIR}/include/ -I${JAVA7_DIR}/include/linux
+#JNI_LDFLAGS  = -L${JAVA7_DIR}/jre/lib/amd64/server -ljvm \
+#							 -Wl,-rpath,${JAVA7_DIR}/jre/lib/amd64/server
+
+PYEXT_CPPFLAGS = -I/usr/include/python2.6
+
+PROTOC = build_tools/third_party/bin/protoc
+
+CPPLINT = python build_tools/lint/cpplint.py
+STATIC_CHECKER = build_tools/misc/static_check.sh -I/usr/local/include -I/usr/include \
+								 -I/usr/lib/gcc/x86_64-redhat-linux/4.4.6/include \
+								 ${CPPFLAGS} --error-exitcode=-1 --enable=all --template=gcc \
+								 -D__linux__ -D__GNUC__ -D__STDC__ -D__cplusplus -D__x86_64__ -D__WCHAR_MAX__=0xffffffff \
+								 -DU_ICU_ENTRY_POINT_RENAME -UGTEST_HAS_TR1_TUPLE
+
+UNIT_TEST_OPTIONS= --log_dir /tmp
+
+PRINT = build_tools/blade3/color_print.py green
+PRINT_WARNING = build_tools/blade3/color_print.py yellow
+PRINT_ERROR = build_tools/blade3/color_print.py red
+
+default: dbg
+all: dbg opt diag_dbg diag_opt struct_check_dbg struct_check_opt
+test: dbg_test
+all_test: dbg_test opt_test diag_dbg_test diag_opt_test
+
+.PHONY: clean pre pub copy_to_pub release release_to_pub default all test all_test lint dbg_test opt_test ss_test test_until_die dbg_test_until_die opt_test_until_die find_pub_unused find_release_unused check_list_file static_check bin_links commited_check regen_makefile
+
+pub:
+	@${PRINT_WARNING} "如何发布代码: 请严格按照下列步骤进行，否则极易遭受用户的鄙视"
+	@${PRINT} 
+	@${PRINT_WARNING} "1. 准备工作"
+	@${PRINT} "- 在源码根目录下运行 'svn up' 更新代码树，防止发布的代码和库，依赖了别人的旧代码"
+	@${PRINT} "- 在源码根目录下运行 'svn commit' 提交代码，保证待发布代码都已提交"
+	@${PRINT}
+	@${PRINT_WARNING} "2. 将待发布代码和库写入 pub 目录"
+	@${PRINT} "运行 'make copy_to_pub'，它将会自动完成下列工作:"
+	@${PRINT} "- 用 'make lint' 检查代码是否符合规范的底线"
+	@${PRINT} "- 编译并运行调试版和优化版的单元测试"
+	@${PRINT} "- 将需要发布的代码和库，拷贝到 pub 目录对应的子目录"
+	@${PRINT}
+	@${PRINT_WARNING} "3. 添加 pub 代码和库到 svn"
+	@${PRINT} "- 查看 pub 目录下新增文件：运行 'svn status ./pub' 即可，注意不要漏掉 .a 文件"
+	@${PRINT} "- 添加 pub 目录下新增文件：用 'svn add ...' 添加上面列出的文件到 svn 库"
+	@${PRINT} "- 一定不要漏文件，否则会导致用户编译失败"
+	@${PRINT}
+	@${PRINT_WARNING} "4. 删除 pub 下无用的文件"
+	@${PRINT} "- 查看 pub 目录下无用文件：运行 'make find_pub_unused'，找出源码目录下已删除，但曾经发布到 pub 目录下的文件"
+	@${PRINT} "- 删除 pub 目录下无用文件：用 'svn rm ...' 删除上面列出的文件"
+	@${PRINT} 
+	@${PRINT_WARNING} "5. 提交 pub 下新发布的包：用 'svn commit ./pub' 提交更改"
+
+release:
+	@${PRINT_WARNING} "如何发布二进制: 请严格按照下列步骤进行，否则极易遭受用户的鄙视"
+	@${PRINT} 
+	@${PRINT_WARNING} "1. 准备工作"
+	@${PRINT} "- 在源码根目录下运行 'svn up' 更新代码树，防止发布的代码和库，依赖了别人的旧代码"
+	@${PRINT} "- 在源码根目录下运行 'svn commit' 提交代码，保证待发布代码都已提交"
+	@${PRINT}
+	@${PRINT_WARNING} "2. 将待发布代码和库写入 pub 目录"
+	@${PRINT} "运行 'make release_to_pub'，它将会自动完成下列工作:"
+	@${PRINT} "- 用 'make copy_to_pub' 发布依赖的库"
+	@${PRINT} "- 将需要发布的二进制，拷贝到 pub 目录对应的子目录"
+	@${PRINT}
+	@${PRINT_WARNING} "3. 提交 pub 下新发布的包：用 'svn commit ./pub' 提交更改"
+
+pre: .build/pb/c++ .build/struct_check_log
+
+.build/pb/c++:
+	@mkdir -p .build/pb/c++
+
+.build/struct_check_log:
+	@if [ ! -x .build/struct_check_log ]; then mkdir -p .build/struct_check_log; fi
+
+%.h:
+	@[ ! -f $@ ] && ${PRINT} && ${PRINT_ERROR} ".h file not found: $@" && ${PRINT_ERROR} "try to run 'make clean' before running 'make' again." && ${PRINT} && false
+
+.build/meta_cc/%.cc:
+	@python build_tools/blade3/create_meta_cc.py $*.cc
+
+internal_dbg_test_until_die:
+	test_until_die_pass=0; \
+  while true; \
+  do\
+    make dbg_test; \
+    [ $$? -ne 0 ] && break; \
+    test_until_die_pass=`expr $$test_until_die_pass + 1`; \
+  done; \
+  ${PRINT} "stopped at pass $$test_until_die_pass"
+
+internal_diag_dbg_test_until_die:
+	test_until_die_pass=0; \
+  while true; \
+  do\
+    make diag_dbg_test; \
+    [ $$? -ne 0 ] && break; \
+    test_until_die_pass=`expr $$test_until_die_pass + 1`; \
+  done; \
+  ${PRINT} "stopped at pass $$test_until_die_pass"
+
+internal_opt_test_until_die:
+	test_until_die_pass=0; \
+  while true; \
+  do \
+    make opt_test; \
+    [ $$? -ne 0 ] && break; \
+    test_until_die_pass=`expr $$test_until_die_pass + 1`; \
+  done; \
+  ${PRINT} "stopped at pass $$test_until_die_pass"
+
+internal_diag_opt_test_until_die:
+	test_until_die_pass=0; \
+  while true; \
+  do \
+    make diag_opt_test; \
+    [ $$? -ne 0 ] && break; \
+    test_until_die_pass=`expr $$test_until_die_pass + 1`; \
+  done; \
+  ${PRINT} "stopped at pass $$test_until_die_pass"
+
+internal_test_until_die:
+	test_until_die_pass=0; \
+  while true; \
+  do \
+    make dbg_test; \
+    [ $$? -ne 0 ] && break; \
+    make opt_test; \
+    [ $$? -ne 0 ] && break; \
+    make diag_dbg_test; \
+    [ $$? -ne 0 ] && break; \
+    make diag_opt_test; \
+    [ $$? -ne 0 ] && break; \
+    make ss_test; \
+    [ $$? -ne 0 ] && break; \
+    test_until_die_pass=`expr $$test_until_die_pass + 1`; \
+  done; \
+  ${PRINT} "stopped at pass $$test_until_die_pass"
+
+internal_no_test_defined:
+	@${PRINT_WARNING} 'No test defined in your BUILD files'
+
+check_list_file:
+	@if [ ! -f .blade/files_to_pub ]; then \
+	  ${PRINT_ERROR} "list file '.blade/files_to_pub' not found. please run gen_makefile.sh again to generate it."; \
+		exit 1; \
+	fi
+	@if [ ! -f .blade/exe_files ]; then \
+	  ${PRINT_ERROR} "list file '.blade/exe_files' not found. please run gen_makefile.sh again to generate it."; \
+		exit 1; \
+	fi
+	@if [ ! -f .blade/all_deps ]; then \
+	  ${PRINT_ERROR} "list file '.blade/all_deps' not found. please run gen_makefile.sh again to generate it."; \
+		exit 1; \
+	fi
+
+find_pub_unused: check_list_file
+	@python2.6 build_tools/misc/find_pub_unused.py .blade/files_to_pub
+
+find_release_unused: check_list_file
+	@python2.6 build_tools/misc/find_pub_unused.py .blade/release_files
+
+commited_check: check_list_file
+	@python build_tools/blade3/check_deps_src.py .blade/all_deps
+	@python build_tools/blade3/check_all_commited.py .blade/all_deps
+
+regen_makefile: check_list_file
+	@python build_tools/blade3/regen_makefile.py .blade/all_deps
+
+
+# |copy_to_pub| will regenerate this makefile
+# avoid to add deps to or from |copy_to_pub|
+copy_to_pub:
+	@${PRINT}
+	@${PRINT} "------ update code tree ------"
+	svn up
+	@${PRINT}
+	@${PRINT} "------ check code tree ------"
+	@make commited_check
+	@${PRINT}
+	@${PRINT} "------ regenerate makefile ------"
+	@make regen_makefile
+	@${PRINT}
+	@${PRINT} "------ find pub unused files under pub dirs ------"
+	@make find_pub_unused
+	@${PRINT}
+	@${PRINT} "------ lint all source code ------"
+	@make lint
+	@${PRINT}
+	@${PRINT} "------ build all ------"
+	@make all -j8 || make all -j8
+	@${PRINT}
+	@${PRINT} "------ run dbg unit test ------"
+	@make dbg_test
+	@${PRINT}
+	@${PRINT} "------ run opt unit test ------"
+	@make opt_test
+	@${PRINT}
+	@${PRINT} "------ run dbg unit test ------"
+	@make diag_dbg_test
+	@${PRINT}
+	@${PRINT} "------ run opt unit test ------"
+	@make diag_opt_test
+	@${PRINT}
+	@${PRINT} "------ copy files to pub dirs ------"
+	@python2.6 build_tools/misc/copy_to_pub.py .blade/files_to_pub
+	@${PRINT}
+	@${PRINT} "------ find pub unused files under pub dirs again ------"
+	@make find_pub_unused
+
+release_to_pub:
+	@${PRINT}
+	@${PRINT} "------ update code tree ------"
+	svn up
+	@${PRINT}
+	@${PRINT} "------ check code tree ------"
+	@make commited_check
+	@${PRINT}
+	@${PRINT} "------ regenerate makefile ------"
+	@make regen_makefile
+	@${PRINT}
+	@${PRINT} "------ find pub unused files under pub dirs ------"
+	@make find_release_unused
+	@${PRINT}
+	@${PRINT} "------ lint all source code ------"
+	@make lint
+	@${PRINT}
+	@${PRINT} "------ build all ------"
+	@make clean
+	@make all -j8 -i
+	@make all -j8
+	@${PRINT}
+	@${PRINT} "------ run dbg unit test ------"
+	@make dbg_test
+	@${PRINT}
+	@${PRINT} "------ run opt unit test ------"
+	@make opt_test
+	@${PRINT}
+	@${PRINT} "------ run dbg unit test ------"
+	@make diag_dbg_test
+	@${PRINT}
+	@${PRINT} "------ run opt unit test ------"
+	@make diag_opt_test
+	@${PRINT}
+	@${PRINT} "------ copy files to pub dirs ------"
+	@python2.6 build_tools/misc/copy_to_pub.py .blade/release_files
+	@${PRINT}
+	@${PRINT} "------ find pub unused files under pub dirs again ------"
+	@make find_release_unused
+
+bin_links: all check_list_file
+	@python2.6 build_tools/misc/create_bin_links.py .blade/exe_files
+
+clean:
+	rm -rf .build

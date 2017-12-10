@@ -1,0 +1,1155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>我是特朗普接班人_连载_读书_腾讯网</title>
+<script src="http://mat1.qq.com/js/speed_v1.6-min.js"></script>
+<link href="http://book.qq.com/css/model_page_basic.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" media="all" type="text/css" href="http://book.qq.com/css/model_page_basic_ie.css" />
+<![endif]-->
+<link href="http://book.qq.com/s/tpl/13.css" rel="stylesheet" type="text/css" />
+
+<script>
+var type=0;
+var id=0,cid=0;
+function checkLoginByCookie()
+{
+    var uin=getCookie("uin"),skey=getCookie("skey");
+    if(uin&&(skey!=""))
+    {
+        return uin;
+    }
+    else
+    {
+        return false;
+    }
+}
+function getCookie(name) {
+    var my_cookie = document.cookie;
+    var start = my_cookie.indexOf(name + "=");
+    if (start == -1) return '';
+    
+    start += name.length + 1; //1 stands of '='
+    
+    var end = my_cookie.indexOf(";" ,start);
+    if (end == -1) end = my_cookie.length;
+    return my_cookie.substr(start, end - start);
+}
+function setCookie(name, value) 
+{
+    document.cookie = name + "=" + value + "; path=/;expires=Thursday,01-Jan-2099 00:00:00 GMT;";
+}
+function collect()
+{
+    type=0;
+    if (checkLoginByCookie())//已登录
+    {
+        form1.action = "http://bookapp.book.qq.com/cgi-bin/lz_favor";
+        form1.rurl.value = escape(window.location.href);
+        form1.submit();
+    }
+    else
+    {
+        LoginUc();
+    }
+}
+function loadc(pid,pcid)
+{
+    type=2;
+    id = pid;
+    cid = pcid;
+    if (checkLoginByCookie())//已登录
+    {
+        window.open("http://bookapp.book.qq.com/cgi-bin/lz_loadc?id="+pid+"&cid="+pcid,"_blank");
+    }
+    else
+    {
+        LoginUc();
+    }
+}
+function comment()
+{
+        window.open("http://comment1.qq.com/comment.htm?site=book&id=29545676","_blank");
+}
+function buy()
+{
+    if (4 == 0)
+    {
+            alert("免费书籍不需购买");
+    }
+    else
+    {
+        window.open("http://bookapp.book.qq.com/cgi-bin/single_pay?bc=24871&cache=" + Math.random(),"_blank");
+    }
+}
+function GoToUserCenter()
+{
+    type=1;
+    if (checkLoginByCookie())//已登录
+    {
+        window.location.href="http://bookapp.book.qq.com/cgi-bin/uc_index";
+    }
+    else
+    {
+        LoginUc();
+    }
+}
+function opennew(url)
+{
+    window.open(url,"_blank");
+}
+function rcm_book()
+{
+        form2.submit();
+}
+function splitAuthor(author)
+{
+    var authors = author.split(",");
+    var str="";
+    for (var i=0;i<authors.length;i++)
+    {
+        str += '<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key='+authors[i]+'" target="_blank">'+authors[i]+"</a> ";
+    }
+    return str;
+}
+</script>
+</head>
+
+<body>
+<style type="text/css">
+body{margin:0px;padding:0px;background-color:#FFF;}
+form{margin:0;padding:0;}
+td,body,select,input{font-size:12px; color:#000;}
+
+a.blackrednl {color:#000; text-decoration: none;}
+a.blackrednl:hover {color:#F00;	text-decoration: underline;}
+
+a.blackyelnl {color:#FFF; text-decoration: none;}
+a.blackyelnl:hover {color:#FFF000;	text-decoration: underline;}
+
+a.blackrednln {font-size: 14px; color:#000; text-decoration: none;}
+a.blackrednln:hover {font-size: 14px; color:#F00; text-decoration: underline;}
+
+
+a.redonl{color:#FF0000; text-decoration: none;}
+a.redonl:hover {text-decoration: underline;}
+
+a.greynlx{color:#7F7F7F; text-decoration: none;}
+a.greynlx:hover {text-decoration: underline;}
+
+a.bsonl{color:#FFF; text-decoration: none;}
+a.bsonl:hover {color:#FFDE00; text-decoration: underline;}
+
+
+#topad { margin:7px auto 10px auto;}
+#topad  a{color:#666666;text-decoration:none;}
+#topad  a:hover{color:red;text-decoration:underline;}
+
+.topadline01{border:#d8d8d8 1px solid;}
+.topadline02{width:155px; height:14px;}
+.topadline03{width:120px; height:14px; border:1px solid #D4D0C7;}
+.topadline04{border:#D9D9D9 3px solid;}
+.topadline05{border-bottom:#d8d8d8 1px dashed;}
+.topadline06{border:#C4C4C4 1px solid; border-bottom:0; border-top:0;}
+
+.fonttitle{font-family:黑体;font-size:18px;line-height:28px;}
+
+.imgkf{ border:1px solid #BCBCBC; padding:3px; background:#fff;}
+.img2{border:#000 1px solid;}
+.imgkf1{border:#FFF 3px solid;}
+
+.paddind15{padding-left:15px;}
+.paddtba7{ margin-bottom:7px;}
+.paddind6{padding-left:6px;}
+.paddind15{padding-left:15px;}
+.paddind16{padding-left:16px; padding-right:16px;}
+
+
+.font14px{font-size:14px;}
+.font20px{font-size:20px;}
+.fontl30{line-height:30px;}
+.fontl24{line-height:24px;}
+.fontl22{line-height:22px;}
+.fontl26{line-height:26px;}
+.fontbold{font-weight:bold;}
+
+.fontredo{color:#FF0000;}
+.fontredi{color:#FF5100;}
+.fontwhite{color:#FFF;}
+.fontgreyi{color:#7F7F7F;}
+
+.kong{text-indent:2em;}
+</style>
+
+<style>
+/*全站迷你导航 v20120209 1.0.7 */
+#mini_nav_qq_wrap{width:100%;height:25px;background:url(http://mat1.gtimg.com/www/images/nav/mini_bg.png) top left repeat-x}
+#mini_nav_qq{width:960px;height:25px; margin:0 auto;padding:0;font-size:12px;font-family:"宋体","Arial Narrow";clear:both;}
+#mini_nav_qq div{color:#666;line-height:24px;}
+#mini_nav_qq .mini_nav_fl{float:left;}
+#mini_nav_qq ul,#mini_nav_qq li{margin:0;padding:0;list-style:none;}
+#mini_nav_qq .first{padding-left:4px;}
+#mini_nav_qq .first a{padding-right:13px;background:url(http://mat1.gtimg.com/www/images/nav/mini_arrow.png)  right -1px no-repeat;}
+#mini_nav_qq .end{border:none;}
+#mini_nav_qq ul{padding:7px 3px 0 0;}
+#mini_nav_qq li{float:left;padding:0 8px;*padding-top:1px;border-right:#ddd 1px solid;line-height:12px;color:#666;}
+#mini_nav_qq a{color:#666; text-decoration:none;}
+#mini_nav_qq a:visited{color:#666;}
+#mini_nav_qq a:hover{color:#666; text-decoration: underline;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* Safari 3.0 and Opera 9 rules here */
+#mini_nav_qq{font-family:宋体, STSong;}
+}
+</style>
+<div id="mini_nav_qq_wrap">
+<div id="mini_nav_qq">
+	<div class="mini_nav_fl" bossZone="miniNav">
+		<ul>
+			<li class="first"><a href="http://www.qq.com/" target="_blank">腾讯网首页</a></li><li><a href="http://www.qq.com/map/" target="_blank">网站导航</a></li><li class="end"><a href="http://mail.qq.com/" target="_blank">邮箱</a></li>
+		</ul>
+	</div>
+	<style type="text/css">
+/*导航微博登录 v20120209 1.0.7 mblogin*/
+#site_nav_mblogin{float:right;height:25px;padding-right:8px;line-height:24px;color:#666;font-size:12px;font-family:"宋体","Arial Narrow";}
+#site_nav_mblogin div{float:left;}
+#site_nav_mblogin .mblog_logo{width:20px;height:24px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) -90px 5px no-repeat; }
+#site_nav_mblogin .mblog_logo span{display:none;}
+#site_nav_mblogin .mblog_login_info span{padding-right:12px;}
+#site_nav_mblogin .mblog_login_info em{font-family:Arial;font-style:normal;padding-right:12px;}
+#site_nav_mblogin .mblog_login_button span,#site_nav_mblogin .mblog_enter_button span{*padding-left:1px;_padding-left:1px;text-align:center;color:#fff;}
+#site_nav_mblogin .mblog_login_button,#site_nav_mblogin .mblog_enter_button{position:relative;z-index:10000;width:57px;height:17px;margin-top:2px;margin-right:12px;padding-top:2px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) 0 0 no-repeat;cursor:pointer;text-align:center;line-height:17px;overflow:visible;color:#fff;}
+#site_nav_mblogin .mblog_enter_button{display:none;}
+#site_nav_mblogin .mblog_login_text{*padding-top:1px;_padding-top:1px;}
+#site_nav_mblogin .mblog_loginout_text{display:none;*padding-top:1px;_padding-top:1px;}
+
+#site_nav_mblogin a{color:#666; text-decoration:none;}
+#site_nav_mblogin a:visited{color:#666;}
+#site_nav_mblogin a:hover{color:#666; text-decoration: underline;}
+#site_nav_mblogin .mblog_login_info em a,#site_nav_mblogin .mblog_login_info em a:visited,#site_nav_mblogin .mblog_login_info em a:hover{color:#0B3B8C}
+#site_nav_mblogin .mblog_login_info a.mbAtMe,#site_nav_mblogin .mblog_login_info a.mbAtMe:visited,#site_nav_mblogin .mblog_login_info a.mbAtMe:hover{color:#BD0A01;}
+#site_nav_mblogin .mblog_enter_button a,#site_nav_mblogin .mblog_enter_button a:visited,#site_nav_mblogin .mblog_enter_button a:hover{color:#fff;line-height:17px;}
+
+#site_nav_mblogin .mbCardUserInfo {position: absolute;z-index:999999;left:-160px; top:0;width:236px;margin-top: 26px; text-align:left;text-indent:0;overflow:visible;}
+#site_nav_mblogin .mbCardUserDetail div{line-height:18px;}
+#site_nav_mblogin .mbCardUserInfo{height:auto;padding:10px 24px 10px 10px;background:#ffffce;border:#f0e5ba 1px solid;color:#666;}
+#site_nav_mblogin .mbCardUserInfo .arrowBox{position:absolute;width:15px;height:8px;left:0;top:0;margin:-8px 0 0 180px;font-size:1px;line-height:1px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v2.png) 0 -30px no-repeat;celar:both;zoom:1;}
+#site_nav_mblogin .mbCardUserInfo .arrowBox div{font-size:1px;line-height:1px;}
+#site_nav_mblogin .mbCardUserInfo .mbClose {position:absolute;top:0;right:0;width:15px;height:15px;margin:4px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt_v3.png) 0 -45px no-repeat;font-size:1px;line-height:1px;cursor:pointer;}
+#site_nav_mblogin .mbCardUserInfo .mbClose span{display:none;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbTxt1,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbUserNick,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbFriends{color:#666;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg{padding-left:180px;text-align:left;}
+#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg a,#site_nav_mblogin .mbCardUserInfo .mbCardUserDetail .mbReg a:visited{color:#2b4a78;text-decoration:underline;}
+
+#site_nav_mblogin .mbCardUserInfo {-moz-border-radius: 6px;-moz-box-shadow: 2px 2px 2px #f0e5ba;-webkit-border-radius: 6px;-webkit-box-shadow: 2px 2px 2px #f0e5ba;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* Safari 3.0 and Opera 9 rules here */
+#site_nav_mblogin{font-family:宋体, STSong;}
+}
+
+/*=S 浮动层 */
+.share_layer { overflow:hidden; padding:7px; position:absolute; z-index:999999;zoom:1;font-size:12px; font-family:Arial, Sans-Serif; }
+.share_layer ul, .share_layer ul li { list-style-type:none; }
+.share_layer img { border:0 none; }
+.share_layer a { text-decoration:none; }
+.share_layer a:hover { text-decoration:underline; }
+.share_layer button,.share_layer label { cursor:pointer; border:0 none; }
+.share_layer input,.share_layer  button { font-size:12px; font-family:Arial, Sans-Serif; }
+.share_layer_main{ border:1px solid #b5c1ca; background-color:#FAFCFF; position:relative; z-index:5}
+.share_layer_title { height:24px; background:#EEF4F6 url(http://mat1.gtimg.com/www/images/nav/loginpop_tbg.png) repeat-x; cursor:move; border-bottom:1px solid #CED3E4; }
+.share_layer_title h3 { float:left; margin:0;padding:3px 0 0 12px; color:#666; font-size:13px;font-weight:normal; line-height:18px; overflow:hidden; font-family:Arial, Helvetica, sans-serif;}
+.share_layer_title .mblogo{ padding-left:24px;background:url(http://mat1.gtimg.com/www/images/nav/wblogin_bt1.png) -84px 6px no-repeat;}
+.share_layer .bt_close { background:url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png) no-repeat 0 -39px; width:9px; height:10px;cursor:pointer; position:absolute; right:10px; top:11px; z-index:5px;}
+.share_layer_cont a:link, .share_layer_cont a:visited { color:#5F5F5F; text-decoration:underline; }
+.share_layer_cont a:hover, .share_layer_cont a:active { color:#494949; }
+.share_layer_cont { color:#000000; background-color:#FAFCFF;}
+.share_layer_hint { color:#9E9E9E; font-style:normal; }
+.global_tip_button { text-align:center; clear:both; width:100%;}
+.bt_tip_sure, .bt_tip_cancel { background-image:url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png); background-repeat:no-repeat; background-position:0 -58px; font-size:12px; line-height:19px; width:48px; height:23px; margin-right:6px; *overflow:visible;
+_padding-top:3px; _line-height:12px; cursor:pointer; }
+*:lang(zh) .bt_tip_sure, .bt_tip_cancel {padding-top /*\**/:4px\9}
+.bt_tip_cancel { color:#4D637F; background-color:#F3F4F5; background-position:-54px -58px; }
+.icon_hint_warn, .icon_hint_succeed { background:transparent url(http://imgcache.qq.com/qzonestyle/qzone_app/app_news_share_v1/pop_bg.png) no-repeat; display:-moz-inline-stack; display:inline-block; height:15px; width:15px; vertical-align:middle; }
+.icon_hint_warn { background-position:-39px -37px; _vertical-align:-2px; }
+.icon_hint_succeed { background-position:-18px -37px; }
+.layer_popup { background-color:#FFFFFF; border:2px solid #6792bc; }
+.icon_hint_warn span, .icon_hint_succeed span { display:none; }
+.share_layer .bg {position:absolute;top:0;left:0;height:100%;padding:500px;zoom:1;}
+.share_layer .del_fri{font-weight:bold;display:-moz-inline-stack;display:inline-block;line-height:9px;width:11px;height:10px;position:absolute;top:6px;right:10px;cursor:pointer; font-family:"Comic Sans MS","Verdana", cursive; color:#99ADBA;}
+.share_layer .del_fri:hover{text-decoration:none; color:#666666;}
+.share_layer_title .none { display:none !important; }
+/*=E 浮动层 */
+</style>
+	<div id="site_nav_mblogin" class="site_nav_mblogin" bossZone="mbLogin">
+		<div class="mblog_logo"><span>腾讯微博蒲公英</span></div>
+		<div class="mblog_login_info" id="mblog_logined_info"></div>
+		<div class="mblog_login_button" id="mblog_login_button"><span>登录微博</span><div class="mbCardUserInfo" id="mbCarduserNotLogin" style="display: none;">
+				<div class="arrowBox"><div class="arrow"></div></div>
+				<div class="mbClose"><a href="#"><span>关闭</span></a></div>
+				<div class="mbCardUserDetail">
+					<div class="mbConTxt">
+						<span class="mbTxt1">加入微博，记录点滴，分享感动，握手明星</span>
+					</div>
+					<div class="mbReg"><a target="_blank" href="http://t.qq.com?pref=qqcom.toptips">开通微博</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="mblog_enter_button" id="mblog_enter_button"><span>进入微博</span></div>
+		<div class="mblog_login_text" id="mblog_login_text"><a href="http://t.qq.com/reg/index.php?pref=qqcom.mininav" target="_blank">注册</a></div>
+		<div class="mblog_loginout_text" id="mblog_logout_text"><a href="javascript:void(0)" target="_blank">退出</a></div>
+	</div>
+<script type="text/javascript">var MI = {};(function(b){var a=document.createElement("script");a.setAttribute("charset","utf-8");a.setAttribute("type","text/javascript");a.setAttribute("src",b);document.getElementsByTagName("head")[0].appendChild(a)})("http://mat1.gtimg.com/www/mb/js/portal/mi.MiniNav_110901V1.js");</script><!--[if !IE]>|xGv00|ec2f799486190ef60b5059d481cc13aa<![endif]-->
+</div>
+</div>
+<!--[if !IE]>|xGv00|24f89c934597ec92b221c567ad608d30<![endif]-->
+
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0" id="topad">
+  <tr>
+    <td width="910"><script src="http://adsrich.qq.com/web/crystal/v1.8Beta01Build015/crystal-min.js" id="l_qq_com" arguments="{'extension_js_src':'http://adsrich.qq.com/web/crystal/v1.8Beta01Build015/crystal_ext-min.js','lview_time_out':10,'mo_page_ratio':0.02,'mo_ping_ratio':0.01,'mo_ping_script':'http://adsrich.qq.com/sc/mo_ping-min.js'}"></script>
+<style>.absolute{position:absolute;}</style>
+<!--[if !IE]>|xGv00|74d18b02da58b1c04f27442c44252de9<![endif]-->
+<!--Reading_2nd_Width1_div AD begin...."l=Reading_2nd_Width1&log=off"-->
+<div id="Reading_2nd_Width1" style="width:910px;height:90px;" class="l_qq_com" ></div>
+<!--Reading_2nd_Width1 AD end -->
+<!--[if !IE]>|xGv00|f9075f237ff24b13742861894e52b4d1<![endif]-->
+<!--[if !IE]>|xGv00|8562b5198b819aae2599422d037fbd8e<![endif]-->
+
+</td>
+  </tr>
+</table>
+
+<link href="http://book.qq.com/css/luckywang/2010/wsdh15.css" rel="stylesheet" type="text/css" />
+<style>
+#navTop .so{float:right;margin:15px 10px 0 0;display:inline;width:280px}
+#navTop .so .bjk{float:left;width:202px;height:21px;background:url(http://mat1.gtimg.com/news/imgcss_article_qq/split_v4.1.png) no-repeat 0px -344px;margin-right:3px;_display:inline;padding-top:1px;padding-top:2px\0;text-align:center;}
+#navTop .so .inputstyleso{width:166px;border:0px;height:16px;margin:3px 8px 0 0;padding:0;line-height:16px;font-size:13px;}
+#navTop .so .SosoLogo {width:24px;height:16px;margin-top:3px; float:left;}
+#navTop .so .SosoLogo span {display:none}
+#navTop .so .butstyleso{width:75px;height:22px;background:url(http://mat1.gtimg.com/book/2009images/index09/tu1.png) -320px -461px;cursor:pointer;border:none;float:right}
+</style>
+<div id="navTop" class="clear">
+		<div class="logo"><a href="http://book.qq.com/"><img src="http://mat1.gtimg.com/book/2009images/index09/book_logo.png" width="123" height="29" alt="" /></a></div> 		<div class="rss"><a href="http://rss.qq.com/book.htm" target="_blank">RSS</a></div>
+		
+		<div class="so"><form name="soso_search_box" action='http://www.soso.com/q' method="get"  target="_blank"><input type="hidden" name="sc" value="web" /><input type="hidden" name="site" value="book.qq.com" /><input type="hidden" name="cid" value="w.q.book" />
+<div class="bjk"><a href="http://www.soso.com" target="_blank" class="SosoLogo"><span>SOSO</span></a><input name="w" class="inputstyleso" value="" /></div>
+<input type="submit" class="butstyleso" value=""/>
+</form>
+</div>
+</div>
+<div class="tagdh">
+	<div class="tag04" id="dhyk">
+		<ul>
+<li class="k1"><span><a href="http://book.qq.com/">读书首页</a></span></li>
+<li class="k1"><span><a href="http://book.qq.com/lianzaiindex/all/vip1_index_1.htm" target="_blank">VIP专区</a></span></li>
+<li class="k2"><span  class="active"><a href="http://book.qq.com/lianzaiindex/all/index_1.htm" target="_blank">连载书库</a></span></li>
+<li class="k1"><span><a href="http://book.qq.com/rankcount/lz_ph_click_week.htm" target="_blank">图书排行</a></span></li>
+<li class="k1"><span><a href="http://yc.qq.com/" target="_blank">原创小说</a></span></li>
+<li class="k1"><span><a href="http://book.qq.com/man/index.htm" target="_blank">原创男频</a></span></li>
+<li class="k1"><span><a href="http://book.qq.com/yc/flph/top.htm" target="_blank">原创排行</a></span></li>
+<li class="k1"><span><a href="http://mag.qq.com/" target="_blank">网络杂志</a></span></li>
+
+<li class="k1"><span><a href="http://cul.book.qq.com/ssyd/index.htm" target="_blank">文化图库</a></span></li>
+<li class="k1"><span><a href="http://book.qq.com/culture/jpsz/sz.htm" target="_blank">精彩书摘</a></span></li>
+<li class="k1"><span ><a href="http://cul.qq.com/" target="_blank">文史频道</a></span></li>
+		</ul>
+
+	</div>
+	<div id="dhykcont" align="left">
+		<div class="tagneirong" style="display:none"><span class="sjvip">&gt; <a href="http://book.qq.com/lianzaiindex/all/vip1_index_1.htm" target="_blank">升级为读书VIP</a></span><a href="http://book.qq.com/culture/zx090715/zxall.htm" target="_blank">书评·资讯</a> │ <a href="http://book.qq.com/culture/zhuanti/ztk.htm" target="_blank">活动·专题</a> │ <a href="http://qbar.book.qq.com/culture/" target="_blank">文化论坛</a> │ <a href="http://book.qq.com/culture/sslmz/index.htm" target="_blank">嘉宾访谈</a></div>
+		<div class="tagneirong" style="display:none"><span class="sjvip">&gt; <a href="http://fanli.qq.com/book/" target="_blank">QQ返利图书专区</a></span><a href="http://book.qq.com/lianzaiindex/sort3/vip1_index_1.htm" target="_blank">小说-青春</a> │ <a href="http://book.qq.com/lianzaiindex/sort4/vip1_index_1.htm" target="_blank">小说-言情</a> │ <a href="http://book.qq.com/lianzaiindex/sort6/vip1_index_1.htm" target="_blank">小说-奇侠</a> │ <a href="http://book.qq.com/lianzaiindex/sort7/vip1_index_1.htm" target="_blank">小说-悬疑</a> │ <a href="http://book.qq.com/lianzaiindex/sort39/vip1_index_1.htm" target="_blank">小说-其它</a> │ <a href="http://book.qq.com/lianzaiindex/sort13/vip1_index_1.htm" target="_blank">人文社科</a> │ <a href="http://book.qq.com/lianzaiindex/sort19/vip1_index_1.htm" target="_blank">经管励志</a> │ <a href="http://book.qq.com/lianzaiindex/all/vip0_index_1.htm" target="_blank">VIP图书总库</a> │ <a href="http://book.qq.com/lianzaiindex/all/vip2_index_1.htm" target="_blank">非包月书库</a></div>
+
+		<div class="tagneirong" ><a href="http://book.qq.com/lianzaiindex/all/index_1.htm" target="_blank">总书库</a> │ <a href="http://book.qq.com/lianzaiindex/all/vip0_index_1.htm" target="_blank">全文连载（VIP）</a> │ <a href="http://book.qq.com/lianzaiindex/sort3/index_1.htm" target="_blank">小说-青春</a> │ <a href="http://book.qq.com/lianzaiindex/sort4/index_1.htm" target="_blank">小说-言情</a> │ <a href="http://book.qq.com/lianzaiindex/sort6/index_1.htm" target="_blank">小说-奇侠</a> │ <a href="http://book.qq.com/lianzaiindex/sort7/index_1.htm" target="_blank">小说-悬疑</a> │ <a href="http://book.qq.com/lianzaiindex/sort39/index_1.htm" target="_blank">小说-其它</a> │ <a href="http://book.qq.com/lianzaiindex/sort13/index_1.htm" target="_blank">人文社科</a> │ <a href="http://book.qq.com/lianzaiindex/sort8/index_1.htm" target="_blank">生活时尚</a> │ <a href="http://book.qq.com/lianzaiindex/sort19/index_1.htm" target="_blank">经管励志</a> │ <a href="http://book.qq.com/lianzaiindex/sort24/index_1.htm" target="_blank">图文绘本</a></div>
+
+		<div class="tagneirong" style="display:none"><strong>VIP作品点击榜：</strong><a href="http://book.qq.com/rankcount/lz_ph_vip_click_day.htm" target="_blank">日</a> <a href="http://book.qq.com/rankcount/lz_ph_vip_click_week.htm" target="_blank">周</a> <a href="http://book.qq.com/rankcount/lz_ph_vip_click_month.htm" target="_blank">月</a> <a href="http://book.qq.com/rankcount/lz_ph_vip_click_all.htm" target="_blank">总</a> │ <strong>销售榜：</strong><a href="http://book.qq.com/rankcount/lz_ph_vip_buy_week.htm" target="_blank">周</a> <a href="http://book.qq.com/rankcount/lz_ph_vip_buy_month.htm" target="_blank">月</a> <a href="http://book.qq.com/rankcount/lz_ph_vip_buy_all.htm" target="_blank">总</a> │ <strong>所有作品点击榜：</strong><a href="http://book.qq.com/rankcount/lz_ph_click_day.htm" target="_blank">日</a> <a href="http://book.qq.com/rankcount/lz_ph_click_week.htm" target="_blank">周</a> <a href="http://book.qq.com/rankcount/lz_ph_click_month.htm" target="_blank">月</a> <a href="http://book.qq.com/rankcount/lz_ph_click_all.htm" target="_blank">总</a> │ 收藏榜：<a href="http://book.qq.com/rankcount/lz_ph_favor_day.htm" target="_blank">日</a> <a href="http://book.qq.com/rankcount/lz_ph_favor_week.htm" target="_blank">周</a> <a href="http://book.qq.com/rankcount/lz_ph_favor_month.htm" target="_blank">月</a> <a href="http://book.qq.com/rankcount/lz_ph_favor_all.htm" target="_blank">总</a> │ <strong>推荐榜：</strong><a href="http://book.qq.com/rankcount/lz_ph_rcm_day.htm" target="_blank">日</a> <a href="http://book.qq.com/rankcount/lz_ph_rcm_week.htm" target="_blank">周</a> <a href="http://book.qq.com/rankcount/lz_ph_rcm_month.htm" target="_blank">月</a> <a href="http://book.qq.com/rankcount/lz_ph_rcm_all.htm" target="_blank">总</a></div>
+
+		<div class="tagneirong" style="display:none"><a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0" target="_blank">作品总库</a> │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=4" target="_blank">VIP作品</a> │ <a href="http://book.qq.com/yc/flph/dcqb/dck.htm" target="_blank">已完成作品</a> │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=1" target="_blank">编辑荐文</a> │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=2" target="_blank"><strong>精华作品</strong></a> │ <a href="http://bookapp.book.qq.com/inc/ph_new_click_day_1.htm" target="_blank">排行榜</a> │ <a href="http://qbar.book.qq.com/yuanchuang/l-1198295482.htm" target="_blank">长评库</a> │ <a href="http://book.qq.com/origin/ychd/chuban.htm" target="_blank">出版基地</a> │ <a href="http://bbs.book.qq.com/ycjiaoliu" target="_blank"><strong>互动专区</strong></a><strong>：</strong> <a href="http://bbs.book.qq.com/b-1001229324" target="_blank">原创交流</a>　　<a href="http://bbs.book.qq.com/b-1001229683" target="_blank">封面申请</a>  　<a href="http://bbs.book.qq.com/b-1001230215" target="_blank">出版展示</a>  　<a href="http://bbs.book.qq.com/b-1001230216" target="_blank">社团交流</a></div>
+
+		<div class="tagneirong" style="display:none"><a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=1" target="_blank">情感：</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=6" target="_blank">现代</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=16" target="_blank">都市</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=7" target="_blank">青春</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=5" target="_blank">古典</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=8" target="_blank">穿越</a>  │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=3" target="_blank">悬疑：</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=11" target="_blank">惊悚</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=23" target="_blank">探险</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=13" target="_blank">推理</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=12" target="_blank">其他</a> │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=2" target="_blank">奇侠：</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=20" target="_blank">玄幻</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=9" target="_blank">奇幻</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=18" target="_blank">科幻</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=21" target="_blank">网游</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=10" target="_blank">武侠</a> │ <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=4" target="_blank">社会：</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=14" target="_blank">军事</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=15" target="_blank">历史</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=17" target="_blank">官场</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=22" target="_blank">职场</a> <a href="http://bookapp.book.qq.com/cgi-bin/book_list_new?lt=0&sortid=19" target="_blank">其他</a></div>
+
+		<div class="tagneirong" style="display:none">最新作品榜：<a href="http://bookapp.book.qq.com/inc/ph_new_click_day_1.htm" target="_blank">日点击榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_click_week_1.htm" target="_blank">周点击榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_favor_day_1.htm" target="_blank">日收藏榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_favor_week_1.htm" target="_blank">周收藏榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_put_day_1.htm" target="_blank">日推荐榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_put_week_1.htm" target="_blank">周推荐榜</a> │ 新作分类点击榜：<a href="http://bookapp.book.qq.com/inc/ph_new_click_total_1.htm" target="_blank">总榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_click_love_1.htm" target="_blank">言情榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_click_emprise_1.htm" target="_blank">奇侠榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_click_mystery_1.htm" target="_blank">悬疑榜</a> <a href="http://bookapp.book.qq.com/inc/ph_new_click_other_1.htm" target="_blank">其他</a> │ 作品总榜： <a href="http://bookapp.book.qq.com/inc/ph_click_total_1.htm" target="_blank">点击总榜</a> <a href="http://bookapp.book.qq.com/inc/ph_favor_total_1.htm" target="_blank">收藏总榜</a> <a href="http://bookapp.book.qq.com/inc/ph_put_total_1.htm" target="_blank">推荐总榜</a></div>
+
+		<div class="tagneirong" style="display:none"><a href="http://mag.book.qq.com/lady/index.htm" target="_blank">时尚潮流</a> │ <a href="http://mag.book.qq.com/sports/index.htm" target="_blank">体育养生</a> │ <a href="http://mag.book.qq.com/auto/index.htm" target="_blank">汽车旅游</a> │ <a href="http://mag.book.qq.com/newsmedia/index.htm" target="_blank">新闻人物</a> │ <a href="http://mag.book.qq.com/chuantong/mag.htm" target="_blank">传统杂志</a> │ <a href="http://mag.book.qq.com/mag2007/mag2k7all.htm" target="_blank">其他更多</a></div>
+		
+		<div class="tagneirong" style="display:none"><a href="http://cul.book.qq.com/ssyd/photo/xhbt/shbt.htm" target="_blank">社会百态</a> │ <a href="http://cul.book.qq.com/ssyd/photo/whyx/whdg.htm" target="_blank">文化大观</a> │ <a href="http://cul.book.qq.com/ssyd/photo/oldph/lzp.htm" target="_blank">历史老照片</a> │ <a href="http://cul.book.qq.com/ssyd/photo/mxsf/mxsf.htm" target="_blank">明星书坊</a>  │ <a href="http://cul.book.qq.com/cul/newstop.htm" target="_blank">图库排行榜</a></div>
+
+		<div class="tagneirong" style="display:none"><a href="http://book.qq.com/l/jpsz/rmsk/list2010031894552.htm" target="_blank">人文社科</a> │ <a href="http://book.qq.com/culture/jpsz/shlz/list2009111914352.htm" target="_blank">生活励志</a> │ <a href="http://book.qq.com/l/jpsz/qgtd/list2010031895213.htm" target="_blank">情感天地</a> │ <a href="http://book.qq.com/l/jpsz/qt/list2010031895306.htm" target="_blank">其他</a>  │ <a href="http://cul.book.qq.com/cul/newstop.htm" target="_blank">书摘排行榜</a></div>
+        <div class="tagneirong" style="display:none"><a href="http://book.qq.com/l/jpsz/rmsk/list2010031894552.htm" target="_blank">人文书摘</a>  │ <a href="http://w.bbs.qq.com/b-1001345248" target="_blank">艺苑长廊</a>  │ <a href="http://bbs.book.qq.com/b-1001026967" target="_blank">煮酒论史</a>  │ <a href="http://cul.book.qq.com/bookpic/lzp/laozhaopian.htm" target="_blank">老照片</a>  │ <a href="http://cul.book.qq.com/cul/newstop.htm" target="_blank">新闻排行榜</a></div>
+	</div>
+</div>
+<div id="mask"></div>
+<div id="header">
+<div class="typesFun">
+    
+    <div class="funList">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="348" height="26">
+            <table width="348" id="unlog" border="0" cellspacing="0" cellpadding="0" class="undis">
+              <tr>
+                <td width="124" height="26">收藏好书，发表原创</td>
+                <td width="66" valign="top"><input type="button" value="请登录" class="inputBtn1" onClick="LoginUc();" /></td>
+                <td width="188"><a href="javascript:LoginUc(‘http://bookapp.book.qq.com/profile/?_rt=18348');">个人中心</a> | <a href="http://support.qq.com/beta2/simple/write.html?fid=480" target="_blank">反馈</a> | <a href="http://book.qq.com/help.htm" target="_blank">帮助</a></td>
+              </tr>
+            </table>
+            <table width="368" id="logged" border="0" cellspacing="0" cellpadding="0" class="undis">
+              <tr>
+                <td width="158" height="26" align="right"><a href="http://bookapp.book.qq.com/profile/?_rt=18348" target="_blank"><span id="qbnickname"></span>的个人中心</a></td>
+                <td width="210">&nbsp;| <a href="http://bookapp.book.qq.com/cgi-bin/uc_mywork" target="_blank">管理作品</a> | <a href="javascript:LogoutUc();">退出</a> | <a href="http://support.qq.com/beta2/simple/write.html?fid=480" target="_blank">反馈</a> | <a href="http://book.qq.com/help.htm" target="_blank">帮助</a></td>
+              </tr>
+            </table>
+          </td>
+          <td width="274">
+            <form id="searchform" name="searchform" method="post" action="" target="_blank">
+              <input type="hidden" name="site" value="book.qq.com" />
+              <input type="hidden" name="cid" value="w.q.book" />
+              <input type="hidden" name="ty" value="diary" />
+              <input name="w" type="hidden"  value=""/>
+              <table width="274" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="32" height="26">搜索</td>
+                  <td width="95" valign="top">
+                    <input name="searchwhat" class="inputTxt1" value="请输入关键字" onFocus="this.value='';" onKeyDown="BindEnter('search');" />
+                  </td>
+                  <td width="86" valign="top">
+                    <select name="searchtype" id="searchtype" class="inputSel1" style="width:94px">
+                      <option value="1">图书-书名</option>
+                      <option value="3">图书-作者</option>
+                      <option value="4">图书-出版社</option>
+                      <option selected value="2">原创-综合</option>
+                      <option value="5">全站搜索</option>
+                    </select>
+                  </td>
+                  <td width="41" valign="top"><input type="submit" name="Submit" value="搜索" class="inputBtn2" onClick="return BookSearch();"/></td>
+                </tr>
+              </table>
+              <input type="hidden" name="type" /><input type="hidden" name="key" />
+            </form>
+          </td>
+          <script>
+            var PhUrlList = new Array(
+              new Array("http://bookapp.book.qq.com/inc/ph_new_click_day_1.htm", "http://bookapp.book.qq.com/inc/ph_new_click_week_1.htm", "", ""),  
+              new Array("http://bookapp.book.qq.com/inc/ph_active_click_day_1.htm", "http://bookapp.book.qq.com/inc/ph_active_click_week_1.htm", "http://bookapp.book.qq.com/inc/ph_active_click_month_1.htm", ""), 
+              new Array("", "", "", "http://bookapp.book.qq.com/inc/ph_click_total_1.htm"),  
+              new Array("http://book.qq.com/rankcount/lz_ph_click_day.htm", "http://book.qq.com/rankcount/lz_ph_click_week.htm", "http://book.qq.com/rankcount/lz_ph_click_month.htm", "http://book.qq.com/rankcount/lz_ph_click_all.htm") );            
+            var PhTypeList = new Array("日", "周", "月", "总"); 
+          </script>
+          <td width="242">
+            <table width="242" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="56" height="26">点击排行</td>
+                <td width="109" valign="top">
+                  <select class="inputSel1" style="width:102px" id="urllist" onChange="getSubUrl();">
+                    <option value="0">原创-最新作品</option>
+                    <option value="1">原创-活跃作品</option>
+                    <option value="2">原创-所有作品</option>
+                    <option value="3">读书-连载作品</option>
+                  </select>
+                </td>
+                <td width="46" valign="top">
+                  <select class="inputSel1" style="width:43px" id="phtypelist">
+                    <option value="0">日</option>
+                    <option value="1">周</option>
+                  </select>
+                </td>
+                <td valign="top"><input type="button" value="确定" class="inputBtn2" onClick="javascript:goPhPage();" /></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+<div id="mask"></div>
+<div id="loginbox"> 
+  <div id="JumpTop_nav">
+    <span id="JumpTit_nav"><img src="http://mat1.qq.com/book/images/bookapp/dot_t.gif" align="absmiddle" />登录我的个人中心</span>
+    <span id="JumpShut_nav"><a href="javascript:CancelLogin();"><img border="0" src="http://mat1.qq.com/book/images/bookapp/shut.gif" align="absmiddle" /></a></span>  </div>
+  <div><iframe width="370px" height="260px" name="login_frame" id="login_frame" frameborder="0" scrolling="no" src="about:blank"></iframe></div>
+ </div>
+<script language=javascript src="http://book.qq.com/js/bookapp/prototype.js"></script>
+<script language=javascript src="http://book.qq.com/js/bookapp/nav5.js"></script>
+<script language=javascript>
+var local = window.location.href.match(new RegExp("^http://bookapp.book.qq.com"));
+var logout_uc = NavCookie.getCookie("logout_uc");
+if (local == null && logout_uc == "1") {
+  document.write("<SC" + "RIPT langu" + "age=Jav" + "aScript src=http://bookapp.book.qq.com/cgi-bin/user_logout?cmd=js&cache=" + Math.random() + "><" + "/SCRIPT>");
+  NavCookie.setCookie("logout_uc", "0");
+}
+</script>
+<script language=javascript>
+if (local != null)
+  ShowUserInfo();
+else
+  document.write("<SC" + "RIPT langu" + "age=Jav" + "aScript src=http://bookapp.book.qq.com/cgi-bin/GetUserInfo?cmd=js&cache=" + Math.random() + "><" + "/SCRIPT>");
+</script>
+<script language=javascript>
+if (local == null)
+  ShowUserInfoComplete2(logininfo);
+</script>
+</div>
+<script>try{QosS.topSpan("book_index",5);}catch(e){}</script>
+<script type="text/javascript">
+function cleanWhitespace(element) {
+
+	for (var i = 0;i<element.childNodes.length;i++) {
+		var node = element.childNodes[i]
+		if (node.nodeType ==3 && !/\S/.test(node.nodeValue))
+		node.parentNode.removeChild(node);
+	}
+}
+
+function menuGlobal(_tab, _content, evt,_startNum,classNames){
+	this.tabs = [];
+	this.contents = [];
+	this.currentNum;
+	this.init(_tab,_content,evt,_startNum,classNames);
+}	
+menuGlobal.prototype.init = function(_tab, _content, evt,_startNum,classNames){
+	var old
+	var obj = document.getElementById(_tab)
+	var cbj = document.getElementById(_content)
+	if (!obj) return false
+	if (!cbj) return false
+	cleanWhitespace(obj)
+	cleanWhitespace(cbj)
+	this.tabs = obj.getElementsByTagName("span");
+	if (!this.tabs) return false
+	
+	for(var i=0; i<this.tabs.length; i++){
+		this.tabs[i].flag = i;
+	}
+
+	var contstemp = cbj.childNodes;
+	for(var i=0; i<contstemp.length; i++){
+		if(contstemp[i].nodeType == 1)	 this.contents.push(contstemp[i]);
+	}
+	if (_startNum>=this.tabs.length) {_startNum=0}
+	if (!_startNum){_startNum=0}
+	if (!classNames) {classNames="active"}
+	if (!evt) {evt=2}
+	
+	this.tabs[_startNum].style.display=""
+	this.tabs[_startNum].className=classNames
+	this.contents[_startNum].style.display=""
+	this.currentNum = _startNum
+	this.addEvent(evt,classNames);
+}
+
+menuGlobal.prototype.addEvent = function(evt,classNames){
+	for(var i=0; i<this.tabs.length; i++){
+		this.tabs[i].reflect = this;
+		if (evt==2) {
+			this.tabs[i].onmouseover = function(){
+				var last = this.reflect.currentNum;
+				this.reflect.contents[last].style.display="none"
+				this.reflect.contents[this.flag].style.display=""
+				
+				if (this.reflect.tabs[last].className!="active") {
+					this.reflect.tabs[last].className=old
+				}else {
+					this.reflect.tabs[last].className=""
+				}
+				
+				old = this.reflect.tabs[this.flag].className
+				if (!old) {
+				this.reflect.tabs[this.flag].className=classNames
+				} else {
+				this.reflect.tabs[this.flag].className=old+"_1"
+				}
+				
+				
+				this.reflect.currentNum = this.flag;
+				this.blur();
+				return false;
+			}
+		} else {
+			this.tabs[i].onclick = function(){
+				var last = this.reflect.currentNum;
+				this.reflect.contents[last].style.display="none"
+				this.reflect.contents[this.flag].style.display=""
+				if (this.reflect.tabs[last].className!="active") {
+					this.reflect.tabs[last].className=old
+				}else {
+					this.reflect.tabs[last].className=""
+				}
+				
+				old = this.reflect.tabs[this.flag].className
+				if (!old) {
+				this.reflect.tabs[this.flag].className=classNames
+				} else {
+				this.reflect.tabs[this.flag].className=old+"_1"
+				}
+				this.reflect.currentNum = this.flag;
+				this.blur();
+				return false;
+			}
+		}
+			
+	}
+}
+</script>
+<!--[if !IE]>|xGv00|4245164162a6bb957909a30abe029e0a<![endif]-->
+<!--[if !IE]>|xGv00|c94da1c8c487bbfbbf5aaaf33b4273fb<![endif]--> 
+
+<div id="bookNav">
+  <div> 
+    您的位置：<a href="http://book.qq.com" target="_blank">腾讯读书</a> > 
+              <a href="http://bookapp.book.qq.com/cgi-bin/lz_index" target="_blank">连载书库</a> > 
+              <a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=19" target="_blank">经管励志</a> > <a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a> > 
+              有想法的年轻人：我是特朗普接班人(全文)
+  </div>
+</div>
+<!--图书信息-->
+<div id="bookIntro">
+  <div id="bookCover"><img src="http://mat1.qq.com/book/s/201108/18/16/131365535238634.jpg"width="160" height="226" alt="我是特朗普接班人"/></div>
+  <div id="bookBrief">
+    <h1>有想法的年轻人：我是特朗普接班人(全文)</h1>
+    <p>本书非常契合当下中国的社会现实，大学毕业生就业形势严峻，创业已成为国家和高校大力推崇的渠道．谁说非要等到毕业、出了社会才能赚大钱或开创梦想的事业？如果在学校就能从事梦想的工作，不需等到走入现实社会，那不是很棒吗？不管你信与不信，其实只要边求学边创业，你就可以马上──而不是在遥远的未来──拥有一份人人称羡的工作。无论你是现年十四岁、正准备升高中的天才中学生，还是意气风发、指点江山的大学新生或是五十五岁再回校园攻读MBA的资深主管，都不例外，校园创业将使你的未来更加无可限量。他，就是活生生的例子，他的经历证明，在学校创业也可以是向更富足、充实生活（无论对自我成长或专业发展上）迈进的一大跳板。兰德尔&middot;品科特要向你证明，学业与事业可以兼顾，而创办及经营能获利的校园事业，更是许多卓越企业家的最佳起点！建立创业家的思考模式，了解并善用校园及社会的丰富资源，你也可以实践梦想、创造价值。当全世界都在等待下个世代的接班人，你的梦想不必等到学校毕业才开始！</p>
+    <div class="bookinfo">
+      <div>作 者：<span><script>document.write(splitAuthor('&#91;美]品科特'))</script>&nbsp;</span></div>
+      <div>出 版：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=press&key=陕西师范大学出版社" target="_blank">陕西师范大学出版社</a></div>
+      <div class=" tr">类 型：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=19" target="_blank">经管励志</a>&nbsp;&gt;&nbsp;<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23"  target="_blank">励志</a></div>
+      <div class="cl"></div>
+    </div>
+    <div class="bookinfo">
+      <div> 性 质  ：VIP图书</a></div>
+        <div style="width: 66%; display:1">电子书定价：4 元  <input type="button" value="" class="input3" onclick="buy()" style="cursor:hand"/>(<a href="http://pay.qq.com/service/service.shtml?sid=19" target="_blank">VIP用户</a>5折，并可免费阅读所有<a href="http://book.qq.com/lianzaiindex/all/vip1_index_1.htm" target="_blank">包月图书</a>)</div>
+      <div class="cl"></div>
+    </div>
+    <div class="bookinfo1">
+      <div class="w fl">授权连载  不得转载</div>
+      <div class="fl">
+      <form name="form1">
+      <input type="hidden" name="id" value="24871"/><input type="button" value="收藏" class="input1" onclick="collect();" style="cursor:hand;"/><input type="button" value="评论" class="input1" onclick="comment();" style="cursor:hand;"/><input type="button" value="推荐" class="input1" onclick="rcm_book();" style="cursor:hand;"/><input type="button" value="个人中心" class="input2" style="cursor:hand;" onclick="GoToUserCenter();return false;"/>
+      <input type="hidden" name="rurl" value=""/>
+      </form>
+      </div>
+      <div class="cl"></div>
+    </div>
+  </div>
+  <div class="cl"></div>
+</div>
+<!--图书信息结束-->
+<script>try{QosS.topSpan("booklz_list_page", 10);}catch(e){}</script>
+<!--相关图书，图书章节-->
+<div id="bookComment">
+  <!--相关阅读-->
+  
+  <div id="ChapterInfo">
+    <div id="Take" style="display:none"><span style="display:none"><span style="display:none"><span style="display:none">本书每0天更新0个章节</span></span></span></div>
+<div id="Take" style="display:1"><span style="display:40"><span style="display:1"><span style="display:4">本书每1天将有4个章节释放为非vip章节，至第40节；</span></span></span>本书已进入<a href="http://book.qq.com/lianzaiindex/all/vip1_index_1.htm" target="_blank">包月书库</a>，VIP用户可免费阅读</div>
+<div id="Take" style="display:none"><span style="display:40"><span style="display:1"><span style="display:4">本书每1天将有4个章节释放为非vip章节，至第40节；</span></span></span>本书将于2011年08月18日进入<a href="http://book.qq.com/lianzaiindex/all/vip1_index_1.htm" target="_blank">包月书库</a></div>
+  <div>
+    <div class="tit"><span>1</span>第一部分</div>
+    
+    <p>工作期间，我对全美和全世界逾一百所学校、估计数十万名莘莘学子发表过演说。与不同年龄层、背景、兴趣和专长的学生见面是相当愉快的经验。这么密集的演讲行程有个好处，我可以直接从有意创业的学生口中，听到各个学校在支持学生创业方面的优劣利弊。根据和学生的交流互动，我可以肯定地告诉你，在帮助学生成为一流的校园创业家这一点上，并非每所学校都站在平等的起跑点上。</p>
+	<div class="ChapterList">
+      <div class="u"></div>
+	  <table cellpadding="0" cellspacing="5" class="ilist">
+        <tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/1.shtml')" >第1节：引言(1)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/2.shtml')">第2节：引言(2)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/3.shtml')" >第3节：引言(3)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/4.shtml')">第4节：引言(4)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/5.shtml')" >第5节：引言(5)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/6.shtml')">第6节：引言(6)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/7.shtml')" >第7节：引言(7)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/8.shtml')">第8节：引言(8)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/9.shtml')" >第9节：引言(9)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/10.shtml')">第10节：学校并非生而平等——慎重选校(1)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/11.shtml')" >第11节：学校并非生而平等——慎重选校(2)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/12.shtml')">第12节：学校并非生而平等——慎重选校(3)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/13.shtml')" >第13节：学校并非生而平等——慎重选校(4)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/14.shtml')">第14节：学校并非生而平等——慎重选校(5)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/15.shtml')" >第15节：学校并非生而平等——慎重选校(6)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/16.shtml')">第16节：学校并非生而平等——慎重选校(7)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/17.shtml')" >第17节：学校并非生而平等——慎重选校(8)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/18.shtml')">第18节：学校并非生而平等——慎重选校(9)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/19.shtml')" >第19节：学校并非生而平等——慎重选校(10)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/20.shtml')">第20节：学校并非生而平等——慎重选校(11)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/21.shtml')" >第21节：学校并非生而平等——慎重选校(12)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/22.shtml')">第22节：学校并非生而平等——慎重选校(13)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/23.shtml')" >第23节：该创什么业——又该何时创业？(1)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/24.shtml')">第24节：该创什么业——又该何时创业？(2)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/25.shtml')" >第25节：该创什么业——又该何时创业？(3)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/26.shtml')">第26节：该创什么业——又该何时创业？(4)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/27.shtml')" >第27节：该创什么业——又该何时创业？(5)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/28.shtml')">第28节：该创什么业——又该何时创业？(6)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/29.shtml')" >第29节：该创什么业——又该何时创业？(7)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/30.shtml')">第30节：该创什么业——又该何时创业？(8)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/31.shtml')" >第31节：该创什么业——又该何时创业？(9)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/32.shtml')">第32节：该创什么业——又该何时创业？(10)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/33.shtml')" >第33节：该创什么业——又该何时创业？(11)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/34.shtml')">第34节：该创什么业——又该何时创业？(12)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/35.shtml')" >第35节：该创什么业——又该何时创业？(13)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/36.shtml')">第36节：该创什么业——又该何时创业？(14)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/37.shtml')" >第37节：该创什么业——又该何时创业？(15)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:1">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/38.shtml')">第38节：该创什么业——又该何时创业？(16)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:1">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/39.shtml')" >第39节：白纸黑字写下来——撰写出色的运营计划书(1)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:1">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://book.qq.com/s/book/0/24/24871/40.shtml')">第40节：白纸黑字写下来——撰写出色的运营计划书(2)</a>&nbsp;&nbsp;<span style="color:green;display:none">Vip!</span>&nbsp;<span style="color:red;display:1">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365743')" >第41节：白纸黑字写下来——撰写出色的运营计划书(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365744')">第42节：白纸黑字写下来——撰写出色的运营计划书(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365745')" >第43节：白纸黑字写下来——撰写出色的运营计划书(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365746')">第44节：白纸黑字写下来——撰写出色的运营计划书(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365747')" >第45节：白纸黑字写下来——撰写出色的运营计划书(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365748')">第46节：白纸黑字写下来——撰写出色的运营计划书(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365749')" >第47节：白纸黑字写下来——撰写出色的运营计划书(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365750')">第48节：白纸黑字写下来——撰写出色的运营计划书(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365751')" >第49节：白纸黑字写下来——撰写出色的运营计划书(11)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365752')">第50节：白纸黑字写下来——撰写出色的运营计划书(12)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365753')" >第51节：白纸黑字写下来——撰写出色的运营计划书(13)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365754')">第52节：白纸黑字写下来——撰写出色的运营计划书(14)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365755')" >第53节：组织是成功之本——打稳根基(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365756')">第54节：组织是成功之本——打稳根基(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365757')" >第55节：组织是成功之本——打稳根基(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365758')">第56节：组织是成功之本——打稳根基(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365759')" >第57节：组织是成功之本——打稳根基(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365760')">第58节：组织是成功之本——打稳根基(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365761')" >第59节：组织是成功之本——打稳根基(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365762')">第60节：组织是成功之本——打稳根基(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365763')" >第61节：组织是成功之本——打稳根基(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365764')">第62节：组织是成功之本——打稳根基(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365765')" >第63节：组织是成功之本——打稳根基(11)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365766')">第64节：组织是成功之本——打稳根基(12)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365767')" >第65节：组织是成功之本——打稳根基(13)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365768')">第66节：组织是成功之本——打稳根基(14)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365769')" >第67节：组织是成功之本——打稳根基(15)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365770')">第68节：组织是成功之本——打稳根基(16)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365771')" >第69节：高科技、低成本——善用科技的优势(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365772')">第70节：高科技、低成本——善用科技的优势(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365773')" >第71节：高科技、低成本——善用科技的优势(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365774')">第72节：高科技、低成本——善用科技的优势(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365775')" >第73节：高科技、低成本——善用科技的优势(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365776')">第74节：高科技、低成本——善用科技的优势(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365777')" >第75节：高科技、低成本——善用科技的优势(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365778')">第76节：高科技、低成本——善用科技的优势(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365779')" >第77节：高科技、低成本——善用科技的优势(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365780')">第78节：高科技、低成本——善用科技的优势(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365781')" >第79节：高科技、低成本——善用科技的优势(11)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365782')">第80节：高科技、低成本——善用科技的优势(12)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365783')" >第81节：高科技、低成本——善用科技的优势(13)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365784')">第82节：高科技、低成本——善用科技的优势(14)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365785')" >第83节：高科技、低成本——善用科技的优势(15)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365786')">第84节：高科技、低成本——善用科技的优势(16)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365787')" >第85节：钱从哪里来——筹措资金(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365788')">第86节：钱从哪里来——筹措资金(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365789')" >第87节：钱从哪里来——筹措资金(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365790')">第88节：钱从哪里来——筹措资金(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr>
+      </table>
+	  <div class="b"></div>
+	</div>
+  </div><div>
+    <div class="tit"><span>2</span>第二部分</div>
+    
+    <p>自助融资还包含许多创新的融资方式，例如动用个人存款、信用卡借款、抵押不动产借款、动用退休账户。信用卡借款不是最佳途径，但对很多刚起步的人来说是必要之举。</p>
+	<div class="ChapterList">
+      <div class="u"></div>
+	  <table cellpadding="0" cellspacing="5" class="ilist">
+        <tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365791')" >第89节：钱从哪里来——筹措资金(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365792')">第90节：钱从哪里来——筹措资金(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365793')" >第91节：钱从哪里来——筹措资金(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365794')">第92节：钱从哪里来——筹措资金(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365795')" >第93节：钱从哪里来——筹措资金(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365796')">第94节：钱从哪里来——筹措资金(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365797')" >第95节：钱从哪里来——筹措资金(11)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365798')">第96节：认识财务报表——掌握财务要点(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365799')" >第97节：认识财务报表——掌握财务要点(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365800')">第98节：认识财务报表——掌握财务要点(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365801')" >第99节：认识财务报表——掌握财务要点(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365802')">第100节：认识财务报表——掌握财务要点(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365803')" >第101节：认识财务报表——掌握财务要点(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365804')">第102节：认识财务报表——掌握财务要点(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365805')" >第103节：步步为营——管理你的风险(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365806')">第104节：步步为营——管理你的风险(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365807')" >第105节：步步为营——管理你的风险(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365808')">第106节：步步为营——管理你的风险(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365809')" >第107节：步步为营——管理你的风险(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365810')">第108节：步步为营——管理你的风险(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365811')" >第109节：步步为营——管理你的风险(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365812')">第110节：建立必胜团队——挑选优秀的员工(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365813')" >第111节：建立必胜团队——挑选优秀的员工(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365814')">第112节：建立必胜团队——挑选优秀的员工(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365815')" >第113节：建立必胜团队——挑选优秀的员工(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365816')">第114节：建立必胜团队——挑选优秀的员工(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365817')" >第115节：建立必胜团队——挑选优秀的员工(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365818')">第116节：建立必胜团队——挑选优秀的员工(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365819')" >第117节：建立必胜团队——挑选优秀的员工(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365820')">第118节：建立必胜团队——挑选优秀的员工(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365821')" >第119节：建立必胜团队——挑选优秀的员工(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365822')">第120节：别客气，尽量用——善用学校资源(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365823')" >第121节：别客气，尽量用——善用学校资源(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365824')">第122节：别客气，尽量用——善用学校资源(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365825')" >第123节：别客气，尽量用——善用学校资源(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365826')">第124节：别客气，尽量用——善用学校资源(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365827')" >第125节：别客气，尽量用——善用学校资源(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365828')">第126节：别客气，尽量用——善用学校资源(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365829')" >第127节：别客气，尽量用——善用学校资源(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365830')">第128节：“A型行为”——保持好成绩和正确的目标(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365831')" >第129节：“A型行为”——保持好成绩和正确的目标(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365832')">第130节：“A型行为”——保持好成绩和正确的目标(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365833')" >第131节：“A型行为”——保持好成绩和正确的目标(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365834')">第132节：“A型行为”——保持好成绩和正确的目标(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365835')" >第133节：“A型行为”——保持好成绩和正确的目标(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365836')">第134节：“A型行为”——保持好成绩和正确的目标(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365837')" >第135节：“A型行为”——保持好成绩和正确的目标(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365838')">第136节：“A型行为”——保持好成绩和正确的目标(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365839')" >第137节：“A型行为”——保持好成绩和正确的目标(10)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365840')">第138节：善用人脉——向教授和顾问学习(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365841')" >第139节：善用人脉——向教授和顾问学习(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365842')">第140节：善用人脉——向教授和顾问学习(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365843')" >第141节：善用人脉——向教授和顾问学习(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365844')">第142节：善用人脉——向教授和顾问学习(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365845')" >第143节：善用人脉——向教授和顾问学习(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365846')">第144节：善用人脉——向教授和顾问学习(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365847')" >第145节：善用人脉——向教授和顾问学习(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365848')">第146节：为什么要打响名号——营销和公关(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365849')" >第147节：为什么要打响名号——营销和公关(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365850')">第148节：为什么要打响名号——营销和公关(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365851')" >第149节：为什么要打响名号——营销和公关(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365852')">第150节：为什么要打响名号——营销和公关(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365853')" >第151节：为什么要打响名号——营销和公关(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365854')">第152节：为什么要打响名号——营销和公关(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365855')" >第153节：为什么要打响名号——营销和公关(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365856')">第154节：更上一层楼——把事业延伸到校园之外(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365857')" >第155节：更上一层楼——把事业延伸到校园之外(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365858')">第156节：更上一层楼——把事业延伸到校园之外(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365859')" >第157节：更上一层楼——把事业延伸到校园之外(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365860')">第158节：更上一层楼——把事业延伸到校园之外(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365861')" >第159节：更上一层楼——把事业延伸到校园之外(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365862')">第160节：更上一层楼——把事业延伸到校园之外(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365863')" >第161节：校园创业家容易犯的十一大错误(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365864')">第162节：校园创业家容易犯的十一大错误(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365865')" >第163节：校园创业家容易犯的十一大错误(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365866')">第164节：校园创业家容易犯的十一大错误(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365867')" >第165节：校园创业家容易犯的十一大错误(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365868')">第166节：校园创业家容易犯的十一大错误(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365869')" >第167节：最后的建议——给创业家的七个经验谈(1)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365870')">第168节：最后的建议——给创业家的七个经验谈(2)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365871')" >第169节：最后的建议——给创业家的七个经验谈(3)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365872')">第170节：最后的建议——给创业家的七个经验谈(4)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365873')" >第171节：最后的建议——给创业家的七个经验谈(5)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365874')">第172节：最后的建议——给创业家的七个经验谈(6)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365875')" >第173节：最后的建议——给创业家的七个经验谈(7)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365876')">第174节：最后的建议——给创业家的七个经验谈(8)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr><tr>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365877')" >第175节：最后的建议——给创业家的七个经验谈(9)</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          <td><div><a href="javascript:opennew('http://bookapp.book.qq.com/cgi-bin/lz_showvip?id=24871&cid=365878')">第176节：致谢</a>&nbsp;&nbsp;<span style="color:green;display:1">Vip!</span>&nbsp;<span style="color:red;display:none">New!</span></div></td>
+          
+        </tr>
+      </table>
+	  <div class="b"></div>
+	</div>
+  </div>  
+<!--[if !IE]>|xGv00|9de9f8abe44c92fac86f2616fc847068<![endif]-->
+    <div style="width:98%">
+        <script>
+            document.domain = 'qq.com';
+            comment_para_site = 'book';
+            comment_para_id = 29545676;
+            comment_para_is_group = 0;
+            comment_para_sum = 5;
+            comment_para_mode = '';
+            comment_para_show = 1;
+            comment_para_height = 0;
+            comment_para_style = 'http://news.qq.com/css/cmt_final_newcmt.css';
+            comment_para_submit_pos = 0;
+            comment_para_count_id = '';
+        </script>
+        <script src="http://pinglun.qq.com/js/comment_iframe.js" type="text/javascript"></script>
+    </div>
+  </div>
+  
+  <div id="Left">
+    <div class="divbd">
+      
+      <div class="tit" style="display:8;">编辑推荐</div>
+      <div id="editorGroom">
+        <div class="line"> 
+          <a href="http://book.qq.com/s/book/0/24/24483/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201107/26/17/131167370831433.jpg" width="63" height="88" alt="创业在微软" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/24/24483/index.shtml" target="_blank" title="创业在微软">创业在微软</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=许凤婷" target="_blank" title="许凤婷">许凤婷</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/24/24483/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/24/24413/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201107/21/17/131123939096699.jpg" width="63" height="88" alt="十亿美金的教训" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/24/24413/index.shtml" target="_blank" title="十亿美金的教训">十亿美金的教训</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=林军,唐宏梅" target="_blank" title="林军,唐宏梅">林军,唐..</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=74" target="_blank">经济</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/24/24413/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/24/24193/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201107/21/15/131123495218009.jpg" width="63" height="88" alt="创业：我们的故事" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/24/24193/index.shtml" target="_blank" title="创业：我们的故事">创业：我们的故事</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=中央电视台财经频道《商道·对手》栏目组" target="_blank" title="中央电视台财经频道《商道·对手》栏目组">中央电视..</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/24/24193/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/24/24108/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201106/27/16/130916434611407.jpg" width="63" height="88" alt="如何开赚钱公司" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/24/24108/index.shtml" target="_blank" title="如何开赚钱公司">如何开赚钱公司</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=凌洛妍" target="_blank" title="凌洛妍">凌洛妍</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/24/24108/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/24/24119/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201106/27/17/130916827264601.jpg" width="63" height="88" alt="我的钱" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/24/24119/index.shtml" target="_blank" title="我的钱">我的钱</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=方启沣" target="_blank" title="方启沣">方启沣</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/24/24119/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/23/23960/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201106/10/12/130768081926163.gif" width="63" height="88" alt="创业教父" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/23/23960/index.shtml" target="_blank" title="创业教父">创业教父</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=常桦" target="_blank" title="常桦">常桦</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/23/23960/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/18/18963/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/200911/26/15/125922064993999.jpg" width="63" height="88" alt="青年创业中国强" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/18/18963/index.shtml" target="_blank" title="青年创业中国强">青年创业中国强</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=高先民,张凯华" target="_blank" title="高先民,张凯华">高先民,..</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/18/18963/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div><div class="line"> 
+          <a href="http://book.qq.com/s/book/0/23/23871/index.shtml" target="_blank"><img src="http://mat1.qq.com/book/s/201105/26/17/130640041893267.jpg" width="63" height="88" alt="史玉柱的创业智慧" /></a>          
+          <p><strong><a href="http://book.qq.com/s/book/0/23/23871/index.shtml" target="_blank" title="史玉柱的创业智慧">史玉柱的创业智慧</a></strong><br />
+          作者：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=author&key=田昌宇" target="_blank" title="田昌宇">田昌宇</a><br />
+          类别：<a href="http://bookapp.book.qq.com/cgi-bin/lz_index?type=sort&key=23" target="_blank">励志</a><br />
+          <span class="fcblack">[<a href="http://book.qq.com/s/book/0/23/23871/index.shtml" target="_blank">全文阅读</a><div class="cl"></div>
+        </div>
+      </div>
+      
+    
+
+      <div class="tit">专题编辑</div>
+<div id="editor">
+<div>
+  superchan<br />
+  <a href="http://comment5.book.qq.com/comment.htm?site=book&amp;id=22104470" target="_blank">给superchan留言。。。</a>
+</div>
+</div>			<!--[if !IE]>|xGv00|51cb74b15d7c032747fcff61f94bbf15<![endif]--> 
+    </div>
+  </div>
+  <div class="cl"></div>
+</div>
+<form name="form2" target="xframe" action="http://bookapp.book.qq.com/cgi-bin/lz_recommend">
+<input type="hidden" name="id" value="24871"/>
+</form>
+
+<iframe name="xframe" width="0" height="0"></iframe>
+<script>
+	if (typeof AD2 != 'undefined') {
+		AD2.ping.flush();
+	}
+</script>
+<!--[if !IE]>|xGv00|99c120ec66e42144a84b53ea7aba389d<![endif]-->
+<style>
+#CopyRight2008 {font-size:12px;color:black;background:white;clear:both;margin:0 auto;}
+#CopyRight2008 .en{font-family:Arial;}
+#CopyRight2008 a{color:black;text-decoration: none;}
+#CopyRight2008 a:hover{color:red;text-decoration: underline;}
+</style>
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0" id="CopyRight2008">
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <tr>
+    <td height="25" align="center"><a href="http://www.tencent.com/">关于腾讯 </a> | <a href="http://www.tencent.com/index_e.shtml">About Tencent</a> | <a href="http://www.qq.com/contract.shtml">服务条款</a> | <a href="http://www.tencentmind.com/">广告服务</a> | <a href="http://hr.tencent.com/">腾讯招聘</a> | <a href="http://gongyi.qq.com/">腾讯公益</a> | <a href="http://service.qq.com/">客服中心</a> | <a href="http://www.qq.com/map/">网站导航</a></td>
+  </tr>
+  <tr>
+    <td height="46" align="center" class="en">Copyright &copy; 1998 - 2009 Tencent. All Rights Reserved <a href="http://www.sznet110.gov.cn/netalarm/index.jsp" target="_blank"><img src="http://img1.qq.com/www/pics/816/816587.gif" hspace="5" border="0" align="absmiddle" /></a></td>
+    </tr>
+  <tr>
+    <td height="25" align="center">腾讯公司 <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank">版权所有</a></td>
+  </tr>
+</table>
+<div style="display:none;">
+<script language="javascript" src="http://pingjs.qq.com/ping.js"></script>
+<script language="javascript">
+if(typeof(pgvMain) == 'function')
+{
+pvCurDomain = "lianzai.book.qq.com";//其他域名
+		pgvMain();
+}
+</script>
+
+</div><!--[if !IE]>|xGv00|56ba68c6b10b96ad221a0b4f489db837<![endif]-->
+<iframe src="http://bookapp.book.qq.com/cgi-bin/lz_click?id=24871" width="0" height="0"></iframe>
+
+<script>try{QosS.endCheck();}catch(e){}</script>
+</body>
+</html>
+<!--[if !IE]>|xGv00|e962df3bfecfcf26901add724b28dec7<![endif]-->

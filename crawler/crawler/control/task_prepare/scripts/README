@@ -1,0 +1,11 @@
+总控脚本
+ bash ./prepare_crawl_data.sh pv_log_date
+ 
+1. uv_data.sh
+  作用：处理UV数据，对其一些无用 URL，对部分 URL 加权
+  输出: key: uv, value: TaskItem(定义于craler/exchange)
+2. sort.sh
+  对 TaskItem 进行排序(根据 uv), 
+3. split_by_pri.sh
+  1. 根据 uv 对 URL分优先级
+  2. 从数据中去除 uv 字段，仅仅保留 TaskItem 数据

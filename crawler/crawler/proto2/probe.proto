@@ -1,0 +1,15 @@
+package crawler2;
+
+// 爬虫抓取请求, 用于 query 实时抓取
+message ProbeDetailCrawlRequest {
+  required string probe_detail = 1;
+  required uint32 probe_type = 2;
+  // 抓取结果的创建时间必须大于阈值, unix 时间戳, 单位秒
+  optional uint64 creation_time_threshold = 3;
+  // 抓取结果的标题长度必须大于阈值
+  optional uint64 title_len_threshold = 4;
+  // 抓取结果和 probe_detail 的相似度必须大于阈值
+  optional double rel_score_threshold = 5;
+  // 是否强制抓取
+  optional bool force_crawl = 6 [default = false];
+}

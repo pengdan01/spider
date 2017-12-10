@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <SCRIPT LANGUAGE="JavaScript">
+function closeErrors() {
+return true;
+}
+window.onerror=closeErrors;
+</SCRIPT> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <title>用户登录</title> <meta name="keywords" content=''> <meta name="description" content=''> <meta name="generator" content="ShopEx 4.8.5" /> <meta name="robots" content="noindex,noarchive,nofollow" />  <link rel="icon" href="favicon.ico" type="image/x-icon" /> <link rel="bookmark" href="favicon.ico" type="image/x-icon" /> <link rel="stylesheet" href="statics/style.css" type="text/css" /> <script type="text/javascript">
+var Shop = {"set":{"path":"\/","buytarget":"2","dragcart":null,"refer_timeout":15},"url":{"addcart":"http:\/\/www.lpfushi.com\/?cart-ajaxadd.html","shipping":"http:\/\/www.lpfushi.com\/?cart-shipping.html","payment":"http:\/\/www.lpfushi.com\/?cart-payment.html","total":"http:\/\/www.lpfushi.com\/?cart-total.html","viewcart":"http:\/\/www.lpfushi.com\/?cart-view.html","ordertotal":"http:\/\/www.lpfushi.com\/?cart-total.html","applycoupon":"http:\/\/www.lpfushi.com\/?cart-applycoupon.html","diff":"http:\/\/www.lpfushi.com\/?product-diff.html"}};
+</script> <script type="text/javascript" src="statics/script/tools.js"></script> <script type="text/javascript" src="statics/script/goodscupcake.js"></script> <script type="text/javascript">
+
+window.addEvent('domready',function(){
+			var ReferObj =new Object();
+			$extend(ReferObj,{
+				serverTime:1337061112,
+				init:function(){				
+        			var FIRST_REFER=Cookie.get('S[FIRST_REFER]');
+					var NOW_REFER=Cookie.get('S[NOW_REFER]');				
+					var nowDate=this.time=this.serverTime*1000;						
+					if(!window.location.href.test('#r-')&&!document.referrer||document.referrer.test(document.domain))return;				
+					if(window.location.href.test('#r-'))Cookie.dispose('S[N]');	
+					if(!FIRST_REFER){
+						if(NOW_REFER){
+							this.writeCookie('S[FIRST_REFER]',NOW_REFER,this.getTimeOut(JSON.decode(NOW_REFER).DATE));
+						}else{						
+							this.setRefer('S[FIRST_REFER]',Shop.set.refer_timeout);
+						}
+					}
+					this.setRefer('S[NOW_REFER]',Shop.set.refer_timeout);
+					this.createGUID();
+				},
+				getUid:function(){
+					var lf=window.location.href,pos=lf.indexOf('#r-');
+					return pos!=-1?lf.substr(pos+4):'';	
+				},
+				getRefer:function(){
+					return document.referrer?document.referrer:'';
+				},
+				setRefer:function(referName,timeout){
+					var uid=this.getUid(),referrer=this.getRefer();
+					var data={'ID':uid,'REFER':referrer,'DATE':this.time};
+					if('S[NOW_REFER]'==referName){		
+						var refer=JSON.decode(Cookie.get('S[FIRST_REFER]'));	
+						if(uid!=''&&refer&&refer.ID==''){						
+							var fdata={'ID':uid,'REFER':refer.REFER,'DATE':refer.DATE};
+							this.writeCookie('S[FIRST_REFER]',JSON.encode(fdata),this.getTimeOut(refer.DATE));							
+						}else if(uid==''){					
+							$extend(data,{'ID':refer.ID});
+						}	
+					}	
+					Cookie.set(referName,JSON.encode(data),{duration:(Shop.set.refer_timeout||15)});
+				},				
+				getTimeOut:function(nowDate){			
+				    var timeout=nowDate+Shop.set.refer_timeout*24*3600*1000;
+					var date=new Date(timeout);
+					return date;
+		 		},
+				writeCookie:function(key,value,timeout){
+					document.cookie=key+ '=' + value+'; expires=' + timeout.toGMTString();	
+				},
+				createGUID:function(){
+					var GUID = (function(){
+						var S4=function(){
+							return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+						};
+						return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4()).toUpperCase();
+					})();
+					Cookie.set('S[N]',GUID,{duration:3650});
+				}
+			});
+			ReferObj.init();
+});
+    
+
+  
+</script> <script type="text/javascript" src="statics/script/formplus.js"></script>  <link href="http://www.lpfushi.com/themes/15365/images/css.css" rel="stylesheet" type="text/css" /> <NOSCRIPT> <iframe src="*.html"></iframe> </NOSCRIPT> </head> <body> <div id="Top"> <div id="TopMenu"><ul class="menul"> <li class="sub"><a href="./?member-index.html" style=" padding-top:1px;padding-top:0px\9;padding-top:0px\0;_padding-top:1px\0; padding-left:1px;">会员中心 <comment> </a> </comment> <ins> <table> <tr> <td><ul style="border:1px solid #ccc; background:#fff; padding-right:4px;"> <li><a style=" background:url(http://www.lpfushi.com/themes/15365/images/cut.gif) right 8px no-repeat ; " href="./?member-index.html">会员中心</a></li> <li><a href="./?member-orders.html">我的订单</a></li> <li><a href="./?member-favorite.html">我的收藏</a></li> <li><a href="./?member-pointHistory.html">我的积分</a></li> </ul></td> </tr> </table> </ins></a></li> </ul><div class="menur"><a href="?sitemaps-view.html" type="url">站点地图</a>|<a href="?page-helpcenter.html" type="url">帮助中心</a>|<a href="?message.html" type="url">客户留言</a></div><div class="my_tel"></div></div> <div class="Logo"> <div class="AdvBanner">  <a href="http://www.lpfushi.com/" target="_blank"> <img src='http://www.lpfushi.com/images//20110527/c01cceb2cecd31e1.jpg' style="width:300px;height:65px;"/> </a>  </div>  </div> <div id="user_box"> <table border="0" align="right" cellpadding="0" cellspacing="0"> <tr> <td style="line-height:18px">欢迎光临良品服饰！</td> <td style="line-height:18px;line-height:16px\9;_line-height:16px;">您好<span id="uname_widgets_596"></span>！  <span id="loginBar_widgets_596">  <a href="http://www.lpfushi.com/?passport-login.html">[请登录]</a>&nbsp;&nbsp;  <a href="http://www.lpfushi.com/?passport-signup.html">[免费注册]</a> </span>  </td> </tr> </table> </div> </div> <div class="menubg"> <div class="menubox"> <div id="Menu"><style id="widwidgets_590_style"> .GoodsDropNavs { float:left; height:40px;background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/menu_r.gif") no-repeat left; padding-top:0px;} .n-cat-depth-1 { float:left;height:36px; background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/menu_r.gif") no-repeat right ; padding:4px 6px 0 3px; } .n-cat-depth-1 .depth-1 { display:block; _width:1px; white-space:nowrap; font-size:14px; height:36px; line-height:31px; line-height:36px\9; _line-height:36px; color:#FFF; } .n-cat-depth-1 .depth-1 em { display:block; height:25px; line-height:28px;_line-height:30px; overflow:hidden; font-weight:bold} .n-cat-depth-1 .current, .n-cat-depth-1 .depth-1:hover { background:#FFF url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/n_cat_icon.gif") no-repeat right 0px; color:#C00; } .n-cat-depth-1 .current { background-color:#FFF; } .n-cat-depth-1 .current em, .n-cat-depth-1 .depth-1:hover em { background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/n_cat_icon.gif") no-repeat -84px 0;color:#C00; } .n-cat-depth-1 a:hover { text-decoration:none; } .GoodsDropNavs .nobg { background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/menu_r.gif") no-repeat right ;padding:4px 6px 0 3px; } .n-cat-popup { position:absolute;z-index:999; background:#FFF; border:1px solid #C00; margin:-2px 0 0 -1px; width:301px; overflow:hidden } .n-cat-popup a { display:block; white-space:nowrap; height:21px; line-height:20px; line-height:24px\9; _line-height:21px; }  .n-cat-drop-2 { padding:0 0 10px 0; width:150px; } .n-cat-drop-2 .n-cat-depth-0{ border-bottom:1px solid #ddd; width:90%; margin:0 auto;font-weight:bold; color:#333; padding:4px 0; margin-bottom:5px;} .n-cat-drop-2 li { } .n-cat-drop-2 li a { font-size:12px; padding:0 0 0 20px;background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/m_cat_icon.gif") no-repeat 10px -99px; color:#333; } .n-cat-drop-2 li a:hover { background:#C00 ; color:#FFF; } .n-cat-popup a.now { background-color:#EEE; color:#F30; }  .m-cat-drop-2 {padding:0 0 10px 0;background:#F4F8F9 ; width:150px; border-left:#D8E2EC 1px solid;} .m-cat-drop-2 .m-cat-depth-0 { font-weight:700; width:90%; margin:0 auto; border-bottom:1px solid #ddd; padding:4px 0 ; color:#3D5092;} .m-cat-drop-2 .m-cat-depth-0 a { background:url("http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/m_cat_icon.gif") no-repeat 0 -99px; padding-left:12px; } .m-cat-drop-2 .m-cat-depth-2 { margin-top:2px; height:20px; overflow:hidden; } .m-cat-drop-2 .m-cat-depth-2 a {padding-left:12px; font-weight:400; color:#3D5092; } .m-cat-drop-2 .m-cat-depth-2 a:hover { background-color:#CDE7FA; color:#3D5092; } .m-cat-drop-2 .bold a { font-weight:700; } .m-cat-drop-3 { width:100%; clear:both; } .m-cat-drop-2 .brand{ border-bottom:1px solid #ddd; margin-bottom:5px; padding-bottom:5px; } .m-cat-drop-2 .tagtree { padding-top:5px;} .m-cat-drop-2 .tagtree a { color:#CC0000 ;padding:0px 0 0 10px; } .m-cat-drop-2 .tagtree a:hover { background-color:#CDE7FA;color:#CC0000; } .m-cat-drop-2 .tagtree .now a { background-color:none; } </style> <script>window.addEvent('domready',function(){$('widwidgets_590_style').inject($E('link'), 'before');})</script> <ul class="GoodsDropNavs"> <li class="n-cat-depth-1 nobg"><a class="depth-1" href="./"><em>首页</em></a></li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-26.html"><em>外套</em></a>  <table cellpadding="0" cellspacing="0" border="0" class="n-cat-popup" style="display:none;"> <tr>  <td class="n-cat-drop-2"><ul > <li class="n-cat-depth-0"><span>功能分类</span></li>  <li  ><a href="http://www.lpfushi.com/?gallery-27.html">夹克</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-28.html">卫衣</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-29.html">大衣 风衣</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-30.html">棉衣</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-31.html">羽绒服</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-32.html">皮衣</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-33.html">西服</a> </li>  </ul></td>  <td class="m-cat-drop-2" ><ul class="brand" > <li class="m-cat-depth-0"><span>品牌分类</span></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,21-0--1--grid.html">ESprit(2)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,23-0--1--grid.html">POLO(6)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,25-0--1--grid.html">D&G(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,26-0--1--grid.html">Levis(7)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,27-0--1--grid.html">G-Star(5)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,29-0--1--grid.html">ZARA(5)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,31-0--1--grid.html">Calvin Klein(5)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,33-0--1--grid.html">JACKJONES(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,35-0--1--grid.html">Jeep(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,40-0--1--grid.html">MONCLER(4)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-26-b,41-0--1--grid.html">TK MAXWEAR(4)</a></li>  </ul> <ul class="tagtree"> <li><a href="./?gallery-26--8--1--grid.html">畅销排行</a></li> <li ><a href="./?gallery-26--1--1--grid.html">最新到货 立即抢购</a></li> </ul></td> </tr> </table>  </li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-34.html"><em>针织衫 毛衣</em></a>  <table cellpadding="0" cellspacing="0" border="0" class="n-cat-popup" style="display:none; width:150px;"> <tr>  <td class="n-cat-drop-2"><ul > <li class="n-cat-depth-0"><span>功能分类</span></li>  <li  ><a href="http://www.lpfushi.com/?gallery-46.html">圆领</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-47.html">V领</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-51.html">开身</a> </li>  </ul></td>  </tr> <tr> <td class="m-cat-drop-2" ><ul class="tagtree" style="border-top:#D8E2EC 1px solid"> <li><a href="./?gallery-34--8--1--grid.html">畅销排行</a></li> <li ><a href="./?gallery-34--1--1--grid.html">最新到货 立即抢购</a></li> </ul></td> </tr> </table>  </li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-35.html"><em>T恤</em></a>  <table cellpadding="0" cellspacing="0" border="0" class="n-cat-popup" style="display:none;"> <tr>  <td class="n-cat-drop-2"><ul > <li class="n-cat-depth-0"><span>功能分类</span></li>  <li  ><a href="http://www.lpfushi.com/?gallery-36.html">圆领</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-37.html">翻领</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-38.html">V领</a> </li>  </ul></td>  <td class="m-cat-drop-2" ><ul class="brand" > <li class="m-cat-depth-0"><span>品牌分类</span></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,21-0--1--grid.html">ESprit(2)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,26-0--1--grid.html">Levis(19)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,29-0--1--grid.html">ZARA(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,31-0--1--grid.html">Calvin Klein(14)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,33-0--1--grid.html">JACKJONES(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,36-0--1--grid.html">PLAY(2)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,37-0--1--grid.html">DEVIL(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-35-b,38-0--1--grid.html">STAY(3)</a></li>  </ul> <ul class="tagtree"> <li><a href="./?gallery-35--8--1--grid.html">畅销排行</a></li> <li ><a href="./?gallery-35--1--1--grid.html">最新到货 立即抢购</a></li> </ul></td> </tr> </table>  </li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-39.html"><em>衬衫</em></a>  <table cellpadding="0" cellspacing="0" border="0" class="n-cat-popup" style="display:none;"> <tr>  <td class="n-cat-drop-2"><ul > <li class="n-cat-depth-0"><span>功能分类</span></li>  <li  ><a href="http://www.lpfushi.com/?gallery-48.html">长袖</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-49.html">短袖</a> </li>  </ul></td>  <td class="m-cat-drop-2" ><ul class="brand" > <li class="m-cat-depth-0"><span>品牌分类</span></li>  <li class="m-cat-depth-2"><a href="./?gallery-39-b,26-0--1--grid.html">Levis(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-39-b,31-0--1--grid.html">Calvin Klein(2)</a></li>  </ul> <ul class="tagtree"> <li><a href="./?gallery-39--8--1--grid.html">畅销排行</a></li> <li ><a href="./?gallery-39--1--1--grid.html">最新到货 立即抢购</a></li> </ul></td> </tr> </table>  </li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-40.html"><em>下装</em></a>  <table cellpadding="0" cellspacing="0" border="0" class="n-cat-popup" style="display:none;"> <tr>  <td class="n-cat-drop-2"><ul > <li class="n-cat-depth-0"><span>功能分类</span></li>  <li  ><a href="http://www.lpfushi.com/?gallery-41.html">牛仔裤</a> </li>  <li class="rt" ><a href="http://www.lpfushi.com/?gallery-42.html">休闲裤</a> </li>  <li  ><a href="http://www.lpfushi.com/?gallery-43.html">中裤</a> </li>  </ul></td>  <td class="m-cat-drop-2" ><ul class="brand" > <li class="m-cat-depth-0"><span>品牌分类</span></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,21-0--1--grid.html">ESprit(4)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,22-0--1--grid.html">BURBERRY(5)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,26-0--1--grid.html">Levis(13)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,29-0--1--grid.html">ZARA(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,30-0--1--grid.html">Lee(4)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,31-0--1--grid.html">Calvin Klein(3)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,32-0--1--grid.html">adidas(2)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,33-0--1--grid.html">JACKJONES(2)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,35-0--1--grid.html">Jeep(1)</a></li>  <li class="m-cat-depth-2"><a href="./?gallery-40-b,36-0--1--grid.html">PLAY(6)</a></li>  </ul> <ul class="tagtree"> <li><a href="./?gallery-40--8--1--grid.html">畅销排行</a></li> <li ><a href="./?gallery-40--1--1--grid.html">最新到货 立即抢购</a></li> </ul></td> </tr> </table>  </li>  <li class="n-cat-depth-1"> <a class="depth-1" href="http://www.lpfushi.com/?gallery-45.html"><em>服饰配件</em></a>  </li>  </ul> <script src="http://www.lpfushi.com/plugins/widgets/Tisiongoodscat1/images/cats.pack.js" type="text/javascript"></script> </div> <div id="class_menu"></div> <div id="Search"> <div class="l"><form action="http://www.lpfushi.com/?search-result.html" method="post" class="SearchBar"> <table cellpadding="0" cellspacing="0"> <tr> <td class="search_label"> <span>关键字：</span> <input name="name[]" size="10" class="inputstyle keywords" value="" /> </td>  <td><input type="submit" value="搜索" class="btn_search" onfocus='this.blur();'/> </td> <td><a href="http://www.lpfushi.com/?search.html" class="btn_advsearch">高级搜索</a> </td> </tr> </table> </form> </div> <div class="hotsear"><div class="border1 " id="widgets_692"> <div class="border-top"><h3></h3></div> <div class="border-body"><div class="AdvBanner">  <a href="" target="_blank"> <img src='http://www.lpfushi.com/images//20110614/11d9e3b32e6a54d0.jpg' style="width:540px;height:26px;"/> </a>  </div> </div> </div></div><div class="mycar"> <span id="foobar_widgets_593" style="position: relative;"> <span id="uname_widgets_593" style=" display:none"></span>  <span id="loginBar_widgets_593" style=" display:none">  <a href="http://www.lpfushi.com/?passport-login.html">[请登录]</a>&nbsp;&nbsp;  <a href="http://www.lpfushi.com/?passport-signup.html">[免费注册]</a> </span>  <a href="http://www.lpfushi.com/?cart.html" target="_blank" class="cart-container"> 购物车中有 <span id="Cart_widgets_593" class="cart-number">0</span> 件商品 </a>  </span>  <script>
+/*
+*foobar update:2009-9-8 13:46:55
+*@author litie[aita]shopex.cn
+*-----------------*/
+window.addEvent('domready',function(){
+       var barId ="widgets_593";
+       var bar = $('foobar_'+barId);
+
+       var barOptions = {
+           MID:Cookie.get('S[MEMBER]'),
+           uname:Cookie.get('S[UNAME]'),
+           coin:[{"cur_code":"CNY","cur_name":"\u4eba\u6c11\u5e01","cur_sign":"\uffe5","cur_rate":"1.0000","def_cur":"true","disabled":"false"}],
+           curCoin:Cookie.get('S[CUR]'),
+           cartViewURl:'http://www.lpfushi.com/?cart-view.html',
+           stick:false       };
+       if(barOptions.MID){$('uname_'+barId).setText(barOptions.uname);}
+       /*if(barOptions.MID){
+          $('loginBar_'+barId).hide();
+         $('memberBar_'+barId).show();
+          $('uname_'+barId).setText(barOptions.uname);
+       }else{
+          $('loginBar_'+barId).setStyle('visibility','visible');
+       }*/
+
+       if(coinBar=$('Cur_sel_'+barId)){
+             
+           var coinMenu = new Element('div',{'class':'coinmenu fmenu','styles':{'display':'none'}}).inject(document.body);
+    
+           barOptions.coin.each(function(item){
+                
+                if(item['cur_code']==barOptions['curCoin']){
+                   coinBar.getElement('strong').set('text',[item.cur_sign,item.cur_name].join(''));
+                }
+                coinMenu.adopt(new Element('div',{'class':'item',text:[item.cur_sign,item.cur_name].join(''),events:{
+                      
+                      click:function(){
+                          Cookie.set('S[CUR]',item.cur_code);
+                          window.location.href=window.location.href;
+                      }
+                
+                }}));
+           });
+           
+            coinBar.addEvents({
+                'mouseenter':function(){
+                   coinMenu.setStyles({
+                      top:coinBar.getPosition().y+coinBar.getSize().y,
+                      left:coinBar.getPosition().x,
+                      display:'block',
+                      visibility:'visible'
+                   });
+                }
+            });
+            new QMenu(coinBar,coinMenu);
+            
+       }
+       
+       if(cartCountBar = $('Cart_'+barId)){
+         cartCountBar.setText(Cookie.get('S[CART_COUNT]')?Cookie.get('S[CART_COUNT]'):0);
+            var cartViewMenu =  new Element('div',{'class':'cartviewmenu fmenu','styles':{'display':'none'}}).inject(document.body);
+            cartCountBar.addEvents({
+                 'mouseenter':function(){
+                   cartViewMenu.setStyles({
+                      top:bar.getPosition().y+bar.getSize().y,
+                      left:bar.getPosition().x,
+                      width:bar.getSize().x,
+                      display:'block',
+                      visibility:'visible'
+                   }).set('html','<div class="note">正在加载购物车信息...</div>');
+                    this.retrieve('request',{cancel:$empty}).cancel();
+                    this.store('request',new Request.HTML({update:cartViewMenu}).get(barOptions.cartViewURl));
+                }
+            });
+             new QMenu(cartCountBar,cartViewMenu);
+            
+      }
+
+});
+</script> </div> </div> </div> </div>  <div class="MainWrap"> <div class="Mainb"> <div class="path"></div>  <div class="PassportWrap"><form method="post" action='http://www.lpfushi.com/?passport-verify.html' class='loginform'> <input type="hidden" name="isfastbuy" value="">  <div class="RegisterWrap" style="width:420px; float:left; padding:5px;"> <h4 style="float:left;">已注册用户，请登录</h4>  <div style="clear:both;"></div> <div class="intro" ><div class="customMessages">如果您已是本站会员，请登录<br>（此为默认内容，具体内容可以在后台“页面管理-提示信息管理”中修改）
+<br></div></div>  <div id="formlogin" class="form"> <input name="forward" type="hidden" value=""> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <th><i>*</i>用户名：</th> <td><input autocomplete="off" class="x-input inputstyle" name="login" class="inputstyle" required="true" id="in_login" tabindex="1" type="text" /><a style="margin-left:6px; " href="http://www.lpfushi.com/?passport-signup.html">立即注册</a></td> </tr> <tr> <th><i>*</i>密码：</th> <td><input autocomplete="off" class="x-input inputstyle" name="passwd" class="inputstyle" type="password" required="true" id="in_passwd" tabindex="2" /><a style="margin-left:6px;" href="http://www.lpfushi.com/?passport-lost.html">忘记密码？</a></td> </tr>  <tr> <th></th> <td><input class="actbtn btn-login" type="submit" value="登录" tabindex="4" /> <input type="hidden" name="forward" value=""> </td> </tr> </table>  </div> <input type='hidden' name='ref_url' value='http://www.lpfushi.com/?member.html'/> </div>  <div class="clearfix"></div> </form>  <script>
+window.addEvent('domready',function() {
+	
+	if(!$('iframemask'))return;
+$('iframemask').width= $('mini-loginform').getCoordinates().width;
+$('iframemask').height= $('mini-loginform').getCoordinates().height;
+	
+ 
+
+});
+
+</script> </div>  </div> <div class="leftColumn"> <div class="border2 " id="shop_list"> <div class="border-top"><h3>商品分类</h3></div> <div class="border-body"> <div class="GoodsCategoryWrap"> <ul>  <li class="c-cat-depth-1" id="classbox_26"><a href="http://www.lpfushi.com/?gallery-26.html" class="cur_path">外套</a> <script>
+$('classbox_26').addClass('class_26');
+</script>  <ul class="no_show">  <li class="c-cat-depth-2" id="classbox_27"><a href="http://www.lpfushi.com/?gallery-27.html" id="cur_path27">夹克</a> <script>
+$('classbox_26').addClass('class_27');
+$('classbox_27').addClass('class_27');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_28"><a href="http://www.lpfushi.com/?gallery-28.html" id="cur_path28">卫衣</a> <script>
+$('classbox_26').addClass('class_28');
+$('classbox_28').addClass('class_28');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_29"><a href="http://www.lpfushi.com/?gallery-29.html" id="cur_path29">大衣 风衣</a> <script>
+$('classbox_26').addClass('class_29');
+$('classbox_29').addClass('class_29');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_30"><a href="http://www.lpfushi.com/?gallery-30.html" id="cur_path30">棉衣</a> <script>
+$('classbox_26').addClass('class_30');
+$('classbox_30').addClass('class_30');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_31"><a href="http://www.lpfushi.com/?gallery-31.html" id="cur_path31">羽绒服</a> <script>
+$('classbox_26').addClass('class_31');
+$('classbox_31').addClass('class_31');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_32"><a href="http://www.lpfushi.com/?gallery-32.html" id="cur_path32">皮衣</a> <script>
+$('classbox_26').addClass('class_32');
+$('classbox_32').addClass('class_32');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_33"><a href="http://www.lpfushi.com/?gallery-33.html" id="cur_path33">西服</a> <script>
+$('classbox_26').addClass('class_33');
+$('classbox_33').addClass('class_33');
+</script> </li>  </ul>  <div class="clear"></div></li>  <li class="c-cat-depth-1" id="classbox_34"><a href="http://www.lpfushi.com/?gallery-34.html" class="cur_path">针织衫 毛衣</a> <script>
+$('classbox_34').addClass('class_34');
+</script>  <ul class="no_show">  <li class="c-cat-depth-2" id="classbox_46"><a href="http://www.lpfushi.com/?gallery-46.html" id="cur_path46">圆领</a> <script>
+$('classbox_34').addClass('class_46');
+$('classbox_46').addClass('class_46');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_47"><a href="http://www.lpfushi.com/?gallery-47.html" id="cur_path47">V领</a> <script>
+$('classbox_34').addClass('class_47');
+$('classbox_47').addClass('class_47');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_51"><a href="http://www.lpfushi.com/?gallery-51.html" id="cur_path51">开身</a> <script>
+$('classbox_34').addClass('class_51');
+$('classbox_51').addClass('class_51');
+</script> </li>  </ul>  <div class="clear"></div></li>  <li class="c-cat-depth-1" id="classbox_35"><a href="http://www.lpfushi.com/?gallery-35.html" class="cur_path">T恤</a> <script>
+$('classbox_35').addClass('class_35');
+</script>  <ul class="no_show">  <li class="c-cat-depth-2" id="classbox_36"><a href="http://www.lpfushi.com/?gallery-36.html" id="cur_path36">圆领</a> <script>
+$('classbox_35').addClass('class_36');
+$('classbox_36').addClass('class_36');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_37"><a href="http://www.lpfushi.com/?gallery-37.html" id="cur_path37">翻领</a> <script>
+$('classbox_35').addClass('class_37');
+$('classbox_37').addClass('class_37');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_38"><a href="http://www.lpfushi.com/?gallery-38.html" id="cur_path38">V领</a> <script>
+$('classbox_35').addClass('class_38');
+$('classbox_38').addClass('class_38');
+</script> </li>  </ul>  <div class="clear"></div></li>  <li class="c-cat-depth-1" id="classbox_39"><a href="http://www.lpfushi.com/?gallery-39.html" class="cur_path">衬衫</a> <script>
+$('classbox_39').addClass('class_39');
+</script>  <ul class="no_show">  <li class="c-cat-depth-2" id="classbox_48"><a href="http://www.lpfushi.com/?gallery-48.html" id="cur_path48">长袖</a> <script>
+$('classbox_39').addClass('class_48');
+$('classbox_48').addClass('class_48');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_49"><a href="http://www.lpfushi.com/?gallery-49.html" id="cur_path49">短袖</a> <script>
+$('classbox_39').addClass('class_49');
+$('classbox_49').addClass('class_49');
+</script> </li>  </ul>  <div class="clear"></div></li>  <li class="c-cat-depth-1" id="classbox_40"><a href="http://www.lpfushi.com/?gallery-40.html" class="cur_path">下装</a> <script>
+$('classbox_40').addClass('class_40');
+</script>  <ul class="no_show">  <li class="c-cat-depth-2" id="classbox_41"><a href="http://www.lpfushi.com/?gallery-41.html" id="cur_path41">牛仔裤</a> <script>
+$('classbox_40').addClass('class_41');
+$('classbox_41').addClass('class_41');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_42"><a href="http://www.lpfushi.com/?gallery-42.html" id="cur_path42">休闲裤</a> <script>
+$('classbox_40').addClass('class_42');
+$('classbox_42').addClass('class_42');
+</script> </li>  <li class="c-cat-depth-2" id="classbox_43"><a href="http://www.lpfushi.com/?gallery-43.html" id="cur_path43">中裤</a> <script>
+$('classbox_40').addClass('class_43');
+$('classbox_43').addClass('class_43');
+</script> </li>  </ul>  <div class="clear"></div></li>  <li class="c-cat-depth-1"><a href="http://www.lpfushi.com/?gallery-45.html">服饰配件</a></li>  <div class="clear"></div> </ul> </div> </div> </div><div class="border2 " id="his_views"> <div class="border-top"><h3>您浏览过的商品</h3></div> <div class="border-body"><div class="GoodsBrowsed" id="box_his_views" > </div> <script>
+withBroswerStore(function(broswerStore){
+var box=$('box_his_views');;
+broswerStore.get('history',function(v){
+v=JSON.decode(v);
+if(!v||!v.length)return;
+      var html='';
+      var template = '<div class="clearfix">';
+          template+='<div class="span-2 goodpic">';
+          template+= '<a href="http://www.lpfushi.com/?product-{goodsId}-index.html" target="_blank" title="{goodsName}" inner_img="{goodsImg}" gid="{goodsId}">';
+          template+= '</a>';
+          template+= '</div><div class="prepend-2 goodsName">';
+          template+= '<div class="view-time">{viewTime}</div>';
+          template+='<a href="http://www.lpfushi.com/?product-{goodsId}-index.html" target="_blank" title="{goodsName}">{goodsName}</a></div></div><hr/>';
+      
+      var max=Math.min(v.length,3);
+      if(v.length>1)
+      v.reverse();
+      
+      v.each(function(goods,index){
+      var vt = ($time() - goods['viewTime']);
+          vt = Math.round(vt/(60*1000))+'分钟前浏览过:';
+      if(vt.toInt()>=60){
+        vt = Math.round(vt.toInt()/60)+'小时前浏览过:';
+        if(vt.toInt()>23){
+           vt = Math.round(vt.toInt()/24)+'天前浏览过:';
+           if(vt.toInt()>3){
+             vt = new Date(goods['viewTime']).toLocaleString()+'浏览过:';
+           }
+        } 
+       };
+       if(!!!vt.toInt()){vt='刚才浏览了:'}
+       goods['viewTime'] = vt;
+       if(index<max)
+       html += template.substitute(goods);
+      });
+      
+      $('box_his_views').set('html',html);
+      
+    $ES('.goodpic',box).each(function(i){
+          var imga=$E('a',i);
+          var imgsrc=imga.get('inner_img');
+          if(!imgsrc){
+            imgsrc = "http://www.lpfushi.com/images/default/default_thumbnail_pic.gif";
+          }
+          imga.setText('loading...');
+       new Asset.image(imgsrc,{onload:function(){
+                var img=$(this);
+                if(img.$e)return;
+                img.zoomImg(70,70);
+                img.inject(imga.empty());
+                img.$e=true;
+            },onerror:function(){
+            
+                imga.setText('update...');
+                var gid = imga.get('gid');
+                 new Request.JSON({method:'get',url:"http://www.lpfushi.com/?product-picsJson.html",onComplete:function(data){
+                     new Asset.image(data[0]['thumbnail_pic'],{onload:function(){
+                        var img=$(this);
+                        if(img.$e)return;
+                        img.zoomImg(70,70);
+                        img.inject(imga.empty());
+                        img.$e=true;
+                      },onerror:function(){
+                         imga.remove();
+                      }});
+                      
+                      v.map(function(goods,index){
+                           if(index<max&&goods['goodsId']==gid){
+                                return goods['goodsImg']='';
+                           }else{
+                                return goods['goodsImg']=data[0]['thumbnail_pic'];
+                           }
+                      });
+                    broswerStore.set('history',v);
+                 }}).get($H({'gids':gid}));
+                
+            
+            }
+        });          
+      });
+
+});
+
+
+});
+</script> <div class="textright"> <a class="lnk clearAll" onclick="if(broswerStore){broswerStore.remove('history');$('box_his_views').empty()}">清除列表</a> | <a class="lnk viewAll" href="http://www.lpfushi.com/?tools-history.html">查看所有</a><span>&nbsp;&nbsp;</span> </div> </div> </div> </div> <div class="clear"></div> </div> <div class="clear h8"></div> <div class="clear"></div> <div id="Foot"> <div class="bot_help"> <table border="0" width="100%" align="center" cellpadding="0" cellspacing="0"> <tr> <td class="caps_c"><p><font size="5">&nbsp;&nbsp;</font><font size="4"><font face="Times New Roman"><font color="#ff0000">(0)</font><font color="#ff0000">13512192661</font></font></font></p><div style="text-align: center;">&nbsp;&nbsp; 留言板 <a href="?message.html" type="url">点击进入</a></div> </td> <td class="caps_a capsb1"><div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-shoppingguide.html" >购物指南</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-nonmember.html" >非会员购物通道</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-service.html" >体贴的售后服务</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-terms.html" >网站使用条款</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-disclaimer.html" >网站免责声明</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-process.html" >简单的购物流程</a></div> </div></td> <td class="caps_a capsb2"><div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-method.html" >支付/配送方式</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-payment.html" >支付方式</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-shipping.html" >配送方式</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-onlinepayment.html" >网上支付小贴士</a></div> </div></td> <td class="caps_a capsb3"><div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-newguide.html" >新手上路</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-notice.html" >顾客必读</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-memberrank.html" >会员等级折扣</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-orderstatus.html" >订单的几种状态</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-returngood.html" >商品退货保障</a></div> </div></td> <td class="caps_a capsb4"><div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-shoppingrule.html" >数据包</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-license.html" >会员注册协议</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?page-%E6%95%B0%E6%8D%AE%E5%8C%85%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html" >数据包使用指南</a></div> </div></td> <td class="caps_b capsb5"><div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-%E5%85%B6%E4%BB%96%E9%A1%BB%E7%9F%A5.html" >其他须知</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?custompage-191.html" >订单何时出库</a></div> <div class="cat2"><a href="http://www.lpfushi.com/?custompage-193.html" >关于送货和验货</a></div> </div></td> </tr> </table> </div> <div id="flink"> <div class="AdvBanner">  <a href="http://www.lpfushi.com/" target="_blank"> <img src='http://www.lpfushi.com/images//20110527/bdef6484740722fb.jpg' style=""/> </a>  </div>  </div> <div id="FootMenu"> <div class="TreeList">  <div class="cat1"><a href="http://www.lpfushi.com/?page-about.html" >关于我们</a></div> <div class="cat1"><a href="http://www.lpfushi.com/?page-contact.html" >退换货地址</a></div> <div class="cat1"><a href="http://www.lpfushi.com/?page-jobs.html" >招聘信息</a></div> <div class="cat1"><a href="http://www.lpfushi.com/?page-business.html" >业务合作</a></div> <div class="cat1"><a href="http://www.lpfushi.com/?sitemaps-view.html" >站点地图</a></div> <div class="cat1"><a href="http://www.lpfushi.com/?artlist-179.html" >站点公告</a></div> </div> </div> <img src="index.php?cron=passport%3Alogin&p=aHR0cDosLHd3dy5scGZ1c2hpLmNvbSw%2FbWVtYmVyLTIwMTIwNDE0MTM3Mjg3LW9yZGVyZGV0YWlsLmh0bWw%3D" width="1" height="1" border="none" /> <div id='template-modal' style='display:none;'> <div class='dialog'> <div class='dialog-title'> <div class='title span-auto'>{title}</div> <div class='dialog-close-btn' >X</div> <div style="clear:both"></div> </div> <div class='dialog-content'> {content} </div> </div> </div>  <script>
+/*
+快速 注册登陆 
+@author litie[aita]shopex.cn
+  [c] shopex.cn  
+*/
+  
+   window.addEvent('domready',function(){
+         var curLH = location.href;
+        
+         if(["-?login\.html","-?signup\.html","-?loginBuy\.html"].some(function(r){
+                return curLH.test(new RegExp(r));
+            })){return false;}
+         var MiniPassport = new Object();
+         var miniPassportDialog = new Element('div',{'class':'dialog mini-passport-dialog','id':'dialog1'}).set('html',$E('#template-modal .dialog').get('html').substitute({
+                      title:'登录',
+                      content:''
+                  })).setStyles({
+                      display:'none',
+                      width:0,
+                      height:'auto'
+                  }).adopt(new Element('iframe',{src:'javascript:void(0);',styles:{position:'absolute',
+                                                                                       zIndex:-1,
+                                                                                       border:'none',
+                                                                                       top:0,
+                                                                                       left:0,
+                                                                                       'filter':'alpha(opacity=0)'
+                                                                                       },width:'100%',height:'100%'})).inject(document.body);
+  
+         var mpdSize = {
+              loginBuy:{width:570},
+              signup:{width:600,height:'auto'},
+              login:{width:430,height:300},
+              chain:{width:450}              
+         };
+        
+         $extend(MiniPassport,{
+              
+               show:function(from,options){
+                
+                  var handle = this.handle = from;
+                  
+                  options = this.options = options ||{};
+                 
+                var remoteURL = options.remoteURL||(handle?handle.get('href'):false);
+            
+                var act ="login";
+                  
+                     act = remoteURL.match(/-([^-]*?)\.html/)[1];
+                  
+                  
+               
+                  
+                  if(miniPassportDialog.style.display=='none'){
+                        var _styles  = {display:'block'};
+                      
+                        miniPassportDialog.setStyles(_styles);
+                  }
+                  miniPassportDialog.getElement('.dialog-content').empty();
+                
+                
+                  var fxValue  = mpdSize[act];
+                  fxValue.opacity = 1;            
+                  miniPassportDialog.setStyles(fxValue).amongTo(window);
+        
+                
+                             
+               // if(window.ie6) remoteURL=(remoteURL.substring(0,4)=='http')?remoteURL:remoteURL;
+
+                  $pick(this.request,{cancel:$empty}).cancel();
+                      this.request = new Request.HTML({update:miniPassportDialog.getElement('.dialog-content').set('html','&nbsp;&nbsp;正在加载...'),onComplete:function(){
+                            MiniPassport.onload.call(MiniPassport);
+                      }}).get(remoteURL,$H({mini_passport:1}));
+                
+                  
+               },
+               hide:function(chain){
+                  
+                  miniPassportDialog.getElement('.dialog-content').empty();
+                
+                       miniPassportDialog.hide();
+                       if($type(chain)=='function'){chain.call(this)}
+                       miniPassportDialog.eliminate('chain');
+                       miniPassportDialog.eliminate('margedata');
+                      
+               },
+               onload:function(){
+                   
+                   var dialogForm = miniPassportDialog.getElement('form');
+                   
+                   miniPassportDialog.retrieve('margedata',[]).each(function(item){
+                               item.t =  item.t||'hidden';
+                              
+                               new Element('input',{type:item.t,name:item.n,value:item.v}).inject(dialogForm);
+                       });
+                    
+                       
+                   dialogForm.addEvent('submit',function(e){
+                       
+                       e.stop();
+                       var form = this;
+                       if(!MiniPassport.checkForm.call(MiniPassport))return MessageBox.error('请完善必填信息!');
+
+                       
+                       new Request({
+                        method:form.get('method'),
+                        url:form.get('action'),
+                        onRequest:function(){
+                         
+                           form.getElement('input[type=submit]').set({disabled:true,styles:{opacity:.4}});
+                       
+                       },onComplete:function(re){
+                          
+                       
+                              form.getElement('input[type=submit]').set({disabled:false,styles:{opacity:1}});
+                              var _re = [];
+                              re.replace(/\\?\{([^{}]+)\}/g, function(match){
+                                        if (match.charAt(0) == '\\') return _re.push(JSON.decode(match.slice(1)));
+                                        _re.push(JSON.decode(match));
+                              });
+                              var errormsg = [];
+                              var plugin_url;
+                              _re.each(function(item){
+                               
+                                  if(item.status =='failed'){
+                                      errormsg.push(item.msg);
+                                  }
+                                  if(item.status =='plugin_passport'){
+                                      plugin_url = item.url;
+                                  }
+                              });
+                        
+                                
+                              if(errormsg.length)return MessageBox.error(errormsg.join('<br/>'));
+							 
+                              if(plugin_url){
+                                  MiniPassport.hide.call(MiniPassport,$pick(miniPassportDialog.retrieve('chain'),function(){
+                                       MessageBox.success('正在转向...');
+                                       
+                                       location.href = plugin_url;
+
+                                  
+                                  }));
+                              }else{
+                                  MiniPassport.hide.call(MiniPassport,$pick(miniPassportDialog.retrieve('chain'),function(){
+                                       
+                                       MessageBox.success('用户登录成功,正在转向...');
+                                       location.reload();
+                                  
+                                  }));
+                              }
+                       
+                       }}).send(form);
+                   
+                   });
+                   miniPassportDialog.getElement('.close').addEvent('click',this.hide.bind(this));
+                   
+                   miniPassportDialog.amongTo(window);
+                  
+               
+               },
+               checkForm:function(){
+                    var inputs = miniPassportDialog.getFormElements();
+                    var ignoreIpts = $$(miniPassportDialog.getElements('form input[type=hidden]'),miniPassportDialog.getElements('form input[type=submit]'));
+                    ignoreIpts.each(inputs.erase.bind(inputs));
+                    
+                    if(inputs.some(function(ipt){
+                        if(ipt.value.trim()==''){
+                        
+                           ipt.focus();
+                          return true;
+                        }
+                        
+                    })){
+                    
+                       return false;
+                    }
+                    return true;
+               
+               }
+               
+         });
+   
+     
+     /*统一拦截*/
+     $(document.body).addEvent('click',function(e){
+     
+            if(Cookie.get('S[MEMBER]'))return true;
+            
+            var tgt = $(e.target);
+       
+            if(!tgt.match('a'))tgt = tgt.getParent('a');
+            
+            if((!tgt)||!tgt.match('a'))return;
+            
+            if(tgt.href.test(/-?login\.html/)||tgt.href.test(/-?signup\.html/)){
+                e.stop();
+                return MiniPassport.show(tgt);
+                 
+            }
+            if(tgt.href.test(/\/[\?]?member/i)){
+              e.stop();   
+              MiniPassport.show(tgt,{remoteURL:'http://www.lpfushi.com/?passport-login.html'});
+              miniPassportDialog.store('chain',function(){
+                    
+                    MessageBox.success('会员认证成功,正在进入...');
+                    location.href= 'http://www.lpfushi.com/?member.html';
+              
+              });              
+            }
+     });
+     
+     
+     
+     /*checkout*/
+     $$('form[action$=checkout.html]').addEvent('submit',function(e){
+            if(Cookie.get('S[MEMBER]'))return this.submit();
+            e.stop();
+            var form = this;
+            MiniPassport.show(this,{remoteURL:'http://www.lpfushi.com/?cart-loginBuy.html'});
+            if(this.get('extra') == 'cart'){
+                miniPassportDialog.store('margedata',[{t:'hidden',n:'regType',v:'buy'}]);
+            }
+            miniPassportDialog.store('chain',function(){
+                    MessageBox.success('正在转入...');
+                    form.submit();
+            });        
+     });
+   
+   });
+</script>  <div id="siderIMchat" style="left:0"><div id="siderIMchat_hiddenbar"></div><div id="siderIMchat_main"><div class="top"></div><div class="infobox">我们营业的时间<br>9:00-24:00</div><div class="bg "><ul class="clearfix">  <li>  <a target="_blank" href="tencent://message/?uin=1065889701&&Site=LICENSE_ShopEx&&Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:1065889701:1"/></a><br />售前客服1 </li>  <li>  <a target="_blank" href="tencent://message/?uin=1065805735&&Site=LICENSE_ShopEx&&Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:1065805735:1"/></a><br />售前客服2 </li>  <li>  <a target="_blank" href="tencent://message/?uin=1065501506&&Site=LICENSE_ShopEx&&Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:1065501506:1"/></a><br />售前客服3 </li>  <li>  <a target="_blank" href="tencent://message/?uin=1137056854&&Site=LICENSE_ShopEx&&Menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=1:1137056854:1"/></a><br />售后客服 </li>  </ul><div class="textcenter pushdown-2"><span id="closeSiderIMchat" class="lnk">关闭在线客服</span></div></div><div class="bottom"></div></div></div> <script type="text/javascript">
+window.addEvent('domready', function() {                                     
+   $('siderIMchat_hiddenbar').addEvent('mouseover',function(){
+                         this.setStyle('display','none');
+                         $('siderIMchat_main').setStyle('display','block')
+                         });
+    
+   $('closeSiderIMchat').addEvent('click',function(){
+                         $('siderIMchat_main').setStyle('display','none');
+                         $('siderIMchat_hiddenbar').setStyle('display','block')
+                         })    ;    
+    siderIMchatsetGoTop();    
+    
+    
+});
+
+function siderIMchatsetGoTop(){
+    $('siderIMchat').tween('top',$E('body').getScroll().y+100)
+}          
+window.addEvent('scroll',function(){    
+     siderIMchatsetGoTop();
+})
+    
+</script>  <style id="thridpartystyle"> .thridpartyicon { background:url(statics/icons/thridparty0.gif) no-repeat left center; height:30px; line-height:30px; text-indent:35px;} #accountlogin { width:180px; border:2px solid #badbf2; position:absolute; background:#fff; padding:5px;} #accountlogin h5 { border-bottom:1px solid #e2e2e2; margin:0px 5px 10px 5px;padding:0; height:22px; line-height:22px; color:#333333; font-weight:normal;} #accountlogin .logoimg { float:left; margin-left:5px;} #accountlogin .logoimg span img { margin:6px 3px 0 3px; } #accountlogin .more { text-align:right; float:right;} #accountlogin .more a { text-decoration:underline;} .trustlogos li{ display:inline; padding:2px;} .btn-trustlogin {background:url(statics/btn-trustlogin.gif); width:87px; height:30px; margin-bottom:35px;} .trustdialog .dialog-content { padding:0px; height:320px;} .RegisterWrap {} .RegisterWrap h4 { height:30px; line-height:30px;} .RegisterWrap .more { height:30px; line-height:30px; text-align:right; font-size:14px; color:#333333;} .RegisterWrap .more a { text-decoration:underline;} .RegisterWrap .form { } .RegisterWrap #formlogin,.RegisterWrap #formthridlogin { height:160px; border:1px solid #CCCCCC; margin:10px 0; padding:15px;} .RegisterWrap .customMessages { height:40px;} .dialog-title { margin:0 5px;} .dialog-title .title { padding:10px 0 2px 10px;} .dialog-title .dialog-close-btn {font-family:Arial Black;color:#fff;background:#FF9955;border:1px #FA6400 solid;font-size:14px;cursor:pointer; width:21px; margin-top:5px; text-align:center;} .dialog-title .dialog-close-btn:hover {background:#ff6655;border-color:#ff6655;} </style> <script>
+$('thridpartystyle').inject(document.head);
+</script> <div class="themefoot"><div class="themefootText textcenter">
+<img src="http://www.lpfushi.com/images//20111201/9fb9b839ee3c191a.jpg"></div></div><div style="font-family:Verdana;line-height:20px!important;height:auto!important;font-size:11px!important;text-align:center;overflow:none!important;text-indent:0!important;"><a href="http://store.shopex.cn/rating/store_detail.php?ref=www.lpfushi.com&check=eecef20493c1d2f42dc87659a69a3af4&str=%E6%97%A0" target="_blank" style="color:#666;text-decoration:none;cursor:pointer">Powered&nbsp;by&nbsp;<b style="color:#5c719e">Shop</b><b style="color:#f39000">Ex</b></a><span style="font-size:9px;">&nbsp;v4.8.5</span><span style="color:#999;display:none">&nbsp|Gzip enabled</span>&nbsp;<br/><span>虚机提供<a href="http://www.163ns.com" target="_blank">中国互联</a></span>&nbsp;<a href="http://www.miibeian.gov.cn/" target="blank" style="color:#666;text-decoration:none;cursor:pointer;display:block;" class="textcenter">中华人民共和国信息产业部备案序号：沪ICP 备11006011</a><span style="display:none"><script src='http://pw.cnzz.com/c.php?id=80695234&l=2' language='JavaScript' charset='gb2312'></script></span></div> </div> <script  type="text/javascript" language="javascript">   
+  var obj=document.getElementById("gao");  
+  obj.style.height=obj.offsetHeight-40+"px";   
+  obj.style.overflow="hidden";   
+  </script> </div> </div> </div> </div> <script type="text/javascript" src="http://www.lpfushi.com/themes/15365/images/gototop.js"></script> <script>
+            withBroswerStore(function(store){
+               function randomChar(l)  {
+                    var  x="0123456789qwertyuioplkjhgfdsazxcvbnm";
+                    var  tmp="";
+                    for(var  i=0;i<  l;i++)  {
+                        tmp  +=  x.charAt(Math.ceil(Math.random()*100000000)%x.length);
+                    }
+                    return  tmp;
+               }
+               var lf = decodeURI(window.location.href);
+
+              var new_hs = "";
+              var pos = lf.indexOf("#r-") ;
+              var pos2 = lf.indexOf("%23r-") ;
+              if(pos!=-1||pos2!=-1){
+                if(pos2!=-1){
+                    pos=pos2+2;
+                }
+                new_hs=lf.substr(pos+1);
+            }
+               var old_hs = Cookie.get("S[SHOPEX_ADV_HS]");
+               if(new_hs && old_hs!=new_hs){
+                    Cookie.set("S[SHOPEX_ADV_HS]",new_hs);
+               }
+               store.get("jsapi",function(data){
+                       var script = document.createElement("script");
+                       var sessionid = Cookie.get("JS_SESSIONID")
+                        if(sessionid == null){
+                            sessionid=randomChar(32)
+                            Cookie.set("JS_SESSIONID",sessionid)
+                        }
+
+                       var _src = "http://rpc.app.shopex.cn/jsapi?certi_id=1235336430&_dep="+sessionid+"&pt=passport:login&app=shopex(4.8.5)&uid="+(encodeURIComponent(Cookie.get("S[MEMBER]") || "").split("-")[0])+"&ref="+encodeURIComponent(document.referrer)+"&sz="+JSON.encode(window.getSize())+"&hs="+encodeURIComponent(Cookie.get("S[SHOPEX_ADV_HS]") || new_hs)+"&rt=1337061112&_pagetitle=%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95";
+
+                       if(data){
+                            try{
+                               data = JSON.decode(data);
+                            }catch(e){}
+                              if($type(data)=="object"){
+                                 _src +="&"+Hash.toQueryString(data);
+                              }else if($type(data)=="string"){
+                                 _src +="&"+data;
+                              }
+                          }
+
+                      script.setAttribute("src",_src);
+                      document.head.appendChild(script);
+
+               });
+
+            });
+            </script></body> </html> <script>
+            withBroswerStore(function(store){
+               function randomChar(l)  {
+                    var  x="0123456789qwertyuioplkjhgfdsazxcvbnm";
+                    var  tmp="";
+                    for(var  i=0;i<  l;i++)  {
+                        tmp  +=  x.charAt(Math.ceil(Math.random()*100000000)%x.length);
+                    }
+                    return  tmp;
+               }
+               var lf = decodeURI(window.location.href);
+
+              var new_hs = "";
+              var pos = lf.indexOf("#r-") ;
+              var pos2 = lf.indexOf("%23r-") ;
+              if(pos!=-1||pos2!=-1){
+                if(pos2!=-1){
+                    pos=pos2+2;
+                }
+                new_hs=lf.substr(pos+1);
+            }
+               var old_hs = Cookie.get("S[SHOPEX_ADV_HS]");
+               if(new_hs && old_hs!=new_hs){
+                    Cookie.set("S[SHOPEX_ADV_HS]",new_hs);
+               }
+               store.get("jsapi",function(data){
+                       var script = document.createElement("script");
+                       var sessionid = Cookie.get("JS_SESSIONID")
+                        if(sessionid == null){
+                            sessionid=randomChar(32)
+                            Cookie.set("JS_SESSIONID",sessionid)
+                        }
+
+                       var _src = "http://rpc.app.shopex.cn/jsapi?certi_id=1235336430&_dep="+sessionid+"&pt=passport:login&app=shopex(4.8.5)&uid="+(encodeURIComponent(Cookie.get("S[MEMBER]") || "").split("-")[0])+"&ref="+encodeURIComponent(document.referrer)+"&sz="+JSON.encode(window.getSize())+"&hs="+encodeURIComponent(Cookie.get("S[SHOPEX_ADV_HS]") || new_hs)+"&rt=1337061112&_pagetitle=%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95";
+
+                       if(data){
+                            try{
+                               data = JSON.decode(data);
+                            }catch(e){}
+                              if($type(data)=="object"){
+                                 _src +="&"+Hash.toQueryString(data);
+                              }else if($type(data)=="string"){
+                                 _src +="&"+data;
+                              }
+                          }
+
+                      script.setAttribute("src",_src);
+                      document.head.appendChild(script);
+
+               });
+
+            });
+            </script></body></html>
